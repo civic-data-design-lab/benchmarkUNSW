@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container'
 import { Nav, Navbar, NavDropdown } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import { HashLink } from 'react-router-hash-link';
 import React from "react"
 import "bootstrap/dist/css/bootstrap.min.css"
 import '../style/NavBar.css'
@@ -20,15 +21,15 @@ function NavBar() {
                         <Nav.Link as={Link} to="/aidata">AI Data</Nav.Link>
                         <Nav.Link as={Link} to="/surveydata">Survey Data</Nav.Link>
                         <NavDropdown title="About" id="collasible-nav-dropdown">
-                            <NavDropdown.Item as={Link} to="/about#project">Project</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/about#data-analysis">Data Analysis Result</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/about#bench-design">Bench Design</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/about#dtpr">DTPR</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/about#team">Team</NavDropdown.Item>
+                            <NavDropdown.Item as={HashLink} to="/about#project">Project</NavDropdown.Item>
+                            <NavDropdown.Item as={HashLink} to="/about#data-analysis">Data Analysis Result</NavDropdown.Item>
+                            <NavDropdown.Item as={HashLink} to="/about#bench-design">Bench Design</NavDropdown.Item>
+                            <NavDropdown.Item as={HashLink} to="/about#dtpr">DTPR</NavDropdown.Item>
+                            <NavDropdown.Item as={HashLink} to="/about#team">Team</NavDropdown.Item>
                         </NavDropdown>
                         <NavDropdown title="Downloads" id="collasible-nav-dropdown">
-                            <NavDropdown.Item as={Link} to="/downloads#report">Report</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/downloads#guide-book">Guide Book</NavDropdown.Item>
+                            <NavDropdown.Item as={HashLink} to="/downloads#report">Report</NavDropdown.Item>
+                            <NavDropdown.Item as={HashLink} to="/downloads#guide-book">Guide Book</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
