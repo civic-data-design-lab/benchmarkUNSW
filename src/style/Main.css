@@ -1,5 +1,6 @@
-#root {
+html, body {
     background-color: #FF2551;
+    height: 100%;
     padding: 2em;
 }
 

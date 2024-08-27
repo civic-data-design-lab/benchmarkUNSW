@@ -1,4 +1,15 @@
-.HomeIntroCard{
-    width: 50%;
-    height:auto;
+html, body {
+    height: 80%;
+}
+
+.HomeCarousel {
+    padding-top: 10%;
+    padding-bottom: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%
+}
+.HomeIntroCard {
 }
