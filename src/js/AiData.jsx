@@ -13,7 +13,7 @@ function MyVerticallyCenteredModal(props) {
 
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                   How to
+                    Modal heading
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>

@@ -4,6 +4,8 @@ import img1 from '../assets/Home/INTRO CARD_1.svg';
 import img2 from '../assets/Home/INTRO CARD_1.svg';
 import img3 from '../assets/Home/INTRO CARD_1.svg';
 import '../style/Home.css';
+import '../style/Main.css';
+
 function Home() {
 
     return (

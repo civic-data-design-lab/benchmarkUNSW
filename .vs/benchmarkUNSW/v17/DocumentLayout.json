@@ -3,14 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|c:\\users\\14151\\source\\repos\\benchmarkunsw\\src\\component\\navbar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|solutionrelative:src\\component\\navbar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|c:\\users\\14151\\source\\repos\\benchmarkunsw\\src\\js\\aidata.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|solutionrelative:src\\js\\aidata.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|c:\\users\\14151\\source\\repos\\benchmarkunsw\\src\\js\\home.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|solutionrelative:src\\js\\home.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
@@ -19,8 +11,20 @@
       "RelativeMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|solutionrelative:src\\style\\home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|c:\\users\\14151\\source\\repos\\benchmarkunsw\\src\\js\\about.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|solutionrelative:src\\js\\about.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|c:\\users\\14151\\source\\repos\\benchmarkunsw\\src\\style\\about.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|solutionrelative:src\\style\\about.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|c:\\users\\14151\\source\\repos\\benchmarkunsw\\src\\style\\main.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|solutionrelative:src\\style\\main.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|c:\\users\\14151\\source\\repos\\benchmarkunsw\\src\\js\\aidata.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|solutionrelative:src\\js\\aidata.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +34,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 213,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 15,
           "Children": [
             {
               "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",
@@ -42,62 +58,39 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Navbar.jsx",
-              "DocumentMoniker": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\component\\Navbar.jsx",
-              "RelativeDocumentMoniker": "src\\component\\Navbar.jsx",
-              "ToolTip": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\component\\Navbar.jsx",
-              "RelativeToolTip": "src\\component\\Navbar.jsx",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABsAAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2024-08-27T21:36:27.924Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AiData.jsx",
-              "DocumentMoniker": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\js\\AiData.jsx",
-              "RelativeDocumentMoniker": "src\\js\\AiData.jsx",
-              "ToolTip": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\js\\AiData.jsx",
-              "RelativeToolTip": "src\\js\\AiData.jsx",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2024-08-27T21:25:18.728Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Home.jsx",
-              "DocumentMoniker": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\js\\Home.jsx",
-              "RelativeDocumentMoniker": "src\\js\\Home.jsx",
-              "ToolTip": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\js\\Home.jsx",
-              "RelativeToolTip": "src\\js\\Home.jsx",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2024-08-27T17:02:22.85Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Home.css",
-              "DocumentMoniker": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\style\\Home.css",
-              "RelativeDocumentMoniker": "src\\style\\Home.css",
-              "ToolTip": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\style\\Home.css",
-              "RelativeToolTip": "src\\style\\Home.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAYAAAA",
+              "Title": "About.css",
+              "DocumentMoniker": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\style\\About.css",
+              "RelativeDocumentMoniker": "src\\style\\About.css",
+              "ToolTip": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\style\\About.css",
+              "RelativeToolTip": "src\\style\\About.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-08-27T16:31:49.634Z",
+              "WhenOpened": "2024-08-27T22:14:14.424Z",
               "EditorCaption": ""
             },
             {
@@ -108,9 +101,61 @@
               "RelativeDocumentMoniker": "src\\style\\Main.css",
               "ToolTip": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\style\\Main.css",
               "RelativeToolTip": "src\\style\\Main.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-08-27T16:24:00.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "About.jsx",
+              "DocumentMoniker": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\js\\About.jsx",
+              "RelativeDocumentMoniker": "src\\js\\About.jsx",
+              "ToolTip": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\js\\About.jsx",
+              "RelativeToolTip": "src\\js\\About.jsx",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAABeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2024-08-27T22:13:14.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Home.css",
+              "DocumentMoniker": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\style\\Home.css",
+              "RelativeDocumentMoniker": "src\\style\\Home.css",
+              "ToolTip": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\style\\Home.css",
+              "RelativeToolTip": "src\\style\\Home.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-08-27T16:31:49.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Home.jsx",
+              "DocumentMoniker": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\js\\Home.jsx",
+              "RelativeDocumentMoniker": "src\\js\\Home.jsx",
+              "ToolTip": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\js\\Home.jsx",
+              "RelativeToolTip": "src\\js\\Home.jsx",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2024-08-27T17:02:22.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AiData.jsx",
+              "DocumentMoniker": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\js\\AiData.jsx",
+              "RelativeDocumentMoniker": "src\\js\\AiData.jsx",
+              "ToolTip": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\js\\AiData.jsx",
+              "RelativeToolTip": "src\\js\\AiData.jsx",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwBgAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2024-08-27T21:25:18.728Z",
               "EditorCaption": ""
             }
           ]

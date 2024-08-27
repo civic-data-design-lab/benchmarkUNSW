@@ -10,8 +10,9 @@ import '../style/Font.css'
 function NavBar() {
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" className="nova-mono-regular">
-                <Navbar.Brand href="#home">
+            <div className="NavBarHeight">
+                <Navbar collapseOnSelect expand="lg" className="nova-mono-regular">
+                    <Navbar.Brand href="#home" className="NavBarTitle">
                     BenchMark NSW
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -33,7 +34,8 @@ function NavBar() {
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
-            </Navbar>
+                </Navbar>
+            </div>
         </>
     );
 }
