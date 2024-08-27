@@ -1,9 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './style/App.css'
-
 import NavBar from './component/NavBar';
 import Home from './js/Home';
 import AiData from './js/AiData';

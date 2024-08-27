@@ -12,11 +12,18 @@ function About() {
                 <p>The seats include motion enabled lighting and were designed by female UNSW
                     Industrial Design Students. Camera-vision sensors and onsite observation
                     and surveys monitor and help us understand where and how they move.</p>
-                <p>This project has been funded by Transport for NSW through the Safer Cities program.</p>
+                <p>This project has been funded by Transport for NSW through the Safer
+                    Cities program.</p>
             </section>
             <section id="data-analysis">
                 <h2>Data Analysis Result</h2>
                 <p>Details about data analysis...</p>
+                <p>Details about data analysis...</p>
+
+                <p>Details about data analysis...</p>
+
+                <p>Details about data analysis...</p>
+
             </section>
             <section id="bench-design">
                 <h2>Bench Design</h2>

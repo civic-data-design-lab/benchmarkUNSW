@@ -1,18 +1,43 @@
 import React from 'react';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
-import Row from 'react-bootstrap/Row';
-
+import Carousel from 'react-bootstrap/Carousel';
+import img1 from '../assets/Home/INTRO CARD_1.svg';
+import img2 from '../assets/Home/INTRO CARD_1.svg';
+import img3 from '../assets/Home/INTRO CARD_1.svg';
+import '../style/Home.css';
 function Home() {
+
     return (
-        <Container>
-            <Row>
-                <Col xs={6} md={4}>
-                    <Image src="../assets/react.svg" rounded />
-                </Col>
-            </Row>
-        </Container>
+        <Carousel>
+            <Carousel.Item>
+                <div class="text-center">
+                    <img src={img1} className="HomeIntroCard" />
+                </div>
+                <Carousel.Caption>
+                    <h3>First slide label</h3>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+                <div class="text-center">
+                    <img src={img2} className="HomeIntroCard" />
+                </div>
+                <Carousel.Caption>
+                    <h3>Second slide label</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+                <div class="text-center">
+                    <img src={img3} className="HomeIntroCard" />
+                </div>
+                <Carousel.Caption>
+                    <h3>Third slide label</h3>
+                    <p>
+                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                    </p>
+                </Carousel.Caption>
+            </Carousel.Item>
+        </Carousel>
     );
 }
 
