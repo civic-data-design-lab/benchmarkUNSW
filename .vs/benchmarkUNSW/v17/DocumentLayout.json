@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\",
+  "WorkspaceRootPath": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\",
   "Documents": [
     {
       "AbsoluteMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|c:\\users\\14151\\source\\repos\\benchmarkunsw\\src\\js\\about.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -49,48 +49,17 @@
           "SelectedChildIndex": 16,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:135:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Main.css",
+              "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\style\\Main.css",
+              "RelativeDocumentMoniker": "src\\style\\Main.css",
+              "ToolTip": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\style\\Main.css",
+              "RelativeToolTip": "src\\style\\Main.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-08-29T02:19:38.419Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -156,9 +125,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "About.jsx",
-              "DocumentMoniker": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\js\\About.jsx",
+              "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\js\\About.jsx",
               "RelativeDocumentMoniker": "src\\js\\About.jsx",
-              "ToolTip": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\js\\About.jsx",
+              "ToolTip": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\js\\About.jsx",
               "RelativeToolTip": "src\\js\\About.jsx",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAAQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
