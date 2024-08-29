@@ -1,6 +1,3 @@
-body {
-}
-
 .NavBarHeight {
     height: 10vh;
     position: relative;
@@ -10,16 +7,15 @@ body {
 .NavBarTitle {
     color: white;
     font-size: 2em;
-    font-weight:200;
+    font-weight: 200;
 }
 
-Navbar {
-    background-color: #FF2551;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    position: relative;
+.Navbar {
+    padding-left: 2.5vh;
+    padding-right: 2.5vh;
     z-index: 2;
 }
+
 
 .responsive-navbar-nav {
     background-color: white;
