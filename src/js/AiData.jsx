@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-
+import '../style/AiData.css';
 
 function MyVerticallyCenteredModal(props) {
     return (
@@ -33,20 +33,22 @@ function AiData() {
     const [modalShow, setModalShow] = React.useState(false);
     return (
         <>
-        <div class="text-center">
-            <Button variant="light" onClick={() => setModalShow(true)}>
-                Launch vertically centered modal
-            </Button>
+            <div className="aidata-page">
+            <div class="text-center">
+                <Button variant="light" onClick={() => setModalShow(true)}>
+                    Launch vertically centered modal
+                </Button>
+            </div>
+
+            <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                />
+
+            <div>
+                <h1>Home Page</h1>
+                <p>Welcome to the AI Data Page!</p>
         </div>
-
-        <MyVerticallyCenteredModal
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-            />
-
-        <div>
-            <h1>Home Page</h1>
-            <p>Welcome to the AI Data Page!</p>
         </div>
         </>
     );

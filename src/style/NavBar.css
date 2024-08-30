@@ -1,18 +1,17 @@
 .NavBarHeight {
-    height: 10vh;
     position: relative;
     z-index: 1;
 }
 
 .NavBarTitle {
     color: white;
-    font-size: 2em;
+    font-size: 2rem;
     font-weight: 200;
 }
 
 .Navbar {
-    padding-left: 2.5vh;
-    padding-right: 2.5vh;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
     z-index: 2;
 }
 

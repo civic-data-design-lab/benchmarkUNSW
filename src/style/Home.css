@@ -1,9 +1,11 @@
 html, body {
-    height: 100%;
+
 }
 
+
+
 .HomeCarousel {
-    height: 85vh;
+    height: 100vh;
     justify-content: center;
     align-items: center;
     display: flex;
