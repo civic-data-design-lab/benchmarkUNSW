@@ -1,53 +1,33 @@
 import React from 'react';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
-import Row from 'react-bootstrap/Row';
-import GridMap from '../component/GridMap';
-import { useState, useEffect } from 'react';
-import gridData from '../data/map_grid.json'
-import benchData from '../data/bench_data_hourly.json'
-import pedestrianData from '../data/pedestrian_data_hourly.json'
-import DateSelector from '../component/DateSelector';
-
+import Carousel from 'react-bootstrap/Carousel';
+import img1 from '../assets/Home/INTRO CARD_1.svg';
+import img2 from '../assets/Home/INTRO CARD_1.svg';
+import img3 from '../assets/Home/INTRO CARD_1.svg';
+import '../style/Home.css';
+import '../style/Main.css';
 
 function Home() {
-    const [state, setState] = useState({
-        grid: gridData,
-        bench: benchData,
-        pedestrian: pedestrianData,
-    })
 
-    const { grid, bench, pedestrian } = state
-
-    const [selectedDate, setDate] = useState('2024-07-08')
-    const [selectedHour, setHour] = useState(6)
     return (
-        <Container style={{ margin: 0 }}>
-            <Row>
-                <Col >
-                    <Image src="../assets/react.svg" rounded />
-                    {gridData && benchData && pedestrianData &&
-
-                        <GridMap
-                            gridData={grid}
-                            benchData={bench}
-                            pedestrianData={pedestrian}
-                            targetDate={selectedDate}
-                            targetHour={selectedHour}
-                        >
-
-                        </GridMap>
-
-                    }
-                    <DateSelector
-                        setTargetDate={setDate}
-                        setTargetHour={setHour}
-                        startDate={'2024-07-08'}
-                    />
-                </Col>
-            </Row>
-        </Container>
+        <div className="HomeCarousel">
+            <Carousel>
+                <Carousel.Item>
+                    <div class="text-center">
+                        <img src={img1} className="HomeIntroCard" />
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div class="text-center">
+                        <img src={img2} className="HomeIntroCard" />
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <div class="text-center">
+                        <img src={img3} className="HomeIntroCard" />
+                    </div>
+                </Carousel.Item>
+            </Carousel>
+        </div>
     );
 }
 

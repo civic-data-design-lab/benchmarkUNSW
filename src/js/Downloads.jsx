@@ -1,8 +1,9 @@
 import React from 'react';
+import '../style/Downloads.css';
 
 function Downloads() {
     return (
-        <div>
+        <div className="downloads-page">
             <h1>Downloads Page</h1>
             <section id="report">
                 <h2>Report</h2>

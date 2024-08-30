@@ -1,4 +1,6 @@
-#root {
+html,
+body {
+    height: 100%;
     background-color: #FF2551;
     padding: 0;
 }

@@ -1,18 +1,33 @@
-body {
+.NavBarHeight {
+    position: relative;
+    z-index: 1;
 }
 
-Navbar {
-    background-color: #FF2551;
-    padding-left: 10px;
-    padding-right: 10px;
+.NavBarTitle {
+    color: white;
+    font-size: 2rem;
+    font-weight: 200;
 }
+
+.Navbar {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    z-index: 2;
+}
+
 
 .responsive-navbar-nav {
     background-color: white;
     padding: 1em;
     margin-top: 1em;
     border-radius: 1em;
-    color:#FF2551;
+    border-color: #FF2551;
+    color: #FF2551;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 3;
 }
 
 .collasible-nav-dropdown {
