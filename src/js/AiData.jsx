@@ -32,9 +32,9 @@ function MyBarChart() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        const parseDate = d3.timeParse("%Y-%m-%d"); // Define the date parser
+        const parseDate = d3.timeParse("%Y-%m-%d");
 
-        d3.csv('../data/activation_graph/daily_dwell_index.csv').then(data => {
+        d3.csv('/data/activation_graph/daily_dwell_index.csv').then(data => {
             data.forEach(d => {
                 d.date = parseDate(d.date); // Parse the date using the date parser
                 if (!d.date) {

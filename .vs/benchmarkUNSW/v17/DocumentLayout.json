@@ -7,10 +7,6 @@
       "RelativeMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|solutionrelative:src\\js\\aidata.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|c:\\users\\14151\\source\\repos\\benchmarkunsw\\src\\data\\activation_graph\\daily_dwell_index.csv||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|solutionrelative:src\\data\\activation_graph\\daily_dwell_index.csv||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|c:\\users\\14151\\source\\repos\\benchmarkunsw\\src\\style\\aidata.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{B78CB1FA-BD08-4BE9-94DB-3A8041146F33}|benchmarkunsw.esproj|solutionrelative:src\\style\\aidata.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
@@ -22,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 213,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,7 +66,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "AiData.css",
               "DocumentMoniker": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\style\\AiData.css",
               "RelativeDocumentMoniker": "src\\style\\AiData.css",
@@ -82,25 +78,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "daily_dwell_index.csv",
-              "DocumentMoniker": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\data\\activation_graph\\daily_dwell_index.csv",
-              "RelativeDocumentMoniker": "src\\data\\activation_graph\\daily_dwell_index.csv",
-              "ToolTip": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\data\\activation_graph\\daily_dwell_index.csv",
-              "RelativeToolTip": "src\\data\\activation_graph\\daily_dwell_index.csv",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAEAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002120|",
-              "WhenOpened": "2024-08-31T22:00:15.578Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "AiData.jsx",
               "DocumentMoniker": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\js\\AiData.jsx",
               "RelativeDocumentMoniker": "src\\js\\AiData.jsx",
               "ToolTip": "C:\\Users\\14151\\source\\repos\\benchmarkUNSW\\src\\js\\AiData.jsx",
               "RelativeToolTip": "src\\js\\AiData.jsx",
-              "ViewState": "AQIAABkAAAAAAAAAAAAQwBkAAAAQAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2024-08-31T21:52:19.713Z",
               "EditorCaption": ""
