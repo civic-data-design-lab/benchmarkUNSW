@@ -1,3 +1,13 @@
+.title-font {
+    font-size: 1.5rem;
+}
+
+.body-font {
+    font-size: 1.25rem;
+}
+
+
+
 .nova-mono-regular {
     font-family: "Nova Mono", monospace;
     font-weight: 400;
