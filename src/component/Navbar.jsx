@@ -30,8 +30,8 @@ function NavBar() {
                                 <NavDropdown.Item as={HashLink} to="/about#project" onClick={handleLinkClick}>Project</NavDropdown.Item>
                                 <NavDropdown.Item as={HashLink} to="/about#data-analysis" onClick={handleLinkClick}>Data Analysis Result</NavDropdown.Item>
                                 <NavDropdown.Item as={HashLink} to="/about#bench-design" onClick={handleLinkClick}>Bench Design</NavDropdown.Item>
-                                <NavDropdown.Item as={HashLink} to="/about#dtpr" onClick={handleLinkClick}>DTPR</NavDropdown.Item>
                                 <NavDropdown.Item as={HashLink} to="/about#team" onClick={handleLinkClick}>Team</NavDropdown.Item>
+                                <NavDropdown.Item as={HashLink} to="/about#dtpr" onClick={handleLinkClick}>DTPR</NavDropdown.Item>
                             </NavDropdown>
                             <NavDropdown title="Downloads" id="collasible-nav-dropdown">
                                 <NavDropdown.Item as={HashLink} to="/downloads#report" onClick={handleLinkClick}>Report</NavDropdown.Item>

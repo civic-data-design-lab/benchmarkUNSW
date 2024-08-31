@@ -55,7 +55,7 @@ function About() {
             {/*Section 4*/}
             <section id="team" className="nova-mono-regular">
                 <div className="about-head light-bg">
-                    <p className="about-title">team</p>
+                    <p className="about-title">Team</p>
                 </div>
                 <div className="about-p3 light-bg">
                     <p className="about-subtitle">MIT LCAU</p>
@@ -141,7 +141,7 @@ function About() {
                     </div>
                     <div className="about-p6 light-bg">
                         <div className="about-p7 about-dtpr-sub">
-                            <p className="about-subtxt">Artificial intelligence</p>
+                            <p className="about-subtxt">Artificial Intelligence</p>
                             <p className="about-desc about-dtpr-desc">Data that is processed by automated,
                                 algorithmic or artificial intelligence systems to derive a new result or
                                 data point. Specifically, we use computer vision, which refers to computer
@@ -151,7 +151,7 @@ function About() {
                         </div>
                         <hr className="about-hr"></hr>
                         <div className="about-p7 about-dtpr-sub">
-                            <p className="about-subtxt">Reviewed internally</p>
+                            <p className="about-subtxt">Reviewed Internally</p>
                             <p className="about-desc about-dtpr-desc">The NSW Government has review
                                 processes that consider the potential benefits, risks and implications
                                 for privacy and harm for new technologies or data collection activities.
@@ -165,7 +165,7 @@ function About() {
                     </div>
                     <div className="about-p6 light-bg">
                         <div className="about-p7 about-dtpr-sub">
-                            <p className="about-subtxt">Cloud storage</p>
+                            <p className="about-subtxt">Cloud Storage</p>
                             <p className="about-desc about-dtpr-desc">Anonymized data is stored on
                                 behalf of the organization or the data collector in an off-site data centre.</p>
                         </div>
