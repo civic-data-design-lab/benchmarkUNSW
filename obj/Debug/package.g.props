@@ -16,12 +16,13 @@
     <PackageJsonDependenciesMuiMaterial Condition="$(PackageJsonDependenciesMuiMaterial) == ''">^6.0.0</PackageJsonDependenciesMuiMaterial>
     <PackageJsonDependenciesBootstrap Condition="$(PackageJsonDependenciesBootstrap) == ''">^5.3.3</PackageJsonDependenciesBootstrap>
     <PackageJsonDependenciesD3 Condition="$(PackageJsonDependenciesD3) == ''">^7.9.0</PackageJsonDependenciesD3>
+    <PackageJsonDependenciesD3Fetch Condition="$(PackageJsonDependenciesD3Fetch) == ''">^3.0.1</PackageJsonDependenciesD3Fetch>
     <PackageJsonDependenciesReact Condition="$(PackageJsonDependenciesReact) == ''">^18.3.1</PackageJsonDependenciesReact>
     <PackageJsonDependenciesReactBootstrap Condition="$(PackageJsonDependenciesReactBootstrap) == ''">^2.10.4</PackageJsonDependenciesReactBootstrap>
     <PackageJsonDependenciesReactDom Condition="$(PackageJsonDependenciesReactDom) == ''">^18.3.1</PackageJsonDependenciesReactDom>
     <PackageJsonDependenciesReactRouterDom Condition="$(PackageJsonDependenciesReactRouterDom) == ''">^6.14.1</PackageJsonDependenciesReactRouterDom>
-    <PackageJsonDependenciesTopojsonClient Condition="$(PackageJsonDependenciesTopojsonClient) == ''">^3.1.0</PackageJsonDependenciesTopojsonClient>
     <PackageJsonDependenciesReactRouterHashLink Condition="$(PackageJsonDependenciesReactRouterHashLink) == ''">^2.4.3</PackageJsonDependenciesReactRouterHashLink>
+    <PackageJsonDependenciesTopojsonClient Condition="$(PackageJsonDependenciesTopojsonClient) == ''">^3.1.0</PackageJsonDependenciesTopojsonClient>
     <PackageJsonDevdependenciesEslintJs Condition="$(PackageJsonDevdependenciesEslintJs) == ''">^9.9.0</PackageJsonDevdependenciesEslintJs>
     <PackageJsonDevdependenciesTypesGeojson Condition="$(PackageJsonDevdependenciesTypesGeojson) == ''">^7946.0.14</PackageJsonDevdependenciesTypesGeojson>
     <PackageJsonDevdependenciesTypesReact Condition="$(PackageJsonDevdependenciesTypesReact) == ''">^18.3.3</PackageJsonDevdependenciesTypesReact>
