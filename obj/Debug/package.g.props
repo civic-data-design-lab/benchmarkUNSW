@@ -10,13 +10,20 @@
     <PackageJsonScriptsLint Condition="$(PackageJsonScriptsLint) == ''">eslint .</PackageJsonScriptsLint>
     <PackageJsonScriptsPreview Condition="$(PackageJsonScriptsPreview) == ''">vite preview</PackageJsonScriptsPreview>
     <PackageJsonScriptsStart Condition="$(PackageJsonScriptsStart) == ''">vite</PackageJsonScriptsStart>
+    <PackageJsonDependenciesEmotionReact Condition="$(PackageJsonDependenciesEmotionReact) == ''">^11.13.3</PackageJsonDependenciesEmotionReact>
+    <PackageJsonDependenciesEmotionStyled Condition="$(PackageJsonDependenciesEmotionStyled) == ''">^11.13.0</PackageJsonDependenciesEmotionStyled>
+    <PackageJsonDependenciesMuiIconsMaterial Condition="$(PackageJsonDependenciesMuiIconsMaterial) == ''">^6.0.0</PackageJsonDependenciesMuiIconsMaterial>
+    <PackageJsonDependenciesMuiMaterial Condition="$(PackageJsonDependenciesMuiMaterial) == ''">^6.0.0</PackageJsonDependenciesMuiMaterial>
     <PackageJsonDependenciesBootstrap Condition="$(PackageJsonDependenciesBootstrap) == ''">^5.3.3</PackageJsonDependenciesBootstrap>
+    <PackageJsonDependenciesD3 Condition="$(PackageJsonDependenciesD3) == ''">^7.9.0</PackageJsonDependenciesD3>
     <PackageJsonDependenciesReact Condition="$(PackageJsonDependenciesReact) == ''">^18.3.1</PackageJsonDependenciesReact>
     <PackageJsonDependenciesReactBootstrap Condition="$(PackageJsonDependenciesReactBootstrap) == ''">^2.10.4</PackageJsonDependenciesReactBootstrap>
     <PackageJsonDependenciesReactDom Condition="$(PackageJsonDependenciesReactDom) == ''">^18.3.1</PackageJsonDependenciesReactDom>
     <PackageJsonDependenciesReactRouterDom Condition="$(PackageJsonDependenciesReactRouterDom) == ''">^6.14.1</PackageJsonDependenciesReactRouterDom>
+    <PackageJsonDependenciesTopojsonClient Condition="$(PackageJsonDependenciesTopojsonClient) == ''">^3.1.0</PackageJsonDependenciesTopojsonClient>
     <PackageJsonDependenciesReactRouterHashLink Condition="$(PackageJsonDependenciesReactRouterHashLink) == ''">^2.4.3</PackageJsonDependenciesReactRouterHashLink>
     <PackageJsonDevdependenciesEslintJs Condition="$(PackageJsonDevdependenciesEslintJs) == ''">^9.9.0</PackageJsonDevdependenciesEslintJs>
+    <PackageJsonDevdependenciesTypesGeojson Condition="$(PackageJsonDevdependenciesTypesGeojson) == ''">^7946.0.14</PackageJsonDevdependenciesTypesGeojson>
     <PackageJsonDevdependenciesTypesReact Condition="$(PackageJsonDevdependenciesTypesReact) == ''">^18.3.3</PackageJsonDevdependenciesTypesReact>
     <PackageJsonDevdependenciesTypesReactDom Condition="$(PackageJsonDevdependenciesTypesReactDom) == ''">^18.3.0</PackageJsonDevdependenciesTypesReactDom>
     <PackageJsonDevdependenciesVitejsPluginReact Condition="$(PackageJsonDevdependenciesVitejsPluginReact) == ''">^4.3.1</PackageJsonDevdependenciesVitejsPluginReact>
@@ -24,6 +31,7 @@
     <PackageJsonDevdependenciesEslintPluginReact Condition="$(PackageJsonDevdependenciesEslintPluginReact) == ''">^7.35.0</PackageJsonDevdependenciesEslintPluginReact>
     <PackageJsonDevdependenciesEslintPluginReactHooks Condition="$(PackageJsonDevdependenciesEslintPluginReactHooks) == ''">^5.1.0-rc.0</PackageJsonDevdependenciesEslintPluginReactHooks>
     <PackageJsonDevdependenciesEslintPluginReactRefresh Condition="$(PackageJsonDevdependenciesEslintPluginReactRefresh) == ''">^0.4.9</PackageJsonDevdependenciesEslintPluginReactRefresh>
+    <PackageJsonDevdependenciesFileLoader Condition="$(PackageJsonDevdependenciesFileLoader) == ''">^6.2.0</PackageJsonDevdependenciesFileLoader>
     <PackageJsonDevdependenciesGlobals Condition="$(PackageJsonDevdependenciesGlobals) == ''">^15.9.0</PackageJsonDevdependenciesGlobals>
     <PackageJsonDevdependenciesVite Condition="$(PackageJsonDevdependenciesVite) == ''">^5.4.1</PackageJsonDevdependenciesVite>
   </PropertyGroup>

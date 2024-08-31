@@ -19,6 +19,7 @@
 }
 /*#endregion */
 
+/*#region margin padding*/
 p, .about-hr {
     margin: 0;
 }
@@ -63,9 +64,15 @@ p, .about-hr {
     border: 2px solid #FF2551;
 }
 
+.about-p7{
+    padding: 1rem 0rem 1rem 0rem;
+}
+
 .about-dtpr {
     padding: 0rem 0rem 1rem 0rem;
 }
+
+/*#endregion */
 
 /*#region text*/
 .about-title {
@@ -81,13 +88,25 @@ p, .about-hr {
 .about-subtxt {
     font-size: 1rem;
 }
+.about-desc {
+    font-size:0.85rem;
+}
 /*#endregion */
 
-.border-round{
-    border-radius: 2rem;
+
+.about-dtpr-desc {
+    display: none;
 }
 
-.align-vertical {
-    display: flex;
-    flex-wrap: wrap;
+.about-dtpr-sub:hover .about-dtpr-desc {
+    display: block;
+}
+
+.about-dtpr-sub:hover .about-subtxt {
+    background-color: #FF2551;
+    color: white;
+}
+
+.about-dtpr-sub:hover {
+    cursor: pointer;
 }
