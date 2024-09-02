@@ -3,7 +3,6 @@
     padding-bottom: 5rem;
 }
 
-
 /*#region background*/
 .light-bg {
     background-color: white;
@@ -93,7 +92,7 @@ p, .about-hr {
 }
 /*#endregion */
 
-
+/*#region hover*/
 .about-dtpr-desc {
     display: none;
 }
@@ -110,3 +109,4 @@ p, .about-hr {
 .about-dtpr-sub:hover {
     cursor: pointer;
 }
+/*#endregion */

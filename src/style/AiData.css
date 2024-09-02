@@ -1,6 +1,30 @@
 .aidata-page {
     padding-top: 5rem;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
     padding-bottom: 5rem;
 }
+
+
+.aidata_activation {
+    background-color: #FFDAE2;
+}
+
+.aidata_activation_svg {
+    color: #FF2551;
+}
+
+.chart_bar {
+    color: #FF2551;
+    fill: white;
+    stroke: #FF2551;
+    stroke-width: 0.1rem;
+}
+
+.chart_bar:hover {
+    fill: #FF2551;
+    cursor: pointer;
+}
+
+.chart_axis{
+    
+}
+
