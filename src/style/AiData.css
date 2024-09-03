@@ -4,27 +4,46 @@
 }
 
 
-.aidata_activation {
-    background-color: #FFDAE2;
+.aidata_activation, .aidata_socializing {
+    background-color: var(--primary-medium);
 }
+
 
 .aidata_activation_svg {
-    color: #FF2551;
+    color: var(--primary-dark);
 }
 
+/*#region chart*/
 .chart_bar {
-    color: #FF2551;
+    color: var(--primary-dark);
     fill: white;
-    stroke: #FF2551;
+    stroke: var(--primary-dark);
     stroke-width: 0.1rem;
 }
 
 .chart_bar:hover {
-    fill: #FF2551;
+    fill: var(--primary-dark);
     cursor: pointer;
 }
+/*#endregion */
 
-.chart_axis{
-    
+/*#region button*/
+.chart_button {
+    background-color: var(--primary-medium);
+    padding: 1rem 2.5rem 1rem 2.5rem;
 }
 
+.chart_button.btn {
+    background-color: var(--primary-light);
+    display: inline-flex;
+    color: var(--primary-dark);
+    border: 2px solid var(--primary-dark);
+    padding: 0.25rem 2.5rem 0.25rem 2.5rem;
+    border-radius: 2rem;
+}
+
+.chart_button.btn:active {
+    background-color: var(--primary-dark);
+    border: 2px solid var(--primary-dark);
+}
+/*#endregion */

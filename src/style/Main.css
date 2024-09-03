@@ -1,20 +1,20 @@
+:root {
+    --primary-dark: #FF2551;
+    --primary-medium: #FFDAE2;
+    --primary-light: white;
+}
+
+::selection {
+    background: var(--primary-medium);
+    color: var(--primary-light);
+}
+
 html,
 body {
     height: 100%;
-    background-color: #FF2551;
+    background-color: var(--primary-dark);
     padding: 0;
 }
 
 
 body {}
-
-.MuiSlider-valueLabelOpen.MuiSlider-valueLabel.css-14gyywz-MuiSlider-valueLabel {
-    background-color: #FF2551;
-    font-family: 'Nova Mono';
-    padding: 0.3rem;
-    border-radius: 0.25rem;
-}
-
-.MuiSlider-valueLabelOpen.MuiSlider-valueLabel.css-14gyywz-MuiSlider-valueLabel::before {
-    display: none;
-}

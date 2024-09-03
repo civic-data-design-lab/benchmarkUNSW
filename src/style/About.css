@@ -5,16 +5,16 @@
 
 /*#region background*/
 .light-bg {
-    background-color: white;
-    color: #FF2551;
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
 }
 .medium-bg {
-    background-color: #FFDAE2;
-    color: #FF2551;
+    background-color: var(--primary-medium);
+    color: var(--primary-dark);
 }
-.dark-bg{
-    background-color: #FF2551;
-    color: white;
+.dark-bg {
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
 }
 /*#endregion */
 
@@ -60,7 +60,7 @@ p, .about-hr {
     padding: 1rem 2.5rem 1rem 2.5rem;
     margin: 1rem 2.5rem 1rem 2.5rem;
     border-radius: 2rem;
-    border: 2px solid #FF2551;
+    border: 2px solid var(--primary-dark);
 }
 
 .about-p7{
@@ -102,8 +102,8 @@ p, .about-hr {
 }
 
 .about-dtpr-sub:hover .about-subtxt {
-    background-color: #FF2551;
-    color: white;
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
 }
 
 .about-dtpr-sub:hover {

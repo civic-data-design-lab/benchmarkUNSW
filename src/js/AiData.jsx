@@ -32,13 +32,10 @@ function MyBarChart({ csvLocation, chartX, chartY }) {
     const [data, setData] = useState([]);
     const [width, setWidth] = useState(window.innerWidth);
 
-
     useEffect(() => {
-
         const parseDate = d3.timeParse("%Y-%m-%d");
 
         d3.csv(csvLocation).then(data => {
-
             data.forEach(d => {
                 d[chartX] = parseDate(d[chartX]);
                 if (!d[chartX]) {
@@ -64,11 +61,15 @@ function MyBarChart({ csvLocation, chartX, chartY }) {
         svg.selectAll("*").remove();
         svg.attr("class", "aidata_activation_svg");
 
-        const margin = { top: 30, right: 30, bottom: 30, left: 30 };
+        const margin = {
+            top: 30,
+            right: 30,
+            bottom: 30,
+            left: 30,
+        };
         const width = window.innerWidth - margin.left - margin.right;
         const height = 300 - margin.top - margin.bottom;
         const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
-
 
         const x = d3.scaleBand()
             .rangeRound([0, width])
@@ -82,13 +83,12 @@ function MyBarChart({ csvLocation, chartX, chartY }) {
         g.append("g")
             .attr("transform", `translate(0,${height})`)
             .call(d3.axisBottom(x)
-                .tickSize(0) // Remove tick marks
-                .tickFormat(d3.timeFormat("%b %d"))) // Format dates as "Abbreviated Month Day"
+                .tickSize(0)
+                .tickFormat(d3.timeFormat("%b %d")))
             .selectAll("text")
-            .attr("transform", "rotate(-90) translate(-10, 10)") // Rotate and move down
+            .attr("transform", "rotate(-90) translate(-10, 10)")
             .style("text-anchor", "end")
-            .style("text-align", "center")
-
+            .style("text-align", "center");
 
         g.append("text")
             .attr("fill", "#000")
@@ -117,16 +117,14 @@ function MyBarChart({ csvLocation, chartX, chartY }) {
                 d3.select(this.parentNode)
                     .append("text")
                     .attr("class", "chart_hover")
-                    .attr("x", x(d[chartX]) + x.bandwidth() / 2) 
+                    .attr("x", x(d[chartX]) + x.bandwidth() / 2)
                     .attr("y", y(d[chartY]) - 10)
-                    .attr("class", "bar_label")
-                    .attr("text-anchor", "middle") 
+                    .attr("text-anchor", "middle")
                     .text(d[chartY]);
             })
             .on('mouseout', function () {
-                d3.selectAll(".bar_label").remove();
+                d3.selectAll(".chart_hover").remove();
             });
-
 
     }, [data]);
 
@@ -137,6 +135,8 @@ function MyBarChart({ csvLocation, chartX, chartY }) {
 
 function AiData() {
     const [modalShow, setModalShow] = useState(false);
+    const [showDailyChart, setShowDailyChart] = useState(true);
+
     return (
         <>
             <div className="aidata-page">
@@ -152,11 +152,27 @@ function AiData() {
                     <h1>Home Page</h1>
                     <p>Welcome to the AI Data Page!</p>
                 </div>
-                <div className="aidata_activation nova-mono-regular">
-                    <MyBarChart
-                        csvLocation='/data/activation_graph/daily_dwell_index.csv'
-                        chartX='date' chartY='daily_people'/>
+
+                <div className="chart_button">
+                    <Button variant="primary" className="chart_button"
+                        onClick={() => setShowDailyChart(!showDailyChart)}>
+                        {showDailyChart ? 'Hourly' : 'Daily'}
+                    </Button>
                 </div>
+
+                {showDailyChart ? (
+                    <div className="aidata_activation nova-mono-regular">
+                        <MyBarChart
+                            csvLocation='/data/activation_graph/daily_dwell_index.csv'
+                            chartX='date' chartY='daily_people' />
+                    </div>
+                ) : (
+                    <div className="aidata_activation nova-mono-regular">
+                        <MyBarChart
+                            csvLocation='/data/activation_graph/hourly_dwell_index_weather.csv'
+                            chartX='date' chartY='hourly_people' />
+                    </div>
+                )}
             </div>
         </>
     );
