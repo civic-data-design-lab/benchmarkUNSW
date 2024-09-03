@@ -62,13 +62,14 @@ function MyBarChart({ csvLocation, chartX, chartY }) {
         svg.attr("class", "aidata_activation_svg");
 
         const margin = {
-            top: 30,
+            top: 10,
             right: 30,
             bottom: 30,
             left: 30,
         };
         const width = window.innerWidth - margin.left - margin.right;
-        const height = 300 - margin.top - margin.bottom;
+        const svgHeight = svgRef.current.getBoundingClientRect().height;
+        const height = svgHeight - margin.top - margin.bottom;
         const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
         const x = d3.scaleBand()
@@ -92,10 +93,9 @@ function MyBarChart({ csvLocation, chartX, chartY }) {
 
         g.append("text")
             .attr("fill", "#000")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 6)
+            .attr("y", -20)
             .attr("dy", "0.71em")
-            .attr("text-anchor", "end")
+            .attr("text-anchor", "start")
             .attr("class", "chart_axis")
             .text(chartY);
 
@@ -129,7 +129,7 @@ function MyBarChart({ csvLocation, chartX, chartY }) {
     }, [data]);
 
     return (
-        <svg ref={svgRef} width={window.innerWidth} height={323}></svg>
+        <svg ref={svgRef} width={window.innerWidth} className="svg-chart"></svg>
     );
 }
 
@@ -152,6 +152,7 @@ function AiData() {
                     <h1>Home Page</h1>
                     <p>Welcome to the AI Data Page!</p>
                 </div>
+
 
                 <div className="chart_button">
                     <Button variant="primary" className="chart_button"

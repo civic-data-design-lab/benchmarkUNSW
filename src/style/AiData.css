@@ -3,11 +3,9 @@
     padding-bottom: 5rem;
 }
 
-
 .aidata_activation, .aidata_socializing {
     background-color: var(--primary-medium);
 }
-
 
 .aidata_activation_svg {
     color: var(--primary-dark);
@@ -25,6 +23,11 @@
     fill: var(--primary-dark);
     cursor: pointer;
 }
+
+.svg_chart{
+    height: 55vh;
+    width: 100%;
+}
 /*#endregion */
 
 /*#region button*/
@@ -34,16 +37,29 @@
 }
 
 .chart_button.btn {
-    background-color: var(--primary-light);
-    display: inline-flex;
-    color: var(--primary-dark);
+background-color: var(--primary-light);
+display: inline-flex;
+color: var(--primary-dark);
+border: 2px solid var(--primary-dark);
+padding: 0.25rem 2.5rem 0.25rem 2.5rem;
+border-radius: 2rem;
+}
+
+.chart_button.btn:hover {
+    background-color: var(--primary-dark);
+    color: white; /* Change text color on hover */
     border: 2px solid var(--primary-dark);
-    padding: 0.25rem 2.5rem 0.25rem 2.5rem;
-    border-radius: 2rem;
 }
 
 .chart_button.btn:active {
     background-color: var(--primary-dark);
+    color: var(--primary-light);
+    border: 2px solid var(--primary-dark);
+}
+
+.chart_button_active {
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
     border: 2px solid var(--primary-dark);
 }
 /*#endregion */
