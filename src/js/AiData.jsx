@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Dropdown from 'react-bootstrap/Dropdown';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import '../style/AiData.css';
 import * as d3 from 'd3';
 
@@ -10,49 +14,58 @@ function MyVerticallyCenteredModal(props) {
             {...props}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
-            centered>
+            centered
+            className=" "
+        >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Modal heading
+                    How to
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>
-                    Toggle the slider below to visualize different bench configurations and interactions on the site through time.
-                    Swipe on the pull-up tab to see key take-aways and different data breakdowns.
-                    Social Index = people socializing on site / total pedestrians on site.
-                </p>
+                <div className="nova-mono-regular">
+                    <p>
+                        Toggle the slider below to visualize different bench configurations and interactions on the site through time.
+                        Swipe on the pull-up tab to see key take-aways and different data breakdowns.
+                        Social Index = people socializing on site / total pedestrians on site.
+                    </p>
+                </div>
             </Modal.Body>
         </Modal>
     );
 }
 
-function MyBarChart({ csvLocation, chartX, chartY }) {
+function BarChart({ csvLocation, chartX, chartY, chartType, xTickFormat }) {
     const svgRef = useRef();
     const [data, setData] = useState([]);
-    const [width, setWidth] = useState(window.innerWidth);
 
     useEffect(() => {
-        const parseDate = d3.timeParse("%Y-%m-%d");
-
         d3.csv(csvLocation).then(data => {
-            data.forEach(d => {
-                d[chartX] = parseDate(d[chartX]);
-                if (!d[chartX]) {
-                    console.error(`Invalid number format for chartX: ${d[chartX]}`);
-                }
-                d[chartY] = Number(d[chartY]);
-                if (isNaN(d[chartY])) {
-                    console.error(`Invalid number format for chartY: ${d[chartY]}`);
-                    d[chartY] = 0;
-                }
-            });
-            console.log(data);
-            setData(data);
+            if (chartType === 'hourly') {
+                const hourData = d3.rollup(
+                    data,
+                    v => d3.mean(v, d => Number(d[chartY])),
+                    d => Number(d[chartX])
+                );
+
+                const formattedData = Array.from(hourData, ([hour, avg]) => ({
+                    [chartX]: hour,
+                    [chartY]: avg
+                }));
+
+                setData(formattedData);
+            } else {
+                const parseDate = d3.timeParse("%m/%d/%Y");
+                data.forEach(d => {
+                    d[chartX] = parseDate(d[chartX]);
+                    d[chartY] = Number(d[chartY]);
+                });
+                setData(data);
+            }
         }).catch(error => {
             console.error('Error loading or parsing CSV file:', error);
         });
-    }, [csvLocation]);
+    }, [csvLocation, chartType, chartX, chartY]);
 
     useEffect(() => {
         if (data.length === 0) return;
@@ -62,9 +75,9 @@ function MyBarChart({ csvLocation, chartX, chartY }) {
         svg.attr("class", "aidata_activation_svg");
 
         const margin = {
-            top: 10,
+            top: 20,
             right: 30,
-            bottom: 30,
+            bottom: 50,
             left: 30,
         };
         const width = window.innerWidth - margin.left - margin.right;
@@ -75,17 +88,19 @@ function MyBarChart({ csvLocation, chartX, chartY }) {
         const x = d3.scaleBand()
             .rangeRound([0, width])
             .padding(0.5)
-            .domain(data.map(d => d[chartX]));
+            .domain(data.map(d => d[chartX]).sort((a, b) => a - b));
 
         const y = d3.scaleLinear()
             .rangeRound([height, 0])
             .domain([0, d3.max(data, d => d[chartY])]);
 
+        const xAxis = d3.axisBottom(x)
+            .tickFormat(xTickFormat)
+            .tickSize(0);
+
         g.append("g")
             .attr("transform", `translate(0,${height})`)
-            .call(d3.axisBottom(x)
-                .tickSize(0)
-                .tickFormat(d3.timeFormat("%b %d")))
+            .call(xAxis)
             .selectAll("text")
             .attr("transform", "rotate(-90) translate(-10, 10)")
             .style("text-anchor", "end")
@@ -120,60 +135,176 @@ function MyBarChart({ csvLocation, chartX, chartY }) {
                     .attr("x", x(d[chartX]) + x.bandwidth() / 2)
                     .attr("y", y(d[chartY]) - 10)
                     .attr("text-anchor", "middle")
-                    .text(d[chartY]);
+                    .text((d[chartY]).toFixed(2));
+
             })
             .on('mouseout', function () {
                 d3.selectAll(".chart_hover").remove();
             });
 
-    }, [data]);
+    }, [data, chartX, chartY]);
 
     return (
-        <svg ref={svgRef} width={window.innerWidth} className="svg-chart"></svg>
+        <svg ref={svgRef} width={window.innerWidth} className="svg-chart" height="33vh"></svg>
     );
 }
 
 function AiData() {
     const [modalShow, setModalShow] = useState(false);
     const [showDailyChart, setShowDailyChart] = useState(true);
+    const [selectedOption, setSelectedOption] = useState('Select Data Breakdown');
+
+    const handleSelect = (eventKey) => {
+        setSelectedOption(eventKey);
+    };
+
+    const getCsvLocation = () => {
+        let basePath = '';
+        switch (selectedOption) {
+            case 'Social Interaction':
+                basePath = '/data/socializing_graph/';
+                break;
+            case 'Space Activation':
+                basePath = '/data/activation_graph/';
+                break;
+            default:
+                basePath = '/data/activation_graph/';
+        }
+        return `${basePath}${showDailyChart ? 'daily.csv' : 'hourly.csv'}`;
+    };
 
     return (
         <>
-            <div className="aidata-page">
-                <div className="text-center">
-                    <Button variant="light" onClick={() => setModalShow(true)}>
-                        Launch vertically centered modal
-                    </Button>
-                </div>
-
-                <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} />
-
+            <div className="aidata-page nova-mono-regular">
                 <div>
-                    <h1>Home Page</h1>
-                    <p>Welcome to the AI Data Page!</p>
+                    <div className="text-center">
+                        <Button variant="light" onClick={() => setModalShow(true)}>
+                            Launch vertically centered modal
+                        </Button>
+                    </div>
+                    <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} />
                 </div>
 
+                {/*Data breakdown*/}
+                <>
+                <div className="light-bg padding-tb-lg">
+                    <Container>
+                        <Row>
+                            <div className="text-center primary-subtitle">
+                                <p>Select Data Breakdown</p>
+                            </div>
+                        </Row>
+                        <Row>
+                            <Row>
+                                    <div className="data-breakdown-dropdown">
+                                    <Dropdown onSelect={handleSelect} className="custom-dropdown w-100">
+                                        <Dropdown.Toggle variant="success" id="dropdown-basic" className="w-100">
+                                            {selectedOption}
+                                        </Dropdown.Toggle>
+                                        <Dropdown.Menu className="w-100">
+                                            <Dropdown.Item className="dropdown-item" eventKey="Social Interaction">Social Interaction</Dropdown.Item>
+                                            <Dropdown.Item className="dropdown-item" eventKey="Space Activation">Space Activation</Dropdown.Item>
+                                            <Dropdown.Item className="dropdown-item" eventKey="Benches">Benches</Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+                                </div>
+                            </Row>
+                            <Row>
+                                <Col className="dark-button">
+                                        <p>36%</p>
+                                        <p>High Social Index</p>
+                                    </Col>
+                                <Col>
+                                    <Row className="light-button primary-border primary-subtxt">
+                                        <p>11 dwelling > 5 min</p></Row>
+                                        <Row className="light-button primary-border primary-subtxt">
+                                        <p>27 pedestrian / hour</p></Row>
+                                </Col>
+                            </Row>
+                        </Row>
+                    </Container>
+                    </div>
+                </>
 
-                <div className="chart_button">
+
+                {/*Chart Button*/}
+                <>
+                <div className="chart_button nova-mono-regular">
                     <Button variant="primary" className="chart_button"
                         onClick={() => setShowDailyChart(!showDailyChart)}>
                         {showDailyChart ? 'Hourly' : 'Daily'}
                     </Button>
                 </div>
+                </>
 
-                {showDailyChart ? (
-                    <div className="aidata_activation nova-mono-regular">
-                        <MyBarChart
-                            csvLocation='/data/activation_graph/daily_dwell_index.csv'
-                            chartX='date' chartY='daily_people' />
+
+                {/*Bar Chart*/}
+                <>
+                <div className="aidata_activation nova-mono-regular">
+                    <BarChart
+                        csvLocation={getCsvLocation()}
+                        chartX={showDailyChart ? 'date' : 'hour'}
+                        chartY={showDailyChart ? 'daily' : 'hourly'}
+                        chartType={showDailyChart ? 'daily' : 'hourly'}
+                        xTickFormat={showDailyChart ? d3.timeFormat("%b %d") : d => `${d}:00`}
+                    />
+                </div>
+                </>
+
+                {/*Desc Section 1*/}
+                <>
+                    <div className="light-bg padding-tb-lg">
+                        <Container>
+                            <Row>
+                                <div className="text-center">
+                                    <div className="dark-button primary-subtitle">
+                                        <p>4:00 PM</p>
+                                    </div>
+                                    <div className="dark-txt primary-txt">
+                                        <p>Most Common Overall Time for Socializing</p>
+                                    </div>
+                                </div>
+                            </Row>
+                        </Container>
                     </div>
-                ) : (
-                    <div className="aidata_activation nova-mono-regular">
-                        <MyBarChart
-                            csvLocation='/data/activation_graph/hourly_dwell_index_weather.csv'
-                            chartX='date' chartY='hourly_people' />
+                </>
+
+                {/*Desc Section 2*/}
+                <>
+                    <div className="medium-bg padding-tb-lg">
+                        <Container>
+                            <Row>
+                                <div className="text-center nova-mono-regular primary-subtitle">
+                                    <p>High Social Index Rate Formations</p>
+                                </div>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <div className="text-center">
+                                        <Row>haha</Row>
+                                        <Row>haha</Row>
+                                        <Row>haha</Row>
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <div className="text-center">
+                                        <Row>haha</Row>
+                                        <Row>haha</Row>
+                                        <Row>haha</Row>
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <div className="text-center">
+                                        <Row>haha</Row>
+                                        <Row>haha</Row>
+                                        <Row>haha</Row>
+                                    </div>
+                                </Col>
+                            </Row>
+                        </Container>
                     </div>
-                )}
+                </>
+
             </div>
         </>
     );

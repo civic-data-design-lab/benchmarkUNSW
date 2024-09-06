@@ -75,20 +75,20 @@ p, .about-hr {
 
 /*#region text*/
 .about-title {
-    font-size: 1.45rem;
+    font-size: var(--primary-title);)
 }
 
 .about-subtitle {
-    font-size: 1.5rem;
+    font-size: var(--primary-subtitle);
 }
 .about-txt {
-    font-size: 1.25rem;
+    font-size: var(--primary-txt);
 }
 .about-subtxt {
-    font-size: 1rem;
+    font-size: var(--primary-subtxt);
 }
 .about-desc {
-    font-size:0.85rem;
+    font-size:var(--primary-desc);
 }
 /*#endregion */
 
