@@ -1,10 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Dropdown from 'react-bootstrap/Dropdown';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Dropdown, Card, Row, Col, Button, Container, Modal } from 'react-bootstrap';
 import '../style/AiData.css';
 import * as d3 from 'd3';
 
@@ -15,8 +10,7 @@ function MyVerticallyCenteredModal(props) {
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
-            className=" "
-        >
+            className="">
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
                     How to
@@ -179,7 +173,7 @@ function AiData() {
                 <div>
                     <div className="text-center">
                         <Button variant="light" onClick={() => setModalShow(true)}>
-                            Launch vertically centered modal
+                            Show me How to
                         </Button>
                     </div>
                     <MyVerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} />
@@ -187,42 +181,51 @@ function AiData() {
 
                 {/*Data breakdown*/}
                 <>
-                <div className="light-bg padding-tb-lg">
-                    <Container>
-                        <Row>
-                            <div className="text-center primary-subtitle">
-                                <p>Select Data Breakdown</p>
-                            </div>
-                        </Row>
-                        <Row>
-                            <Row>
-                                    <div className="data-breakdown-dropdown">
-                                    <Dropdown onSelect={handleSelect} className="custom-dropdown w-100">
-                                        <Dropdown.Toggle variant="success" id="dropdown-basic" className="w-100">
-                                            {selectedOption}
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu className="w-100">
-                                            <Dropdown.Item className="dropdown-item" eventKey="Social Interaction">Social Interaction</Dropdown.Item>
-                                            <Dropdown.Item className="dropdown-item" eventKey="Space Activation">Space Activation</Dropdown.Item>
-                                            <Dropdown.Item className="dropdown-item" eventKey="Benches">Benches</Dropdown.Item>
-                                        </Dropdown.Menu>
-                                    </Dropdown>
-                                </div>
-                            </Row>
-                            <Row>
-                                <Col className="dark-button">
-                                        <p>36%</p>
-                                        <p>High Social Index</p>
-                                    </Col>
+                    <div className="light-bg padding-tb-lg">
+                        <div className="text-center primary-subtitle mb-3">
+                            <p>Select Data Breakdown</p>
+                        </div>
+
+                        <div className="data-breakdown-dropdown mb-3">
+                            <Dropdown onSelect={handleSelect} className="custom-dropdown w-100">
+                                <Dropdown.Toggle variant="success" id="dropdown-basic" className="w-100">
+                                    {selectedOption}
+                                </Dropdown.Toggle>
+                                <Dropdown.Menu className="w-100">
+                                    <Dropdown.Item className="dropdown-item" eventKey="Social Interaction">Social Interaction</Dropdown.Item>
+                                    <Dropdown.Item className="dropdown-item" eventKey="Space Activation">Space Activation</Dropdown.Item>
+                                    <Dropdown.Item className="dropdown-item" eventKey="Benches">Benches</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </div>
+
+                        <Card className="mb-3 border-radius dark-button align-items-center text-center">
+                            <Row className="padding-sm">
                                 <Col>
-                                    <Row className="light-button primary-border primary-subtxt">
-                                        <p>11 dwelling > 5 min</p></Row>
-                                        <Row className="light-button primary-border primary-subtxt">
-                                        <p>27 pedestrian / hour</p></Row>
+                                    <p className='primary-subtitle'>36%</p>
+                                    <p className='primary-subtxt'>Social Index</p>
+                                </Col>
+                                <Col className="text-end padding-md">
+                                    <Button variant="outline-light" size="sm" style={{ borderRadius: '50%' }}>i</Button>
                                 </Col>
                             </Row>
+                        </Card>
+
+                        <Row>
+                            <Col>
+                                <Card className="border-radius primary-border light-button text-center">
+                                    <p className='primary-subtitle'>11</p>
+                                    <p className='primary-subtxt'>socializing on site</p>
+                                </Card>
+                            </Col>
+                            <Col>
+                                <Card className="border-radius primary-border light-button text-center">
+                                    <p className='primary-subtitle'>27</p>
+                                    <p className='primary-subtxt'>pedestrians per hour</p>
+                                </Card>
+                            </Col>
                         </Row>
-                    </Container>
+
                     </div>
                 </>
 

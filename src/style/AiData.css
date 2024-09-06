@@ -11,6 +11,24 @@
     color: var(--primary-dark);
 }
 
+
+/*#region modal*/
+.modal-content{
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    border-radius: var(--primary-border-radius);
+    border: var(--primary-border);
+}
+
+.modal-button {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    border-radius: var(--primary-border-radius);
+    margin: var(--padding-tb-lg);
+}
+
+/*#endregion */
+
 /*#region chart*/
 .chart_bar {
     color: var(--primary-dark);
@@ -62,33 +80,6 @@
 /*#endregion */
 
 
-
-/*#region data breakdown*/
-.container{
-    /*max-width: 100%;*/
-}
-.data-breakdown {
-    /*background-color: var(--primary-light);*/
-    /*padding: 1rem 2.5rem 1rem 2.5rem;*/
-}
-
-.data-breakdown-index {
-    /*color: var(--primary-light);
-    background-color: var(--primary-dark);
-    border: var(--primary-border);
-    border-radius: var(--primary-border-radius);
-    vertical-align: middle;
-    text-align: center;*/
-}
-.data-breakdown-info {
-    /*color: var(--primary-dark);
-    border-radius: var(--primary-border-radius);
-    border: var(--primary-border);*/
-}
-.data-breakdown-dropdown{
-    /*padding: 0.5rem 0rem 0.5rem 0rem;*/
-}
-/*#endregion */
 /*#region dropdown*/
 .btn:first-child:active, :not(.btn-check) + .btn:active{
     background-color: var(--primary-dark);
