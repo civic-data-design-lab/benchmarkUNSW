@@ -5,12 +5,12 @@ import * as d3 from 'd3';
 import social1 from '../assets/AiData/social1.png';
 import social2 from '../assets/AiData/social2.png';
 import social3 from '../assets/AiData/social3.png';
-import dwell1 from '../assets/AiData/social1.png';
-import dwell2 from '../assets/AiData/social2.png';
-import dwell3 from '../assets/AiData/social3.png';
-import bench1 from '../assets/AiData/social1.png';
-import bench2 from '../assets/AiData/social2.png';
-import bench3 from '../assets/AiData/social3.png';
+import dwell1 from '../assets/AiData/dwell1.png';
+import dwell2 from '../assets/AiData/dwell2.png';
+import dwell3 from '../assets/AiData/dwell3.png';
+import bench1 from '../assets/AiData/bench1.png';
+import bench2 from '../assets/AiData/bench2.png';
+import bench3 from '../assets/AiData/bench3.png';
 
 function MyVerticallyCenteredModal(props) {
     return (
@@ -152,6 +152,9 @@ function BarChart({ csvLocation, chartX, chartY, chartType, xTickFormat }) {
     );
 }
 
+function SectionTwo({ }) {
+}
+
 function AiData() {
     const [modalShow, setModalShow] = useState(false);
     const [showDailyChart, setShowDailyChart] = useState(true);
@@ -161,6 +164,8 @@ function AiData() {
         setSelectedOption(eventKey);
     };
 
+
+    //#region update CSV
     const getCsvLocation = () => {
         let basePath = '';
         switch (selectedOption) {
@@ -170,11 +175,49 @@ function AiData() {
             case 'Space Activation':
                 basePath = '/data/activation_graph/';
                 break;
+            case 'Benches':
+                basePath = '/data/activation_graph/';
+                break;
             default:
                 basePath = '/data/activation_graph/';
         }
         return `${basePath}${showDailyChart ? 'daily.csv' : 'hourly.csv'}`;
     };
+    //#endregion
+    //#region update images
+    const getImages = () => {
+        switch (selectedOption) {
+            case 'Social Interaction':
+                return [social1, social2, social3];
+            case 'Space Activation':
+                return [dwell1, dwell2, dwell3];
+            case 'Benches':
+                return [bench1, bench2, bench3];
+            default:
+                return [social1, social2, social3];
+        }
+    };
+    const images = getImages();
+    //#endregion
+    //#region update name
+    const getTextForSelection = () => {
+        switch (selectedOption) {
+            case 'Social Interaction':
+                return 'High Social Index Rate Formations';
+            case 'Space Activation':
+                return 'Top 3 Dwell Index Maps';
+            case 'Benches':
+                return 'Top 3 Seating Index Maps';
+            default:
+                return 'High Social Index Rate Formations';
+        }
+    };
+    //#endregion
+
+    useEffect(() => {
+        console.log('Selected Option:', selectedOption);
+        console.log('Images:', images);
+    }, [selectedOption]);
 
     return (
         <>
@@ -287,28 +330,28 @@ function AiData() {
                         <Container>
                             <Row>
                                 <div className="text-center nova-mono-regular primary-subtitle">
-                                    <p>High Social Index Rate Formations</p>
+                                    <p>{getTextForSelection()}</p>
                                 </div>
                             </Row>
                             <Row>
                                 <Col>
                                     <div className="text-center primary-subtxt">
                                         <Row className="align-items-center justify-content-center">July 4, 1:00pm</Row>
-                                        <Row className="align-items-center justify-content-center"><img src={social1}/></Row>
+                                        <Row className="align-items-center justify-content-center"><img src={images[0]} /></Row>
                                         <Row className="align-items-center justify-content-center">S.I.:38%</Row>
                                     </div>
                                 </Col>
                                 <Col>
                                     <div className="text-center primary-subtxt">
                                         <Row className="align-items-center justify-content-center">July 8, 11:00am</Row>
-                                        <Row className="align-items-center justify-content-center"><img src={social2}/></Row>
+                                        <Row className="align-items-center justify-content-center"><img src={images[1]} /></Row>
                                         <Row className="align-items-center justify-content-center">S.I.:20%</Row>
                                     </div>
                                 </Col>
                                 <Col>
                                     <div className="text-center primary-subtxt">
                                         <Row className="align-items-center justify-content-center">July 25, 3:30pm</Row>
-                                        <Row className="align-items-center justify-content-center"><img src={social3}/></Row>
+                                        <Row className="align-items-center justify-content-center"><img src={images[2]} /></Row>
                                         <Row className="align-items-center justify-content-center">S.I.:17%</Row>
                                     </div>
                                 </Col>
