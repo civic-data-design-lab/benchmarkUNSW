@@ -2,6 +2,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Dropdown, Card, Row, Col, Button, Container, Modal } from 'react-bootstrap';
 import '../style/AiData.css';
 import * as d3 from 'd3';
+import social1 from '../assets/AiData/social1.png';
+import social2 from '../assets/AiData/social2.png';
+import social3 from '../assets/AiData/social3.png';
+import dwell1 from '../assets/AiData/social1.png';
+import dwell2 from '../assets/AiData/social2.png';
+import dwell3 from '../assets/AiData/social3.png';
+import bench1 from '../assets/AiData/social1.png';
+import bench2 from '../assets/AiData/social2.png';
+import bench3 from '../assets/AiData/social3.png';
 
 function MyVerticallyCenteredModal(props) {
     return (
@@ -283,24 +292,24 @@ function AiData() {
                             </Row>
                             <Row>
                                 <Col>
-                                    <div className="text-center">
-                                        <Row>haha</Row>
-                                        <Row>haha</Row>
-                                        <Row>haha</Row>
+                                    <div className="text-center primary-subtxt">
+                                        <Row className="align-items-center justify-content-center">July 4, 1:00pm</Row>
+                                        <Row className="align-items-center justify-content-center"><img src={social1}/></Row>
+                                        <Row className="align-items-center justify-content-center">S.I.:38%</Row>
                                     </div>
                                 </Col>
                                 <Col>
-                                    <div className="text-center">
-                                        <Row>haha</Row>
-                                        <Row>haha</Row>
-                                        <Row>haha</Row>
+                                    <div className="text-center primary-subtxt">
+                                        <Row className="align-items-center justify-content-center">July 8, 11:00am</Row>
+                                        <Row className="align-items-center justify-content-center"><img src={social2}/></Row>
+                                        <Row className="align-items-center justify-content-center">S.I.:20%</Row>
                                     </div>
                                 </Col>
                                 <Col>
-                                    <div className="text-center">
-                                        <Row>haha</Row>
-                                        <Row>haha</Row>
-                                        <Row>haha</Row>
+                                    <div className="text-center primary-subtxt">
+                                        <Row className="align-items-center justify-content-center">July 25, 3:30pm</Row>
+                                        <Row className="align-items-center justify-content-center"><img src={social3}/></Row>
+                                        <Row className="align-items-center justify-content-center">S.I.:17%</Row>
                                     </div>
                                 </Col>
                             </Row>
