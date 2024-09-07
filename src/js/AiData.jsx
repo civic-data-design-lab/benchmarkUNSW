@@ -25,6 +25,13 @@ function AiData() {
     const [showDailyChart, setShowDailyChart] = useState(true);
     const [selectedOption, setSelectedOption] = useState('Select Data Breakdown');
     const handleSelect = (eventKey) => { setSelectedOption(eventKey);};
+    const [data, setData] = useState([]);
+    const [index, setIndex] = useState(0);
+    const [indexName, setIndexName] = useState(0);
+    const [index2, setIndex2] = useState(0);
+    const [index2Name, setIndex2Name] = useState(0);
+    const [index3, setIndex3] = useState(0);
+    const [index3Name, setIndex3Name] = useState(0);
 
     // Update Content Dynamically
     //#region update CSV
@@ -38,7 +45,7 @@ function AiData() {
                 basePath = '/data/activation_graph/';
                 break;
             case 'Benches':
-                basePath = '/data/activation_graph/';
+                basePath = '/data/bench_graph/';
                 break;
             default:
                 basePath = '/data/activation_graph/';
@@ -76,6 +83,83 @@ function AiData() {
     };
     //#endregion
 
+    //#region fetch data update social index
+    const fetchData = async (date, time) => {
+        const csvLocation = getCsvLocation();
+        const parts = csvLocation.split('/');
+        const graphName = parts[2];
+        parts.pop();
+        const newPath = parts.join('/');
+        const csvUpdated = newPath + "/hourly.csv";
+        //console.log(graphName);
+        let col2Name = null;
+        let col3Name = null;
+
+
+        if (graphName === 'socializing_graph') {
+            setIndexName("Social Index");
+            setIndex2Name("Socializing on site");
+            setIndex3Name("Pedestrians per hour");
+            col2Name = "social";
+            col3Name = "ped";
+        }
+        if (graphName === 'activation_graph') {
+            setIndexName("Dwell Index");
+            setIndex2Name("Dwelling > 5min");
+            setIndex3Name("Pedestrians per hour");
+            col2Name = "total";
+            col3Name = "average";
+        }
+        if (graphName === 'bench_graph') {
+            setIndexName("Bench Index");
+            setIndex2Name("seating time (min)");
+            setIndex3Name("Pedestrians per hour");
+            col2Name = "total";
+            col3Name = "average";
+        }
+
+        try
+        {
+            d3.csv(csvUpdated).then(data => {
+                setData(data);
+            }).catch(error => {
+                console.error('Error loading or parsing CSV file:', error);
+            });
+            const formattedDate = d3.timeFormat("%-m/%-d/%Y")(new Date(date));
+            const formattedTime = d3.timeFormat('%-H')(new Date(time));
+            //console.log(date, time, formattedDate, formattedTime);
+
+            for (let i = 0; i < data.length; i++) {
+                //console.log(data[i].date, data[i].hour, formattedDate, formattedTime)
+                if (data[i].date === formattedDate && data[i].hour === formattedTime) {
+
+                    console.log("haha")
+
+                    let index = (parseFloat(data[i]['index'])).toFixed(2);
+                    setIndex(index);
+                    let index2 = data[i][col2Name]
+                    setIndex2(index2);
+                    let index3 = data[i][col3Name]
+                    setIndex3(index3);
+
+                    console.log(csvUpdated, col2Name, col3Name, index, index2, index3);
+                }
+                return;
+            }
+        } catch (error) {
+            console.error('Error loading or parsing CSV file:', error);
+        }
+    };
+
+    // Function to trigger data fetching on date/time change
+    const handleDateTimeChange = (date, time) => {
+        //console.log('Date:', date, 'Time:', time); // Debugging log
+        fetchData(date, time); // Call fetchData with the new date and time
+    };
+
+
+    //#endregion
+
     return (
         <>
             <div className="aidata-page nova-mono-regular">
@@ -83,7 +167,7 @@ function AiData() {
                 {/*Time Slider*/}
                 <div className="aidata-slider text-center medium-bg ">
                     <div className="time-slider">
-                        <TimeSlider />
+                        <TimeSlider onDateTimeChange={handleDateTimeChange} />
                     </div>
                 </div>
 
@@ -126,8 +210,8 @@ function AiData() {
                         <Card className="mb-3 border-radius dark-button">
                             <Row className="padding-sm align-items-center text-center">
                                 <Col xs={10}>
-                                    <p className='primary-subtitle'>36%</p>
-                                    <p className='primary-subtxt'>Social Index</p>
+                                    <p className='primary-subtitle'>{index}%</p>
+                                    <p className='primary-subtxt'>{indexName}</p>
                                 </Col>
                                 <Col xs={2}>
                                     <Button variant="outline-light" size="sm" style={{ borderRadius: '50%' }}
@@ -143,14 +227,14 @@ function AiData() {
                         <Row>
                             <Col>
                                 <Card className="padding-sm border-radius primary-border light-button text-center">
-                                    <p className='primary-subtitle'>11</p>
-                                    <p className='primary-subtxt'>socializing on site</p>
+                                    <p className='primary-subtitle'>{index2}</p>
+                                    <p className='primary-subtxt'>{index2Name}</p>
                                 </Card>
                             </Col>
                             <Col>
                                 <Card className="padding-sm border-radius primary-border light-button text-center">
-                                    <p className='primary-subtitle'>27</p>
-                                    <p className='primary-subtxt'>pedestrians per hour</p>
+                                    <p className='primary-subtitle'>{index3}</p>
+                                    <p className='primary-subtxt'>{index3Name}</p>
                                 </Card>
                             </Col>
                         </Row>
@@ -188,7 +272,7 @@ function AiData() {
                         <BarChart
                             csvLocation={getCsvLocation()}
                             chartX={showDailyChart ? 'date' : 'hour'}
-                            chartY={showDailyChart ? 'average_daily_dwell_time' : 'average_hourly_dwell_time'}
+                            chartY={showDailyChart ? 'average' : 'average'}
                             chartType={showDailyChart ? 'daily' : 'hourly'}
                             xTickFormat={showDailyChart ? d3.timeFormat("%b %d") : d => `${d}:00`}
                         />

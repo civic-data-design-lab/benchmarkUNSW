@@ -2,14 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Dropdown, Card, Row, Col, Button, Container, Modal } from 'react-bootstrap';
 import * as d3 from 'd3';
 import '../style/AiData.css';
-
-
-function TimeSlider() {
+function TimeSlider({ onDateTimeChange }) {
     const sliderRef = useRef();
     const [selectedTime, setSelectedTime] = useState(new Date(2024, 6, 8, 6, 0)); // Default to 6:00 AM
     const [width, setWidth] = useState(window.innerWidth);
-
-    const [selectedDate, setSelectedDate] = useState("2024-07-08");
+    const [selectedDate, setSelectedDate] = useState("7/8/2024"); // Start with formatted date
 
     const handleSelect = (eventKey) => {
         setSelectedDate(eventKey);
@@ -31,22 +28,18 @@ function TimeSlider() {
         const margin = { left: 50, right: 50 };
         const sliderWidth = width - margin.left - margin.right; // Adjust width based on margins
 
-        // Define the time scale (6:00 AM to 24:00)
         const timeScale = d3.scaleTime()
             .domain([new Date(2024, 6, 8, 6, 0), new Date(2024, 6, 8, 24, 0)]) // Time from 6:00 to 24:00
-            .range([0, sliderWidth]); // Slider range
+            .range([0, sliderWidth]);
 
-        // Create the axis
         const axis = d3.axisBottom(timeScale)
-            .ticks(d3.timeHour.every(2)) // Tick every 2 hours
-            .tickFormat(d3.timeFormat('%H' + ':00')); // Hour and minute format
+            .ticks(d3.timeHour.every(1)) // Tick every hour
+            .tickFormat(d3.timeFormat('%H' + ':00')); // Format hour
 
-        // Append axis to the SVG
         svg.append('g')
             .attr('transform', `translate(${margin.left}, ${70 / 2})`)
             .call(axis);
 
-        // Create the slider handle
         const handle = svg.append('circle')
             .attr('cx', margin.left + timeScale(selectedTime))
             .attr('cy', 70 / 2)
@@ -61,26 +54,27 @@ function TimeSlider() {
                 })
             );
 
-        // Text to display selected time
         svg.append('text')
             .attr('x', width / 2)
             .attr('y', 70)
             .attr('text-anchor', 'middle')
-            .text(d3.timeFormat('%H'+':00')(selectedTime));
+            .text(d3.timeFormat('%H' + ':00')(selectedTime));
 
     }, [selectedTime, width]);
 
-    // Function to handle the date change from dropdown
-    const handleDateChange = (e) => {
-        setSelectedDate(e.target.value);
-    };
+    useEffect(() => {
+        onDateTimeChange(selectedDate, selectedTime);
+    }, [selectedDate, selectedTime, onDateTimeChange]);
 
-    // Create the array of dates from July 8, 2024 to August 8, 2024
+    // Format date to MM/DD/YYYY
+    const dateFormat = d3.timeFormat("%-m/%-d/%Y");
+
+    // Generate array of dates from July 8, 2024 to August 8, 2024
     const dateOptions = [];
     const startDate = new Date(2024, 6, 8);
     const endDate = new Date(2024, 7, 8);
     for (let d = startDate; d <= endDate; d.setDate(d.getDate() + 1)) {
-        dateOptions.push(d.toISOString().split('T')[0]); // Format as YYYY-MM-DD
+        dateOptions.push(dateFormat(d)); // Format each date as MM/DD/YYYY
     }
 
     return (
