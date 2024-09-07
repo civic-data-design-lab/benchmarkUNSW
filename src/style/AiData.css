@@ -3,9 +3,6 @@
     padding-bottom: 5rem;
 }
 
-.aidata_activation, .aidata_socializing {
-    background-color: var(--primary-medium);
-}
 
 .aidata_activation_svg {
     color: var(--primary-dark);
