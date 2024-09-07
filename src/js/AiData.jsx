@@ -23,7 +23,7 @@ function AiData() {
     const handleShowModal = (modalName) => { setActiveModal(modalName);};
     const handleCloseModal = () => { setActiveModal(null);};
     const [showDailyChart, setShowDailyChart] = useState(true);
-    const [selectedOption, setSelectedOption] = useState('Select Data Breakdown');
+    const [selectedOption, setSelectedOption] = useState('Social Interaction');
     const handleSelect = (eventKey) => { setSelectedOption(eventKey);};
     const [data, setData] = useState([]);
     const [index, setIndex] = useState(0);
@@ -48,7 +48,7 @@ function AiData() {
                 basePath = '/data/bench_graph/';
                 break;
             default:
-                basePath = '/data/activation_graph/';
+                basePath = '/data/socializing_graph/';
         }
         return `${basePath}${showDailyChart ? 'daily.csv' : 'hourly.csv'}`;
     };
@@ -103,20 +103,20 @@ function AiData() {
             col2Name = "social";
             col3Name = "ped";
         }
-        if (graphName === 'activation_graph') {
+        else if (graphName === 'activation_graph') {
             setIndexName("Dwell Index");
             setIndex2Name("Dwelling > 5min");
             setIndex3Name("Pedestrians per hour");
             col2Name = "total";
             col3Name = "average";
         }
-        if (graphName === 'bench_graph') {
+        else if (graphName === 'bench_graph') {
             setIndexName("Bench Index");
             setIndex2Name("seating time (min)");
             setIndex3Name("Pedestrians per hour");
-            col2Name = "total";
-            col3Name = "average";
-        }
+            col2Name = "social";
+            col3Name = "ped";
+        } 
 
         try
         {
