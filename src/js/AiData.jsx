@@ -120,6 +120,7 @@ function AiData() {
 
         try
         {
+            
             d3.csv(csvUpdated).then(data => {
                 setData(data);
             }).catch(error => {
@@ -132,9 +133,6 @@ function AiData() {
             for (let i = 0; i < data.length; i++) {
                 //console.log(data[i].date, data[i].hour, formattedDate, formattedTime)
                 if (data[i].date === formattedDate && data[i].hour === formattedTime) {
-
-                    console.log("haha")
-
                     let index = (parseFloat(data[i]['index'])).toFixed(2);
                     setIndex(index);
                     let index2 = data[i][col2Name]
@@ -143,8 +141,8 @@ function AiData() {
                     setIndex3(index3);
 
                     console.log(csvUpdated, col2Name, col3Name, index, index2, index3);
+                    return;
                 }
-                return;
             }
         } catch (error) {
             console.error('Error loading or parsing CSV file:', error);
