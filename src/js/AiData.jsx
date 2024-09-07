@@ -82,7 +82,6 @@ function AiData() {
         }
     };
     //#endregion
-
     //#region fetch data update social index
     const fetchData = async (date, time) => {
         const csvLocation = getCsvLocation();
@@ -94,7 +93,6 @@ function AiData() {
         //console.log(graphName);
         let col2Name = null;
         let col3Name = null;
-
 
         if (graphName === 'socializing_graph') {
             setIndexName("Social Index");
@@ -120,7 +118,6 @@ function AiData() {
 
         try
         {
-            
             d3.csv(csvUpdated).then(data => {
                 setData(data);
             }).catch(error => {
@@ -149,10 +146,9 @@ function AiData() {
         }
     };
 
-    // Function to trigger data fetching on date/time change
     const handleDateTimeChange = (date, time) => {
-        //console.log('Date:', date, 'Time:', time); // Debugging log
-        fetchData(date, time); // Call fetchData with the new date and time
+        //console.log('Date:', date, 'Time:', time);
+        fetchData(date, time);
     };
 
 
@@ -163,27 +159,24 @@ function AiData() {
             <div className="aidata-page nova-mono-regular">
 
                 {/*Time Slider*/}
+                <>
                 <div className="aidata-slider text-center medium-bg ">
                     <div className="time-slider">
                         <TimeSlider onDateTimeChange={handleDateTimeChange} />
+                        </div>
+                    <div className="padding-sm">
+                        <Button variant="outline-light" size="sm" style={{ borderRadius: '50%' }}
+                            onClick={() => handleShowModal('slider')}> i </Button>
+                        <CenteredModal
+                            show={activeModal === 'slider'}
+                            onHide={handleCloseModal}
+                            content="Toggle the slider below to visualize different bench configurations 
+                             and interactions on the site through time. Swipe on the pull-up 
+                             tab to see key take-aways and different data breakdowns. 
+                             Social Index = people socializing on site / total pedestrians on site." />
                     </div>
                 </div>
-
-
-                {/*<div>*/}
-                {/*    <div className="text-center">*/}
-                {/*        <Button variant="light" onClick={() => handleShowModal('main')}>*/}
-                {/*            Show me How to*/}
-                {/*        </Button>*/}
-                {/*    </div>*/}
-                {/*    <CenteredModal*/}
-                {/*        show={activeModal === 'main'}*/}
-                {/*        onHide={handleCloseModal}*/}
-                {/*        content="Toggle the slider below to visualize different bench configurations */}
-                {/*         and interactions on the site through time. Swipe on the pull-up */}
-                {/*         tab to see key take-aways and different data breakdowns. */}
-                {/*         Social Index = people socializing on site / total pedestrians on site."/>*/}
-                {/*</div>*/}
+                </>
 
                 {/*Data breakdown*/}
                 <>
