@@ -9,6 +9,10 @@
 }
 
 
+.aidata-slider{
+    padding: 2.5rem 0rem 2.5rem 0rem;
+}
+
 /*#region modal*/
 .modal-content{
     background-color: var(--primary-light);

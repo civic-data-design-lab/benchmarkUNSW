@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Dropdown, Card, Row, Col, Button, Container, Modal } from 'react-bootstrap';
 import '../style/AiData.css';
 import * as d3 from 'd3';
+
 import social1 from '../assets/AiData/social1.png';
 import social2 from '../assets/AiData/social2.png';
 import social3 from '../assets/AiData/social3.png';
@@ -11,6 +12,7 @@ import dwell3 from '../assets/AiData/dwell3.png';
 import bench1 from '../assets/AiData/bench1.png';
 import bench2 from '../assets/AiData/bench2.png';
 import bench3 from '../assets/AiData/bench3.png';
+
 import CenteredModal from '../component/CenteredModal';
 import BarChart from '../component/BarChart';
 import TimeSlider from '../component/TimeSlider';
@@ -79,7 +81,7 @@ function AiData() {
             <div className="aidata-page nova-mono-regular">
 
                 {/*Time Slider*/}
-                <div className="text-center medium-bg padding-tb-lg">
+                <div className="aidata-slider text-center medium-bg ">
                     <div className="time-slider">
                         <TimeSlider />
                     </div>
