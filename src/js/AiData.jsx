@@ -272,6 +272,8 @@ function AiData() {
                             chartY={showDailyChart ? 'average' : 'average'}
                             chartType={showDailyChart ? 'daily' : 'hourly'}
                             xTickFormat={showDailyChart ? d3.timeFormat("%b %d") : d => `${d}:00`}
+                            selectedDate={selectedDate}
+                            selectedTime={selectedTime}
                         />
                     </div>
                     )}
