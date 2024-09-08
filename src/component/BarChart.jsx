@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Dropdown, Card, Row, Col, Button, Container, Modal } from 'react-bootstrap';
 import * as d3 from 'd3';
-function BarChart({ csvLocation, chartX, chartY, chartType, xTickFormat }) {
+function BarChart({ csvLocation, chartX, chartY, chartType, xTickFormat, selectedDate, selectedTime }) {
     const svgRef = useRef();
     const [data, setData] = useState([]);
 
@@ -89,7 +89,20 @@ function BarChart({ csvLocation, chartX, chartY, chartType, xTickFormat }) {
         g.selectAll(".bar")
             .data(data)
             .enter().append("rect")
-            .attr("class", "chart_bar")
+            //.attr("class", "chart_bar")
+            .attr("class", function (d) {
+
+                const formattedDate = d3.timeFormat("%-m/%-d/%Y")(new Date(selectedDate));
+                const formattedTime = Number(d3.timeFormat('%-H')(new Date(selectedTime)))
+
+                console.log(formattedTime, d[chartX]);
+                if (chartType === 'hourly' && Number(d[chartX]) === formattedTime) {
+                    return "chart_bar_selected";
+                } else if (chartType === 'daily' && d3.timeFormat("%-m/%-d/%Y")(new Date(d[chartX])) === formattedDate) {
+                    return "chart_bar_selected";
+                }
+                return "chart_bar";
+            })
             .attr("x", d => x(d[chartX]))
             .attr("y", d => y(d[chartY]))
             .attr("width", x.bandwidth())
@@ -108,7 +121,7 @@ function BarChart({ csvLocation, chartX, chartY, chartType, xTickFormat }) {
                 d3.selectAll(".chart_hover").remove();
             });
 
-    }, [data, chartX, chartY]);
+    }, [data, chartX, chartY, selectedDate, selectedTime]);
 
     return (
         <svg ref={svgRef} width={window.innerWidth} className="svg-chart" height="33vh"></svg>

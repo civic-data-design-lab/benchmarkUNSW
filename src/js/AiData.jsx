@@ -32,6 +32,8 @@ function AiData() {
     const [index2Name, setIndex2Name] = useState(0);
     const [index3, setIndex3] = useState(0);
     const [index3Name, setIndex3Name] = useState(0);
+    const [selectedDate, setSelectedDate] = useState("7/8/2024");
+    const [selectedTime, setSelectedTime] = useState(new Date(2024, 6, 8, 6, 0));
 
     // Update Content Dynamically
     //#region update CSV
@@ -148,6 +150,8 @@ function AiData() {
 
     const handleDateTimeChange = (date, time) => {
         //console.log('Date:', date, 'Time:', time);
+        setSelectedDate(date);
+        setSelectedTime(time);
         fetchData(date, time);
     };
 
@@ -252,6 +256,8 @@ function AiData() {
                         chartY={showDailyChart ? 'daily' : 'hourly'}
                         chartType={showDailyChart ? 'daily' : 'hourly'}
                         xTickFormat={showDailyChart ? d3.timeFormat("%b %d") : d => `${d}:00`}
+                        selectedDate={selectedDate}
+                        selectedTime={selectedTime}
                     />
                 </div>
                 </>

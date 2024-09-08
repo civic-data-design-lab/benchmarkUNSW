@@ -38,11 +38,17 @@
     stroke-width: 0.1rem;
 }
 
-.chart_bar:hover {
-    fill: var(--primary-dark);
-    cursor: pointer;
-}
+    .chart_bar:hover, .chart_bar_selected:hover {
+        fill: var(--primary-dark);
+        cursor: pointer;
+    }   
 
+.chart_bar_selected {
+    color: var(--primary-dark);
+    fill: white;
+    stroke: black;
+    stroke-width: 0.1rem;
+}
 /*#endregion */
 
 
