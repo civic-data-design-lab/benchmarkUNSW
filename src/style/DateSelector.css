@@ -1,0 +1,97 @@
+/* Customizing Bootstrap .btn-outline-danger */
+.btn-outline-danger {
+  --bs-btn-color: #ff2551; /* Default text color */
+  --bs-btn-border-color: #ffffff; /* Default border color */
+  --bs-btn-hover-color: #ffffff; /* Text color on hover */
+  --bs-btn-hover-bg: #ff2551; /* Background color on hover */
+  --bs-btn-hover-border-color: #ff2551; /* Border color on hover */
+  --bs-btn-active-color: #ffffff; /* Text color when active */
+  --bs-btn-active-bg: #ff2551; /* Background color when active */
+  --bs-btn-active-border-color: #ff2551; /* Border color when active */
+  --bs-btn-focus-shadow-rgb: 255, 37, 81; /* Focus shadow */
+  background-color: #ffffff;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0px 4px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-danger:hover {
+  background-color: #ff2551; /* Custom hover background */
+  color: #ffffff; /* Custom hover text color */
+}
+
+.btn-outline-danger:focus {
+  /* box-shadow: 0 0 0 0.25rem rgba(255, 37, 81, 0.5); Custom focus shadow */
+}
+
+/* The slider itself */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px; /* The height of the slider element (container) */
+  outline: none;
+  opacity: 1;
+}
+
+/* Slider track (center line) */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px; /* Thin center line */
+  cursor: pointer;
+  background: #fb718d; /* Background color of the track */
+  border-radius: 5px; /* Optional: Add rounded corners to the line */
+}
+
+/* Slider thumb (the circle you drag) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #ff2551; /* Circle color */
+  cursor: pointer;
+  border-radius: 50%;
+  margin-top: -7px; /* Align the thumb vertically with the center line */
+}
+
+/* Firefox support for thumb */
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #ff2551;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-top: -7px; /* Align the thumb vertically with the center line */
+}
+
+/* Labels below the slider */
+.slider-label {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Nova Mono", monospace;
+  color: #ff2551;
+  font-size: 14px;
+}
+
+.dropdown-menu.show {
+  max-height: 10rem; /* Limit the dropdown height to display only a few items */
+  overflow-y: scroll; /* Enable vertical scrolling for overflowing content */
+  width: 100%; /* Set the width to match the parent element */
+  border: none;
+  background-color: rgb(255, 255, 255);
+  margin-top: 5px;
+  border-radius: 20px;
+  z-index: 1000; /* Ensure dropdown is on top of other elements */
+}
+
+.custom-dropdown-item {
+  color: #ff2551 !important; /* Set text color when hovering */
+  background-color: #c73451 !important; /* Optional: change background on hover */
+}
+
+.custom-dropdown-item {
+  color: #ff2551 !important; /* Set text color to white */
+  background-color: transparent !important; /* Ensure background stays transparent */
+  border: none !important; /* Remove default border */
+  z-index: 1000 !important; /* Ensure dropdown is on top of other elements */
+}

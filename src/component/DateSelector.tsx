@@ -1,189 +1,206 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { Slider, FormControl, InputLabel, Select, MenuItem, Button } from "@mui/material";
-import PauseIcon from '@mui/icons-material/Pause';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import React, { useState, useEffect } from "react";
+import { Button, DropdownButton, Dropdown } from "react-bootstrap";
+import { PauseFill, PlayFill } from "react-bootstrap-icons";
+import "../style/DateSelector.css";
+import WeatherVertical from "./WeatherVertical";
 
-function convertNumberToHour(number: number): string {
-    const hours = Math.floor(number);
-    const minutes = Math.round((number - hours) * 60);
-
-    const formattedHours = (hours % 12).toString().padStart(2, '0');
-    const meridiemSuffix: string = number > 12 ? 'PM' : 'AM'
-
-    return `${formattedHours}:00 ${meridiemSuffix}`;
+// Helper functions to format date and time
+function convertNumberToHour(number) {
+  const hours = Math.floor(number);
+  const formattedHours = (hours === 0 ? 12 : hours % 12)
+    .toString()
+    .padStart(2, "0");
+  const meridiemSuffix = hours >= 12 ? "PM" : "AM";
+  return `${formattedHours}:00 ${meridiemSuffix}`;
 }
 
-function dateToString(date: Date): string {
-    const day: number = date.getDate()
-    const month = date.toLocaleString('default', { month: 'long' })
-    const year: number = date.getFullYear()
-
-    const formattedDate = `${month} ${day}`;
-
-    return formattedDate
-
+function dateToString(date) {
+  const day = date.getDate();
+  const month = date.toLocaleString("default", { month: "long" });
+  return `${month} ${day}`;
 }
 
+function formatDateForValue(date) {
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const day = date.getDate().toString().padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+// TimeSlider component
 const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
-    const [value, setValue] = useState<number>(0);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-    const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  useEffect(() => {
+    let interval = null;
+    if (isPlaying) {
+      interval = setInterval(() => {
+        setCurrentHour((prev) => (prev >= 23 ? 6 : prev + 1));
+      }, 200);
+    } else if (!isPlaying && interval) {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [isPlaying, setCurrentHour]);
 
-    useEffect(() => {
-        let interval: NodeJS.Timeout | null = null;
+  useEffect(() => {
+    setTargetHour(currentHour);
+  }, [currentHour, setTargetHour]);
 
-        if (isPlaying) {
-            interval = setInterval(() => {
-                setCurrentHour((prevValue) => {
-                    // If slider reaches the maximum value, stop playing
-                    if (prevValue >= 24) {
-                        return 6;
-                    }
-                    return prevValue + 1;
-                });
-                setTargetHour((prevValue) => {
-                    // If slider reaches the maximum value, stop playing
-                    if (prevValue >= 24) {
-                        setIsPlaying(false);
-                        return 6;
-                    }
-                    return prevValue + 1;
-                });
-            }, 100); // Adjust the speed as needed
-        } else if (!isPlaying && interval !== null) {
-            clearInterval(interval);
-        }
+  const handleSliderChange = (event) =>
+    setCurrentHour(Number(event.target.value));
+  const togglePlay = () => setIsPlaying(!isPlaying);
 
-        return () => {
-            if (interval) {
-                clearInterval(interval);
-            }
-        };
-    }, [isPlaying]);
-
-    const handleSliderChange = (event) => {
-        setCurrentHour(event.target.value);
-        setTargetHour(parseInt(event.target.value))
-    };
-
-    const togglePlay = () => {
-        setIsPlaying(!isPlaying);
-    };
-
-    return (
-        <div style={{
-            width: '80%'
-        }}>
-            <Slider
-                aria-label="Time"
-                defaultValue={currentHour}
-                valueLabelDisplay="on"
-                step={1}
-                onChange={handleSliderChange}
-                style={{
-                    color: '#FF2551'
-                }}
-                marks
-                min={6}
-                max={24}
-            />
-            <Button
-                onClick={togglePlay}
-                style={{ backgroundColor: '#FF2551' }}
-                variant="contained"
-                startIcon={isPlaying ? <PauseIcon /> : <PlayArrowIcon />}
-            >
-            </Button>
-        </div>
-    );
-}
-
-function DateDropdown({ setTargetDate, startDate, currentHour }) {
-    const [selectedDate, setSelectedDate] = useState(''); // Initial state for the selected date
-
-    // Generate an array of dates (e.g., for the current month)
-    const generateDates = (startDate: string, numberOfDays: number) => {
-        const dates: Array<Date> = [];
-        for (let i = 0; i < numberOfDays; i++) {
-            const date: Date = new Date(startDate);
-            date.setDate(date.getDate() + i);
-            dates.push(date)
-        }
-        return dates;
-    };
-
-    const dates = generateDates(startDate, 10); // Example: Generate dates for the next 30 days
-
-    const handleDateChange = (event) => {
-        setSelectedDate(event.target.value);
-        setTargetDate(event.target.value)
-    };
-
-    return (
-        <div
-            className="nova-mono-regular "
+  return (
+    <div className="container-fluid" style={{ width: "100%", padding: "0px" }}>
+      <div className="row align-items-center">
+        {/* Button with a width of 2 columns */}
+        <div className="col-2 d-flex">
+          <Button
+            onClick={togglePlay}
+            variant="danger"
             style={{
-                display: "flex",
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: '80%',
+              backgroundColor: "#FF2551",
+              border: "none",
+              borderRadius: "50%",
             }}
-        >
-
-            <FormControl fullWidth>
-                <InputLabel id="time-selector-label"
-                    style={{
-                        fontFamily: '"Nova Mono", monospace',
-                        color: '#FF2551',
-
-                    }}>Date</InputLabel>
-                <Select
-                    labelId="time-selector-label"
-                    id="time-selector"
-                    value={selectedDate}
-                    label="Date"
-                    onChange={handleDateChange}
-                    style={{
-                        fontFamily: '"Nova Mono", monospace',
-                        color: '#FF2551',
-                        backgroundColor: '#ffffff',
-                        borderRadius: '1.5rem',
-
-                    }}
-                >
-                    {dates.map((date, index) => (
-                        <MenuItem key={index} value={date.toISOString()}
-                            style={{ fontFamily: '"Nova Mono", monospace', color: '#FF2551', textAlign: 'center' }}>
-                            {`${dateToString(date)}, ${convertNumberToHour(currentHour)}`}
-                        </MenuItem>
-                    ))}
-
-
-                </Select>
-            </FormControl>
+          >
+            {isPlaying ? <PauseFill /> : <PlayFill />}
+          </Button>
         </div>
-    );
-}
-const DateSelector = ({ setTargetHour, setTargetDate, startDate }) => {
-    const [hour, setHour] = useState(0); // Initial state set to 0
-    return (
-        <div
-            style={{
-                zIndex: 3,
-                position: 'relative',
-                backgroundColor: '#FFDAE2',
-                padding: '1rem',
-                display: "flex",
-                flexDirection: "column",
-                alignItems: 'center',
-                gap: '2rem'
 
-            }}>
-            <DateDropdown setTargetDate={setTargetDate} startDate={startDate} currentHour={hour} />
-            <TimeSlider setTargetHour={setTargetHour} setCurrentHour={setHour} currentHour={hour} />
-
+        {/* Slider with a width of 10 columns */}
+        <div className="col-10">
+          <input
+            type="range"
+            className="form-range"
+            value={currentHour}
+            min={6}
+            max={23}
+            step={1}
+            onChange={handleSliderChange}
+          />
+          <div
+            className="slider-label d-flex justify-content-between"
+            style={{ fontSize: "12px" }}
+          >
+            {" "}
+            <span>6:00</span>
+            <span>24:00</span>
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  );
+};
+
+// DateDropdown component
+function DateDropdown({ setTargetDate, currentHour }) {
+  const [selectedDate, setSelectedDate] = useState(
+    formatDateForValue(new Date(2024, 6, 10))
+  );
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const generateDates = () => {
+    const dates = [];
+    let startDate1 = new Date(2024, 6, 10);
+    let endDate1 = new Date(2024, 6, 16);
+    while (startDate1 <= endDate1) {
+      dates.push(new Date(startDate1));
+      startDate1.setDate(startDate1.getDate() + 1);
+    }
+    let startDate2 = new Date(2024, 6, 24);
+    let endDate2 = new Date(2024, 7, 6);
+    while (startDate2 <= endDate2) {
+      dates.push(new Date(startDate2));
+      startDate2.setDate(startDate2.getDate() + 1);
+    }
+    return dates;
+  };
+
+  const dates = generateDates();
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    setTargetDate(date);
+  };
+
+  const handleDropdownToggle = (isOpen) => {
+    setIsDropdownOpen(isOpen); // Track dropdown state for styling
+  };
+
+  return (
+    <div
+      className="w-100"
+      style={{
+        transition: "height 0.3s ease", // Smooth height transition
+        height: isDropdownOpen ? "205px" : "50px", // Change height when open
+        overflow: "hidden", // Prevent overflow when collapsed
+      }}
+    >
+      <DropdownButton
+        id="date-dropdown"
+        title={`${dateToString(
+          new Date(
+            new Date(selectedDate).setDate(new Date(selectedDate).getDate() + 1)
+          )
+        )}, ${convertNumberToHour(currentHour || 6)}`}
+        variant="outline-danger"
+        style={{
+          backgroundColor: "#FFDAE2",
+          border: "none",
+          color: "#FF2551",
+        }}
+        onToggle={handleDropdownToggle}
+      >
+        {dates.map((date, index) => (
+          <Dropdown.Item
+            key={index}
+            className="custom-dropdown-item"
+            onClick={() => handleDateChange(formatDateForValue(date))}
+          >
+            {`${dateToString(date)}, ${convertNumberToHour(currentHour || 6)}`}
+          </Dropdown.Item>
+        ))}
+      </DropdownButton>
+    </div>
+  );
 }
-export default DateSelector
+
+// DateSelector component with 2x2 grid layout
+const DateSelector = ({
+  setTargetHour,
+  setTargetDate,
+  targetDate,
+  targetHour,
+}) => {
+  const [hour, setHour] = useState(0);
+
+  return (
+    <div style={{ backgroundColor: "#FFDAE2", padding: "10px", width: "100%" }}>
+      {/* First row with WeatherVertical and DateDropdown */}
+      <div className="row">
+        <div className="col-md-6" style={{ marginBottom: "20px" }}>
+          <WeatherVertical targetDate={targetDate} targetHour={targetHour} />
+        </div>
+        <div className="col-md-6">
+          <DateDropdown setTargetDate={setTargetDate} currentHour={hour} />
+        </div>
+      </div>
+
+      {/* Second row with TimeSlider */}
+      <div className="row mt-2">
+        <div className="col-md-12">
+          <TimeSlider
+            setTargetHour={setTargetHour}
+            setCurrentHour={setHour}
+            currentHour={hour}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DateSelector;

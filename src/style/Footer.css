@@ -1,0 +1,18 @@
+.footer {
+  background-color: #ff2551; /* Background color */
+  height: 3vh; /* Set the height of the footer */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.footer .container {
+  display: flex;
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+}
+
+.footer-text {
+  color: #ffdae2; /* Text color */
+  font-size: 10px;
+}

@@ -1,0 +1,28 @@
+.weather-card {
+  background-color: #ff2551; /* Bright pink background */
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.8rem;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* Center the card content horizontally */
+  align-items: center; /* Center the card content vertically */
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: row; /* Arrange items in a row (horizontally) */
+  align-items: center; /* Vertically center the icon and text */
+  justify-content: center; /* Distribute space evenly between icon and text */
+  width: 100%; /* Ensure the container takes up the full width */
+  padding: 0 0px; /* Add some padding to the left and right */
+}
+
+.weather-info p {
+  margin: 0px 10px; /* Remove any default margin */
+}
+
+.weather-info img {
+  margin: 0px 10px; /* Add a small space to the right of the icon */
+}

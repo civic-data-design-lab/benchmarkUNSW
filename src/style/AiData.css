@@ -1,130 +1,133 @@
 .aidata-page {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+  padding-top: 3rem;
+  /* padding-bottom: 5rem; */
+  background-color: #fdb5c5;
 }
-
 
 .aidata_activation_svg {
-    color: var(--primary-dark);
+  color: var(--primary-dark);
 }
 
-
-.aidata-slider{
-    padding: 2.5rem 0rem 2.5rem 0rem;
+.aidata-slider {
+  padding: 2rem 2rem 2rem 2rem;
 }
 
 /*#region modal*/
-.modal-content{
-    background-color: var(--primary-light);
-    color: var(--primary-dark);
-    border-radius: var(--primary-border-radius);
-    border: var(--primary-border);
+.modal-content {
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  border-radius: var(--primary-border-radius);
+  border: var(--primary-border);
 }
 
 .modal-button {
-    background-color: var(--primary-light);
-    color: var(--primary-dark);
-    border-radius: var(--primary-border-radius);
-    margin: var(--padding-tb-lg);
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  border-radius: var(--primary-border-radius);
+  margin: var(--padding-tb-lg);
 }
 
 /*#endregion */
 
 /*#region chart*/
 .chart_bar {
-    color: var(--primary-dark);
-    fill: white;
-    stroke: var(--primary-dark);
-    stroke-width: 0.1rem;
+  color: var(--primary-dark);
+  fill: white;
+  stroke: var(--primary-dark);
+  stroke-width: 0.1rem;
 }
 
-    .chart_bar:hover, .chart_bar_selected:hover {
-        fill: var(--primary-dark);
-        cursor: pointer;
-    }   
+.row {
+  --bs-gutter-x: 0rem;
+}
+
+.chart_bar:hover,
+.chart_bar_selected:hover {
+  fill: var(--primary-dark);
+  cursor: pointer;
+}
 
 .chart_bar_selected {
-    color: var(--primary-dark);
-    fill: white;
-    stroke: black;
-    stroke-width: 0.1rem;
+  color: var(--primary-dark);
+  fill: white;
+  stroke: black;
+  stroke-width: 0.1rem;
 }
 /*#endregion */
-
 
 /*#region button*/
 .chart_button {
-    background-color: var(--primary-medium);
-    padding: 1rem 2.5rem 1rem 2.5rem;
+  background-color: var(--primary-medium);
+  padding: 1rem 2.5rem 1rem 2.5rem;
 }
 
 .chart_button.btn {
-    background-color: var(--primary-light);
-    display: inline-flex;
-    color: var(--primary-dark);
-    border: var(--primary-border);
-    padding: 0.25rem 2.5rem 0.25rem 2.5rem;
-    border-radius: var(--primary-border-radius);
+  background-color: var(--primary-light);
+  display: inline-flex;
+  color: var(--primary-dark);
+  border: var(--primary-border);
+  padding: 0.25rem 2.5rem 0.25rem 2.5rem;
+  border-radius: var(--primary-border-radius);
 }
 
 .chart_button.btn:hover {
-    background-color: var(--primary-dark);
-    color: var(--primary-light);
-    border: var(--primary-border);
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
+  border: var(--primary-border);
 }
 
 .chart_button.btn:active {
-    background-color: var(--primary-dark);
-    color: var(--primary-light);
-    border: var(--primary-border);
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
+  border: var(--primary-border);
 }
 
 .chart_button_active {
-    background-color: var(--primary-dark);
-    color: var(--primary-light);
-    border: var(--primary-border);
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
+  border: var(--primary-border);
 }
 /*#endregion */
 
-
 /*#region dropdown*/
-.btn:first-child:active, :not(.btn-check) + .btn:active{
-    background-color: var(--primary-dark);
+.btn:first-child:active,
+:not(.btn-check) + .btn:active {
+  background-color: var(--primary-dark);
 }
 
 .custom-dropdown .dropdown-toggle {
-    background-color: var(--primary-dark);
-    color: var(--primary-light);
-    border-radius: var(--primary-border-radius);
-    border: none;
-    padding: 0.25rem 2.5rem 0.25rem 2.5rem;
-    margin: 0;
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
+  border-radius: var(--primary-border-radius);
+  border: none;
+  padding: 0.25rem 2.5rem 0.25rem 2.5rem;
+  margin: 0;
 }
 
 .custom-dropdown .dropdown-item {
-    color: var(--primary-dark);
+  color: var(--primary-dark);
 }
 
 .custom-dropdown .dropdown-item:hover {
-    background-color: var(--primary-dark);
-    color: var(--primary-light);
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
 }
 
 .custom-dropdown .dropdown-item:active {
-    background-color: var(--primary-medium);
+  background-color: var(--primary-medium);
 }
 
 .dropdown-item {
-    border-radius: var(--primary-border-radius);
-    border: var(--primary-border);
-    background-color: var(--primary-light);
-    margin: 0.1rem 0rem 0.1rem 0rem;
-    padding: 0.25rem 2.5rem 0.25rem 2.5rem;
-    text-align: center;
+  border-radius: var(--primary-border-radius);
+  border: var(--primary-border);
+  background-color: var(--primary-light);
+  margin: 0.1rem 0rem 0.1rem 0rem;
+  padding: 0.25rem 2.5rem 0.25rem 2.5rem;
+  text-align: center;
 }
 
 .dropdown-menu {
-    background-color: transparent;
-    border:none;
+  background-color: transparent;
+  border: none;
 }
 /*#endregion*/

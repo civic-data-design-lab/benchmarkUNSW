@@ -1,112 +1,113 @@
 .about-page {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 /*#region background*/
 .light-bg {
-    background-color: var(--primary-light);
-    color: var(--primary-dark);
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
 }
 .medium-bg {
-    background-color: var(--primary-medium);
-    color: var(--primary-dark);
+  background-color: var(--primary-medium);
+  color: var(--primary-dark);
 }
 .dark-bg {
-    background-color: var(--primary-dark);
-    color: var(--primary-light);
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
 }
 /*#endregion */
 
 /*#region margin padding*/
-p, .about-hr {
-    margin: 0;
+p,
+.about-hr {
+  margin: 0;
 }
 
 .about-head {
-    display: inline-flex;
-    padding: 0.25rem 2.5rem 0.25rem 2.5rem;
-    margin: 1rem 2.5rem 1rem 2.5rem;
-    border-radius: 2rem;
+  display: inline-flex;
+  padding: 0.25rem 2.5rem 0.25rem 2.5rem;
+  margin: 1rem 2.5rem 1rem 2.5rem;
+  border-radius: 2rem;
 }
 .about-p {
-    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
-    margin: 1rem 2.5rem 1rem 2.5rem;
-    border-radius: 2rem;
+  padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+  margin: 1rem 2.5rem 1rem 2.5rem;
+  border-radius: 2rem;
 }
 
 .about-p2 {
-    padding: 2.5rem 5rem 2.5rem 5rem;
-    margin: 1rem 0rem 1rem 0rem;
+  padding: 2.5rem 5rem 2.5rem 5rem;
+  margin: 1rem 0rem 1rem 0rem;
 }
 
 .about-p3 {
-    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
-    margin: 1rem 2.5rem 1rem 2.5rem;
-    border-radius: 2rem;
+  padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+  margin: 1rem 2.5rem 1rem 2.5rem;
+  border-radius: 2rem;
 }
 
 .about-p4 {
-    padding: 2rem 5rem 2rem 5rem;
-    margin: 0rem 0rem 0rem 0rem;
+  padding: 2rem 5rem 2rem 5rem;
+  margin: 0rem 0rem 0rem 0rem;
 }
 
 .about-p5 {
-    padding: 1rem 5rem 1rem 5rem;
-    margin: 0rem 0rem 0rem 0rem;
+  padding: 1rem 5rem 1rem 5rem;
+  margin: 0rem 0rem 0rem 0rem;
 }
 
 .about-p6 {
-    padding: 1rem 2.5rem 1rem 2.5rem;
-    margin: 1rem 2.5rem 1rem 2.5rem;
-    border-radius: 2rem;
-    border: 2px solid var(--primary-dark);
+  padding: 1rem 2.5rem 1rem 2.5rem;
+  margin: 1rem 2.5rem 1rem 2.5rem;
+  border-radius: 2rem;
+  border: 2px solid var(--primary-dark);
 }
 
-.about-p7{
-    padding: 1rem 0rem 1rem 0rem;
+.about-p7 {
+  padding: 1rem 0rem 1rem 0rem;
 }
 
 .about-dtpr {
-    padding: 0rem 0rem 1rem 0rem;
+  padding: 4rem 0rem 1rem 0rem;
 }
 
 /*#endregion */
 
 /*#region text*/
 .about-title {
-    font-size: var(--primary-title);)
+  font-size: var(--primary-title);
 }
 
 .about-subtitle {
-    font-size: var(--primary-subtitle);
+  font-size: var(--primary-subtitle);
 }
 .about-txt {
-    font-size: var(--primary-txt);
+  font-size: var(--primary-txt);
 }
 .about-subtxt {
-    font-size: var(--primary-subtxt);
+  font-size: var(--primary-subtxt);
 }
 .about-desc {
-    font-size:var(--primary-desc);
+  font-size: var(--primary-desc);
 }
 /*#endregion */
 
 /*#region hover*/
 .about-dtpr-desc {
-    display: none;
+  display: none;
 }
 
 .about-dtpr-sub:hover .about-dtpr-desc {
-    display: block;
+  display: block;
 }
 
 .about-dtpr-sub:hover .about-subtxt {
-    background-color: var(--primary-dark);
-    color: var(--primary-light);
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
 }
 
 .about-dtpr-sub:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 /*#endregion */
