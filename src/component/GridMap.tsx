@@ -144,7 +144,49 @@ const GridMap: React.FC<GridProps> = ({
     // Remove any existing content before rendering
     svg.selectAll("*").remove();
 
+    if (shadowGeoData) {
+      svg
+        .append("g")
+        .attr("transform", "rotate(-10)")
+        .selectAll("path")
+        .data(shadowGeoData.features)
+        .enter()
+        .append("path")
+        .attr("d", path)
+        .attr("fill", "#808080")
+        .attr("fill-opacity", 0.01)
+        .attr("stroke", "none")
+        .attr("stroke-width", 0.5);
+    }
+
     // if (shadowGeoData) {
+    //   // Define the pattern in the <defs> section
+    //   const defs = svg.append("defs");
+
+    //   defs
+    //     .append("pattern")
+    //     .attr("id", "shadowPattern")
+    //     .attr("patternUnits", "userSpaceOnUse")
+    //     .attr("width", 10) // Width of the pattern tile
+    //     .attr("height", 10) // Height of the pattern tile
+    //     .append("rect") // Define the shape of the pattern (e.g., lines, dots, etc.)
+    //     .attr("width", 10)
+    //     .attr("height", 10)
+    //     .attr("fill", "#808080");
+
+    //   // Optionally, add a diagonal line pattern
+    //   defs
+    //     .append("pattern")
+    //     .attr("id", "diagonalStripes")
+    //     .attr("patternUnits", "userSpaceOnUse")
+    //     .attr("width", 4)
+    //     .attr("height", 4)
+    //     .append("path")
+    //     .attr("d", "M 0,4 l 4,-4") // Diagonal line
+    //     .attr("stroke", "#808080")
+    //     .attr("stroke-width", 1);
+
+    //   // Apply the pattern to the fill of the shadow polygons
     //   svg
     //     .append("g")
     //     .attr("transform", "rotate(-10)")
@@ -153,8 +195,8 @@ const GridMap: React.FC<GridProps> = ({
     //     .enter()
     //     .append("path")
     //     .attr("d", path)
-    //     .attr("fill", "#808080")
-    //     .attr("fill-opacity", 0.01)
+    //     .attr("fill", "url(#diagonalStripes)") // Use the pattern ID here
+    //     .attr("fill-opacity", 0.5)
     //     .attr("stroke", "none")
     //     .attr("stroke-width", 0.5);
     // }
@@ -177,8 +219,8 @@ const GridMap: React.FC<GridProps> = ({
       .append("image")
       .attr("transform", "rotate(-10)")
       .attr("xlink:href", () => treeIcon)
-      .attr("x", svgWidth * 0.2)
-      .attr("y", svgHeight * 0.63)
+      .attr("x", projection([151.22859788, -33.91781167])[0] - 50)
+      .attr("y", projection([151.22859788, -33.91781167])[1] - 50)
       .attr("width", 100) // Radius of the point
       .attr("height", 100) // Radius of the point
       .attr("fill", "#FF2551") // Color of the point
@@ -189,15 +231,15 @@ const GridMap: React.FC<GridProps> = ({
       .append("image")
       .attr("transform", "rotate(-10)")
       .attr("xlink:href", () => treeIcon)
-      .attr("x", svgWidth * 0.7)
-      .attr("y", svgHeight * 0.7)
+      .attr("x", projection([151.22863602, -33.91781669])[0] - 50)
+      .attr("y", projection([151.22863602, -33.91781669])[1] - 50)
       .attr("width", 100) // Radius of the point
       .attr("height", 100) // Radius of the point
       .attr("fill", "#FF2551") // Color of the point
       .attr("stroke", "none")
       .attr("stroke-width", 0.5);
 
-    // console.log("Bench Data: ", hourlyBenchData.features);
+    console.log("Bench Data: ", hourlyBenchData.features);
 
     svg
       .append("g")
@@ -206,8 +248,14 @@ const GridMap: React.FC<GridProps> = ({
       .data(hourlyBenchData.features)
       .enter()
       .append("image")
-      .attr("x", (d) => projection(d.geometry.coordinates)[0])
-      .attr("y", (d) => projection(d.geometry.coordinates)[1])
+      .attr(
+        "x",
+        (d) => projection(d.geometry.coordinates)[0] - (benchLength * 1.7) / 2
+      )
+      .attr(
+        "y",
+        (d) => projection(d.geometry.coordinates)[1] - (benchLength * 1.7) / 2
+      )
       .attr("xlink:href", () => benchIcon)
       .attr("width", benchLength * 1.7) // Radius of the point
       .attr("height", benchLength * 1.7) // Radius of the point
@@ -270,7 +318,7 @@ const GridMap: React.FC<GridProps> = ({
       <svg
         ref={svgRef}
         width={width * 1}
-        height={height * 0.6}
+        height={height * 0.7}
         viewBox={`${width * 0.1} ${10} ${width * 1.05} ${height * 0.6}`}
       >
         {/* Grid will be rendered here */}

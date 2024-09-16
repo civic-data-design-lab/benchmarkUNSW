@@ -21,7 +21,7 @@ import DateSelector from "../component/DateSelector";
 function AiData() {
   const [activeModal, setActiveModal] = useState(null);
   const [showDailyChart, setShowDailyChart] = useState(true);
-  const [selectedOption, setSelectedOption] = useState("Social Interaction");
+  const [selectedOption, setSelectedOption] = useState("Socializing");
   const [data, setData] = useState([]);
   const [index, setIndex] = useState(0);
   const [indexName, setIndexName] = useState("");
@@ -63,13 +63,13 @@ function AiData() {
   const getCsvLocation = () => {
     let basePath = "";
     switch (selectedOption) {
-      case "Social Interaction":
+      case "Socializing":
         basePath = "/data/socializing_graph/";
         break;
-      case "Space Activation":
+      case "Staying":
         basePath = "/data/activation_graph/";
         break;
-      case "Benches":
+      case "Sitting":
         basePath = "/data/bench_graph/";
         break;
       default:
@@ -82,11 +82,11 @@ function AiData() {
   //#region update images
   const getImages = () => {
     switch (selectedOption) {
-      case "Social Interaction":
+      case "Socializing":
         return [social1, social2, social3];
-      case "Space Activation":
+      case "Staying":
         return [dwell1, dwell2, dwell3];
-      case "Benches":
+      case "Sitting":
         return [bench1, bench2, bench3];
       default:
         return [social1, social2, social3];
@@ -98,11 +98,11 @@ function AiData() {
   //#region update name
   const getTextForSelection = () => {
     switch (selectedOption) {
-      case "Social Interaction":
+      case "Socializing":
         return "High Social Index Rate Formations";
-      case "Space Activation":
+      case "Staying":
         return "Top 3 Dwell Index Maps";
-      case "Benches":
+      case "Sitting":
         return "Top 3 Seating Index Maps";
       default:
         return "High Social Index Rate Formations";
@@ -231,13 +231,9 @@ function AiData() {
               {selectedOption}
             </Dropdown.Toggle>
             <Dropdown.Menu className="w-100">
-              <Dropdown.Item eventKey="Social Interaction">
-                Social Interaction
-              </Dropdown.Item>
-              <Dropdown.Item eventKey="Space Activation">
-                Space Activation
-              </Dropdown.Item>
-              <Dropdown.Item eventKey="Benches">Benches</Dropdown.Item>
+              <Dropdown.Item eventKey="Socializing">Socializing</Dropdown.Item>
+              <Dropdown.Item eventKey="Staying">Staying</Dropdown.Item>
+              <Dropdown.Item eventKey="Sitting">Sitting</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </div>
