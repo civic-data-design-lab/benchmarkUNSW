@@ -2,6 +2,16 @@ import React from "react";
 import "../style/Font.css";
 import "../style/About.css";
 import "../style/Main.css";
+import deIDvideoIcon from '../assets/Symbols/De-identified vedio.svg';
+import personDetectionIcon from '../assets/Symbols/Persondetection.svg';
+import encryptedIcon from '../assets/Symbols/Encrypted.svg';
+import accessIcon from '../assets/Symbols/Access.svg';
+import aiIcon from '../assets/Symbols/Artificial Intelligent.svg';
+import motionDetectionIcon from '../assets/Symbols/Motion detector.svg';
+import planningIcon from '../assets/Symbols/Planning & Decision-making.svg';
+import RandDIcon from '../assets/Symbols/Research & Development.svg';
+import reviewedInternallyIcon from '../assets/Symbols/Reviewed internally.svg';
+import cloudStorageIcon from '../assets/Symbols/CloudStorage.svg';
 
 function About() {
   return (
@@ -36,7 +46,7 @@ function About() {
       {/*Section 2*/}
       <section id="data-analysis" className="nova-mono-regular">
         <div className="about-head light-bg">
-          <p className="about-title">Data Analysis Result</p>
+          <p className="about-title">Data Analysis Results</p>
         </div>
         <div className="about-p light-bg">
           <p className="about-txt">
@@ -85,8 +95,6 @@ function About() {
           <p className="about-subtitle">UNSW SYDNEY</p>
           <p className="about-subtxt">Gonzalo Portas</p>
           <p className="about-subtxt">Mariano Ramirez</p>
-          <p className="about-subtxt">Lorem Ipsum</p>
-          <p className="about-subtxt">Lorem Ipsum</p>
         </div>
         <div className="about-p3 light-bg">
           <p className="about-subtitle">SYDNEY DOT</p>
@@ -98,6 +106,7 @@ function About() {
       </section>
 
       {/*Section 5*/}
+      
       <section id="dtpr" className="nova-mono-regular">
         <div className="medium-bg about-dtpr">
           {/*1*/}
@@ -106,12 +115,13 @@ function About() {
           </div>
           <div className="about-p5">
             <p className="about-subtitle">
-              What type of technology is this? Gabriela
+              What type of technology is this?
             </p>
           </div>
           <div className="about-p6 light-bg">
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">De-Identified Video</p>
+            <p className="about-subtxt">  <img src={deIDvideoIcon} alt="Deidentified Video" className="svg-icon2" />
+              De-Identified Video </p>
               <p className="about-desc about-dtpr-desc">
                 Collects video footage of a sufficient resolution where
                 individuals can be identified, for example by capturing images
@@ -124,7 +134,8 @@ function About() {
             </div>
             <hr className="about-hr"></hr>
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">Person Detection</p>
+              <p className="about-subtxt">  <img src={personDetectionIcon} alt="Person Detection" className="svg-icon2" />
+                Person Detection</p>
               <p className="about-desc about-dtpr-desc">
                 Refers to a system that can detect the presence of humans in
                 images or videos, and identify where they are located or how
@@ -135,7 +146,8 @@ function About() {
             </div>
             <hr className="about-hr"></hr>
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">Motion Detector</p>
+              <p className="about-subtxt"> <img src={motionDetectionIcon} alt="Motion Detection" className="svg-icon2" />
+                Motion Detector</p>
               <p className="about-desc about-dtpr-desc">
                 Is a sensor that detects the movement of nearby objects. This
                 project uses motion detection only for lighting and does not
@@ -151,7 +163,8 @@ function About() {
           </div>
           <div className="about-p6 light-bg">
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">Planning & Decision-making</p>
+              <p className="about-subtxt"> <img src={planningIcon} alt="Planning" className="svg-icon2" />
+                Planning & Decision-making</p>
               <p className="about-desc about-dtpr-desc">
                 Supports the development of future plans; or to enable or
                 measure the impact of a decision. Examples include urban
@@ -160,7 +173,8 @@ function About() {
             </div>
             <hr className="about-hr"></hr>
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">Research & Development</p>
+              <p className="about-subtxt"> <img src={RandDIcon} alt="R & D" className="svg-icon2" />
+                Research & Development</p>
               <p className="about-desc about-dtpr-desc">
                 Supports exploratory research and testing.
               </p>
@@ -172,7 +186,8 @@ function About() {
           </div>
           <div className="about-p6 light-bg">
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">Artificial Intelligence</p>
+              <p className="about-subtxt"> <img src={aiIcon} alt="Artificial Intelligence" className="svg-icon2" />
+                Artificial Intelligence</p>
               <p className="about-desc about-dtpr-desc">
                 Data that is processed by automated, algorithmic or artificial
                 intelligence systems to derive a new result or data point.
@@ -184,7 +199,8 @@ function About() {
             </div>
             <hr className="about-hr"></hr>
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">Reviewed Internally</p>
+              <p className="about-subtxt"> <img src={reviewedInternallyIcon} alt="Reviewed Internally" className="svg-icon2" />
+                Reviewed Internally</p>
               <p className="about-desc about-dtpr-desc">
                 The NSW Government has review processes that consider the
                 potential benefits, risks and implications for privacy and harm
@@ -201,7 +217,8 @@ function About() {
           </div>
           <div className="about-p6 light-bg">
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">Cloud Storage</p>
+              <p className="about-subtxt"> <img src={cloudStorageIcon} alt="Cloud Storage" className="svg-icon2" />
+                Cloud Storage</p>
               <p className="about-desc about-dtpr-desc">
                 Anonymized data is stored on behalf of the organization or the
                 data collector in an off-site data centre.
@@ -209,7 +226,8 @@ function About() {
             </div>
             <hr className="about-hr"></hr>
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">Encrypted</p>
+              <p className="about-subtxt"> <img src={encryptedIcon} alt="Encrypted" className="svg-icon2" />
+                Encrypted</p>
               <p className="about-desc about-dtpr-desc">
                 Data has been encoded so that only authorized parties can access
                 it, which can reduce risk related to handling private or
@@ -223,7 +241,8 @@ function About() {
           </div>
           <div className="about-p6 light-bg">
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">Data</p>
+              <p className="about-subtxt"> <img src={accessIcon} alt="Data Access" className="svg-icon2" />
+                Data</p>
               <p className="about-desc about-dtpr-desc">
                 Data is available to the accountable organisation - University
                 of NSW. It is also available to Transport for NSWs as well as to
