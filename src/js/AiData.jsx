@@ -101,9 +101,9 @@ function AiData() {
       case "Socializing":
         return "High Social Index Rate Formations";
       case "Staying":
-        return "Top 3 Dwell Index Maps";
+        return "Top 3 Styaing Index Maps";
       case "Sitting":
-        return "Top 3 Seating Index Maps";
+        return "Top 3 Sitting Index Maps";
       default:
         return "High Social Index Rate Formations";
     }
@@ -137,34 +137,45 @@ function AiData() {
         }:00`;
         newIndex2Name = "Number of people staying";
         newIndex3Name = "Number of people visiting";
-        col2Name = "total";
-        col3Name = "average";
+        col2Name = "hourly_total_staying";
+        col3Name = "hourly_people";
       } else if (graphName === "sitting_graph") {
         newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
           targetHour + 1
         }:00`;
         newIndex2Name = "Number of people sitting";
         newIndex3Name = "Number of people visiting";
-        col2Name = "social";
-        col3Name = "ped";
+        col2Name = "total_hourly_sitting";
+        col3Name = "total_hourly_person";
       }
 
       try {
         const data = await d3.csv(csvUpdated);
 
+        // console.log(data);
+
+        // Format the target date and target hour
         const formattedDate = d3.utcFormat("%-m/%-d/%Y")(new Date(targetDate));
         const formattedTime = targetHour.toString();
 
-        const matchingData = data.find(
-          (item) =>
-            item.date.trim() === formattedDate &&
-            parseInt(item.hour) === parseInt(formattedTime)
-        );
+        // Parse and format the date from the CSV to ensure consistency
+        const matchingData = data.find((item) => {
+          const parsedCSVDate = d3.timeParse("%-m/%-d/%Y")(item.date.trim()); // Parse CSV date
+          const csvFormattedDate = d3.utcFormat("%-m/%-d/%Y")(parsedCSVDate); // Format the parsed date
+
+          return (
+            csvFormattedDate === formattedDate && // Compare dates in the same format
+            parseInt(item.hour) === parseInt(formattedTime) // Compare hours as integers
+          );
+        });
+
+        // console.log(matchingData);
 
         if (matchingData) {
-          setIndex(parseFloat(matchingData["index"]).toFixed(0));
-          setIndex2(matchingData[col2Name]);
-          setIndex3(matchingData[col3Name]);
+          // If matching data is found, update the relevant state variables
+          setIndex(parseFloat(matchingData["hourly_index"]).toFixed(1));
+          setIndex2(Math.round(matchingData[col2Name]));
+          setIndex3(Math.round(matchingData[col3Name]));
           setIndexName(newIndexName);
           setIndex2Name(newIndex2Name);
           setIndex3Name(newIndex3Name);
@@ -211,7 +222,7 @@ function AiData() {
       </Row>
 
       {/* Data Breakdown */}
-      <div className="light-bg padding-tb-lg">
+      <div className="light-bg padding-tb-lg select-data-break">
         <div className="text-center primary-subtitle mb-3">
           <p>Select Data Breakdown</p>
         </div>
@@ -278,7 +289,7 @@ function AiData() {
         <BarChart
           csvLocation={getCsvLocation()}
           chartX={showDailyChart ? "date" : "hour"}
-          chartY={showDailyChart ? "daily" : "hourly"}
+          chartY={showDailyChart ? "daily_index" : "hourly_index"}
           chartType={showDailyChart ? "daily" : "hourly"}
           xTickFormat={
             showDailyChart ? d3.timeFormat("%b %d") : (d) => `${d}:00`

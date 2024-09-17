@@ -25,11 +25,12 @@ function BarChart({
           );
 
           const filteredData = data.filter((d) => {
-            return d["date"] === formattedDate;
+            const csvDate = d3.utcFormat("%-m/%-d/%Y")(new Date(d["date"])); // Ensure date is formatted from the CSV properly
+            return csvDate === formattedDate;
           });
 
           setData(filteredData); // Update data after filtering
-          console.log(filteredData);
+          // console.log(filteredData);
         } else {
           const parseDate = d3.timeParse("%m/%d/%Y");
           data.forEach((d) => {
@@ -37,7 +38,7 @@ function BarChart({
             d[chartY] = Number(d[chartY]);
           });
           setData(data);
-          console.log(data);
+          // console.log(data);
         }
       })
       .catch((error) => {

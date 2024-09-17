@@ -301,8 +301,8 @@ const GridMap: React.FC<GridProps> = ({
       <svg
         ref={svgRef}
         width={width * 1}
-        height={height * 0.7}
-        viewBox={`${width * 0.1} ${10} ${width * 1.05} ${height * 0.6}`}
+        height={height * 0.65}
+        viewBox={`${width * 0.1} ${10} ${width * 1.05} ${height * 0.55}`}
       >
         {/* Grid will be rendered here */}
       </svg>
