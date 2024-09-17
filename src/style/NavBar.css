@@ -49,7 +49,7 @@
 }
 
 .navbar-toggler-icon {
-  background-image: url("src/assets/Symbols/hamburger_custom-01.svg"); /* Update the path */
+  background-image: url("/hamburger_custom-01.svg"); /* Update the path */
   background-repeat: no-repeat;
   background-position: center;
   border: none;
@@ -64,7 +64,7 @@
 }
 
 .navbar-toggler-icon-default .navbar-toggler-icon {
-  background-image: url("src/assets/Symbols/hamburger_custom-01.svg"); /* Default icon path */
+  background-image: url("/hamburger_custom-01.svg"); /* Default icon path */
   background-repeat: no-repeat;
   background-position: center;
   border: none;
@@ -72,7 +72,7 @@
 }
 
 .navbar-toggler-icon-aidata .navbar-toggler-icon {
-  background-image: url("src/assets/Symbols/hamburger_custom-02.svg"); /* Custom icon path for /aidata */
+  background-image: url("/hamburger_custom-02.svg"); /* Custom icon path for /aidata */
   background-repeat: no-repeat;
   background-position: center;
   border: none;
