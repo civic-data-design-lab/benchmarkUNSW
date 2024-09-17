@@ -83,6 +83,15 @@ const GridMap: React.FC<GridProps> = ({
   );
   const { width, height } = useWindowSize();
 
+  // Create a color scale to represent different times of day
+  const colorScale = d3
+    .scaleLinear<string>()
+    .domain([0, 13, 18, 24]) // Midnight, dawn, noon, sunset, midnight
+    .range(["#FE8EA4", "#FFEFF3", "#FE8EA4", "#FE8EA4"]); // Night, dawn, noon, sunset, night
+
+  // Get the background color based on the targetHour
+  const backgroundColor = colorScale(targetHour);
+
   // useEffect to filter the data and render the grid/map when the date or hour changes
   useEffect(() => {
     if (!gridData || !benchData || !pedestrianData) return;
@@ -145,61 +154,28 @@ const GridMap: React.FC<GridProps> = ({
     svg.selectAll("*").remove();
 
     if (shadowGeoData) {
+      // Filter shadow data based on the target hour
+      const filteredShadows = shadowGeoData.features.filter(
+        (feature) => feature.properties["HOUR"] === targetHour
+      );
+
+      // console.log("targetHour: ", targetHour);
+
+      // console.log("Filtered Shadows: ", filteredShadows);
+
       svg
         .append("g")
         .attr("transform", "rotate(-10)")
         .selectAll("path")
-        .data(shadowGeoData.features)
+        .data(filteredShadows)
         .enter()
         .append("path")
         .attr("d", path)
-        .attr("fill", "#808080")
-        .attr("fill-opacity", 0.01)
+        .attr("fill", "#FF2551")
+        .attr("fill-opacity", 0.05)
         .attr("stroke", "none")
         .attr("stroke-width", 0.5);
     }
-
-    // if (shadowGeoData) {
-    //   // Define the pattern in the <defs> section
-    //   const defs = svg.append("defs");
-
-    //   defs
-    //     .append("pattern")
-    //     .attr("id", "shadowPattern")
-    //     .attr("patternUnits", "userSpaceOnUse")
-    //     .attr("width", 10) // Width of the pattern tile
-    //     .attr("height", 10) // Height of the pattern tile
-    //     .append("rect") // Define the shape of the pattern (e.g., lines, dots, etc.)
-    //     .attr("width", 10)
-    //     .attr("height", 10)
-    //     .attr("fill", "#808080");
-
-    //   // Optionally, add a diagonal line pattern
-    //   defs
-    //     .append("pattern")
-    //     .attr("id", "diagonalStripes")
-    //     .attr("patternUnits", "userSpaceOnUse")
-    //     .attr("width", 4)
-    //     .attr("height", 4)
-    //     .append("path")
-    //     .attr("d", "M 0,4 l 4,-4") // Diagonal line
-    //     .attr("stroke", "#808080")
-    //     .attr("stroke-width", 1);
-
-    //   // Apply the pattern to the fill of the shadow polygons
-    //   svg
-    //     .append("g")
-    //     .attr("transform", "rotate(-10)")
-    //     .selectAll("path")
-    //     .data(shadowGeoData.features)
-    //     .enter()
-    //     .append("path")
-    //     .attr("d", path)
-    //     .attr("fill", "url(#diagonalStripes)") // Use the pattern ID here
-    //     .attr("fill-opacity", 0.5)
-    //     .attr("stroke", "none")
-    //     .attr("stroke-width", 0.5);
-    // }
 
     // Render the GeoJSON grid
     svg
@@ -239,7 +215,7 @@ const GridMap: React.FC<GridProps> = ({
       .attr("stroke", "none")
       .attr("stroke-width", 0.5);
 
-    console.log("Bench Data: ", hourlyBenchData.features);
+    // console.log("Bench Data: ", hourlyBenchData.features);
 
     svg
       .append("g")
@@ -299,7 +275,14 @@ const GridMap: React.FC<GridProps> = ({
         d.properties.category_sitting === "sitting" ? "none" : "#FF2551"
       )
       .attr("stroke-width", 1);
-  }, [hourlyBenchData, hourlyPedestrianData, gridData, width, height]);
+  }, [
+    hourlyBenchData,
+    hourlyPedestrianData,
+    shadowGeoData,
+    gridData,
+    width,
+    height,
+  ]);
 
   return (
     <div
@@ -308,7 +291,7 @@ const GridMap: React.FC<GridProps> = ({
         // linear-gradient(90deg, #FEBECD 1px, transparent 1px),
         // linear-gradient(180deg, #FEBECD 1px, transparent 1px)`,
         // backgroundSize: '4px 4px', /* adjust the spacing between the lines */
-        backgroundColor: "#FDB5C5",
+        backgroundColor,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

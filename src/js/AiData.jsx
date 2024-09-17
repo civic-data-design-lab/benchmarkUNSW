@@ -70,7 +70,7 @@ function AiData() {
         basePath = "/data/activation_graph/";
         break;
       case "Sitting":
-        basePath = "/data/bench_graph/";
+        basePath = "/data/sitting_graph/";
         break;
       default:
         basePath = "/data/socializing_graph/";
@@ -112,9 +112,9 @@ function AiData() {
   // Fetch data based on target date and hour
   useEffect(() => {
     const fetchData = async () => {
-      const csvLocation = getCsvLocation();
+      const csvLocation = getCsvLocation(); // Get CSV location based on the selection
       const parts = csvLocation.split("/");
-      const graphName = parts[2];
+      const graphName = parts[2]; // Extract the specific graph type
       parts.pop();
       const newPath = parts.join("/");
       const csvUpdated = newPath + "/hourly.csv";
@@ -124,21 +124,27 @@ function AiData() {
       let newIndexName, newIndex2Name, newIndex3Name;
 
       if (graphName === "socializing_graph") {
-        newIndexName = "Social Index";
-        newIndex2Name = "Socializing on site";
-        newIndex3Name = "Pedestrians per hour";
+        newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
+          targetHour + 1
+        }:00`;
+        newIndex2Name = "Number of people socializing";
+        newIndex3Name = "Number of people visiting";
         col2Name = "social";
         col3Name = "ped";
       } else if (graphName === "activation_graph") {
-        newIndexName = "Dwell Index";
-        newIndex2Name = "Dwelling > 5min";
-        newIndex3Name = "Pedestrians per hour";
+        newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
+          targetHour + 1
+        }:00`;
+        newIndex2Name = "Number of people staying";
+        newIndex3Name = "Number of people visiting";
         col2Name = "total";
         col3Name = "average";
-      } else if (graphName === "bench_graph") {
-        newIndexName = "Bench Index";
-        newIndex2Name = "Seating time (min)";
-        newIndex3Name = "Pedestrians per hour";
+      } else if (graphName === "sitting_graph") {
+        newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
+          targetHour + 1
+        }:00`;
+        newIndex2Name = "Number of people sitting";
+        newIndex3Name = "Number of people visiting";
         col2Name = "social";
         col3Name = "ped";
       }
@@ -146,26 +152,17 @@ function AiData() {
       try {
         const data = await d3.csv(csvUpdated);
 
-        // console.log("Data loaded:", data);
-
-        // Use UTC functions to avoid timezone-related shifts for the date
         const formattedDate = d3.utcFormat("%-m/%-d/%Y")(new Date(targetDate));
-        const formattedTime = targetHour.toString(); // Use targetHour directly for hour
-
-        // Debugging: Log the formatted date and time to ensure correctness
-        console.log("Formatted Date:", formattedDate); // Should now correctly show '7/10/2024'
-        console.log("Formatted Time:", formattedTime); // This should now reflect the correct hour value, like '6' or '19'
+        const formattedTime = targetHour.toString();
 
         const matchingData = data.find(
           (item) =>
             item.date.trim() === formattedDate &&
-            parseInt(item.hour) === parseInt(formattedTime) // Parse hour to number for comparison
+            parseInt(item.hour) === parseInt(formattedTime)
         );
 
         if (matchingData) {
-          console.log("Matched Data Item:", matchingData);
-
-          setIndex(parseFloat(matchingData["index"]).toFixed(2));
+          setIndex(parseFloat(matchingData["index"]).toFixed(0));
           setIndex2(matchingData[col2Name]);
           setIndex3(matchingData[col3Name]);
           setIndexName(newIndexName);
@@ -184,7 +181,7 @@ function AiData() {
     };
 
     fetchData();
-  }, [targetDate, targetHour]);
+  }, [targetDate, targetHour, selectedOption]);
 
   // Render fallback while data is loading
   if (!benchData || !gridData || !pedestrianData) {
@@ -241,8 +238,10 @@ function AiData() {
         <Card className="mb-3 border-radius dark-button">
           <Row className="padding-sm align-items-center text-center">
             <Col xs={10}>
-              <p className="primary-subtitle">{index}%</p>
-              <p className="primary-subtxt">{indexName}</p>
+              <p className="primary-subtitle">
+                <p className="primary-subtxt">{indexName}</p>
+                {index}% of people were {selectedOption} on site
+              </p>
             </Col>
           </Row>
         </Card>
@@ -250,14 +249,14 @@ function AiData() {
         <Row>
           <Col>
             <Card className="padding-sm border-radius primary-border light-button text-center">
-              <p className="primary-subtitle">{index2}</p>
               <p className="primary-subtxt">{index2Name}</p>
+              <p className="primary-subtitle">{index2}</p>
             </Card>
           </Col>
           <Col>
             <Card className="padding-sm border-radius primary-border light-button text-center">
-              <p className="primary-subtitle">{index3}</p>
               <p className="primary-subtxt">{index3Name}</p>
+              <p className="primary-subtitle">{index3}</p>
             </Card>
           </Col>
         </Row>
