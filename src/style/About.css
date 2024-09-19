@@ -1,6 +1,6 @@
 .about-page {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  /* padding-top: 5rem; */
+  /* padding-bottom: 5rem; */
 }
 
 /*#region background*/
@@ -22,6 +22,7 @@
 p,
 .about-hr {
   margin: 0;
+  padding-bottom: 0.5rem;
 }
 
 .about-head {
@@ -31,14 +32,24 @@ p,
   border-radius: 2rem;
 }
 .about-p {
-  padding: 2.5rem 2.5rem 2.5rem 2.5rem;
-  margin: 1rem 2.5rem 1rem 2.5rem;
+  padding: 2rem 2rem 1rem 2rem;
+  margin: 1rem 2rem 1rem 2rem;
   border-radius: 2rem;
 }
 
-.about-p2 {
+/* .about-p2 {
   padding: 2.5rem 5rem 2.5rem 5rem;
   margin: 1rem 0rem 1rem 0rem;
+} */
+
+.about-p2 {
+  /* padding: 2rem 2rem 2rem 2rem; */
+  text-align: center;
+  margin: 1rem 2.5rem 1rem 2.5rem;
+  border-radius: 2rem;
+  font-size: 0.7rem !important;
+  color: white;
+  /* font-family: "ibm-plex-sans", sans-serif; */
 }
 
 .about-p3 {
@@ -53,23 +64,26 @@ p,
 }
 
 .about-p5 {
-  padding: 1rem 5rem 1rem 5rem;
+  padding: 1rem 3rem 0rem 3rem;
   margin: 0rem 0rem 0rem 0rem;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
 }
 
 .about-p6 {
-  padding: 1rem 2.5rem 1rem 2.5rem;
-  margin: 1rem 2.5rem 1rem 2.5rem;
+  padding: 1rem 2rem 1rem 2rem;
+  margin: 0rem 2rem 1rem 2rem;
   border-radius: 2rem;
-  border: 2px solid var(--primary-dark);
+  border: 1.5px solid var(--primary-dark);
 }
 
 .about-p7 {
-  padding: 1rem 0rem 1rem 0rem;
+  padding: 0.5rem 0rem 0.5rem 0rem;
 }
 
 .about-dtpr {
-  padding: 4rem 0rem 1rem 0rem;
+  padding: 5rem 0rem 0rem 0rem;
 }
 
 /*#endregion */
@@ -77,16 +91,28 @@ p,
 /*#region text*/
 .about-title {
   font-size: var(--primary-title);
+  padding-bottom: 0rem;
 }
 
 .about-subtitle {
   font-size: var(--primary-subtitle);
+  padding-bottom: 0rem;
 }
+.about-subtitle-2 {
+  font-size: var(--primary-subtitle);
+  padding-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
 .about-txt {
   font-size: var(--primary-txt);
+  padding-bottom: 1rem;
+  font-size: 0.85rem;
+  /* font-family: "ibm-plex-sans", sans-serif; */
 }
 .about-subtxt {
   font-size: var(--primary-subtxt);
+  padding-bottom: 0;
 }
 .about-desc {
   font-size: var(--primary-desc);
@@ -111,3 +137,42 @@ p,
   cursor: pointer;
 }
 /*#endregion */
+
+.AboutCarousel {
+  /* height: 97vh; */
+  width: 100%;
+  margin-bottom: 1rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 5;
+}
+
+.image-container {
+  width: 100%;
+  aspect-ratio: 16 / 12; /* You can use 16:9 or any ratio you prefer */
+  overflow: hidden; /* This ensures any excess part of the image is hidden */
+  border-radius: 1rem;
+}
+
+.carousel-item {
+  border-radius: 1rem;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain the aspect ratio and fill the container */
+}
+
+a {
+  color: var(--primary-dark);
+  font-weight: bold;
+  /* font-style: italic; */
+}
+
+.svg-icon2 {
+  margin: 0;
+  padding-right: 1rem;
+}

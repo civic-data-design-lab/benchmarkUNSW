@@ -6,19 +6,9 @@ function Footer() {
     <footer className="footer">
       <div className="container">
         <p className="footer-text">
-          © 2024 BenchMark NSW. All rights reserved.
+          © 2024 BenchMark NSW. All rights reserved.<br></br>Funded by Transport
+          for NSW through the Safer Cities program.
         </p>
-        {/* <ul className="footer-links">
-          <li>
-            <a href="/about">About</a>
-          </li>
-          <li>
-            <a href="/downloads">Downloads</a>
-          </li>
-          <li>
-            <a href="/contact">Contact Us</a>
-          </li>
-        </ul> */}
       </div>
     </footer>
   );
