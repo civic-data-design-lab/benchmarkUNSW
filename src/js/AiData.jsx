@@ -301,15 +301,32 @@ function AiData() {
 
       {/*Desc Section 1*/}
       <>
-        <div className="light-bg padding-tb-lg">
+        <div
+          className="light-bg padding-tb-lg"
+          style={{ padding: "2rem 0.5rem 1rem 0.5rem " }}
+        >
           <Container>
             <Row>
               <div className="text-center">
                 <div className="dark-button primary-subtitle">
-                  <p>4:00 PM</p>
+                  <p
+                    style={{
+                      fontSize: "1rem",
+                      padding: "0.5rem",
+                      marginBottom: "1rem",
+                    }}
+                  >
+                    {selectedOption === "Socializing"
+                      ? "9:00AM - 10:00AM & 4:00PM - 5:00PM"
+                      : selectedOption === "Staying"
+                      ? "1:00PM - 2:00PM"
+                      : selectedOption === "Sitting"
+                      ? "1:00PM - 2:00PM"
+                      : "9:00AM - 10:00AM & 4:00PM - 5:00PM"}
+                  </p>{" "}
                 </div>
                 <div className="dark-txt primary-txt">
-                  <p>Most Common Overall Time for Socializing</p>
+                  <p>Most Common Overall Time for {selectedOption}</p>
                 </div>
               </div>
             </Row>
