@@ -7,22 +7,24 @@
 .light-bg {
   background-color: var(--primary-light);
   color: var(--primary-dark);
+  box-shadow: 0px 4px 12px 0 rgba(0, 0, 0, 0.1);
 }
 .medium-bg {
   background-color: var(--primary-medium);
   color: var(--primary-dark);
+  box-shadow: 0px 4px 12px 0 rgba(0, 0, 0, 0.1);
 }
 .dark-bg {
   background-color: var(--primary-dark);
   color: var(--primary-light);
+  box-shadow: 0px 4px 12px 0 rgba(0, 0, 0, 0.1);
 }
 /*#endregion */
 
 /*#region margin padding*/
 p,
 .about-hr {
-  margin: 0;
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .about-head {
@@ -32,7 +34,7 @@ p,
   border-radius: 2rem;
 }
 .about-p {
-  padding: 2rem 2rem 1rem 2rem;
+  padding: 1rem;
   margin: 1rem 2rem 1rem 2rem;
   border-radius: 2rem;
 }
@@ -72,14 +74,14 @@ p,
 }
 
 .about-p6 {
-  padding: 1rem 2rem 1rem 2rem;
-  margin: 0rem 2rem 1rem 2rem;
+  padding: 0.5rem 1rem 0rem 1rem;
+  margin: 0rem 2rem 2rem 2rem;
   border-radius: 2rem;
-  border: 1.5px solid var(--primary-dark);
+  border: 2px solid var(--primary-dark);
 }
 
 .about-p7 {
-  padding: 0.5rem 0rem 0.5rem 0rem;
+  /* padding: 0.5rem 0rem 0.5rem 0rem; */
 }
 
 .about-dtpr {
@@ -100,7 +102,7 @@ p,
 }
 .about-subtitle-2 {
   font-size: var(--primary-subtitle);
-  padding-bottom: 0.5rem;
+  /* padding-bottom: 0.5rem; */
   font-size: 1.1rem;
 }
 
@@ -175,4 +177,8 @@ a {
 .svg-icon2 {
   margin: 0;
   padding-right: 1rem;
+}
+
+hr {
+  margin: 0;
 }

@@ -24,6 +24,11 @@ import img6 from "../assets/About/b.jpg";
 import img7 from "../assets/About/c.jpg";
 import img8 from "../assets/About/d.jpg";
 
+import img9 from "../assets/About/5.jpg";
+import img10 from "../assets/About/6.jpg";
+import img11 from "../assets/About/7.jpg";
+import img12 from "../assets/About/8.jpg";
+
 function About() {
   return (
     <div className="about-page">
@@ -68,11 +73,9 @@ function About() {
               backgroundColor: "#FFEFF3",
               padding: "1rem",
               borderRadius: "1rem",
-              marginBottom: "1rem",
             }}
           >
             <p className="about-txt">
-              <hr className="about-hr"></hr>
               <strong>Benchmark NSW</strong> is a pilot project that uses
               temporary movable benches coupled with smart technology and data
               to better understand how women, girls and gender diverse people
@@ -81,7 +84,6 @@ function About() {
               Massachusetts Institute of Technology (MIT) and Smart Places,
               Transport for NSW.
             </p>
-            <hr className="about-hr"></hr>
             <p className="about-txt">
               <strong>The methodology</strong> for the Benchmark NSW project
               involved a multi-phase approach, integrating co-design, technology
@@ -89,7 +91,6 @@ function About() {
               temporary activation on an open space on the UNSW Kensington
               Campus.
             </p>{" "}
-            <hr className="about-hr"></hr>
             <p className="about-txt">
               <strong>Co-design</strong> workshops engaging women Industrial
               Design students from UNSW, who contributed to the creation of
@@ -97,7 +98,6 @@ function About() {
               recycled HDPE plastic and featured motion-activated LED lighting
               to improve visibility and user comfort.
             </p>{" "}
-            <hr className="about-hr"></hr>
             <p className="about-txt">
               <strong>Data collection</strong> was conducted using AI-driven
               computer vision sensors developed in collaboration with MIT, which
@@ -106,7 +106,6 @@ function About() {
               undertaken by the four women Industrial Design students on site
               during the activation and baseline periods.
             </p>{" "}
-            <hr className="about-hr"></hr>
           </div>
         </div>
       </section>
@@ -154,7 +153,6 @@ function About() {
               backgroundColor: "#FFEFF3",
               padding: "1rem",
               borderRadius: "1rem",
-              marginBottom: "1rem",
             }}
           >
             <p className="about-txt">
@@ -211,7 +209,7 @@ function About() {
                   alt="Deidentified Video"
                   className="svg-icon2"
                 />
-                De-Identified Video{" "}
+                De-Identified Video
               </p>
               <p className="about-desc about-dtpr-desc">
                 Collects video footage of a sufficient resolution where
@@ -419,16 +417,69 @@ function About() {
           <p className="about-title">Bench Design</p>
         </div>
         <div className="about-p light-bg">
-          <p className="about-txt">
-            Something about the benches having been co-designed with female
-            students in the industrial design program?
-          </p>
-          <p className="about-txt">
-            The seats include motion enabled lighting and were designed by
-            female UNSW Industrial Design Students. Camera-vision sensors and
-            onsite observation and surveys monitor and help us understand where
-            and how they move.
-          </p>
+          <div className="AboutCarousel">
+            <Carousel>
+              <Carousel.Item>
+                <div className="image-container">
+                  <img src={img9} className="carousel-img" />
+                </div>
+              </Carousel.Item>
+              <Carousel.Item>
+                <div className="image-container">
+                  <img src={img10} className="carousel-img" />
+                </div>
+              </Carousel.Item>
+              <Carousel.Item>
+                <div className="image-container">
+                  <img src={img11} className="carousel-img" />
+                </div>
+              </Carousel.Item>
+              <Carousel.Item>
+                <div className="image-container">
+                  <img src={img12} className="carousel-img" />
+                </div>
+              </Carousel.Item>
+            </Carousel>
+          </div>
+          <div
+            style={{
+              maxHeight: "40vh",
+              overflow: "scroll",
+              backgroundColor: "#FFEFF3",
+              padding: "1rem",
+              borderRadius: "1rem",
+            }}
+          >
+            <p className="about-txt">
+              <strong>Movable seating</strong> plays a key role in fostering
+              social interactions and activating public spaces. In the Benchmark
+              NSW project, seating was more than a functional element; it became
+              a transformative tool for creating inclusive, vibrant
+              environments. These movable benches enable the public to shape
+              their surroundings to fit their needs, promoting a sense of
+              ownership and social cohesion.
+            </p>
+            <p className="about-txt">
+              <strong>co-designed</strong> with four women Industrial Design
+              students from UNSW, representing the target beneficiaries of the
+              project. This collaboration ensured the design reflected the lived
+              experiences of women, girls, and gender-diverse people,
+              prioritizing comfort, safety, and flexibility. The project
+              emphasises sustainability and user engagement, with the seating
+              made from 100% post-consumer recycled high-density polyethylene
+              (HDPE) plastic.
+            </p>
+            <p className="about-txt">
+              <strong>The fabrication</strong> process took place in the UNSW
+              Design Futures Lab, where digital CNC techniques were used to
+              ensure precision and durability. This process minimises material
+              waste and aligns with broader circular economy goals by
+              transforming waste materials into functional, engaging public
+              furniture. More details are available in{" "}
+              <a href="/downloads#report">the full report</a> bench design
+              section.
+            </p>
+          </div>
         </div>
       </section>
 
