@@ -1,13 +1,23 @@
-html,
-body {
-}
-
 .HomeCarousel {
-  height: 97vh;
+  height: 95vh;
   justify-content: center;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
 }
+
+.carousel-item-container {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
 .HomeIntroCard {
+  height: auto;
+  max-height: calc(
+    97vh - 60px
+  ); /* Ensures the card doesn't overflow the viewport */
+  object-fit: contain; /* Keeps the image aspect ratio within the available space */
 }
