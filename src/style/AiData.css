@@ -54,8 +54,8 @@
 
 .chart_bar_selected {
   color: var(--primary-dark);
-  fill: white;
-  stroke: black;
+  fill: var(--primary-dark);
+  /*stroke: black;*/
   stroke-width: 0.1rem;
 }
 /*#endregion */
