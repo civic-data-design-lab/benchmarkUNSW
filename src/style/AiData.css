@@ -1,6 +1,11 @@
+/* Force mobile layout and center it on larger screens (laptops/desktops) */
+@media screen and (min-width: 600px) {
+  .aidata-page {
+    max-width: 390px; /* Set your preferred mobile width */
+  }
+}
+
 .aidata-page {
-  /* padding-top: 3rem; */
-  /* padding-bottom: 5rem; */
   background-color: #fdb5c5;
 }
 

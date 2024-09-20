@@ -1,2 +1,28 @@
-html, body {
+/* App.css */
+
+/* Default styles for smaller screens, mobile first */
+
+/* Center everything on larger screens (laptops/desktops) */
+@media screen and (min-width: 430px) {
+  body {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    min-height: 100vh; /* Full height of the viewport */
+    margin: 0;
+    background-color: #ffffff; /* Set your background color */
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 390px; /* Mobile-like width */
+    min-height: 100vh; /* Full height of the viewport */
+  }
+  /* Optional: If you want to add spacing around the content */
+  .container {
+    margin: 0 10px;
+  }
 }

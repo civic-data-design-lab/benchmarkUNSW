@@ -28,7 +28,7 @@ function NavBar() {
       <div className="NavBarHeight">
         <Navbar
           collapseOnSelect
-          expand="lg"
+          expand={false}
           className="nova-mono-regular Navbar"
           fixed="top"
           expanded={expanded}

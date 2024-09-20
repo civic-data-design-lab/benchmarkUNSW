@@ -5,6 +5,29 @@
   justify-content: space-between;
 }
 
+.Navbar {
+  display: flex;
+  /* padding-left: 2.5rem; */
+  /* padding-right: 2.5rem; */
+  z-index: 2;
+  justify-content: space-evenly;
+}
+
+/* Force mobile layout and center it on larger screens (laptops/desktops) */
+@media screen and (min-width: 600px) {
+  .NavBarHeight {
+    display: flex;
+    justify-content: center; /* Center the navbar horizontally */
+    align-items: center; /* Center the navbar vertically */
+    margin: 0 auto; /* Center the navbar content */
+  }
+
+  .Navbar {
+    width: 100%;
+    max-width: 390px; /* Set your preferred mobile width */
+  }
+}
+
 .NavBarTitle {
   color: white;
   font-size: 2rem;
@@ -17,12 +40,6 @@
   font-size: 2rem;
   font-weight: 400;
   text-shadow: 1px 1px 2cqh rgba(0, 0, 0, 0.2);
-}
-
-.Navbar {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-  z-index: 2;
 }
 
 .nova-mono-regular .Navbar {
@@ -77,4 +94,16 @@
   background-position: center;
   border: none;
   width: 50px; /* Adjust the width as needed */
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 50%; /* Move the left edge to the middle of the viewport */
+  transform: translateX(
+    -50%
+  ); /* Shift the element by 50% of its width to center it */
+  z-index: 1030;
+  max-width: 390px; /* Set a width for the element, so it doesn't stretch across the entire screen */
+  width: 100%; /* Set to 100% within the max-width */
 }
