@@ -47,11 +47,11 @@ function NavBar() {
                 Home
               </Nav.Link>
               <Nav.Link as={Link} to="/aidata" onClick={handleLinkClick}>
-                AI Data
+                Vision sensor data
               </Nav.Link>
-              <Nav.Link as={Link} to="/surveydata" onClick={handleLinkClick}>
+              {/* <Nav.Link as={Link} to="/surveydata" onClick={handleLinkClick}>
                 Survey Data
-              </Nav.Link>
+              </Nav.Link> */}
               <NavDropdown title="About" id="collasible-nav-dropdown">
                 <NavDropdown.Item
                   as={HashLink}
@@ -65,7 +65,14 @@ function NavBar() {
                   to="/about#data-analysis"
                   onClick={handleLinkClick}
                 >
-                  Data Analysis Result
+                  Data Collection and Analysis
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  as={HashLink}
+                  to="/about#dtpr"
+                  onClick={handleLinkClick}
+                >
+                  DTPR Benchmark NSW
                 </NavDropdown.Item>
                 <NavDropdown.Item
                   as={HashLink}
@@ -80,13 +87,6 @@ function NavBar() {
                   onClick={handleLinkClick}
                 >
                   Team
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  as={HashLink}
-                  to="/about#dtpr"
-                  onClick={handleLinkClick}
-                >
-                  DTPR
                 </NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title="Downloads" id="collasible-nav-dropdown">
