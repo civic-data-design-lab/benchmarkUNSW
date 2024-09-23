@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Button, DropdownButton, Dropdown } from "react-bootstrap";
 import { PauseFill, PlayFill } from "react-bootstrap-icons";
 import "../style/DateSelector.css";
+import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import WeatherVertical from "./WeatherVertical";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import questionCircle from "../assets/Symbols/question-circle.svg";
 
 // Helper functions to format date and time
 // Converts a number representing an hour to a 12-hour format with AM/PM
@@ -59,41 +63,95 @@ const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
   // Toggle between play and pause
   const togglePlay = () => setIsPlaying(!isPlaying);
 
+  // Function to convert hour to 24-hour format string
+  const convertTo24HourFormat = (hour) => {
+    return `${hour.toString().padStart(2, "0")}:00`;
+  };
+
   return (
     <div className="container-fluid" style={{ width: "100%", padding: "0px" }}>
       <div className="row align-items-center">
         {/* Play/Pause Button */}
-        <div className="col-2 d-flex">
+        <div
+          className="col-2 d-flex align-items-center"
+          style={{ height: "100%" }}
+        >
           <Button
             onClick={togglePlay}
             variant="danger"
             style={{
               backgroundColor: "#FF2551",
               border: "none",
-              borderRadius: "50%",
+              borderRadius: "10px",
+              height: "100%", // Match the height of the slider
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
             {isPlaying ? <PauseFill /> : <PlayFill />}
           </Button>
         </div>
 
+        {/* Spacer Column */}
+        <div className="spacer"></div>
+
         {/* Time Slider */}
-        <div className="col-10">
+        <div className="col position-relative">
+          {/* Current Hour Box */}
+          <div
+            className="current-hour-box"
+            style={{
+              position: "absolute",
+              top: "-17px", // Adjusted to add more space between slider and number
+              left: `calc(${((currentHour - 6) / 17) * 100}% + (${
+                8 - ((currentHour - 6) / 17) * 16
+              }px)`, // Adjusted to align with slider thumb
+              transform: "translateX(-50%)",
+              backgroundColor: "#FF2551",
+              color: "#fff",
+              padding: "2px 5px",
+              borderRadius: "5px",
+              fontSize: "10px",
+            }}
+          >
+            {convertTo24HourFormat(currentHour)}
+          </div>
           <input
             type="range"
-            className="form-range"
+            className="form-range custom-slider"
             value={currentHour}
             min={6}
             max={23}
             step={1}
             onChange={handleSliderChange}
+            style={{ width: "100%" }}
           />
           <div
             className="slider-label d-flex justify-content-between"
-            style={{ fontSize: "12px" }}
+            style={{ fontSize: "12px", marginTop: "8px" }} // Added marginTop to add space between slider and labels
           >
             <span>6:00</span>
             <span>24:00</span>
+          </div>
+          {/* Ticks */}
+          <div className="slider-ticks" style={{ marginTop: "5px" }}>
+            {" "}
+            {/* Added marginTop to add space between slider and ticks */}
+            {Array.from({ length: 18 }, (_, i) => (
+              <div
+                key={i}
+                className="tick"
+                style={{
+                  position: "absolute",
+                  left: `calc(${(i / 17) * 100}% + (${8 - (i / 17) * 16}px))`, // Adjusted to align with slider thumb
+                  transform: "translateX(-50%)",
+                  height: "5px",
+                  width: "0.5px",
+                  backgroundColor: "#FF2551",
+                }}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -150,6 +208,7 @@ function DateDropdown({ setTargetDate, currentHour }) {
         transition: "height 0.3s ease",
         height: isDropdownOpen ? "205px" : "50px",
         overflow: "hidden",
+        alignItems: "center",
       }}
     >
       <DropdownButton
@@ -185,28 +244,129 @@ const DateSelector = ({
   targetDate,
   targetHour,
 }) => {
-  const [hour, setHour] = useState(0); // Holds the current hour state
+  const [hour, setHour] = useState(6); // Holds the current hour state
+  const [isTooltipVisible, setIsTooltipVisible] = useState(false); // State to manage tooltip visibility
+
+  const toggleTooltip = () => {
+    setIsTooltipVisible(!isTooltipVisible);
+  };
 
   return (
-    <div style={{ backgroundColor: "#FFDAE2", padding: "10px", width: "100%" }}>
-      {/* Row 1: WeatherVertical and DateDropdown */}
-      <div className="row">
-        <div className="col-md-6" style={{ marginBottom: "20px" }}>
-          <WeatherVertical targetDate={targetDate} targetHour={targetHour} />
-        </div>
-        <div className="col-md-6">
-          <DateDropdown setTargetDate={setTargetDate} currentHour={hour} />
-        </div>
+    <div
+      style={{
+        backgroundColor: "#FFDAE2",
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      {/* Horizontal Button Icon */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <FontAwesomeIcon icon={faMinus} size="2x" />
       </div>
 
-      {/* Row 2: TimeSlider */}
-      <div className="row mt-2">
-        <div className="col-md-12">
-          <TimeSlider
-            setTargetHour={setTargetHour}
-            setCurrentHour={setHour}
-            currentHour={hour}
+      <div style={{ display: "flex", flex: "1", alignItems: "stretch" }}>
+        {/* WeatherVertical with fixed width and 100% height */}
+        <div
+          style={{
+            width: "50px",
+            marginRight: "20px",
+            height: "100%",
+            paddingBottom: "1rem",
+          }}
+        >
+          <WeatherVertical targetDate={targetDate} targetHour={targetHour} />
+        </div>
+
+        {/* DateDropdown and TimeSlider with flexible width */}
+        <div
+          style={{
+            flex: "1",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            height: "100%",
+            margin: "0rem 0rem 0rem 0.5rem",
+          }}
+        >
+          {/* DateDropdown */}
+          <div
+            style={{
+              flex: "1",
+              display: "flex",
+              alignItems: "center",
+              marginBottom: "0.5rem",
+            }}
+          >
+            <DateDropdown setTargetDate={setTargetDate} currentHour={hour} />
+          </div>
+
+          {/* TimeSlider */}
+          <div style={{ flex: "1", display: "flex", alignItems: "center" }}>
+            <TimeSlider
+              setTargetHour={setTargetHour}
+              setCurrentHour={setHour}
+              currentHour={hour}
+            />
+          </div>
+        </div>
+
+        {/* Question Mark Icon */}
+        <div
+          className="tooltip-container"
+          style={{
+            position: "relative", // Added to position the tooltip
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "flex-end",
+            marginLeft: "0.5rem",
+          }}
+        >
+          <img
+            src={questionCircle}
+            alt="Question Circle"
+            style={{ width: "25px", height: "25px", cursor: "pointer" }} // Adjust the size as needed and add cursor pointer
+            onClick={toggleTooltip} // Toggle tooltip on click
           />
+          {isTooltipVisible && (
+            <div
+              className="tooltip-box"
+              style={{
+                backgroundColor: "#FFEFF3",
+                color: "#FF2551",
+                textAlign: "center",
+                borderRadius: "6px",
+                padding: "5px 10px",
+                position: "absolute",
+                zIndex: 1,
+                bottom: "110%", // Position above the icon
+                right: "0", // Align to the right of the icon
+                opacity: 1,
+                transition: "opacity 0.3s",
+                fontSize: "12px",
+                width: "150px",
+              }}
+            >
+              You can select a date and time to see the vision sensor data for
+              that specific time along with the weather data.
+              <div
+                style={{
+                  position: "absolute",
+                  top: "100%", // Arrow pointing down
+                  right: "10px", // Position arrow at the right bottom of the square
+                  borderWidth: "5px",
+                  borderStyle: "solid",
+                  borderColor: "#FFEFF3 transparent transparent transparent",
+                }}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>

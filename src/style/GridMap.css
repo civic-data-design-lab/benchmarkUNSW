@@ -1,0 +1,27 @@
+/* GridMap.css */
+
+.grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+  background-color: var(--background-color);
+}
+
+@media screen and (max-width: 430px) {
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 390px;
+    z-index: 0;
+    background-color: var(--background-color);
+  }
+  svg {
+    width: 100%; /* Full width on small screens */
+    max-width: 390px;
+    height: auto; /* Adjust height automatically */
+    display: block; /* Ensure SVG takes block space */
+  }
+}

@@ -14,7 +14,7 @@
 }
 
 /* Force mobile layout and center it on larger screens (laptops/desktops) */
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 750px) {
   .NavBarHeight {
     display: flex;
     justify-content: center; /* Center the navbar horizontally */

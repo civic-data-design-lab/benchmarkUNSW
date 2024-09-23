@@ -1,7 +1,7 @@
 .weather-card {
   background-color: #ff2551; /* Bright pink background */
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   color: white;
   font-size: 0.8rem;
   height: 100%;
@@ -10,19 +10,41 @@
   align-items: center; /* Center the card content vertically */
 }
 
+.card-body {
+  padding: 0.5rem 0rem;
+  width: 100%;
+  border-radius: 10px;
+  height: 100%;
+  box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.p {
+  margin: 20px;
+}
+
 .weather-info {
   display: flex;
-  flex-direction: row; /* Arrange items in a row (horizontally) */
-  align-items: center; /* Vertically center the icon and text */
-  justify-content: center; /* Distribute space evenly between icon and text */
-  width: 100%; /* Ensure the container takes up the full width */
-  padding: 0 0px; /* Add some padding to the left and right */
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.weather-icon {
+  width: 30px;
+  height: 30px;
 }
 
 .weather-info p {
-  margin: 0px 10px; /* Remove any default margin */
+  margin: 0px 0px 20px 0px;
 }
 
 .weather-info img {
-  margin: 0px 10px; /* Add a small space to the right of the icon */
+  margin: 0px 0px 0px 0px;
+}
+
+.weather-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-grow: 1;
 }

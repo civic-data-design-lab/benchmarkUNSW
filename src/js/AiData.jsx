@@ -17,6 +17,7 @@ import CenteredModal from "../component/CenteredModal";
 import BarChart from "../component/BarChart";
 import GridMap from "../component/GridMap";
 import DateSelector from "../component/DateSelector";
+import DataSelector from "../component/DataSelector";
 
 function AiData() {
   const [activeModal, setActiveModal] = useState(null);
@@ -124,27 +125,27 @@ function AiData() {
       let newIndexName, newIndex2Name, newIndex3Name;
 
       if (graphName === "socializing_graph") {
-        newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
-          targetHour + 1
-        }:00`;
-        newIndex2Name = "Number of people socializing";
-        newIndex3Name = "Number of people visiting";
+        // newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
+        //   targetHour + 1
+        // }:00`;
+        newIndex2Name = "socializing on site";
+        newIndex3Name = "pedestrian per hour";
         col2Name = "social";
         col3Name = "ped";
       } else if (graphName === "activation_graph") {
-        newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
-          targetHour + 1
-        }:00`;
-        newIndex2Name = "Number of people staying";
-        newIndex3Name = "Number of people visiting";
+        // newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
+        //   targetHour + 1
+        // }:00`;
+        newIndex2Name = "staying on site";
+        newIndex3Name = "pedestrian per hour";
         col2Name = "hourly_total_staying";
         col3Name = "hourly_people";
       } else if (graphName === "sitting_graph") {
-        newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
-          targetHour + 1
-        }:00`;
-        newIndex2Name = "Number of people sitting";
-        newIndex3Name = "Number of people visiting";
+        // newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
+        //   targetHour + 1
+        // }:00`;
+        newIndex2Name = "sitting on site";
+        newIndex3Name = "pedestrian per hour";
         col2Name = "total_hourly_sitting";
         col3Name = "total_hourly_person";
       }
@@ -201,7 +202,6 @@ function AiData() {
 
   return (
     <div className="aidata-page nova-mono-regular">
-      {/* GridMap */}
       <GridMap
         gridData={gridData}
         benchData={benchData}
@@ -209,8 +209,8 @@ function AiData() {
         targetDate={targetDate}
         targetHour={targetHour}
       />
-
-      <Row className="aidata-slider text-center medium-bg">
+      {/* GridMap */}
+      <Row className="aidata-slider text-center medium-bg rounded-top-corners">
         <Col xs={12}>
           <DateSelector
             setTargetHour={setTargetHour}
@@ -222,56 +222,16 @@ function AiData() {
       </Row>
 
       {/* Data Breakdown */}
-      <div className="light-bg padding-tb-lg select-data-break">
-        <div className="text-center primary-subtitle mb-3">
-          <p>Select Data Breakdown</p>
-        </div>
-        <div className="data-breakdown-dropdown mb-3">
-          <Dropdown
-            onSelect={setSelectedOption}
-            className="custom-dropdown w-100"
-          >
-            <Dropdown.Toggle
-              variant="success"
-              id="dropdown-basic"
-              className="w-100"
-            >
-              {selectedOption}
-            </Dropdown.Toggle>
-            <Dropdown.Menu className="w-100">
-              <Dropdown.Item eventKey="Socializing">Socializing</Dropdown.Item>
-              <Dropdown.Item eventKey="Staying">Staying</Dropdown.Item>
-              <Dropdown.Item eventKey="Sitting">Sitting</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </div>
-
-        <Card className="mb-3 border-radius dark-button">
-          <Row className="padding-sm align-items-center text-center">
-            <Col xs={10}>
-              <p className="primary-subtitle">
-                <p className="primary-subtxt">{indexName}</p>
-                {index}% of people were {selectedOption} on site
-              </p>
-            </Col>
-          </Row>
-        </Card>
-
-        <Row>
-          <Col>
-            <Card className="padding-sm border-radius primary-border light-button text-center">
-              <p className="primary-subtxt">{index2Name}</p>
-              <p className="primary-subtitle">{index2}</p>
-            </Card>
-          </Col>
-          <Col>
-            <Card className="padding-sm border-radius primary-border light-button text-center">
-              <p className="primary-subtxt">{index3Name}</p>
-              <p className="primary-subtitle">{index3}</p>
-            </Card>
-          </Col>
-        </Row>
-      </div>
+      <DataSelector
+        selectedOption={selectedOption}
+        setSelectedOption={setSelectedOption}
+        indexName={indexName}
+        index={index}
+        index2Name={index2Name}
+        index2={index2}
+        index3Name={index3Name}
+        index3={index3}
+      />
 
       {/* Chart Button */}
       <div className="chart_button nova-mono-regular">
