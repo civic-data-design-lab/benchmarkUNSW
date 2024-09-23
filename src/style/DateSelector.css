@@ -48,8 +48,8 @@ input[type="range"]::-webkit-slider-runnable-track {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
   background: #ff2551; /* Circle color */
   cursor: pointer;
   border-radius: 50%;
@@ -96,4 +96,32 @@ input[type="range"]::-moz-range-thumb {
   background-color: transparent !important; /* Ensure background stays transparent */
   border: none !important; /* Remove default border */
   z-index: 1000 !important; /* Ensure dropdown is on top of other elements */
+}
+
+/* Ticks */
+.slider-ticks {
+  position: absolute;
+
+  top: 20px; /* Adjust based on your slider's position */
+  width: 100%;
+  height: 10px;
+}
+
+.tick {
+  position: absolute;
+  height: 10px;
+  width: 1px;
+  background-color: #ff2551;
+}
+
+.custom-dropdown::after {
+  content: "";
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  border-top: 0.3em solid; /* Adjust the size of the triangle */
+  border-right: 0.3em solid transparent; /* Adjust the size of the triangle */
+  border-bottom: 0; /* Adjust the size of the triangle */
+  border-left: 0.3em solid transparent; /* Adjust the size of the triangle */
+  color: #ff2551; /* Adjust the color of the triangle */
 }

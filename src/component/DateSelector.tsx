@@ -61,6 +61,11 @@ const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
   // Toggle between play and pause
   const togglePlay = () => setIsPlaying(!isPlaying);
 
+  // Function to convert hour to 24-hour format string
+  const convertTo24HourFormat = (hour) => {
+    return `${hour.toString().padStart(2, "0")}:00`;
+  };
+
   return (
     <div className="container-fluid" style={{ width: "100%", padding: "0px" }}>
       <div className="row align-items-center">
@@ -87,22 +92,61 @@ const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
         </div>
 
         {/* Time Slider */}
-        <div className="col-10">
+        <div className="col-10 position-relative">
+          {/* Current Hour Box */}
+          <div
+            className="current-hour-box"
+            style={{
+              position: "absolute",
+              top: "-17px", // Adjusted to add more space between slider and number
+              left: `calc(${((currentHour - 6) / 17) * 100}% + (${
+                8 - ((currentHour - 6) / 17) * 16
+              }px))`, // Adjusted to align with slider thumb
+              transform: "translateX(-50%)",
+              backgroundColor: "#FF2551",
+              color: "#fff",
+              padding: "2px 5px",
+              borderRadius: "5px",
+              fontSize: "10px",
+            }}
+          >
+            {convertTo24HourFormat(currentHour)}
+          </div>
           <input
             type="range"
-            className="form-range"
+            className="form-range custom-slider"
             value={currentHour}
             min={6}
             max={23}
             step={1}
             onChange={handleSliderChange}
+            style={{ width: "100%" }}
           />
           <div
             className="slider-label d-flex justify-content-between"
-            style={{ fontSize: "12px" }}
+            style={{ fontSize: "12px", marginTop: "8px" }} // Added marginTop to add space between slider and labels
           >
             <span>6:00</span>
             <span>24:00</span>
+          </div>
+          {/* Ticks */}
+          <div className="slider-ticks" style={{ marginTop: "5px" }}>
+            {" "}
+            {/* Added marginTop to add space between slider and ticks */}
+            {Array.from({ length: 18 }, (_, i) => (
+              <div
+                key={i}
+                className="tick"
+                style={{
+                  position: "absolute",
+                  left: `calc(${(i / 17) * 100}% + (${8 - (i / 17) * 16}px))`, // Adjusted to align with slider thumb
+                  transform: "translateX(-50%)",
+                  height: "5px",
+                  width: "0.5px",
+                  backgroundColor: "#FF2551",
+                }}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -194,7 +238,7 @@ const DateSelector = ({
   targetDate,
   targetHour,
 }) => {
-  const [hour, setHour] = useState(0); // Holds the current hour state
+  const [hour, setHour] = useState(6); // Holds the current hour state
 
   return (
     <div
@@ -218,7 +262,14 @@ const DateSelector = ({
 
       <div style={{ display: "flex", flex: "1", alignItems: "stretch" }}>
         {/* WeatherVertical with fixed width and 100% height */}
-        <div style={{ width: "50px", marginRight: "20px", height: "100%" }}>
+        <div
+          style={{
+            width: "50px",
+            marginRight: "20px",
+            height: "100%",
+            paddingBottom: "1rem",
+          }}
+        >
           <WeatherVertical targetDate={targetDate} targetHour={targetHour} />
         </div>
 
@@ -234,7 +285,14 @@ const DateSelector = ({
           }}
         >
           {/* DateDropdown */}
-          <div style={{ flex: "1", display: "flex", alignItems: "center" }}>
+          <div
+            style={{
+              flex: "1",
+              display: "flex",
+              alignItems: "center",
+              marginBottom: "0.5rem",
+            }}
+          >
             <DateDropdown setTargetDate={setTargetDate} currentHour={hour} />
           </div>
 

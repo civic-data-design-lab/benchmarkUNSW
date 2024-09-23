@@ -219,6 +219,7 @@ function AiData() {
           />
         </Col>
       </Row>
+
       {/* Data Breakdown */}
       <div className="light-bg padding-tb-lg select-data-break">
         <div className="text-center primary-subtitle mb-3">
