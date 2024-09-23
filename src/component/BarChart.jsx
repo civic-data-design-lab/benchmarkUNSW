@@ -99,14 +99,15 @@ function BarChart({
     const xAxis = d3.axisBottom(x).tickFormat(xTickFormat).tickSize(0);
 
     g.append("g")
-      .attr("transform", `translate(0,${height})`)
-      .call(xAxis)
-      .selectAll("text")
-      .attr("transform", "rotate(-90) translate(-10, 10)")
-      .style("text-anchor", "end");
+        .attr("transform", `translate(0,${height})`)
+        .call(xAxis)
+        .selectAll("text")
+        .attr("transform", "rotate(-90) translate(-10, 10)")
+        .style("text-anchor", "end");
 
-
-    g.append("g").call(d3.axisLeft(y).tickSize(0)).select(".domain").remove();
+      g.selectAll(".domain").remove();
+      g.selectAll(".tick line").remove();
+      g.append("g").call(d3.axisLeft(y).tickSize(0)).select(".domain").remove();
 
     g.selectAll(".bar")
       .data(data)
