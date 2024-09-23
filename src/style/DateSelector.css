@@ -125,3 +125,7 @@ input[type="range"]::-moz-range-thumb {
   border-left: 0.3em solid transparent; /* Adjust the size of the triangle */
   color: #ff2551; /* Adjust the color of the triangle */
 }
+
+.spacer {
+  width: 0.5rem; /* Adjust the width as needed */
+}

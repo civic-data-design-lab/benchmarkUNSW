@@ -91,8 +91,11 @@ const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
           </Button>
         </div>
 
+        {/* Spacer Column */}
+        <div className="spacer"></div>
+
         {/* Time Slider */}
-        <div className="col-10 position-relative">
+        <div className="col position-relative">
           {/* Current Hour Box */}
           <div
             className="current-hour-box"
@@ -101,7 +104,7 @@ const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
               top: "-17px", // Adjusted to add more space between slider and number
               left: `calc(${((currentHour - 6) / 17) * 100}% + (${
                 8 - ((currentHour - 6) / 17) * 16
-              }px))`, // Adjusted to align with slider thumb
+              }px)`, // Adjusted to align with slider thumb
               transform: "translateX(-50%)",
               backgroundColor: "#FF2551",
               color: "#fff",
@@ -281,7 +284,7 @@ const DateSelector = ({
             flexDirection: "column",
             justifyContent: "space-between",
             height: "100%",
-            margin: "0rem 1rem",
+            margin: "0rem 0rem 0rem 1rem",
           }}
         >
           {/* DateDropdown */}
