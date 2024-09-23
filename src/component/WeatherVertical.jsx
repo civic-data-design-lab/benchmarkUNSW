@@ -71,28 +71,16 @@ function WeatherVertical({ targetDate, targetHour }) {
 
   return (
     <Card className="weather-card">
-      <Card.Body
-        style={{
-          padding: "5px",
-          width: "100%",
-          borderRadius: "20px",
-          boxShadow: "0px 4px 8px 0 rgba(0,0,0,0.2)",
-        }}
-      >
-        <div
-          className="weather-info"
-          style={{ display: "flex", alignItems: "center" }}
-        >
-          {/* Weather icon */}
-          <img
-            src={WeatherIcon}
-            alt="Weather Icon"
-            style={{ width: "20px", height: "20px" }}
-          />
-          <p>{conditions}</p>
-          {/* Temperature */}
+      <Card.Body>
+        <div className="weather-info">
           <p>{Math.round(((temperature - 32) * 5) / 9)} °C</p>
-          {/* <p>{percent_humidity} %</p> */}
+          <div className="weather-icon-container">
+            <img
+              src={WeatherIcon}
+              alt="Weather Icon"
+              className="weather-icon"
+            />
+          </div>
         </div>
       </Card.Body>
     </Card>

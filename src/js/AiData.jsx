@@ -124,25 +124,25 @@ function AiData() {
       let newIndexName, newIndex2Name, newIndex3Name;
 
       if (graphName === "socializing_graph") {
-        newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
-          targetHour + 1
-        }:00`;
+        // newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
+        //   targetHour + 1
+        // }:00`;
         newIndex2Name = "Number of people socializing";
         newIndex3Name = "Number of people visiting";
         col2Name = "social";
         col3Name = "ped";
       } else if (graphName === "activation_graph") {
-        newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
-          targetHour + 1
-        }:00`;
+        // newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
+        //   targetHour + 1
+        // }:00`;
         newIndex2Name = "Number of people staying";
         newIndex3Name = "Number of people visiting";
         col2Name = "hourly_total_staying";
         col3Name = "hourly_people";
       } else if (graphName === "sitting_graph") {
-        newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
-          targetHour + 1
-        }:00`;
+        // newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
+        //   targetHour + 1
+        // }:00`;
         newIndex2Name = "Number of people sitting";
         newIndex3Name = "Number of people visiting";
         col2Name = "total_hourly_sitting";
@@ -201,7 +201,6 @@ function AiData() {
 
   return (
     <div className="aidata-page nova-mono-regular">
-      {/* GridMap */}
       <GridMap
         gridData={gridData}
         benchData={benchData}
@@ -209,8 +208,8 @@ function AiData() {
         targetDate={targetDate}
         targetHour={targetHour}
       />
-
-      <Row className="aidata-slider text-center medium-bg">
+      {/* GridMap */}
+      <Row className="aidata-slider text-center medium-bg rounded-top-corners">
         <Col xs={12}>
           <DateSelector
             setTargetHour={setTargetHour}
@@ -220,7 +219,6 @@ function AiData() {
           />
         </Col>
       </Row>
-
       {/* Data Breakdown */}
       <div className="light-bg padding-tb-lg select-data-break">
         <div className="text-center primary-subtitle mb-3">

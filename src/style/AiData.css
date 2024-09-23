@@ -1,5 +1,5 @@
 /* Force mobile layout and center it on larger screens (laptops/desktops) */
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 750px) {
   .aidata-page {
     max-width: 390px; /* Set your preferred mobile width */
   }
@@ -14,7 +14,7 @@
 }
 
 .aidata-slider {
-  padding: 1rem 2rem 0.5rem 2rem;
+  padding: 0rem 1rem 1rem 1rem;
 }
 
 /*#region modal*/
@@ -139,4 +139,9 @@
 
 .select-data-break {
   padding: 1rem 2rem 1.5rem 2rem;
+}
+
+.rounded-top-corners {
+  border-top-left-radius: 20px; /* Adjust the radius as needed */
+  border-top-right-radius: 20px; /* Adjust the radius as needed */
 }

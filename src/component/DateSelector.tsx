@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Button, DropdownButton, Dropdown } from "react-bootstrap";
 import { PauseFill, PlayFill } from "react-bootstrap-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import "../style/DateSelector.css";
 import WeatherVertical from "./WeatherVertical";
 
@@ -63,14 +65,21 @@ const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
     <div className="container-fluid" style={{ width: "100%", padding: "0px" }}>
       <div className="row align-items-center">
         {/* Play/Pause Button */}
-        <div className="col-2 d-flex">
+        <div
+          className="col-2 d-flex align-items-center"
+          style={{ height: "100%" }}
+        >
           <Button
             onClick={togglePlay}
             variant="danger"
             style={{
               backgroundColor: "#FF2551",
               border: "none",
-              borderRadius: "50%",
+              borderRadius: "10px",
+              height: "100%", // Match the height of the slider
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
             {isPlaying ? <PauseFill /> : <PlayFill />}
@@ -188,25 +197,55 @@ const DateSelector = ({
   const [hour, setHour] = useState(0); // Holds the current hour state
 
   return (
-    <div style={{ backgroundColor: "#FFDAE2", padding: "10px", width: "100%" }}>
-      {/* Row 1: WeatherVertical and DateDropdown */}
-      <div className="row">
-        <div className="col-md-6" style={{ marginBottom: "20px" }}>
-          <WeatherVertical targetDate={targetDate} targetHour={targetHour} />
-        </div>
-        <div className="col-md-6">
-          <DateDropdown setTargetDate={setTargetDate} currentHour={hour} />
-        </div>
+    <div
+      style={{
+        backgroundColor: "#FFDAE2",
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      {/* Horizontal Button Icon */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <FontAwesomeIcon icon={faMinus} size="2x" />
       </div>
 
-      {/* Row 2: TimeSlider */}
-      <div className="row mt-2">
-        <div className="col-md-12">
-          <TimeSlider
-            setTargetHour={setTargetHour}
-            setCurrentHour={setHour}
-            currentHour={hour}
-          />
+      <div style={{ display: "flex", flex: "1", alignItems: "stretch" }}>
+        {/* WeatherVertical with fixed width and 100% height */}
+        <div style={{ width: "50px", marginRight: "20px", height: "100%" }}>
+          <WeatherVertical targetDate={targetDate} targetHour={targetHour} />
+        </div>
+
+        {/* DateDropdown and TimeSlider with flexible width */}
+        <div
+          style={{
+            flex: "1",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            height: "100%",
+            margin: "0rem 1rem",
+          }}
+        >
+          {/* DateDropdown */}
+          <div style={{ flex: "1", display: "flex", alignItems: "center" }}>
+            <DateDropdown setTargetDate={setTargetDate} currentHour={hour} />
+          </div>
+
+          {/* TimeSlider */}
+          <div style={{ flex: "1", display: "flex", alignItems: "center" }}>
+            <TimeSlider
+              setTargetHour={setTargetHour}
+              setCurrentHour={setHour}
+              currentHour={hour}
+            />
+          </div>
         </div>
       </div>
     </div>

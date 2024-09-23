@@ -11,6 +11,8 @@ import benchIcon from "../assets/Symbols/BENCH ICON_R.svg";
 import treeIcon from "../assets/Symbols/TREE.svg";
 import * as d3 from "d3";
 
+import "../style/GridMap.css";
+
 interface GridProps {
   gridData: FeatureCollection;
   benchData: FeatureCollection;
@@ -78,9 +80,6 @@ const GridMap: React.FC<GridProps> = ({
   const [hourlyPedestrianData, setPedestrianData] = useState<FeatureCollection>(
     getDataAtTime(pedestrianData, targetDate, targetHour)
   );
-  const [shadowGeoData, setShadowGeoData] = useState<FeatureCollection | null>(
-    null
-  );
   const { width, height } = useWindowSize();
 
   // Create a color scale to represent different times of day
@@ -95,12 +94,6 @@ const GridMap: React.FC<GridProps> = ({
   // useEffect to filter the data and render the grid/map when the date or hour changes
   useEffect(() => {
     if (!gridData || !benchData || !pedestrianData) return;
-
-    // Fetch shadow data from remote or local source
-    fetch("/data/shadows.geojson") // Adjust the path according to your file location
-      .then((response) => response.json())
-      .then((data) => setShadowGeoData(data))
-      .catch((error) => console.error("Error loading shadow data: ", error));
 
     // Asynchronously update the bench and pedestrian data
     const updateData = async () => {
@@ -152,30 +145,6 @@ const GridMap: React.FC<GridProps> = ({
 
     // Remove any existing content before rendering
     svg.selectAll("*").remove();
-
-    if (shadowGeoData) {
-      // Filter shadow data based on the target hour
-      const filteredShadows = shadowGeoData.features.filter(
-        (feature) => feature.properties["HOUR"] === targetHour
-      );
-
-      // console.log("targetHour: ", targetHour);
-
-      // console.log("Filtered Shadows: ", filteredShadows);
-
-      svg
-        .append("g")
-        .attr("transform", "rotate(-10)")
-        .selectAll("path")
-        .data(filteredShadows)
-        .enter()
-        .append("path")
-        .attr("d", path)
-        .attr("fill", "#FF2551")
-        .attr("fill-opacity", 0.05)
-        .attr("stroke", "none")
-        .attr("stroke-width", 0.5);
-    }
 
     // Render the GeoJSON grid
     svg
@@ -275,34 +244,15 @@ const GridMap: React.FC<GridProps> = ({
         d.properties.category_sitting === "sitting" ? "none" : "#FF2551"
       )
       .attr("stroke-width", 1);
-  }, [
-    hourlyBenchData,
-    hourlyPedestrianData,
-    shadowGeoData,
-    gridData,
-    width,
-    height,
-  ]);
+  }, [hourlyBenchData, hourlyPedestrianData, gridData, width, height]);
 
   return (
-    <div
-      style={{
-        // backgroundImage: `
-        // linear-gradient(90deg, #FEBECD 1px, transparent 1px),
-        // linear-gradient(180deg, #FEBECD 1px, transparent 1px)`,
-        // backgroundSize: '4px 4px', /* adjust the spacing between the lines */
-        backgroundColor,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        zIndex: 0,
-      }}
-    >
+    <div className="grid-container">
       <svg
         ref={svgRef}
         width={width * 1}
         height={height * 0.65}
-        viewBox={`${width * 0.1} ${10} ${width * 1.05} ${height * 0.55}`}
+        viewBox={`${width * 0.1} ${20} ${width * 1.05} ${height * 0.5}`}
       >
         {/* Grid will be rendered here */}
       </svg>
