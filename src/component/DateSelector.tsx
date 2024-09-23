@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Button, DropdownButton, Dropdown } from "react-bootstrap";
 import { PauseFill, PlayFill } from "react-bootstrap-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import "../style/DateSelector.css";
+import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import WeatherVertical from "./WeatherVertical";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import questionCircle from "../assets/Symbols/question-circle.svg";
 
 // Helper functions to format date and time
 // Converts a number representing an hour to a 12-hour format with AM/PM
@@ -206,6 +208,7 @@ function DateDropdown({ setTargetDate, currentHour }) {
         transition: "height 0.3s ease",
         height: isDropdownOpen ? "205px" : "50px",
         overflow: "hidden",
+        alignItems: "center",
       }}
     >
       <DropdownButton
@@ -242,6 +245,11 @@ const DateSelector = ({
   targetHour,
 }) => {
   const [hour, setHour] = useState(6); // Holds the current hour state
+  const [isTooltipVisible, setIsTooltipVisible] = useState(false); // State to manage tooltip visibility
+
+  const toggleTooltip = () => {
+    setIsTooltipVisible(!isTooltipVisible);
+  };
 
   return (
     <div
@@ -284,7 +292,7 @@ const DateSelector = ({
             flexDirection: "column",
             justifyContent: "space-between",
             height: "100%",
-            margin: "0rem 0rem 0rem 1rem",
+            margin: "0rem 0rem 0rem 0.5rem",
           }}
         >
           {/* DateDropdown */}
@@ -307,6 +315,58 @@ const DateSelector = ({
               currentHour={hour}
             />
           </div>
+        </div>
+
+        {/* Question Mark Icon */}
+        <div
+          className="tooltip-container"
+          style={{
+            position: "relative", // Added to position the tooltip
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "flex-end",
+            marginLeft: "0.5rem",
+          }}
+        >
+          <img
+            src={questionCircle}
+            alt="Question Circle"
+            style={{ width: "25px", height: "25px", cursor: "pointer" }} // Adjust the size as needed and add cursor pointer
+            onClick={toggleTooltip} // Toggle tooltip on click
+          />
+          {isTooltipVisible && (
+            <div
+              className="tooltip-box"
+              style={{
+                backgroundColor: "#FFEFF3",
+                color: "#FF2551",
+                textAlign: "center",
+                borderRadius: "6px",
+                padding: "5px 10px",
+                position: "absolute",
+                zIndex: 1,
+                bottom: "110%", // Position above the icon
+                right: "0", // Align to the right of the icon
+                opacity: 1,
+                transition: "opacity 0.3s",
+                fontSize: "12px",
+                width: "150px",
+              }}
+            >
+              You can select a date and time to see the vision sensor data for
+              that specific time along with the weather data.
+              <div
+                style={{
+                  position: "absolute",
+                  top: "100%", // Arrow pointing down
+                  right: "10px", // Position arrow at the right bottom of the square
+                  borderWidth: "5px",
+                  borderStyle: "solid",
+                  borderColor: "#FFEFF3 transparent transparent transparent",
+                }}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
