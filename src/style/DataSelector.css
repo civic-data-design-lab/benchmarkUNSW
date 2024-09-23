@@ -1,0 +1,126 @@
+.data-breakdown-dropdown {
+  margin-bottom: 0.5rem;
+}
+
+.custom-red-dropdown {
+  background-color: #ff2551 !important;
+  border-color: #ff2551 !important;
+  border-radius: 20px !important;
+  padding: 0rem 1rem !important;
+  font-size: 1.3rem !important;
+}
+
+.selected-index-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.selected-index {
+  background-color: #ff2551;
+  color: white;
+  padding: 1rem;
+  border-radius: 20px;
+  border: 2px solid #ff2551;
+  text-align: center;
+  flex: 5;
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.index-percentage {
+  font-size: 2.1rem;
+  font-weight: bold;
+  margin: 0rem;
+}
+
+.index-details {
+  font-family: "ibm-plex-sans", sans-serif;
+  margin-top: 0.5rem;
+  text-align: left;
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.index-details-text {
+  font-family: "ibm-plex-sans", sans-serif;
+  margin: 0rem;
+}
+
+.data-cards-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 7;
+}
+
+.data-card {
+  background-color: white;
+  border: 2px solid #ff2551;
+  border-radius: 25px;
+  padding: 0rem 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: "ibm-plex-sans", sans-serif;
+  color: #ff2551;
+}
+
+.primary-subtitle {
+  font-size: 1rem;
+  color: #ff4d4d;
+}
+
+.primary-subtxt {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.index-tooltip {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+.index-tooltip img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+}
+
+.index-tooltip.top-aligned {
+  display: flex;
+  height: 100%; /* Ensure the div takes the full height of its parent */
+}
+
+.top-aligned-img {
+  align-self: flex-start; /* Align the image to the top of the div */
+}
+
+.flex-ratio-5-7 {
+  display: flex;
+}
+
+.dropdown-menu.show {
+  max-height: 15rem; /* Limit the dropdown height to display only a few items */
+  overflow-y: scroll; /* Enable vertical scrolling for overflowing content */
+  width: 100%; /* Set the width to match the parent element */
+  border: none;
+  background-color: #ffeff3;
+  margin-top: 5px;
+  border-radius: 20px;
+  z-index: 1000; /* Ensure dropdown is on top of other elements */
+}
+
+.custom-dropdown-item {
+  color: #ff2551 !important; /* Set text color to white */
+  background-color: transparent !important; /* Ensure background stays transparent */
+  border: none !important; /* Remove default border */
+  z-index: 1000 !important; /* Ensure dropdown is on top of other elements */
+}
