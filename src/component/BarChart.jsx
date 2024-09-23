@@ -13,7 +13,7 @@ function BarChart({
   const svgRef = useRef();
   const rootRef = useRef(); // Reference to the root div
   const [data, setData] = useState([]);
-  const [chartWidth, setChartWidth] = useState(0); // State for dynamic width
+    const [chartWidth, setChartWidth] = useState(0); // State for dynamic width
 
   // Fetch CSV data and set chart data based on chartType
   useEffect(() => {
@@ -73,7 +73,7 @@ function BarChart({
     svg.attr("class", "aidata_activation_svg");
 
     const margin = {
-      top: 20,
+      top: 30,
       right: 30,
       bottom: 50,
       left: 30,
@@ -94,7 +94,7 @@ function BarChart({
     const y = d3
       .scaleLinear()
       .rangeRound([height, 0])
-      .domain([0, d3.max(data, (d) => d[chartY])]);
+      .domain([0, d3.max(data, (d) => Number(d[chartY]))]);
 
     const xAxis = d3.axisBottom(x).tickFormat(xTickFormat).tickSize(0);
 
@@ -105,13 +105,6 @@ function BarChart({
       .attr("transform", "rotate(-90) translate(-10, 10)")
       .style("text-anchor", "end");
 
-    g.append("text")
-      .attr("fill", "#000")
-      .attr("y", -20)
-      .attr("dy", "0.71em")
-      .attr("text-anchor", "start")
-      .attr("class", "chart_axis")
-      .text(chartY);
 
     g.append("g").call(d3.axisLeft(y).tickSize(0)).select(".domain").remove();
 
@@ -140,16 +133,31 @@ function BarChart({
       .attr("width", x.bandwidth())
       .attr("height", (d) => height - y(d[chartY]))
       .on("mouseover", function (event, d) {
-        d3.select(this.parentNode)
-          .append("text")
-          .attr("class", "chart_hover")
-          .attr("x", x(d[chartX]) + x.bandwidth() / 2)
-          .attr("y", y(d[chartY]) - 10)
-          .attr("text-anchor", "middle")
-          .text(d[chartY].toFixed(2));
+          d3.select(this.parentNode)
+              .append("g")
+              .attr("class", "chart_hover");
+
+          g.append("rect")
+              .attr("class", "chart_hover_background")
+              .attr("x", x(d[chartX]) + x.bandwidth() / 2 - 30)
+              .attr("y", y(d[chartY]) - 25)
+              .attr("width", 60)
+              .attr("height", 20)
+              .attr("rx", 10)
+              .attr("ry", 10);
+              
+
+          g.append("text")
+              .attr("class", "chart_hover_text")
+              .attr("x", x(d[chartX]) + x.bandwidth() / 2)
+              .attr("y", y(d[chartY]) - 10)
+              .attr("text-anchor", "middle")
+              .text(d[chartY]);
       })
       .on("mouseout", function () {
-        d3.selectAll(".chart_hover").remove();
+          d3.selectAll(".chart_hover").remove();
+          d3.selectAll(".chart_hover_text").remove();
+          d3.selectAll(".chart_hover_background").remove();
       });
   }, [data, chartX, chartY, selectedDate, selectedTime, chartWidth]);
 
