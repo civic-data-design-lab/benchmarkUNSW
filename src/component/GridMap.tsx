@@ -137,7 +137,8 @@ const GridMap: React.FC<GridProps> = ({
       .fitSize([svgWidth, svgHeight], gridData);
     const path = d3.geoPath().projection(projection);
 
-    // Remove any existing content before rendering
+    const scaleFactor = width > 750 ? 1.4 : 1;
+
     g.selectAll("*").remove();
 
     // Render the GeoJSON grid
@@ -156,10 +157,10 @@ const GridMap: React.FC<GridProps> = ({
     g.append("image")
       .attr("transform", "rotate(-10)")
       .attr("xlink:href", () => treeIcon)
-      .attr("x", projection([151.22859788, -33.91781167])[0] - 50)
-      .attr("y", projection([151.22859788, -33.91781167])[1] - 50)
-      .attr("width", 100)
-      .attr("height", 100)
+      .attr("x", projection([151.22859788, -33.91781167])[0] - 50 * scaleFactor)
+      .attr("y", projection([151.22859788, -33.91781167])[1] - 50 * scaleFactor)
+      .attr("width", 100 * scaleFactor)
+      .attr("height", 100 * scaleFactor)
       .attr("fill", "#FF2551")
       .attr("stroke", "none")
       .attr("stroke-width", 0.5);
@@ -167,10 +168,10 @@ const GridMap: React.FC<GridProps> = ({
     g.append("image")
       .attr("transform", "rotate(-10)")
       .attr("xlink:href", () => treeIcon)
-      .attr("x", projection([151.22863602, -33.91781669])[0] - 50)
-      .attr("y", projection([151.22863602, -33.91781669])[1] - 50)
-      .attr("width", 100)
-      .attr("height", 100)
+      .attr("x", projection([151.22863602, -33.91781669])[0] - 50 * scaleFactor)
+      .attr("y", projection([151.22863602, -33.91781669])[1] - 50 * scaleFactor)
+      .attr("width", 100 * scaleFactor)
+      .attr("height", 100 * scaleFactor)
       .attr("fill", "#FF2551")
       .attr("stroke", "none")
       .attr("stroke-width", 0.5);
@@ -178,10 +179,10 @@ const GridMap: React.FC<GridProps> = ({
     g.append("image")
       .attr("transform", "rotate(-10)")
       .attr("xlink:href", () => treeIcon)
-      .attr("x", projection([151.22862254, -33.9177743])[0] - 50)
-      .attr("y", projection([151.22862254, -33.9177743])[1] - 50)
-      .attr("width", 100)
-      .attr("height", 100)
+      .attr("x", projection([151.22862254, -33.9177743])[0] - 50 * scaleFactor)
+      .attr("y", projection([151.22862254, -33.9177743])[1] - 50 * scaleFactor)
+      .attr("width", 100 * scaleFactor)
+      .attr("height", 100 * scaleFactor)
       .attr("fill", "#FF2551")
       .attr("stroke", "none")
       .attr("stroke-width", 0.5);
@@ -194,15 +195,19 @@ const GridMap: React.FC<GridProps> = ({
       .append("image")
       .attr(
         "x",
-        (d) => projection(d.geometry.coordinates)[0] - (benchLength * 1.7) / 2
+        (d) =>
+          projection(d.geometry.coordinates)[0] -
+          (benchLength * 1.7 * scaleFactor) / 2
       )
       .attr(
         "y",
-        (d) => projection(d.geometry.coordinates)[1] - (benchLength * 1.7) / 2
+        (d) =>
+          projection(d.geometry.coordinates)[1] -
+          (benchLength * 1.7 * scaleFactor) / 2
       )
       .attr("xlink:href", () => benchIcon)
-      .attr("width", benchLength * 1.7)
-      .attr("height", benchLength * 1.7)
+      .attr("width", benchLength * 1.7 * scaleFactor)
+      .attr("height", benchLength * 1.7 * scaleFactor)
       .attr("fill", "#FF2551")
       .attr("stroke", "none")
       .attr("stroke-width", 0.5);
@@ -215,7 +220,7 @@ const GridMap: React.FC<GridProps> = ({
       .append("circle")
       .attr("cx", (d) => projection(d.geometry.coordinates)[0])
       .attr("cy", (d) => projection(d.geometry.coordinates)[1])
-      .attr("r", pedestrianCircleRadius * 8)
+      .attr("r", pedestrianCircleRadius * 8 * scaleFactor)
       .attr("fill", (d) =>
         d.properties.socializing === true ? "#FF2551" : "#FFFFFF"
       )
@@ -231,7 +236,7 @@ const GridMap: React.FC<GridProps> = ({
       .append("circle")
       .attr("cx", (d) => projection(d.geometry.coordinates)[0])
       .attr("cy", (d) => projection(d.geometry.coordinates)[1])
-      .attr("r", pedestrianCircleRadius * 1.2)
+      .attr("r", pedestrianCircleRadius * 1.2 * scaleFactor)
       .attr("fill", (d) =>
         d.properties.category_sitting === "sitting" ? "#FF2551" : "none"
       )
@@ -251,15 +256,18 @@ const GridMap: React.FC<GridProps> = ({
     svg.call(zoom);
   }, [hourlyBenchData, hourlyPedestrianData, gridData, width, height]);
 
+  const viewBox =
+    width > 750
+      ? `${width * 0.25} ${height * 0} ${width * 0.48} ${height * 0.5}`
+      : `-${width * 0.01} -${height * 0.15} ${width * 1.2} ${height * 0.85}`;
+
   return (
     <div className="grid-container" style={{ position: "relative" }}>
       <svg
         ref={svgRef}
         width="100%"
         height="100%"
-        viewBox={`-${width * 0.05} -${height * 0.17} ${width * 1.2} ${
-          height * 0.85
-        }`}
+        viewBox={viewBox}
         preserveAspectRatio="xMidYMid meet"
       >
         <g ref={gRef}>{/* Grid will be rendered here */}</g>

@@ -13,14 +13,24 @@ function App() {
   return (
     <>
       <Router>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/exploredata" element={<ExploreData />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/findings" element={<Findings />} />
-        </Routes>
-        <Footer />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            backgroundColor: "#FFEFF3",
+          }}
+        >
+          <div className="app-container">
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/exploredata" element={<ExploreData />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/findings" element={<Findings />} />
+            </Routes>
+            <Footer />
+          </div>
+        </div>
       </Router>
     </>
   );
