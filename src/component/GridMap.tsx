@@ -9,6 +9,7 @@ import {
 import useWindowSize from "../hooks/useWindowSize";
 import benchIcon from "../assets/Symbols/BENCH ICON_R.svg";
 import treeIcon from "../assets/Symbols/TREE.svg";
+import labels from "../assets/Symbols/labels.svg";
 import * as d3 from "d3";
 
 import "../style/GridMap.css";
@@ -240,7 +241,7 @@ const GridMap: React.FC<GridProps> = ({
   }, [hourlyBenchData, hourlyPedestrianData, gridData, width, height]);
 
   return (
-    <div className="grid-container">
+    <div className="grid-container" style={{ position: "relative" }}>
       <svg
         ref={svgRef}
         width="100%"
@@ -252,6 +253,26 @@ const GridMap: React.FC<GridProps> = ({
       >
         <g ref={gRef}>{/* Grid will be rendered here */}</g>
       </svg>
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "100%",
+          textAlign: "center",
+        }}
+      >
+        <img
+          src={labels}
+          alt="labels"
+          style={{
+            height: "40px",
+            width: "100%",
+            backgroundColor: "transparent", // Ensure the image itself has a transparent background
+          }}
+        />
+      </div>
     </div>
   );
 };
