@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../style/Font.css";
 import "../style/About.css";
 import "../style/Main.css";
@@ -30,6 +30,15 @@ import img11 from "../assets/About/7.jpg";
 import img12 from "../assets/About/8.jpg";
 
 function About() {
+  const [openSections, setOpenSections] = useState({});
+
+  const toggleSection = (section) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
+
   return (
     <div className="about-page">
       {/*Section 1*/}
@@ -189,21 +198,32 @@ function About() {
           </div>
         </div>
       </section>
-      {/*Section 5*/}
 
+      {/*Section 5*/}
       <section id="dtpr" className="nova-mono-regular">
         <div className="medium-bg about-dtpr">
-          {/*1*/}
           <div className="about-head dark-bg">
             <p className="about-title">DTPR Benchmark NSW</p>
           </div>
+          <p style={{ padding: "1rem 2rem 0rem 2rem", fontSize: "0.8rem" }}>
+            Benchmark NSW utilises{" "}
+            <a href="https://dtpr.io/">
+              Digital Trust for Places & Routines (DTPR)
+            </a>
+            , an open-source communication standard that seeks to increase
+            transparency and accountability for digital technology in public
+            spaces.
+          </p>
+
           <div className="about-p5">
             <p className="about-subtitle-2">What type of technology is this?</p>
           </div>
           <div className="about-p6 light-bg">
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">
-                {" "}
+              <p
+                className="about-subtxt"
+                onClick={() => toggleSection("deIDvideo")}
+              >
                 <img
                   src={deIDvideoIcon}
                   alt="Deidentified Video"
@@ -211,20 +231,24 @@ function About() {
                 />
                 De-Identified Video
               </p>
-              <p className="about-desc about-dtpr-desc">
-                Collects video footage of a sufficient resolution where
-                individuals can be identified, for example by capturing images
-                of faces or unique numbers such as vehicle license plates.
-                However, the video is processed in a way that removes
-                identifying characteristics before it is used or stored (known
-                as de-identified before first use or de-identified on device),
-                for example by blurring faces using computer vision.
-              </p>
+              {openSections.deIDvideo && (
+                <p className="about-desc about-dtpr-desc">
+                  Collects video footage of a sufficient resolution where
+                  individuals can be identified, for example by capturing images
+                  of faces or unique numbers such as vehicle license plates.
+                  However, the video is processed in a way that removes
+                  identifying characteristics before it is used or stored (known
+                  as de-identified before first use or de-identified on device),
+                  for example by blurring faces using computer vision.
+                </p>
+              )}
             </div>
             <hr className="about-hr"></hr>
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">
-                {" "}
+              <p
+                className="about-subtxt"
+                onClick={() => toggleSection("personDetection")}
+              >
                 <img
                   src={personDetectionIcon}
                   alt="Person Detection"
@@ -232,18 +256,22 @@ function About() {
                 />
                 Person Detection
               </p>
-              <p className="about-desc about-dtpr-desc">
-                Refers to a system that can detect the presence of humans in
-                images or videos, and identify where they are located or how
-                many there are in an image, but does not identify individuals.
-                The technology does not retain or use any personally
-                identifiable information.
-              </p>
+              {openSections.personDetection && (
+                <p className="about-desc about-dtpr-desc">
+                  Refers to a system that can detect the presence of humans in
+                  images or videos, and identify where they are located or how
+                  many there are in an image, but does not identify individuals.
+                  The technology does not retain or use any personally
+                  identifiable information.
+                </p>
+              )}
             </div>
             <hr className="about-hr"></hr>
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">
-                {" "}
+              <p
+                className="about-subtxt"
+                onClick={() => toggleSection("motionDetection")}
+              >
                 <img
                   src={motionDetectionIcon}
                   alt="Motion Detection"
@@ -251,14 +279,15 @@ function About() {
                 />
                 Motion Detector
               </p>
-              <p className="about-desc about-dtpr-desc">
-                Is a sensor that detects the movement of nearby objects. This
-                project uses motion detection only for lighting and does not
-                capture data.
-              </p>
+              {openSections.motionDetection && (
+                <p className="about-desc about-dtpr-desc">
+                  Is a sensor that detects the movement of nearby objects. This
+                  project uses motion detection only for lighting and does not
+                  capture data.
+                </p>
+              )}
             </div>
           </div>
-          {/*2*/}
           <div className="about-p5">
             <p className="about-subtitle-2">
               What is the purpose of this technology?
@@ -266,37 +295,43 @@ function About() {
           </div>
           <div className="about-p6 light-bg">
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">
-                {" "}
+              <p
+                className="about-subtxt"
+                onClick={() => toggleSection("planning")}
+              >
                 <img src={planningIcon} alt="Planning" className="svg-icon2" />
                 Planning & Decision-making
               </p>
-              <p className="about-desc about-dtpr-desc">
-                Supports the development of future plans; or to enable or
-                measure the impact of a decision. Examples include urban
-                planning.
-              </p>
+              {openSections.planning && (
+                <p className="about-desc about-dtpr-desc">
+                  Supports the development of future plans; or to enable or
+                  measure the impact of a decision. Examples include urban
+                  planning.
+                </p>
+              )}
             </div>
             <hr className="about-hr"></hr>
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">
-                {" "}
+              <p
+                className="about-subtxt"
+                onClick={() => toggleSection("research")}
+              >
                 <img src={RandDIcon} alt="R & D" className="svg-icon2" />
                 Research & Development
               </p>
-              <p className="about-desc about-dtpr-desc">
-                Supports exploratory research and testing.
-              </p>
+              {openSections.research && (
+                <p className="about-desc about-dtpr-desc">
+                  Supports exploratory research and testing.
+                </p>
+              )}
             </div>
           </div>
-          {/*3*/}
           <div className="about-p5">
             <p className="about-subtitle-2">How will this data be processed?</p>
           </div>
           <div className="about-p6 light-bg">
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">
-                {" "}
+              <p className="about-subtxt" onClick={() => toggleSection("ai")}>
                 <img
                   src={aiIcon}
                   alt="Artificial Intelligence"
@@ -304,19 +339,23 @@ function About() {
                 />
                 Artificial Intelligence
               </p>
-              <p className="about-desc about-dtpr-desc">
-                Data that is processed by automated, algorithmic or artificial
-                intelligence systems to derive a new result or data point.
-                Specifically, we use computer vision, which refers to computer
-                science methodologies that enable computers to derive data from
-                digital images or video. We process our de-identified video with
-                the YOLOv8 algorithm.
-              </p>
+              {openSections.ai && (
+                <p className="about-desc about-dtpr-desc">
+                  Data that is processed by automated, algorithmic or artificial
+                  intelligence systems to derive a new result or data point.
+                  Specifically, we use computer vision, which refers to computer
+                  science methodologies that enable computers to derive data
+                  from digital images or video. We process our de-identified
+                  video with the YOLOv8 algorithm.
+                </p>
+              )}
             </div>
             <hr className="about-hr"></hr>
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">
-                {" "}
+              <p
+                className="about-subtxt"
+                onClick={() => toggleSection("reviewed")}
+              >
                 <img
                   src={reviewedInternallyIcon}
                   alt="Reviewed Internally"
@@ -324,24 +363,27 @@ function About() {
                 />
                 Reviewed Internally
               </p>
-              <p className="about-desc about-dtpr-desc">
-                The NSW Government has review processes that consider the
-                potential benefits, risks and implications for privacy and harm
-                for new technologies or data collection activities. The NSW Gov
-                Artificial Intelligence Assurance Framework was completed and
-                the team constantly assesses the data for accuracy and
-                inconsistencies.
-              </p>
+              {openSections.reviewed && (
+                <p className="about-desc about-dtpr-desc">
+                  The NSW Government has review processes that consider the
+                  potential benefits, risks and implications for privacy and
+                  harm for new technologies or data collection activities. The
+                  NSW Gov Artificial Intelligence Assurance Framework was
+                  completed and the team constantly assesses the data for
+                  accuracy and inconsistencies.
+                </p>
+              )}
             </div>
           </div>
-          {/*4*/}
           <div className="about-p5">
             <p className="about-subtitle-2">How is the data stored?</p>
           </div>
           <div className="about-p6 light-bg">
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">
-                {" "}
+              <p
+                className="about-subtxt"
+                onClick={() => toggleSection("cloudStorage")}
+              >
                 <img
                   src={cloudStorageIcon}
                   alt="Cloud Storage"
@@ -349,15 +391,19 @@ function About() {
                 />
                 Cloud Storage
               </p>
-              <p className="about-desc about-dtpr-desc">
-                Anonymized data is stored on behalf of the organization or the
-                data collector in an off-site data centre.
-              </p>
+              {openSections.cloudStorage && (
+                <p className="about-desc about-dtpr-desc">
+                  Anonymized data is stored on behalf of the organization or the
+                  data collector in an off-site data centre.
+                </p>
+              )}
             </div>
             <hr className="about-hr"></hr>
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">
-                {" "}
+              <p
+                className="about-subtxt"
+                onClick={() => toggleSection("encrypted")}
+              >
                 <img
                   src={encryptedIcon}
                   alt="Encrypted"
@@ -365,30 +411,35 @@ function About() {
                 />
                 Encrypted
               </p>
-              <p className="about-desc about-dtpr-desc">
-                Data has been encoded so that only authorized parties can access
-                it, which can reduce risk related to handling private or
-                sensitive information.
-              </p>
+              {openSections.encrypted && (
+                <p className="about-desc about-dtpr-desc">
+                  Data has been encoded so that only authorized parties can
+                  access it, which can reduce risk related to handling private
+                  or sensitive information.
+                </p>
+              )}
             </div>
           </div>
-          {/*5*/}
           <div className="about-p5">
             <p className="about-subtitle-2">Who can access this data?</p>
           </div>
           <div className="about-p6 light-bg">
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt">
-                {" "}
+              <p
+                className="about-subtxt"
+                onClick={() => toggleSection("access")}
+              >
                 <img src={accessIcon} alt="Data Access" className="svg-icon2" />
                 Data
               </p>
-              <p className="about-desc about-dtpr-desc">
-                Data is available to the accountable organisation - University
-                of NSW. It is also available to Transport for NSWs as well as to
-                the data collection technology vendors and partners - MIT
-                Leventhal Center for Advanced Urbanism and VivaCity.
-              </p>
+              {openSections.access && (
+                <p className="about-desc about-dtpr-desc">
+                  Data is available to the accountable organisation - University
+                  of NSW. It is also available to Transport for NSWs as well as
+                  to the data collection technology vendors and partners - MIT
+                  Leventhal Center for Advanced Urbanism and VivaCity.
+                </p>
+              )}
             </div>
           </div>
           <p
@@ -406,8 +457,8 @@ function About() {
           </p>
         </div>
       </section>
-      {/*Section 3*/}
 
+      {/*Section 3*/}
       <section
         id="bench-design"
         className="nova-mono-regular"
@@ -451,66 +502,21 @@ function About() {
             }}
           >
             <p className="about-txt">
-              <strong>Movable seating</strong> plays a key role in fostering
-              social interactions and activating public spaces. In the Benchmark
-              NSW project, seating was more than a functional element; it became
-              a transformative tool for creating inclusive, vibrant
-              environments. These movable benches enable the public to shape
-              their surroundings to fit their needs, promoting a sense of
-              ownership and social cohesion.
+              <strong>Co-design</strong> workshops engaging women Industrial
+              Design students from UNSW, who contributed to the creation of
+              modular seating units. These units were fabricated from 100%
+              recycled HDPE plastic and featured motion-activated LED lighting
+              to improve visibility and user comfort.
             </p>
             <p className="about-txt">
-              <strong>co-designed</strong> with four women Industrial Design
-              students from UNSW, representing the target beneficiaries of the
-              project. This collaboration ensured the design reflected the lived
-              experiences of women, girls, and gender-diverse people,
-              prioritizing comfort, safety, and flexibility. The project
-              emphasises sustainability and user engagement, with the seating
-              made from 100% post-consumer recycled high-density polyethylene
-              (HDPE) plastic.
-            </p>
-            <p className="about-txt">
-              <strong>The fabrication</strong> process took place in the UNSW
-              Design Futures Lab, where digital CNC techniques were used to
-              ensure precision and durability. This process minimises material
-              waste and aligns with broader circular economy goals by
-              transforming waste materials into functional, engaging public
-              furniture. More details are available in{" "}
-              <a href="/downloads#report">the full report</a> bench design
-              section.
+              <strong>Data collection</strong> was conducted using AI-driven
+              computer vision sensors developed in collaboration with MIT, which
+              captured real-time anonymised data on public space usage. This was
+              complemented by qualitative observations and intercept surveys,
+              undertaken by the four women Industrial Design students on site
+              during the activation and baseline periods.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/*Section 4*/}
-      <section
-        id="team"
-        className="nova-mono-regular"
-        style={{ paddingTop: "5rem" }}
-      >
-        <div className="about-head light-bg">
-          <p className="about-title">Team</p>
-        </div>
-        <div className="about-p light-bg">
-          <p className="about-subtitle">MIT</p>
-          <p className="about-subtxt">Sarah Williams</p>
-          <p className="about-subtxt">Minwook Kang</p>
-          <p className="about-subtxt">Hannah Shumway</p>
-          <p className="about-subtxt">Sebastian Ives</p>
-          <p className="about-subtxt">Maria Gabriela Carucci</p>
-          <p className="about-subtxt">Karen Kuo</p>
-          <div style={{ textAlign: "right" }}>
-            <p className="about-subtitle">UNSW</p>
-            <p className="about-subtxt">Gonzalo Portas</p>
-            <p className="about-subtxt">Mariano Ramirez</p>
-          </div>
-
-          <p className="about-subtitle">TfNSW</p>
-          <p className="about-subtxt">Zoe Eather</p>
-          <p className="about-subtxt">Tracey Chung</p>
-          <p className="about-subtxt">Tara Howard</p>
-          <p className="about-subtxt">Ella Dunne</p>
         </div>
       </section>
     </div>

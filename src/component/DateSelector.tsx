@@ -36,7 +36,7 @@ function formatDateForValue(date) {
 
 // TimeSlider component allows selecting and playing through hours of the day
 const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
-  const [isPlaying, setIsPlaying] = useState(false); // Controls play/pause state for the slider
+  const [isPlaying, setIsPlaying] = useState(true); // Controls play/pause state for the slider
 
   // Handles the automatic progression of time when "playing"
   useEffect(() => {
