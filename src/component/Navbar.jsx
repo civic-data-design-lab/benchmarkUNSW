@@ -62,7 +62,7 @@ function NavBar() {
                 Home
               </Nav.Link>
               <Nav.Link as={Link} to="/aidata" onClick={handleLinkClick}>
-                Vision sensor data
+                Explore Data
               </Nav.Link>
               {/* <Nav.Link as={Link} to="/surveydata" onClick={handleLinkClick}>
                 Survey Data
