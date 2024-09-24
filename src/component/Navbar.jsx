@@ -18,9 +18,9 @@ function NavBar() {
 
   // Set different styles based on the current route
   const navBarStyle =
-    location.pathname === "/aidata" ? "NavBarTitleAidata" : "NavBarTitle";
+    location.pathname === "/exploredata" ? "NavBarTitleAidata" : "NavBarTitle";
   const icon =
-    location.pathname === "/aidata"
+    location.pathname === "/exploredata"
       ? "navbar-toggler-icon-aidata"
       : "navbar-toggler-icon-default"; // Change the toggler icon dynamically
 
@@ -61,12 +61,13 @@ function NavBar() {
               <Nav.Link as={Link} to="/" onClick={handleLinkClick}>
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} to="/aidata" onClick={handleLinkClick}>
+              <Nav.Link as={Link} to="/exploredata" onClick={handleLinkClick}>
                 Explore Data
               </Nav.Link>
-              {/* <Nav.Link as={Link} to="/surveydata" onClick={handleLinkClick}>
-                Survey Data
-              </Nav.Link> */}
+
+              <Nav.Link as={Link} to="/findings" onClick={handleLinkClick}>
+                Findings
+              </Nav.Link>
               <NavDropdown title="About" id="collasible-nav-dropdown">
                 <NavDropdown.Item
                   as={HashLink}
@@ -102,22 +103,6 @@ function NavBar() {
                   onClick={handleLinkClick}
                 >
                   Team
-                </NavDropdown.Item>
-              </NavDropdown>
-              <NavDropdown title="Downloads" id="collasible-nav-dropdown">
-                <NavDropdown.Item
-                  as={HashLink}
-                  to="/downloads#report"
-                  onClick={handleLinkClick}
-                >
-                  Report
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  as={HashLink}
-                  to="/downloads#guide-book"
-                  onClick={handleLinkClick}
-                >
-                  Guide Book
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>

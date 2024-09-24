@@ -4,10 +4,10 @@ import "./style/App.css";
 import NavBar from "./component/NavBar";
 import Footer from "./component/Footer";
 import Home from "./js/Home";
-import AiData from "./js/AiData";
+import ExploreData from "./js/ExploreData";
 import SurveyData from "./js/SurveyData";
 import About from "./js/About";
-import Downloads from "./js/Downloads";
+import Findings from "./js/Findings";
 
 function App() {
   return (
@@ -16,10 +16,9 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/aidata" element={<AiData />} />
-          <Route path="/surveydata" element={<SurveyData />} />
+          <Route path="/exploredata" element={<ExploreData />} />
           <Route path="/about" element={<About />} />
-          <Route path="/downloads" element={<Downloads />} />
+          <Route path="/findings" element={<Findings />} />
         </Routes>
         <Footer />
       </Router>

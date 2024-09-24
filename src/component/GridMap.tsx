@@ -175,6 +175,17 @@ const GridMap: React.FC<GridProps> = ({
       .attr("stroke", "none")
       .attr("stroke-width", 0.5);
 
+    g.append("image")
+      .attr("transform", "rotate(-10)")
+      .attr("xlink:href", () => treeIcon)
+      .attr("x", projection([151.22862254, -33.9177743])[0] - 50)
+      .attr("y", projection([151.22862254, -33.9177743])[1] - 50)
+      .attr("width", 100)
+      .attr("height", 100)
+      .attr("fill", "#FF2551")
+      .attr("stroke", "none")
+      .attr("stroke-width", 0.5);
+
     g.append("g")
       .attr("transform", "rotate(-10)")
       .selectAll("image")

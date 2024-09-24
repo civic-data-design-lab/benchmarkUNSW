@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Dropdown, Card, Row, Col, Button, Container } from "react-bootstrap";
-import "../style/AiData.css";
+import "../style/Exploredata.css";
 import * as d3 from "d3";
 
 import social1 from "../assets/AiData/social1.png";
@@ -19,10 +19,10 @@ import GridMap from "../component/GridMap";
 import DateSelector from "../component/DateSelector";
 import DataSelector from "../component/DataSelector";
 
-function AiData() {
+function ExploreData() {
   const [activeModal, setActiveModal] = useState(null);
   const [showDailyChart, setShowDailyChart] = useState(true);
-  const [selectedOption, setSelectedOption] = useState("Socializing");
+  const [selectedOption, setSelectedOption] = useState("Socialising");
   const [data, setData] = useState([]);
   const [index, setIndex] = useState(0);
   const [indexName, setIndexName] = useState("");
@@ -64,7 +64,7 @@ function AiData() {
   const getCsvLocation = () => {
     let basePath = "";
     switch (selectedOption) {
-      case "Socializing":
+      case "Socialising":
         basePath = "/data/socializing_graph/";
         break;
       case "Staying":
@@ -83,7 +83,7 @@ function AiData() {
   //#region update images
   const getImages = () => {
     switch (selectedOption) {
-      case "Socializing":
+      case "Socialising":
         return [social1, social2, social3];
       case "Staying":
         return [dwell1, dwell2, dwell3];
@@ -99,7 +99,7 @@ function AiData() {
   //#region update name
   const getTextForSelection = () => {
     switch (selectedOption) {
-      case "Socializing":
+      case "Socialising":
         return "High Social Index Rate Formations";
       case "Staying":
         return "Top 3 Styaing Index Maps";
@@ -128,7 +128,7 @@ function AiData() {
         // newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
         //   targetHour + 1
         // }:00`;
-        newIndex2Name = "socializing on site";
+        newIndex2Name = "socialising on site";
         newIndex3Name = "pedestrian per hour";
         col2Name = "social";
         col3Name = "ped";
@@ -236,14 +236,13 @@ function AiData() {
 
       {/* Chart Button */}
       <div className="chart_button nova-mono-regular">
-
         <Button
           variant="primary"
           className="chart_button"
           onClick={() => setShowDailyChart(!showDailyChart)}
         >
           {showDailyChart ? "Daily" : "Hourly"}
-              </Button>
+        </Button>
       </div>
 
       {/* Bar Chart */}
@@ -275,9 +274,10 @@ function AiData() {
                     fontSize: "1rem",
                     padding: "0.5rem",
                     marginBottom: "1rem",
+                    color: "white",
                   }}
                 >
-                  {selectedOption === "Socializing"
+                  {selectedOption === "Socialising"
                     ? "9:00AM - 10:00AM & 4:00PM - 5:00PM"
                     : selectedOption === "Staying"
                     ? "1:00PM - 2:00PM"
@@ -349,4 +349,4 @@ function AiData() {
   );
 }
 
-export default AiData;
+export default ExploreData;

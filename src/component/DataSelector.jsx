@@ -24,9 +24,9 @@ const DataBreakdownDropdown = ({ selectedOption, setSelectedOption }) => {
         <Dropdown.Menu>
           <Dropdown.Item
             className="custom-dropdown-item"
-            eventKey="Socializing"
+            eventKey="Socialising"
           >
-            Socializing
+            Socialising
           </Dropdown.Item>
           <Dropdown.Item className="custom-dropdown-item" eventKey="Staying">
             Staying
