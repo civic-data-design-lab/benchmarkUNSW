@@ -76,9 +76,11 @@ function About() {
             </Carousel>
           </div>
           <div
+            className="custom-scrollbar"
             style={{
               maxHeight: "40vh",
-              overflow: "scroll",
+              overflow: "auto",
+              overflowX: "hidden",
               backgroundColor: "#FFEFF3",
               padding: "1rem",
               borderRadius: "1rem",
@@ -156,9 +158,11 @@ function About() {
             </Carousel>
           </div>
           <div
+            className="custom-scrollbar"
             style={{
               maxHeight: "40vh",
-              overflow: "scroll",
+              overflow: "auto",
+              overflowX: "hidden",
               backgroundColor: "#FFEFF3",
               padding: "1rem",
               borderRadius: "1rem",
@@ -493,9 +497,11 @@ function About() {
             </Carousel>
           </div>
           <div
+            className="custom-scrollbar"
             style={{
               maxHeight: "40vh",
-              overflow: "scroll",
+              overflow: "auto",
+              overflowX: "hidden",
               backgroundColor: "#FFEFF3",
               padding: "1rem",
               borderRadius: "1rem",

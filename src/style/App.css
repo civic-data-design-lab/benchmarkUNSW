@@ -4,7 +4,8 @@
     width: 430px;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    overflow: auto; /* Show scrollbar only when there is overflow */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
   }
 
   /* Custom scrollbar styles */
