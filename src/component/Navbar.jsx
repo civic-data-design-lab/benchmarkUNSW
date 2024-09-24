@@ -34,7 +34,7 @@ function NavBar() {
           expanded={expanded}
         >
           <Navbar.Brand href="/" className={navBarStyle}>
-            BenchMark NSW
+            Benchmark NSW
           </Navbar.Brand>
           <Navbar.Toggle
             aria-controls="responsive-navbar-nav"

@@ -73,6 +73,7 @@ const GridMap: React.FC<GridProps> = ({
   targetHour,
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
+  const gRef = useRef<SVGGElement>(null);
 
   const [hourlyBenchData, setBenchData] = useState<FeatureCollection>(
     getDataAtTime(benchData, targetDate, targetHour)
@@ -114,22 +115,10 @@ const GridMap: React.FC<GridProps> = ({
     updateData(); // Trigger async update for data
   }, [targetDate, targetHour, benchData, pedestrianData, gridData]);
 
-  // console.log(
-  //   "Filtered Bench Data: ",
-  //   filteredBenchData,
-  //   targetDate,
-  //   targetHour
-  // );
-  // console.log(
-  //   "Filtered Pedestrian Data: ",
-  //   filteredPedestrianData,
-  //   targetDate,
-  //   targetHour
-  // );
-
   // useEffect to render the grid/map when the data is loaded
   useEffect(() => {
     const svg = d3.select(svgRef.current);
+    const g = d3.select(gRef.current);
     const svgWidth = width * 0.9;
     const svgHeight = height * 0.7;
 
@@ -137,18 +126,21 @@ const GridMap: React.FC<GridProps> = ({
     const pedestrianCircleRadius: number = 5;
     const haloRadius: number = 20;
 
+    // Calculate the centroid of the gridData
+    const centroid = d3.geoCentroid(gridData);
+
     // Define the projection and path generator
     const projection = d3
       .geoMercator()
+      .center(centroid) // Center the projection on the centroid
       .fitSize([svgWidth, svgHeight], gridData);
     const path = d3.geoPath().projection(projection);
 
     // Remove any existing content before rendering
-    svg.selectAll("*").remove();
+    g.selectAll("*").remove();
 
     // Render the GeoJSON grid
-    svg
-      .append("g")
+    g.append("g")
       .attr("transform", "rotate(-10)")
       .selectAll("path")
       .attr("id", "grid")
@@ -160,34 +152,29 @@ const GridMap: React.FC<GridProps> = ({
       .attr("stroke", "#FF2953")
       .attr("stroke-width", 0.5);
 
-    svg
-      .append("image")
+    g.append("image")
       .attr("transform", "rotate(-10)")
       .attr("xlink:href", () => treeIcon)
       .attr("x", projection([151.22859788, -33.91781167])[0] - 50)
       .attr("y", projection([151.22859788, -33.91781167])[1] - 50)
-      .attr("width", 100) // Radius of the point
-      .attr("height", 100) // Radius of the point
-      .attr("fill", "#FF2551") // Color of the point
+      .attr("width", 100)
+      .attr("height", 100)
+      .attr("fill", "#FF2551")
       .attr("stroke", "none")
       .attr("stroke-width", 0.5);
 
-    svg
-      .append("image")
+    g.append("image")
       .attr("transform", "rotate(-10)")
       .attr("xlink:href", () => treeIcon)
       .attr("x", projection([151.22863602, -33.91781669])[0] - 50)
       .attr("y", projection([151.22863602, -33.91781669])[1] - 50)
-      .attr("width", 100) // Radius of the point
-      .attr("height", 100) // Radius of the point
-      .attr("fill", "#FF2551") // Color of the point
+      .attr("width", 100)
+      .attr("height", 100)
+      .attr("fill", "#FF2551")
       .attr("stroke", "none")
       .attr("stroke-width", 0.5);
 
-    // console.log("Bench Data: ", hourlyBenchData.features);
-
-    svg
-      .append("g")
+    g.append("g")
       .attr("transform", "rotate(-10)")
       .selectAll("image")
       .data(hourlyBenchData.features)
@@ -202,16 +189,13 @@ const GridMap: React.FC<GridProps> = ({
         (d) => projection(d.geometry.coordinates)[1] - (benchLength * 1.7) / 2
       )
       .attr("xlink:href", () => benchIcon)
-      .attr("width", benchLength * 1.7) // Radius of the point
-      .attr("height", benchLength * 1.7) // Radius of the point
-      .attr("fill", "#FF2551") // Color of the point
+      .attr("width", benchLength * 1.7)
+      .attr("height", benchLength * 1.7)
+      .attr("fill", "#FF2551")
       .attr("stroke", "none")
       .attr("stroke-width", 0.5);
 
-    // console.log("Pedestrian Data: ", hourlyPedestrianData.features);
-
-    svg
-      .append("g")
+    g.append("g")
       .attr("transform", "rotate(-10)")
       .selectAll("circle")
       .data(hourlyPedestrianData.features)
@@ -219,16 +203,15 @@ const GridMap: React.FC<GridProps> = ({
       .append("circle")
       .attr("cx", (d) => projection(d.geometry.coordinates)[0])
       .attr("cy", (d) => projection(d.geometry.coordinates)[1])
-      .attr("r", pedestrianCircleRadius * 8) // Radius of the point
+      .attr("r", pedestrianCircleRadius * 8)
       .attr("fill", (d) =>
         d.properties.socializing === true ? "#FF2551" : "#FFFFFF"
-      ) // Color of the point
+      )
       .attr("stroke", "none")
       .attr("opacity", 0.3)
       .attr("stroke-width", 0.5);
 
-    svg
-      .append("g")
+    g.append("g")
       .attr("transform", "rotate(-10)")
       .selectAll("circle")
       .data(hourlyPedestrianData.features)
@@ -236,7 +219,7 @@ const GridMap: React.FC<GridProps> = ({
       .append("circle")
       .attr("cx", (d) => projection(d.geometry.coordinates)[0])
       .attr("cy", (d) => projection(d.geometry.coordinates)[1])
-      .attr("r", pedestrianCircleRadius * 1.2) // Radius of the point
+      .attr("r", pedestrianCircleRadius * 1.2)
       .attr("fill", (d) =>
         d.properties.category_sitting === "sitting" ? "#FF2551" : "none"
       )
@@ -244,17 +227,30 @@ const GridMap: React.FC<GridProps> = ({
         d.properties.category_sitting === "sitting" ? "none" : "#FF2551"
       )
       .attr("stroke-width", 1);
+
+    // Add zoom and pan functionality
+    const zoom = d3
+      .zoom<SVGSVGElement, unknown>()
+      .scaleExtent([1, 8])
+      .on("zoom", (event) => {
+        g.attr("transform", event.transform);
+      });
+
+    svg.call(zoom);
   }, [hourlyBenchData, hourlyPedestrianData, gridData, width, height]);
 
   return (
     <div className="grid-container">
       <svg
         ref={svgRef}
-        width={width * 1}
-        height={height * 0.65}
-        viewBox={`${width * 0.1} ${20} ${width * 1.05} ${height * 0.5}`}
+        width="100%"
+        height="100%"
+        viewBox={`-${width * 0.05} -${height * 0.17} ${width * 1.2} ${
+          height * 0.85
+        }`}
+        preserveAspectRatio="xMidYMid meet"
       >
-        {/* Grid will be rendered here */}
+        <g ref={gRef}>{/* Grid will be rendered here */}</g>
       </svg>
     </div>
   );
