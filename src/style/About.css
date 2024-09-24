@@ -114,7 +114,7 @@ p,
 }
 .about-subtxt {
   font-size: var(--primary-subtxt);
-  padding-bottom: 0;
+  padding: 0.3rem;
 }
 .about-desc {
   font-size: var(--primary-desc);
@@ -133,6 +133,7 @@ p,
 .about-dtpr-sub:hover .about-subtxt {
   background-color: var(--primary-dark);
   color: var(--primary-light);
+  border-radius: 10px;
 }
 
 .about-dtpr-sub:hover {

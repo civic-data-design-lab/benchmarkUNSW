@@ -28,7 +28,7 @@ function Home() {
   const handleNextClick = () => {
     if (currentIndex === 2) {
       // If the user is on the last slide and clicks next
-      navigate("/aidata"); // Navigate to /aidata
+      navigate("/exploredata"); // Navigate to /aidata
     }
   };
 

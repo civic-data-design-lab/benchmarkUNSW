@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Dropdown, Card, Row, Col, Button, Container } from "react-bootstrap";
-import "../style/AiData.css";
+import "../style/Exploredata.css";
 import * as d3 from "d3";
 
 import social1 from "../assets/AiData/social1.png";
@@ -19,10 +19,10 @@ import GridMap from "../component/GridMap";
 import DateSelector from "../component/DateSelector";
 import DataSelector from "../component/DataSelector";
 
-function AiData() {
+function ExploreData() {
   const [activeModal, setActiveModal] = useState(null);
   const [showDailyChart, setShowDailyChart] = useState(true);
-  const [selectedOption, setSelectedOption] = useState("Socializing");
+  const [selectedOption, setSelectedOption] = useState("Socialising");
   const [data, setData] = useState([]);
   const [index, setIndex] = useState(0);
   const [indexName, setIndexName] = useState("");
@@ -64,7 +64,7 @@ function AiData() {
   const getCsvLocation = () => {
     let basePath = "";
     switch (selectedOption) {
-      case "Socializing":
+      case "Socialising":
         basePath = "/data/socializing_graph/";
         break;
       case "Staying":
@@ -83,7 +83,7 @@ function AiData() {
   //#region update images
   const getImages = () => {
     switch (selectedOption) {
-      case "Socializing":
+      case "Socialising":
         return [social1, social2, social3];
       case "Staying":
         return [dwell1, dwell2, dwell3];
@@ -99,7 +99,7 @@ function AiData() {
   //#region update name
   const getTextForSelection = () => {
     switch (selectedOption) {
-      case "Socializing":
+      case "Socialising":
         return "High Social Index Rate Formations";
       case "Staying":
         return "Top 3 Styaing Index Maps";
@@ -128,7 +128,7 @@ function AiData() {
         // newIndexName = `from ${targetDate} ${targetHour}:00 to ${targetDate} ${
         //   targetHour + 1
         // }:00`;
-        newIndex2Name = "socializing on site";
+        newIndex2Name = "socialising on site";
         newIndex3Name = "pedestrian per hour";
         col2Name = "social";
         col3Name = "ped";
@@ -201,67 +201,73 @@ function AiData() {
   }
 
   return (
-    <div className="aidata-page nova-mono-regular">
-      <GridMap
-        gridData={gridData}
-        benchData={benchData}
-        pedestrianData={pedestrianData}
-        targetDate={targetDate}
-        targetHour={targetHour}
-      />
-      {/* GridMap */}
-      <Row className="aidata-slider text-center medium-bg rounded-top-corners">
-        <Col xs={12}>
-          <DateSelector
-            setTargetHour={setTargetHour}
-            setTargetDate={setTargetDate}
-            targetDate={targetDate}
-            targetHour={targetHour}
-          />
-        </Col>
-      </Row>
-
-      {/* Data Breakdown */}
-      <DataSelector
-        selectedOption={selectedOption}
-        setSelectedOption={setSelectedOption}
-        indexName={indexName}
-        index={index}
-        index2Name={index2Name}
-        index2={index2}
-        index3Name={index3Name}
-        index3={index3}
-      />
-
-      {/* Chart Button */}
-      <div className="chart_button nova-mono-regular">
-
-        <Button
-          variant="primary"
-          className="chart_button"
-          onClick={() => setShowDailyChart(!showDailyChart)}
-        >
-          {showDailyChart ? "Daily" : "Hourly"}
-              </Button>
-      </div>
-
-      {/* Bar Chart */}
-      <div className="medium-bg nova-mono-regular">
-        <BarChart
-          csvLocation={getCsvLocation()}
-          chartX={showDailyChart ? "date" : "hour"}
-          chartY={showDailyChart ? "daily_index" : "hourly_index"}
-          chartType={showDailyChart ? "daily" : "hourly"}
-          xTickFormat={
-            showDailyChart ? d3.timeFormat("%b %d") : (d) => `${d}:00`
-          }
-          selectedDate={targetDate}
-          selectedTime={targetHour}
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div className="aidata-page nova-mono-regular">
+        <GridMap
+          gridData={gridData}
+          benchData={benchData}
+          pedestrianData={pedestrianData}
+          targetDate={targetDate}
+          targetHour={targetHour}
         />
-      </div>
+        {/* GridMap */}
+        <Row className="aidata-slider text-center medium-bg rounded-top-corners">
+          <Col xs={12}>
+            <DateSelector
+              setTargetHour={setTargetHour}
+              setTargetDate={setTargetDate}
+              targetDate={targetDate}
+              targetHour={targetHour}
+            />
+          </Col>
+        </Row>
 
-      {/*Desc Section 1*/}
-      <>
+        {/* Data Breakdown */}
+        <DataSelector
+          selectedOption={selectedOption}
+          setSelectedOption={setSelectedOption}
+          indexName={indexName}
+          index={index}
+          index2Name={index2Name}
+          index2={index2}
+          index3Name={index3Name}
+          index3={index3}
+        />
+
+        {/* Chart Button */}
+        <div className="chart_button nova-mono-regular">
+          <Button
+            variant="primary"
+            className="chart_button"
+            onClick={() => setShowDailyChart(!showDailyChart)}
+          >
+            {showDailyChart ? "Daily" : "Hourly"}
+          </Button>
+        </div>
+
+        {/* Bar Chart */}
+        <div className="medium-bg nova-mono-regular">
+          <BarChart
+            csvLocation={getCsvLocation()}
+            chartX={showDailyChart ? "date" : "hour"}
+            chartY={showDailyChart ? "daily_index" : "hourly_index"}
+            chartType={showDailyChart ? "daily" : "hourly"}
+            xTickFormat={
+              showDailyChart ? d3.timeFormat("%b %d") : (d) => `${d}:00`
+            }
+            selectedDate={targetDate}
+            selectedTime={targetHour}
+          />
+        </div>
+
+        {/*Desc Section 1*/}
         <div
           className="light-bg padding-tb-lg"
           style={{ padding: "2rem 0.5rem 1rem 0.5rem " }}
@@ -275,16 +281,17 @@ function AiData() {
                       fontSize: "1rem",
                       padding: "0.5rem",
                       marginBottom: "1rem",
+                      color: "white",
                     }}
                   >
-                    {selectedOption === "Socializing"
+                    {selectedOption === "Socialising"
                       ? "9:00AM - 10:00AM & 4:00PM - 5:00PM"
                       : selectedOption === "Staying"
                       ? "1:00PM - 2:00PM"
                       : selectedOption === "Sitting"
                       ? "1:00PM - 2:00PM"
                       : "9:00AM - 10:00AM & 4:00PM - 5:00PM"}
-                  </p>{" "}
+                  </p>
                 </div>
                 <div className="dark-txt primary-txt">
                   <p>Most Common Overall Time for {selectedOption}</p>
@@ -293,10 +300,8 @@ function AiData() {
             </Row>
           </Container>
         </div>
-      </>
 
-      {/*Desc Section 2*/}
-      <>
+        {/*Desc Section 2*/}
         <div className="medium-bg padding-tb-lg">
           <Container>
             <Row>
@@ -347,9 +352,9 @@ function AiData() {
             </Row>
           </Container>
         </div>
-      </>
+      </div>
     </div>
   );
 }
 
-export default AiData;
+export default ExploreData;

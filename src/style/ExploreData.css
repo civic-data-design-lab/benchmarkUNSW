@@ -1,7 +1,7 @@
 /* Force mobile layout and center it on larger screens (laptops/desktops) */
 @media screen and (min-width: 750px) {
   .aidata-page {
-    max-width: 390px; /* Set your preferred mobile width */
+    max-width: 430px; /* Set your preferred mobile width */
   }
 }
 
@@ -94,12 +94,12 @@
 }
 
 .chart_hover_text {
-    fill: var(--primary-dark);
+  fill: var(--primary-dark);
 }
 .chart_hover_background {
-    fill: var(--primary-light);
-    stroke: var(--primary-dark);
-    stroke-width: 0.1rem;
+  fill: var(--primary-light);
+  stroke: var(--primary-dark);
+  stroke-width: 0.1rem;
 }
 /*#endregion */
 

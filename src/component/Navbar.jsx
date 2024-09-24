@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
@@ -11,22 +11,37 @@ import "../style/Font.css";
 function NavBar() {
   const [expanded, setExpanded] = useState(false);
   const location = useLocation(); // Get the current route
+  const navRef = useRef(null);
 
   const handleToggle = () => setExpanded(!expanded);
   const handleLinkClick = () => setExpanded(false);
 
   // Set different styles based on the current route
   const navBarStyle =
-    location.pathname === "/aidata" ? "NavBarTitleAidata" : "NavBarTitle";
+    location.pathname === "/exploredata" ? "NavBarTitleAidata" : "NavBarTitle";
   const icon =
-    location.pathname === "/aidata"
+    location.pathname === "/exploredata"
       ? "navbar-toggler-icon-aidata"
       : "navbar-toggler-icon-default"; // Change the toggler icon dynamically
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setExpanded(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [navRef]);
 
   return (
     <>
       <div className="NavBarHeight">
         <Navbar
+          ref={navRef}
           collapseOnSelect
           expand={false}
           className="nova-mono-regular Navbar"
@@ -34,7 +49,7 @@ function NavBar() {
           expanded={expanded}
         >
           <Navbar.Brand href="/" className={navBarStyle}>
-            BenchMark NSW
+            Benchmark NSW
           </Navbar.Brand>
           <Navbar.Toggle
             aria-controls="responsive-navbar-nav"
@@ -46,12 +61,13 @@ function NavBar() {
               <Nav.Link as={Link} to="/" onClick={handleLinkClick}>
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} to="/aidata" onClick={handleLinkClick}>
-                Vision sensor data
+              <Nav.Link as={Link} to="/exploredata" onClick={handleLinkClick}>
+                Explore Data
               </Nav.Link>
-              {/* <Nav.Link as={Link} to="/surveydata" onClick={handleLinkClick}>
-                Survey Data
-              </Nav.Link> */}
+
+              <Nav.Link as={Link} to="/findings" onClick={handleLinkClick}>
+                Findings
+              </Nav.Link>
               <NavDropdown title="About" id="collasible-nav-dropdown">
                 <NavDropdown.Item
                   as={HashLink}
@@ -87,22 +103,6 @@ function NavBar() {
                   onClick={handleLinkClick}
                 >
                   Team
-                </NavDropdown.Item>
-              </NavDropdown>
-              <NavDropdown title="Downloads" id="collasible-nav-dropdown">
-                <NavDropdown.Item
-                  as={HashLink}
-                  to="/downloads#report"
-                  onClick={handleLinkClick}
-                >
-                  Report
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  as={HashLink}
-                  to="/downloads#guide-book"
-                  onClick={handleLinkClick}
-                >
-                  Guide Book
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button, DropdownButton, Dropdown } from "react-bootstrap";
 import { PauseFill, PlayFill } from "react-bootstrap-icons";
 import "../style/DateSelector.css";
@@ -36,7 +36,7 @@ function formatDateForValue(date) {
 
 // TimeSlider component allows selecting and playing through hours of the day
 const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
-  const [isPlaying, setIsPlaying] = useState(false); // Controls play/pause state for the slider
+  const [isPlaying, setIsPlaying] = useState(true); // Controls play/pause state for the slider
 
   // Handles the automatic progression of time when "playing"
   useEffect(() => {
@@ -246,10 +246,30 @@ const DateSelector = ({
 }) => {
   const [hour, setHour] = useState(6); // Holds the current hour state
   const [isTooltipVisible, setIsTooltipVisible] = useState(false); // State to manage tooltip visibility
+  const tooltipRef = useRef(null); // Ref to track the tooltip element
 
   const toggleTooltip = () => {
     setIsTooltipVisible(!isTooltipVisible);
   };
+
+  // Hide tooltip when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (tooltipRef.current && !tooltipRef.current.contains(event.target)) {
+        setIsTooltipVisible(false);
+      }
+    };
+
+    if (isTooltipVisible) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isTooltipVisible]);
 
   return (
     <div
@@ -336,6 +356,7 @@ const DateSelector = ({
           />
           {isTooltipVisible && (
             <div
+              ref={tooltipRef} // Attach ref to the tooltip
               className="tooltip-box"
               style={{
                 backgroundColor: "#FFEFF3",
@@ -349,7 +370,7 @@ const DateSelector = ({
                 right: "0", // Align to the right of the icon
                 opacity: 1,
                 transition: "opacity 0.3s",
-                fontSize: "12px",
+                fontSize: "10px",
                 width: "150px",
               }}
             >
