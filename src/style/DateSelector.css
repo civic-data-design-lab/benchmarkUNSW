@@ -124,3 +124,41 @@ input[type="range"]::-moz-range-thumb {
 .spacer {
   width: 0.5rem; /* Adjust the width as needed */
 }
+
+.nav-link:focus {
+  color: #ff2551 !important;
+}
+
+.nav-link:hover {
+  color: #ff2551 !important;
+}
+
+.dropdown-item {
+  font-size: 14px;
+  color: #fb718d !important;
+  border: none !important;
+  background-color: transparent !important;
+  text-align: left !important;
+  padding: 0rem 2rem !important;
+}
+
+.dropdown-item:hover {
+  color: #fb718d !important;
+}
+
+.dropdown-item:focus {
+  color: #fb718d !important;
+}
+
+.dropdown-menu.show {
+  max-height: 15rem; /* Adjusted height */
+  overflow-y: scroll; /* Enable vertical scrolling */
+  width: 100%; /* Full width */
+  border: none; /* Remove border */
+  color: #ff2551 !important;
+  background-color: #ffffff !important; /* Updated background color */
+  padding: 0px !important;
+  margin: 0px !important; /* Margin from the top */
+  border-radius: 20px; /* Updated border radius */
+  z-index: 1000 !important; /* Ensure dropdown is on top of other elements */
+}
