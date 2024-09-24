@@ -236,13 +236,14 @@ function AiData() {
 
       {/* Chart Button */}
       <div className="chart_button nova-mono-regular">
+
         <Button
           variant="primary"
           className="chart_button"
           onClick={() => setShowDailyChart(!showDailyChart)}
         >
           {showDailyChart ? "Daily" : "Hourly"}
-        </Button>
+              </Button>
       </div>
 
       {/* Bar Chart */}

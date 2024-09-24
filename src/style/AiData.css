@@ -92,6 +92,15 @@
   color: var(--primary-light);
   border: var(--primary-border);
 }
+
+.chart_hover_text {
+    fill: var(--primary-dark);
+}
+.chart_hover_background {
+    fill: var(--primary-light);
+    stroke: var(--primary-dark);
+    stroke-width: 0.1rem;
+}
 /*#endregion */
 
 /*#region dropdown*/
