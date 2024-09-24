@@ -3,7 +3,7 @@ import "../style/Findings.css";
 
 function Findings() {
   return (
-    <div className="downloads-page">
+    <div className="findings-page">
       <h1>Downloads Page</h1>
       <section id="report">
         <h2>Report</h2>
