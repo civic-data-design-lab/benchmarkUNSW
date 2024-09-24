@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Carousel from "react-bootstrap/Carousel";
+import { TypeAnimation } from "react-type-animation"; // Import TypeAnimation
 
 import img1 from "../assets/Home/INTRO CARD_1_updated.svg";
 import img2 from "../assets/Home/INTRO CARD_2_updated.svg";
 import img3 from "../assets/Home/INTRO CARD_3_updated.svg";
+import logo from "../assets/Home/logo.svg";
+import img4 from "../assets/Home/INTRO CARD_EXPLANATION_1.svg";
+import img5 from "../assets/Home/INTRO CARD_EXPLANATION_2.svg";
+import img6 from "../assets/Home/INTRO CARD_4.svg";
+
 import "../style/Home.css";
 import "../style/Main.css";
 import "../style/Font.css";
@@ -26,7 +32,7 @@ function Home() {
   };
 
   const handleNextClick = () => {
-    if (currentIndex === 2) {
+    if (currentIndex === 5) {
       // If the user is on the last slide and clicks next
       navigate("/exploredata"); // Navigate to /aidata
     }
@@ -39,7 +45,7 @@ function Home() {
         onSelect={(selectedIndex, event) =>
           handleSlide(selectedIndex, event?.direction)
         }
-        interval={pauseCarousel ? null : 3000} // Set interval to null when the last slide is active
+        interval={pauseCarousel ? null : null} // Set interval to null when the last slide is active
         nextIcon={
           <span
             className="carousel-control-next-icon"
@@ -49,6 +55,48 @@ function Home() {
           />
         }
       >
+        {/* <Carousel.Item>
+          <div className="carousel-item-container">
+            <img src={logo} className="HomeLogo" alt="Logo" />
+          </div>
+        </Carousel.Item> */}
+        <Carousel.Item>
+          <div className="carousel-item-container">
+            <TypeAnimation
+              sequence={[
+                `Benchmark NSW is an experimental project that uses street
+furniture to measure the dynamics of public space`,
+                1000,
+                `Benchmark NSW is an experimental project that uses street
+furniture to measure the dynamics of public space`,
+              ]}
+              wrapper="p"
+              className="overlay-text nova-mono-regular"
+              cursor={true}
+              repeat={0}
+            />
+
+            <img src={img4} className="HomeIntroCard" alt="Intro Card 1" />
+          </div>
+        </Carousel.Item>
+        <Carousel.Item>
+          {currentIndex === 1 && (
+            <TypeAnimation
+              sequence={[
+                `to understand how UNSW students, particularly women, girls and gender diverse people, interact with and move seating in public space`,
+                1000,
+                `to understand how UNSW students, particularly women, girls and gender diverse people, interact with and move seating in public space`,
+              ]}
+              wrapper="p"
+              className="overlay-text nova-mono-regular"
+              cursor={true}
+              repeat={0}
+            />
+          )}
+          <div className="carousel-item-container">
+            <img src={img5} className="HomeIntroCard" alt="Intro Card 1" />
+          </div>
+        </Carousel.Item>
         <Carousel.Item>
           <div className="carousel-item-container">
             <img src={img1} className="HomeIntroCard" alt="Intro Card 1" />
@@ -62,6 +110,11 @@ function Home() {
         <Carousel.Item>
           <div className="carousel-item-container">
             <img src={img3} className="HomeIntroCard" alt="Intro Card 3" />
+          </div>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div className="carousel-item-container">
+            <img src={img6} className="HomeIntroCard" alt="Intro Card 3" />
           </div>
         </Carousel.Item>
       </Carousel>

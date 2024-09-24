@@ -9,6 +9,8 @@
 
 .carousel-item-container {
   position: relative;
+  padding-top: 130px; /* Add padding to ensure the text is not cut off */
+  padding-bottom: 70px; /* Add padding to ensure the text is not cut off */
   width: 100%;
   text-align: center;
   display: flex;
@@ -21,4 +23,16 @@
     97vh - 60px
   ); /* Ensures the card doesn't overflow the viewport */
   object-fit: contain; /* Keeps the image aspect ratio within the available space */
+}
+
+.overlay-text {
+  position: absolute;
+  top: 0; /* Position the text at the top of the container */
+  left: 50%; /* Center the text horizontally */
+  transform: translateX(-50%); /* Center the text horizontally */
+  color: white; /* Adjust text color as needed */
+  padding: 5px; /* Optional: Add padding */
+  width: 95%; /* Optional: Adjust width */
+  font-size: 1rem; /* Optional: Adjust font size */
+  text-align: left; /* Center the text */
 }
