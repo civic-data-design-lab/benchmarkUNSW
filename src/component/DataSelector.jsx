@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Dropdown, Card } from "react-bootstrap";
+import React, { useState, useEffect, useRef } from "react";
+import { Dropdown, Card, Tooltip, OverlayTrigger } from "react-bootstrap";
 import "../style/DataSelector.css"; // Import the CSS file
 import questionCircle from "../assets/Symbols/question-circle-w.svg";
 
@@ -50,6 +50,31 @@ const DataSelector = ({
   index3Name,
   index3,
 }) => {
+  const [isTooltipVisible, setIsTooltipVisible] = useState(false);
+  const tooltipRef = useRef(null);
+
+  const toggleTooltip = () => {
+    setIsTooltipVisible(!isTooltipVisible);
+  };
+
+  const handleClickOutside = (event) => {
+    if (tooltipRef.current && !tooltipRef.current.contains(event.target)) {
+      setIsTooltipVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isTooltipVisible) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isTooltipVisible]);
+
   return (
     <div className="light-bg padding-tb-lg select-data-break">
       <div className="text-center primary-subtitle">
@@ -67,13 +92,52 @@ const DataSelector = ({
             <p className="index-details-text">{selectedOption}</p>
             <p className="index-details-text">Index</p>
           </div>
-          <div className="index-tooltip top-aligned">
+          <div
+            className="index-tooltip top-aligned"
+            onClick={toggleTooltip}
+            ref={tooltipRef}
+          >
             <img
               src={questionCircle}
               alt="Question Circle"
               className="top-aligned-img"
               style={{ width: "18px", height: "18px", cursor: "pointer" }} // Adjust the size as needed and add cursor pointer
             />
+            {isTooltipVisible && (
+              <div
+                className="tooltip-box"
+                style={{
+                  backgroundColor: "#FFEFF3",
+                  color: "#FF2551",
+                  textAlign: "center",
+                  borderRadius: "6px",
+                  padding: "5px 10px",
+                  position: "absolute",
+                  zIndex: 1,
+                  bottom: "140%", // Position above the icon
+                  right: "-10px", // Align to the right of the icon
+                  opacity: 1,
+                  transition: "opacity 0.3s",
+                  fontSize: "10px",
+                  width: "150px",
+                }}
+              >
+                <strong>{selectedOption} index</strong> is the average
+                percentage of people {selectedOption} on site, by calculating
+                the number of people in the {selectedOption} and dividing it by
+                the total number of people on site.
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "100%", // Arrow pointing down
+                    right: "14px", // Position arrow at the right bottom of the square
+                    borderWidth: "5px",
+                    borderStyle: "solid",
+                    borderColor: "#FFEFF3 transparent transparent transparent",
+                  }}
+                />
+              </div>
+            )}
           </div>
         </Card>
 

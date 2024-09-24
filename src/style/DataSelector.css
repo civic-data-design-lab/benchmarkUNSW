@@ -83,15 +83,30 @@
 .index-tooltip {
   position: relative;
   display: inline-block;
-  margin-left: 0.5rem;
 }
 
-.index-tooltip img {
-  width: 20px;
-  height: 20px;
+.index-tooltip .top-aligned-img {
+  width: 18px;
+  height: 18px;
   cursor: pointer;
-  display: flex;
-  align-items: flex-start;
+}
+
+.index-tooltip .tooltip {
+  position: absolute;
+  top: -5px;
+  left: 105%;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.index-tooltip:hover .tooltip {
+  opacity: 1;
 }
 
 .index-tooltip.top-aligned {
@@ -123,4 +138,10 @@
   background-color: transparent !important; /* Ensure background stays transparent */
   border: none !important; /* Remove default border */
   z-index: 1000 !important; /* Ensure dropdown is on top of other elements */
+}
+
+.custom-tooltip {
+  background-color: #f0f0f0 !important; /* Change to your desired background color */
+  font-family: "Arial", sans-serif; /* Change to your desired font family */
+  color: #333; /* Optional: Change text color */
 }
