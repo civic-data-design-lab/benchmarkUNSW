@@ -208,6 +208,7 @@ function AiData() {
         pedestrianData={pedestrianData}
         targetDate={targetDate}
         targetHour={targetHour}
+        style={{ height: "100%" }} // Set GridMap height to 100% of the container
       />
       {/* GridMap */}
       <Row className="aidata-slider text-center medium-bg rounded-top-corners">
@@ -260,93 +261,89 @@ function AiData() {
       </div>
 
       {/*Desc Section 1*/}
-      <>
-        <div
-          className="light-bg padding-tb-lg"
-          style={{ padding: "2rem 0.5rem 1rem 0.5rem " }}
-        >
-          <Container>
-            <Row>
-              <div className="text-center">
-                <div className="dark-button primary-subtitle">
-                  <p
-                    style={{
-                      fontSize: "1rem",
-                      padding: "0.5rem",
-                      marginBottom: "1rem",
-                    }}
-                  >
-                    {selectedOption === "Socializing"
-                      ? "9:00AM - 10:00AM & 4:00PM - 5:00PM"
-                      : selectedOption === "Staying"
-                      ? "1:00PM - 2:00PM"
-                      : selectedOption === "Sitting"
-                      ? "1:00PM - 2:00PM"
-                      : "9:00AM - 10:00AM & 4:00PM - 5:00PM"}
-                  </p>{" "}
-                </div>
-                <div className="dark-txt primary-txt">
-                  <p>Most Common Overall Time for {selectedOption}</p>
-                </div>
+      <div
+        className="light-bg padding-tb-lg"
+        style={{ padding: "2rem 0.5rem 1rem 0.5rem " }}
+      >
+        <Container>
+          <Row>
+            <div className="text-center">
+              <div className="dark-button primary-subtitle">
+                <p
+                  style={{
+                    fontSize: "1rem",
+                    padding: "0.5rem",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {selectedOption === "Socializing"
+                    ? "9:00AM - 10:00AM & 4:00PM - 5:00PM"
+                    : selectedOption === "Staying"
+                    ? "1:00PM - 2:00PM"
+                    : selectedOption === "Sitting"
+                    ? "1:00PM - 2:00PM"
+                    : "9:00AM - 10:00AM & 4:00PM - 5:00PM"}
+                </p>
               </div>
-            </Row>
-          </Container>
-        </div>
-      </>
+              <div className="dark-txt primary-txt">
+                <p>Most Common Overall Time for {selectedOption}</p>
+              </div>
+            </div>
+          </Row>
+        </Container>
+      </div>
 
       {/*Desc Section 2*/}
-      <>
-        <div className="medium-bg padding-tb-lg">
-          <Container>
-            <Row>
-              <div className="text-center nova-mono-regular primary-subtitle">
-                <p>{getTextForSelection()}</p>
+      <div className="medium-bg padding-tb-lg">
+        <Container>
+          <Row>
+            <div className="text-center nova-mono-regular primary-subtitle">
+              <p>{getTextForSelection()}</p>
+            </div>
+          </Row>
+          <Row>
+            <Col>
+              <div className="text-center primary-subtxt">
+                <Row className="align-items-center justify-content-center">
+                  July 4, 1:00pm
+                </Row>
+                <Row className="align-items-center justify-content-center">
+                  <img src={images[0]} />
+                </Row>
+                <Row className="align-items-center justify-content-center">
+                  S.I.:38%
+                </Row>
               </div>
-            </Row>
-            <Row>
-              <Col>
-                <div className="text-center primary-subtxt">
-                  <Row className="align-items-center justify-content-center">
-                    July 4, 1:00pm
-                  </Row>
-                  <Row className="align-items-center justify-content-center">
-                    <img src={images[0]} />
-                  </Row>
-                  <Row className="align-items-center justify-content-center">
-                    S.I.:38%
-                  </Row>
-                </div>
-              </Col>
-              <Col>
-                <div className="text-center primary-subtxt">
-                  <Row className="align-items-center justify-content-center">
-                    July 8, 11:00am
-                  </Row>
-                  <Row className="align-items-center justify-content-center">
-                    <img src={images[1]} />
-                  </Row>
-                  <Row className="align-items-center justify-content-center">
-                    S.I.:20%
-                  </Row>
-                </div>
-              </Col>
-              <Col>
-                <div className="text-center primary-subtxt">
-                  <Row className="align-items-center justify-content-center">
-                    July 25, 3:30pm
-                  </Row>
-                  <Row className="align-items-center justify-content-center">
-                    <img src={images[2]} />
-                  </Row>
-                  <Row className="align-items-center justify-content-center">
-                    S.I.:17%
-                  </Row>
-                </div>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      </>
+            </Col>
+            <Col>
+              <div className="text-center primary-subtxt">
+                <Row className="align-items-center justify-content-center">
+                  July 8, 11:00am
+                </Row>
+                <Row className="align-items-center justify-content-center">
+                  <img src={images[1]} />
+                </Row>
+                <Row className="align-items-center justify-content-center">
+                  S.I.:20%
+                </Row>
+              </div>
+            </Col>
+            <Col>
+              <div className="text-center primary-subtxt">
+                <Row className="align-items-center justify-content-center">
+                  July 25, 3:30pm
+                </Row>
+                <Row className="align-items-center justify-content-center">
+                  <img src={images[2]} />
+                </Row>
+                <Row className="align-items-center justify-content-center">
+                  S.I.:17%
+                </Row>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </div>
   );
 }
