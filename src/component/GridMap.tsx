@@ -137,7 +137,7 @@ const GridMap: React.FC<GridProps> = ({
       .fitSize([svgWidth, svgHeight], gridData);
     const path = d3.geoPath().projection(projection);
 
-    const scaleFactor = width > 750 ? 1.4 : 1;
+    const scaleFactor = width > 650 ? 1.4 : 1;
 
     g.selectAll("*").remove();
 
@@ -257,8 +257,8 @@ const GridMap: React.FC<GridProps> = ({
   }, [hourlyBenchData, hourlyPedestrianData, gridData, width, height]);
 
   const viewBox =
-    width > 750
-      ? `${width * 0.25} ${height * 0} ${width * 0.48} ${height * 0.5}`
+    width > 650
+      ? `${width * 0.27} -${height * 0.35} ${width * 0.4} ${height * 1.1}`
       : `-${width * 0.01} -${height * 0.15} ${width * 1.2} ${height * 0.85}`;
 
   return (

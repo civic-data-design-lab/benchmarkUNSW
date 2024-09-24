@@ -6,4 +6,23 @@
     flex-direction: column;
     overflow: scroll;
   }
+
+  /* Custom scrollbar styles */
+  .app-container::-webkit-scrollbar {
+    margin-left: 10px;
+    width: 10x; /* Width of the scrollbar */
+  }
+
+  .app-container::-webkit-scrollbar-track {
+    background: #ffffff; /* Background of the scrollbar track */
+  }
+
+  .app-container::-webkit-scrollbar-thumb {
+    background: #fb718d; /* Color of the scrollbar thumb */
+    border-radius: 0px; /* Rounded corners of the scrollbar thumb */
+  }
+
+  .app-container::-webkit-scrollbar-thumb:hover {
+    background: #ff2551; /* Color of the scrollbar thumb on hover */
+  }
 }

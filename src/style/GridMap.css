@@ -6,11 +6,5 @@
   align-items: center;
   z-index: 0;
   background-color: var(--background-color);
-}
-
-/* Force mobile layout and center it on larger screens (laptops/desktops) */
-@media screen and (min-width: 750px) {
-  .grid-container {
-    height: 60vh;
-  }
+  height: 50vh;
 }
