@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
@@ -11,6 +11,7 @@ import "../style/Font.css";
 function NavBar() {
   const [expanded, setExpanded] = useState(false);
   const location = useLocation(); // Get the current route
+  const navRef = useRef(null);
 
   const handleToggle = () => setExpanded(!expanded);
   const handleLinkClick = () => setExpanded(false);
@@ -23,10 +24,24 @@ function NavBar() {
       ? "navbar-toggler-icon-aidata"
       : "navbar-toggler-icon-default"; // Change the toggler icon dynamically
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setExpanded(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [navRef]);
+
   return (
     <>
       <div className="NavBarHeight">
         <Navbar
+          ref={navRef}
           collapseOnSelect
           expand={false}
           className="nova-mono-regular Navbar"
