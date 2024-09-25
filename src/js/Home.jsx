@@ -7,7 +7,7 @@ import { debounce } from "lodash";
 import img1 from "../assets/Home/INTRO CARD_1_updated.svg";
 import img2 from "../assets/Home/INTRO CARD_2_updated.svg";
 import img3 from "../assets/Home/INTRO CARD_3_updated.svg";
-import logo from "../assets/Home/logo.svg";
+import logo from "../assets/Home/logo.gif";
 import img4 from "../assets/Home/INTRO CARD_EXPLANATION_1.svg";
 import img5 from "../assets/Home/INTRO CARD_EXPLANATION_2.svg";
 import img6 from "../assets/Home/INTRO CARD_4.svg";
@@ -22,7 +22,7 @@ function Home() {
   const navigate = useNavigate();
 
   const handleSlide = async (selectedIndex, direction) => {
-    if (currentIndex === 5 && direction === "next") {
+    if (currentIndex === 6 && direction === "next") {
       await navigate("/exploredata");
       return;
     }
@@ -32,7 +32,7 @@ function Home() {
     }
     setCurrentIndex(selectedIndex);
 
-    if (selectedIndex === 5 && direction === "next") {
+    if (selectedIndex === 6 && direction === "next") {
       setPauseCarousel(true);
     } else {
       setPauseCarousel(false);
@@ -73,9 +73,9 @@ furniture to measure the dynamics of public space`,
         <div className="text-container">
           <TypeAnimation
             sequence={[
-              `to understand how UNSW students, particularly women, girls and gender diverse people, interact with and move seating in public space`,
+              `To understand how UNSW students, particularly women, girls and gender diverse people, interact with and move seating in public space`,
               1000,
-              `to understand how UNSW students, particularly women, girls and gender diverse people, interact with and move seating in public space`,
+              `To understand how UNSW students, particularly women, girls and gender diverse people, interact with and move seating in public space`,
             ]}
             wrapper="p"
             className="overlay-text nova-mono-regular"
@@ -86,22 +86,87 @@ furniture to measure the dynamics of public space`,
       )}
       {currentIndex === 2 && (
         <div className="text-container">
-          {/* <TypeAnimation
+          <TypeAnimation
             sequence={[
-              `Based on the survey, we found that 85% of women surveyed (23 out of 27) said that the seating helped facilitate social activities`,
+              `By intergrating co-design, sensor kit development, and data-driven analysis to evaluate the impact of a temporary activation on an open space on the UNSW Campus`,
               1000,
-              `Based on the survey, we found that 85% of women surveyed (23 out of 27) said that the seating helped facilitate social activities`,
+              `By intergrating co-design, sensor kit development, and data-driven analysis to evaluate the impact of a temporary activation on an open space on the UNSW Campus`,
             ]}
             wrapper="p"
             className="overlay-text nova-mono-regular"
             cursor={true}
             repeat={0}
-          /> */}
+          />
         </div>
       )}
-      {currentIndex === 3 && <div className="text-container"></div>}
-      {currentIndex === 4 && <div className="text-container"></div>}
-      {currentIndex === 5 && <div className="text-container"></div>}
+      {currentIndex === 3 && (
+        <div className="text-container">
+          <div className="text-container">
+            <TypeAnimation
+              sequence={[
+                `Based on the survey, 85% of women and girls surveryed said that the seating helped facilitate social activities`,
+                1000,
+                `Based on the survey, 85% of women and girls surveryed said that the seating helped facilitate social activities`,
+              ]}
+              wrapper="p"
+              className="overlay-text nova-mono-regular"
+              cursor={true}
+              repeat={0}
+            />
+          </div>
+        </div>
+      )}
+      {currentIndex === 4 && (
+        <div className="text-container">
+          <div className="text-container">
+            <TypeAnimation
+              sequence={[
+                `Also, 73% of women respondents said that the seating made them feel more comfortable`,
+                1000,
+                `Also, 73% of women respondents said that the seating made them feel more comfortable`,
+              ]}
+              wrapper="p"
+              className="overlay-text nova-mono-regular"
+              cursor={true}
+              repeat={0}
+            />
+          </div>
+        </div>
+      )}
+      {currentIndex === 5 && (
+        <div className="text-container">
+          <div className="text-container">
+            <TypeAnimation
+              sequence={[
+                `Based on the observations conducted by the team, the number of women and girls staying on site increased by 700%, from 0.1 to 0.8 per observation.`,
+                1000,
+                `Based on the observations conducted by the team, the number of women and girls staying on site increased by 700%, from 0.1 to 0.8 per observation.`,
+              ]}
+              wrapper="p"
+              className="overlay-text nova-mono-regular"
+              cursor={true}
+              repeat={0}
+            />
+          </div>
+        </div>
+      )}
+      {currentIndex === 6 && (
+        <div className="text-container">
+          <div className="text-container">
+            <TypeAnimation
+              sequence={[
+                `Also, through vision ai, we found that people staying on site per day increased by 420% from 4.43 to 22.2 people per day. Click next to explore our data`,
+                1000,
+                `Also, through vision ai, we found that people staying on site per day increased by 420% from 4.43 to 22.2 people per day. Click next to explore our data`,
+              ]}
+              wrapper="p"
+              className="overlay-text nova-mono-regular"
+              cursor={true}
+              repeat={0}
+            />
+          </div>
+        </div>
+      )}
       <Carousel
         activeIndex={currentIndex}
         onSelect={(selectedIndex, event) =>
@@ -117,6 +182,18 @@ furniture to measure the dynamics of public space`,
           />
         }
       >
+        <Carousel.Item>
+          <div className="carousel-item-container">
+            <div>
+              <img
+                src={logo}
+                className="HomeIntroCard"
+                alt="Intro Card 1"
+                style={{ borderRadius: "20px", border: "3px solid #FFDAE2" }}
+              />
+            </div>
+          </div>
+        </Carousel.Item>
         <Carousel.Item>
           <div className="carousel-item-container">
             <div>

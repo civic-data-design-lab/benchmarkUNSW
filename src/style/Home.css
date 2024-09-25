@@ -1,6 +1,5 @@
 .HomeCarousel {
   height: 95vh;
-  display: flex;
   flex-wrap: wrap;
   background-color: #ff2551;
   align-content: space-around;
@@ -28,7 +27,7 @@
   font-size: 0.9rem; /* Optional: Adjust font size */
   text-align: left; /* Center the text */
   margin: 0rem 4rem;
-  height: 10vh;
+  height: 100%;
   width: calc(100% - 8rem);
 }
 
@@ -41,7 +40,7 @@
 
 .text-container {
   text-align: center;
-  margin-bottom: -2rem;
+  margin-bottom: 0.5rem;
 }
 
 @media (min-width: 650px) {
