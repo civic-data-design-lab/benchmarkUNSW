@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import React, { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
-import { TypeAnimation } from "react-type-animation"; // Import TypeAnimation
+import { TypeAnimation } from "react-type-animation";
+import { debounce } from "lodash";
 
 import img1 from "../assets/Home/INTRO CARD_1_updated.svg";
 import img2 from "../assets/Home/INTRO CARD_2_updated.svg";
@@ -16,27 +17,38 @@ import "../style/Main.css";
 import "../style/Font.css";
 
 function Home() {
-  const [pauseCarousel, setPauseCarousel] = useState(false); // Track if the carousel should pause
-  const [currentIndex, setCurrentIndex] = useState(0); // Track the current active slide
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [pauseCarousel, setPauseCarousel] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
-  const handleSlide = (selectedIndex, direction) => {
-    setCurrentIndex(selectedIndex); // Update the current index
+  const handleSlide = async (selectedIndex, direction) => {
+    if (currentIndex === 5 && direction === "next") {
+      await navigate("/exploredata");
+      return;
+    }
+    if (selectedIndex === 0 && direction === "next") {
+      handleNextClick();
+      return;
+    }
+    setCurrentIndex(selectedIndex);
 
-    if (selectedIndex === 2 && direction === "next") {
-      // When the user reaches the last slide
-      setPauseCarousel(true); // Pause carousel on last slide
+    if (selectedIndex === 5 && direction === "next") {
+      setPauseCarousel(true);
     } else {
-      setPauseCarousel(false); // Resume automatic sliding for other slides
+      setPauseCarousel(false);
     }
   };
 
-  const handleNextClick = () => {
-    if (currentIndex === 5) {
-      // If the user is on the last slide and clicks next
-      navigate("/exploredata"); // Navigate to /aidata
-    }
-  };
+  const handleNextClick = useCallback(
+    debounce(() => {
+      handleSlide(currentIndex + 1, "next");
+    }, 300),
+    [currentIndex]
+  );
+
+  useEffect(() => {
+    console.log("currentIndex", currentIndex);
+  }, [currentIndex]);
 
   return (
     <div className="HomeCarousel">
@@ -95,21 +107,16 @@ furniture to measure the dynamics of public space`,
         onSelect={(selectedIndex, event) =>
           handleSlide(selectedIndex, event?.direction)
         }
-        interval={pauseCarousel ? null : null} // Set interval to null when the last slide is active
+        interval={pauseCarousel ? null : null}
         nextIcon={
           <span
             className="carousel-control-next-icon"
-            onClick={handleNextClick} // Handle the "next" button click
+            onClick={handleNextClick}
             role="button"
             aria-hidden="true"
           />
         }
       >
-        {/* <Carousel.Item>
-          <div className="carousel-item-container">
-            <img src={logo} className="HomeLogo" alt="Logo" />
-          </div>
-        </Carousel.Item> */}
         <Carousel.Item>
           <div className="carousel-item-container">
             <div>
