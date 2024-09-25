@@ -18,6 +18,7 @@ import BarChart from "../component/BarChart";
 import GridMap from "../component/GridMap";
 import DateSelector from "../component/DateSelector";
 import DataSelector from "../component/DataSelector";
+import WeatherVertical from "../component/WeatherDisplay";
 
 function ExploreData() {
   const [activeModal, setActiveModal] = useState(null);
@@ -239,19 +240,23 @@ function ExploreData() {
           index2={index2}
           index3Name={index3Name}
           index3={index3}
-        />
-
-        {/* Chart Button */}
-        <div className="chart_button nova-mono-regular">
-          <Button
-            variant="primary"
-            className="chart_button"
-            onClick={() => setShowDailyChart(!showDailyChart)}
-          >
-            {showDailyChart ? "Daily" : "Hourly"}
-          </Button>
-        </div>
-
+              />
+              <Row className='aidata_daily_hourly'>
+                <Col sm={4}>
+                    <div className="chart_button_container">
+                        <button
+                            className={`chart_button ${showDailyChart ? "active" : ""}`}
+                            onClick={() => setShowDailyChart(true)}>Daily</button>
+                        <button
+                            className={`chart_button ${!showDailyChart ? "active" : ""}`}
+                            onClick={() => setShowDailyChart(false)}>Hourly</button>
+                    </div>
+                </Col>
+                <Col sm={2}></Col>
+                  <Col sm={6}>
+                      <WeatherVertical targetDate={targetDate} targetHour={targetHour} />
+                  </Col>
+            </Row>
         {/* Bar Chart */}
         <div className="medium-bg nova-mono-regular">
           <BarChart
