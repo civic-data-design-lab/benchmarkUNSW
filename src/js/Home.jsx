@@ -40,6 +40,56 @@ function Home() {
 
   return (
     <div className="HomeCarousel">
+      {currentIndex === 0 && (
+        <div className="text-container">
+          <TypeAnimation
+            sequence={[
+              `Benchmark NSW is an experimental project that uses street
+furniture to measure the dynamics of public space`,
+              1000,
+              `Benchmark NSW is an experimental project that uses street
+furniture to measure the dynamics of public space`,
+            ]}
+            wrapper="p"
+            className="overlay-text nova-mono-regular"
+            cursor={true}
+            repeat={0}
+          />
+        </div>
+      )}
+      {currentIndex === 1 && (
+        <div className="text-container">
+          <TypeAnimation
+            sequence={[
+              `to understand how UNSW students, particularly women, girls and gender diverse people, interact with and move seating in public space`,
+              1000,
+              `to understand how UNSW students, particularly women, girls and gender diverse people, interact with and move seating in public space`,
+            ]}
+            wrapper="p"
+            className="overlay-text nova-mono-regular"
+            cursor={true}
+            repeat={0}
+          />
+        </div>
+      )}
+      {currentIndex === 2 && (
+        <div className="text-container">
+          {/* <TypeAnimation
+            sequence={[
+              `Based on the survey, we found that 85% of women surveyed (23 out of 27) said that the seating helped facilitate social activities`,
+              1000,
+              `Based on the survey, we found that 85% of women surveyed (23 out of 27) said that the seating helped facilitate social activities`,
+            ]}
+            wrapper="p"
+            className="overlay-text nova-mono-regular"
+            cursor={true}
+            repeat={0}
+          /> */}
+        </div>
+      )}
+      {currentIndex === 3 && <div className="text-container"></div>}
+      {currentIndex === 4 && <div className="text-container"></div>}
+      {currentIndex === 5 && <div className="text-container"></div>}
       <Carousel
         activeIndex={currentIndex}
         onSelect={(selectedIndex, event) =>
@@ -62,37 +112,12 @@ function Home() {
         </Carousel.Item> */}
         <Carousel.Item>
           <div className="carousel-item-container">
-            <TypeAnimation
-              sequence={[
-                `Benchmark NSW is an experimental project that uses street
-furniture to measure the dynamics of public space`,
-                1000,
-                `Benchmark NSW is an experimental project that uses street
-furniture to measure the dynamics of public space`,
-              ]}
-              wrapper="p"
-              className="overlay-text nova-mono-regular"
-              cursor={true}
-              repeat={0}
-            />
-
-            <img src={img4} className="HomeIntroCard" alt="Intro Card 1" />
+            <div>
+              <img src={img4} className="HomeIntroCard" alt="Intro Card 1" />
+            </div>
           </div>
         </Carousel.Item>
         <Carousel.Item>
-          {currentIndex === 1 && (
-            <TypeAnimation
-              sequence={[
-                `to understand how UNSW students, particularly women, girls and gender diverse people, interact with and move seating in public space`,
-                1000,
-                `to understand how UNSW students, particularly women, girls and gender diverse people, interact with and move seating in public space`,
-              ]}
-              wrapper="p"
-              className="overlay-text nova-mono-regular"
-              cursor={true}
-              repeat={0}
-            />
-          )}
           <div className="carousel-item-container">
             <img src={img5} className="HomeIntroCard" alt="Intro Card 1" />
           </div>
