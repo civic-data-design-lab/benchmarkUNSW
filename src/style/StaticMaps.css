@@ -1,0 +1,24 @@
+.static-maps-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: left;
+  color: #ff2551;
+}
+
+.date-text {
+  font-size: 0.7rem;
+  text-align: left;
+  color: #ff2551;
+  white-space: pre-line; /* This will render the newline character */
+}
+
+.index-text {
+  font-size: 0.7rem;
+  text-align: left;
+  color: #ff2551;
+}
+
+.static-maps-container {
+  display: flex;
+  gap: 20px; /* Adjust the value as needed */
+}

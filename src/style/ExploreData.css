@@ -63,46 +63,45 @@
 /*#region button*/
 
 .aidata_daily_hourly {
-    padding: 1rem 1rem 1rem 1rem;
+  padding: 1rem 1rem 1rem 1rem;
 }
 .chart_button_container {
-    display: flex;
+  display: flex;
 }
 
 .chart_button {
-    flex: 1;
-    background-color: var(--primary-light);
-    padding: 0.25rem 0.5rem;
-    font-size: 1rem;
-    color: var(--primary-dark);
-    border: 1px solid var(--primary-border);
-    border-radius: 0;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  flex: 1;
+  background-color: var(--primary-light);
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  color: var(--primary-dark);
+  border: 1px solid var(--primary-border);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .chart_button:first-child {
-    border-top-left-radius: var(--primary-border-radius);
-    border-bottom-left-radius: var(--primary-border-radius);
-    border: var(--primary-border);
+  border-top-left-radius: var(--primary-border-radius);
+  border-bottom-left-radius: var(--primary-border-radius);
+  border: var(--primary-border);
 }
 
 .chart_button:last-child {
-    border-top-right-radius: var(--primary-border-radius);
-    border-bottom-right-radius: var(--primary-border-radius);
-    border: var(--primary-border);
+  border-top-right-radius: var(--primary-border-radius);
+  border-bottom-right-radius: var(--primary-border-radius);
+  border: var(--primary-border);
 }
 
 .chart_button:hover {
-    background-color: var(--primary-dark);
-    color: var(--primary-light);
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
 }
 
 .chart_button.active {
-    background-color: var(--primary-dark);
-    color: white;
+  background-color: var(--primary-dark);
+  color: white;
 }
-
 
 .chart_hover_text {
   fill: var(--primary-dark);
@@ -164,4 +163,9 @@
 .rounded-top-corners {
   border-top-left-radius: 20px; /* Adjust the radius as needed */
   border-top-right-radius: 20px; /* Adjust the radius as needed */
+}
+
+.static-maps {
+  padding: 1rem 1rem 1rem 2rem;
+  background-color: #ffeff3;
 }
