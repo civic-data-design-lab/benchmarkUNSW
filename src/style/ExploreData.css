@@ -61,37 +61,48 @@
 /*#endregion */
 
 /*#region button*/
+
+.aidata_daily_hourly {
+    padding: 1rem 1rem 1rem 1rem;
+}
+.chart_button_container {
+    display: flex;
+}
+
 .chart_button {
-  background-color: var(--primary-medium);
-  padding: 1rem 2.5rem 1rem 2.5rem;
+    flex: 1;
+    background-color: var(--primary-light);
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+    color: var(--primary-dark);
+    border: 1px solid var(--primary-border);
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.chart_button.btn {
-  background-color: var(--primary-light);
-  display: inline-flex;
-  color: var(--primary-dark);
-  border: var(--primary-border);
-  padding: 0.25rem 2.5rem 0.25rem 2.5rem;
-  border-radius: var(--primary-border-radius);
+.chart_button:first-child {
+    border-top-left-radius: var(--primary-border-radius);
+    border-bottom-left-radius: var(--primary-border-radius);
+    border: var(--primary-border);
 }
 
-.chart_button.btn:hover {
-  background-color: var(--primary-dark);
-  color: var(--primary-light);
-  border: var(--primary-border);
+.chart_button:last-child {
+    border-top-right-radius: var(--primary-border-radius);
+    border-bottom-right-radius: var(--primary-border-radius);
+    border: var(--primary-border);
 }
 
-.chart_button.btn:active {
-  background-color: var(--primary-dark);
-  color: var(--primary-light);
-  border: var(--primary-border);
+.chart_button:hover {
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
 }
 
-.chart_button_active {
-  background-color: var(--primary-dark);
-  color: var(--primary-light);
-  border: var(--primary-border);
+.chart_button.active {
+    background-color: var(--primary-dark);
+    color: white;
 }
+
 
 .chart_hover_text {
   fill: var(--primary-dark);
