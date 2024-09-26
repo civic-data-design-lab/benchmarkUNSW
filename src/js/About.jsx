@@ -169,7 +169,7 @@ function About() {
             }}
           >
             <p className="about-txt">
-              <strong>Vision AI sensor KIT</strong>, developed by MIT’s Norman
+              <strong>Vision AI sensor kit</strong>, developed by MIT’s Norman
               B. Leventhal Center for Advanced Urbanism, captured real-time data
               on seating usage patterns, pedestrian behaviours, and bench
               location within the site area. Measurements focus on social
@@ -190,7 +190,7 @@ function About() {
               transparency and accountability for digital technology in public
               spaces.
             </p>
-            <p className="about-txt">
+            {/* <p className="about-txt">
               <strong>Social activities</strong> increased significantly after
               the deployment of 12 movable benches, resulting in a 420% rise in
               daily visitors and a 585% increase in total dwell time. The most
@@ -198,7 +198,7 @@ function About() {
               soaring by 7,072%, from just 0.18 minutes to 12.91 minutes. More
               details are available in{" "}
               <a href="/downloads#report">the full report</a>.
-            </p>
+            </p> */}
           </div>
         </div>
       </section>
@@ -345,12 +345,12 @@ function About() {
               </p>
               {openSections.ai && (
                 <p className="about-desc about-dtpr-desc">
-                  Data that is processed by automated, algorithmic or artificial
-                  intelligence systems to derive a new result or data point.
-                  Specifically, we use computer vision, which refers to computer
-                  science methodologies that enable computers to derive data
-                  from digital images or video. We process our de-identified
-                  video with the YOLOv8 algorithm.
+                  Data that is processed by artificial intelligence systems to
+                  derive a new result or data point. Specifically, we use
+                  computer vision, which refers to computer science
+                  methodologies that enable computers to derive data from
+                  digital images or video. We process our de-identified video
+                  with the YOLOv8 algorithm.
                 </p>
               )}
             </div>
@@ -515,14 +515,39 @@ function About() {
               to improve visibility and user comfort.
             </p>
             <p className="about-txt">
-              <strong>Data collection</strong> was conducted using AI-driven
-              computer vision sensors developed in collaboration with MIT, which
-              captured real-time anonymised data on public space usage. This was
-              complemented by qualitative observations and intercept surveys,
-              undertaken by the four women Industrial Design students on site
-              during the activation and baseline periods.
+              <strong>The portable design of seating</strong> allowed users to
+              reposition the units freely, with the goal of fostering a sense of
+              ownership and personalisation of the space. This flexibility,
+              combined with the playful and approachable aesthetics of the
+              seating.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/*Section 4*/}
+      <section
+        id="team"
+        className="nova-mono-regular"
+        style={{ paddingTop: "5rem" }}
+      >
+        <div className="about-head light-bg">
+          <p className="about-title">Team</p>
+        </div>
+        <div className="about-p light-bg">
+          <p className="about-subtitle">MIT</p>
+          <p className="about-subtxt">Sarah Williams</p>
+          <p className="about-subtxt">Minwook Kang</p>
+          <p className="about-subtxt">Hannah Shumway</p>
+          <p className="about-subtxt">Sebastian Ives</p>
+          <p className="about-subtxt">Maria Gabriela Carucci</p>
+          <p className="about-subtxt">Karen Kuo</p>
+          <div style={{ textAlign: "right" }}>
+            <p className="about-subtitle">UNSW</p>
+            <p className="about-subtxt">Gonzalo Portas</p>
+            <p className="about-subtxt">Mariano Ramirez</p>
+          </div>
+          <p className="about-subtitle">TfNSW</p>
         </div>
       </section>
     </div>
