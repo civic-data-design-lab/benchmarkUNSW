@@ -185,6 +185,7 @@ function DateDropdown({ setTargetDate, currentHour }) {
       dates.push(new Date(startDate2));
       startDate2.setDate(startDate2.getDate() + 1);
     }
+    // console.log("Generated Dates:", dates); // Log generated dates
     return dates;
   };
 
@@ -194,6 +195,7 @@ function DateDropdown({ setTargetDate, currentHour }) {
   const handleDateChange = (date) => {
     setSelectedDate(date);
     setTargetDate(date); // Update parent component with new date
+    // console.log("Selected Date:", date); // Log selected date
   };
 
   // Handle dropdown open/close state for smooth transitions
@@ -206,8 +208,8 @@ function DateDropdown({ setTargetDate, currentHour }) {
       className="w-100"
       style={{
         transition: "height 0.3s ease",
-        height: isDropdownOpen ? "205px" : "50px",
-        overflow: "hidden",
+        height: isDropdownOpen ? "300px" : "50px",
+        overflowY: "hidden",
         alignItems: "center",
       }}
     >

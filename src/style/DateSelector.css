@@ -71,7 +71,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .dropdown-menu.show {
-  max-height: 10rem; /* Limit the dropdown height to display only a few items */
+  max-height: 20rem; /* Limit the dropdown height to display only a few items */
   overflow-y: scroll; /* Enable vertical scrolling for overflowing content */
   width: 100%; /* Set the width to match the parent element */
   border: none;

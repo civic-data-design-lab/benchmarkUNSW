@@ -8,12 +8,12 @@ import BarChart from "../component/BarChart";
 import GridMap from "../component/GridMap";
 import DateSelector from "../component/DateSelector";
 import DataSelector from "../component/DataSelector";
-import WeatherVertical from "../component/WeatherDisplay";
+import WeatherDisplay from "../component/WeatherDisplay";
 import StaticMaps from "../component/StaticMaps";
 
 function ExploreData() {
   const [activeModal, setActiveModal] = useState(null);
-  const [showDailyChart, setShowDailyChart] = useState(true);
+  const [showDailyChart, setShowDailyChart] = useState(false);
   const [selectedOption, setSelectedOption] = useState("Socialising");
   const [data, setData] = useState([]);
   const [index, setIndex] = useState(0);
@@ -215,30 +215,33 @@ function ExploreData() {
           index3Name={index3Name}
           index3={index3}
         />
-        <Row className="aidata_daily_hourly">
-          <Col sm={4}>
-            <div className="chart_button_container">
-              <button
-                className={`chart_button ${showDailyChart ? "active" : ""}`}
-                onClick={() => setShowDailyChart(true)}
-              >
-                Daily
-              </button>
-              <button
-                className={`chart_button ${!showDailyChart ? "active" : ""}`}
-                onClick={() => setShowDailyChart(false)}
-              >
-                Hourly
-              </button>
-            </div>
-          </Col>
-          <Col sm={2}></Col>
-          <Col sm={6}>
-            <WeatherVertical targetDate={targetDate} targetHour={targetHour} />
-          </Col>
-        </Row>
+
         {/* Bar Chart */}
         <div className="medium-bg nova-mono-regular">
+          <Row className="aidata_daily_hourly">
+            <Col xs={4} sm={4}>
+              <div className="chart_button_container">
+                <button
+                  className={`chart_button ${showDailyChart ? "active" : ""}`}
+                  onClick={() => setShowDailyChart(true)}
+                  style={{ fontSize: "0.8rem" }}
+                >
+                  Daily
+                </button>
+                <button
+                  className={`chart_button ${!showDailyChart ? "active" : ""}`}
+                  onClick={() => setShowDailyChart(false)}
+                  style={{ fontSize: "0.8rem" }}
+                >
+                  Hourly
+                </button>
+              </div>
+            </Col>
+            <Col xs={3} sm={3}></Col>
+            <Col xs={5} sm={5}>
+              <WeatherDisplay targetDate={targetDate} targetHour={targetHour} />
+            </Col>
+          </Row>
           <BarChart
             csvLocation={getCsvLocation()}
             chartX={showDailyChart ? "date" : "hour"}
