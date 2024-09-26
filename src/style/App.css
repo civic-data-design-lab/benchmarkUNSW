@@ -4,13 +4,14 @@
     width: 430px;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    overflow: auto; /* Show scrollbar only when there is overflow */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
   }
 
   /* Custom scrollbar styles */
   .app-container::-webkit-scrollbar {
     margin-left: 10px;
-    width: 10x; /* Width of the scrollbar */
+    width: 15px; /* Width of the scrollbar */
   }
 
   .app-container::-webkit-scrollbar-track {

@@ -1,6 +1,5 @@
 .about-page {
-  /* padding-top: 5rem; */
-  /* padding-bottom: 5rem; */
+  background-color: #ff2551;
 }
 
 /*#region background*/
@@ -182,4 +181,21 @@ a {
 
 hr {
   margin: 0;
+}
+
+/* Custom scrollbar styles for WebKit browsers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #ffffff; /* Background of the scrollbar track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #ffdae2; /* Color of the scrollbar thumb */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #fb718d; /* Color of the scrollbar thumb on hover */
 }

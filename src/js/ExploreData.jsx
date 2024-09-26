@@ -3,22 +3,13 @@ import { Dropdown, Card, Row, Col, Button, Container } from "react-bootstrap";
 import "../style/Exploredata.css";
 import * as d3 from "d3";
 
-import social1 from "../assets/AiData/social1.png";
-import social2 from "../assets/AiData/social2.png";
-import social3 from "../assets/AiData/social3.png";
-import dwell1 from "../assets/AiData/dwell1.png";
-import dwell2 from "../assets/AiData/dwell2.png";
-import dwell3 from "../assets/AiData/dwell3.png";
-import bench1 from "../assets/AiData/bench1.png";
-import bench2 from "../assets/AiData/bench2.png";
-import bench3 from "../assets/AiData/bench3.png";
-
 import CenteredModal from "../component/CenteredModal";
 import BarChart from "../component/BarChart";
 import GridMap from "../component/GridMap";
 import DateSelector from "../component/DateSelector";
 import DataSelector from "../component/DataSelector";
 import WeatherVertical from "../component/WeatherDisplay";
+import StaticMaps from "../component/StaticMaps";
 
 function ExploreData() {
   const [activeModal, setActiveModal] = useState(null);
@@ -81,33 +72,17 @@ function ExploreData() {
   };
 
   //#endregion
-  //#region update images
-  const getImages = () => {
-    switch (selectedOption) {
-      case "Socialising":
-        return [social1, social2, social3];
-      case "Staying":
-        return [dwell1, dwell2, dwell3];
-      case "Sitting":
-        return [bench1, bench2, bench3];
-      default:
-        return [social1, social2, social3];
-    }
-  };
-  const images = getImages();
-
-  //#endregion
   //#region update name
   const getTextForSelection = () => {
     switch (selectedOption) {
       case "Socialising":
-        return "High Social Index Rate Formations";
+        return "Top 3 Socialising Maps";
       case "Staying":
-        return "Top 3 Styaing Index Maps";
+        return "Top 3 Crowded Maps";
       case "Sitting":
-        return "Top 3 Sitting Index Maps";
+        return "Top 3 Sitting Maps";
       default:
-        return "High Social Index Rate Formations";
+        return "Top 3 Socialising Maps";
     }
   };
 
@@ -204,7 +179,6 @@ function ExploreData() {
   return (
     <div
       style={{
-        display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
@@ -240,23 +214,29 @@ function ExploreData() {
           index2={index2}
           index3Name={index3Name}
           index3={index3}
-              />
-              <Row className='aidata_daily_hourly'>
-                <Col sm={4}>
-                    <div className="chart_button_container">
-                        <button
-                            className={`chart_button ${showDailyChart ? "active" : ""}`}
-                            onClick={() => setShowDailyChart(true)}>Daily</button>
-                        <button
-                            className={`chart_button ${!showDailyChart ? "active" : ""}`}
-                            onClick={() => setShowDailyChart(false)}>Hourly</button>
-                    </div>
-                </Col>
-                <Col sm={2}></Col>
-                  <Col sm={6}>
-                      <WeatherVertical targetDate={targetDate} targetHour={targetHour} />
-                  </Col>
-            </Row>
+        />
+        <Row className="aidata_daily_hourly">
+          <Col sm={4}>
+            <div className="chart_button_container">
+              <button
+                className={`chart_button ${showDailyChart ? "active" : ""}`}
+                onClick={() => setShowDailyChart(true)}
+              >
+                Daily
+              </button>
+              <button
+                className={`chart_button ${!showDailyChart ? "active" : ""}`}
+                onClick={() => setShowDailyChart(false)}
+              >
+                Hourly
+              </button>
+            </div>
+          </Col>
+          <Col sm={2}></Col>
+          <Col sm={6}>
+            <WeatherVertical targetDate={targetDate} targetHour={targetHour} />
+          </Col>
+        </Row>
         {/* Bar Chart */}
         <div className="medium-bg nova-mono-regular">
           <BarChart
@@ -307,55 +287,11 @@ function ExploreData() {
         </div>
 
         {/*Desc Section 2*/}
-        <div className="medium-bg padding-tb-lg">
-          <Container>
-            <Row>
-              <div className="text-center nova-mono-regular primary-subtitle">
-                <p>{getTextForSelection()}</p>
-              </div>
-            </Row>
-            <Row>
-              <Col>
-                <div className="text-center primary-subtxt">
-                  <Row className="align-items-center justify-content-center">
-                    July 4, 1:00pm
-                  </Row>
-                  <Row className="align-items-center justify-content-center">
-                    <img src={images[0]} />
-                  </Row>
-                  <Row className="align-items-center justify-content-center">
-                    S.I.:38%
-                  </Row>
-                </div>
-              </Col>
-              <Col>
-                <div className="text-center primary-subtxt">
-                  <Row className="align-items-center justify-content-center">
-                    July 8, 11:00am
-                  </Row>
-                  <Row className="align-items-center justify-content-center">
-                    <img src={images[1]} />
-                  </Row>
-                  <Row className="align-items-center justify-content-center">
-                    S.I.:20%
-                  </Row>
-                </div>
-              </Col>
-              <Col>
-                <div className="text-center primary-subtxt">
-                  <Row className="align-items-center justify-content-center">
-                    July 25, 3:30pm
-                  </Row>
-                  <Row className="align-items-center justify-content-center">
-                    <img src={images[2]} />
-                  </Row>
-                  <Row className="align-items-center justify-content-center">
-                    S.I.:17%
-                  </Row>
-                </div>
-              </Col>
-            </Row>
-          </Container>
+        <div className="static-maps">
+          <StaticMaps
+            selectedOption={selectedOption}
+            getTextForSelection={getTextForSelection}
+          />
         </div>
       </div>
     </div>

@@ -1,24 +1,56 @@
 .HomeCarousel {
   height: 95vh;
-  justify-content: center;
-  align-items: center;
-  display: flex;
   flex-wrap: wrap;
   background-color: #ff2551;
+  align-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .carousel-item-container {
-  position: relative;
   width: 100%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
+  height: 100%; /* Ensure the container has a fixed height */
+  display: flex; /* Ensure the items are flexed */
+  justify-content: center; /* Center the items */
+  align-items: center; /* Center the items */
 }
 
 .HomeIntroCard {
-  height: auto;
   max-height: calc(
-    97vh - 60px
+    65vh - 60px
   ); /* Ensures the card doesn't overflow the viewport */
-  object-fit: contain; /* Keeps the image aspect ratio within the available space */
+}
+
+.overlay-text {
+  color: white; /* Adjust text color as needed */
+  font-size: 0.9rem; /* Optional: Adjust font size */
+  text-align: left; /* Center the text */
+  margin: 0rem 4rem;
+  height: 100%;
+  width: calc(100% - 8rem);
+}
+
+.carousel {
+}
+
+.carousel-indicators {
+  bottom: -50px;
+}
+
+.text-container {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 650px) {
+  .text-container {
+    width: 430px;
+  }
+
+  .overlay-text {
+    font-size: 1.1rem;
+    margin: 0rem 4rem;
+    width: calc(100% - 8rem);
+  }
 }
