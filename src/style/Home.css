@@ -41,6 +41,8 @@
 .text-container {
   text-align: center;
   margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
 }
 
 @media (min-width: 650px) {
@@ -49,6 +51,7 @@
   }
 
   .overlay-text {
+    text-align: left;
     font-size: 1rem;
     margin: 0rem 4rem;
     width: calc(100% - 8rem);

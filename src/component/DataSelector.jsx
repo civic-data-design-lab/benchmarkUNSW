@@ -76,7 +76,15 @@ const DataSelector = ({
   }, [isTooltipVisible]);
 
   return (
-    <div className="light-bg padding-tb-lg select-data-break">
+    <div
+      className="light-bg padding-tb-lg select-data-break"
+      style={{
+        height: "23vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-evenly",
+      }}
+    >
       <div className="text-center primary-subtitle">
         <p>Select Data Breakdown</p>
       </div>

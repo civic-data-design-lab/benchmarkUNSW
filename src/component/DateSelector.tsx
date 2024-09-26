@@ -69,25 +69,14 @@ const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
   };
 
   return (
-    <div className="container-fluid" style={{ width: "100%", padding: "0px" }}>
+    <div className="container-fluid time-slider-container">
       <div className="row align-items-center">
         {/* Play/Pause Button */}
-        <div
-          className="col-2 d-flex align-items-center"
-          style={{ height: "100%" }}
-        >
+        <div className="col-2 d-flex align-items-center play-pause-button-container">
           <Button
             onClick={togglePlay}
             variant="danger"
-            style={{
-              backgroundColor: "#FF2551",
-              border: "none",
-              borderRadius: "10px",
-              height: "100%", // Match the height of the slider
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+            className="play-pause-button"
           >
             {isPlaying ? <PauseFill /> : <PlayFill />}
           </Button>
@@ -97,22 +86,14 @@ const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
         <div className="spacer"></div>
 
         {/* Time Slider */}
-        <div className="col position-relative">
+        <div className="col position-relative time-slider">
           {/* Current Hour Box */}
           <div
             className="current-hour-box"
             style={{
-              position: "absolute",
-              top: "-17px", // Adjusted to add more space between slider and number
               left: `calc(${((currentHour - 6) / 17) * 100}% + (${
                 8 - ((currentHour - 6) / 17) * 16
-              }px)`, // Adjusted to align with slider thumb
-              transform: "translateX(-50%)",
-              backgroundColor: "#FF2551",
-              color: "#fff",
-              padding: "2px 5px",
-              borderRadius: "5px",
-              fontSize: "10px",
+              }px))`,
             }}
           >
             {convertTo24HourFormat(currentHour)}
@@ -125,30 +106,19 @@ const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
             max={23}
             step={1}
             onChange={handleSliderChange}
-            style={{ width: "100%" }}
           />
-          <div
-            className="slider-label d-flex justify-content-between"
-            style={{ fontSize: "12px", marginTop: "8px" }} // Added marginTop to add space between slider and labels
-          >
+          <div className="slider-label d-flex justify-content-between">
             <span>6:00</span>
             <span>24:00</span>
           </div>
           {/* Ticks */}
-          <div className="slider-ticks" style={{ marginTop: "5px" }}>
-            {" "}
-            {/* Added marginTop to add space between slider and ticks */}
+          <div className="slider-ticks">
             {Array.from({ length: 18 }, (_, i) => (
               <div
                 key={i}
                 className="tick"
                 style={{
-                  position: "absolute",
-                  left: `calc(${(i / 17) * 100}% + (${8 - (i / 17) * 16}px))`, // Adjusted to align with slider thumb
-                  transform: "translateX(-50%)",
-                  height: "5px",
-                  width: "0.5px",
-                  backgroundColor: "#FF2551",
+                  left: `calc(${(i / 17) * 100}% + (${8 - (i / 17) * 16}px))`,
                 }}
               />
             ))}
@@ -204,15 +174,7 @@ function DateDropdown({ setTargetDate, currentHour }) {
   };
 
   return (
-    <div
-      className="w-100"
-      style={{
-        transition: "height 0.3s ease",
-        height: isDropdownOpen ? "300px" : "50px",
-        overflowY: "hidden",
-        alignItems: "center",
-      }}
-    >
+    <div className="w-100">
       <DropdownButton
         id="date-dropdown"
         title={`${dateToString(
@@ -274,63 +236,27 @@ const DateSelector = ({
   }, [isTooltipVisible]);
 
   return (
-    <div
-      style={{
-        backgroundColor: "#FFDAE2",
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
+    <div className="date-selector-container">
       {/* Horizontal Button Icon */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
+      <div className="horizontal-button-icon">
         <FontAwesomeIcon icon={faMinus} size="2x" />
       </div>
 
-      <div style={{ display: "flex", flex: "1", alignItems: "stretch" }}>
+      <div className="main-content">
         {/* WeatherVertical with fixed width and 100% height */}
-        <div
-          style={{
-            width: "50px",
-            marginRight: "20px",
-            height: "100%",
-            paddingBottom: "1rem",
-          }}
-        >
+        <div className="weather-vertical-container">
           <WeatherVertical targetDate={targetDate} targetHour={targetHour} />
         </div>
 
         {/* DateDropdown and TimeSlider with flexible width */}
-        <div
-          style={{
-            flex: "1",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            height: "100%",
-            margin: "0rem 0rem 0rem 0.5rem",
-          }}
-        >
+        <div className="date-time-container">
           {/* DateDropdown */}
-          <div
-            style={{
-              flex: "1",
-              display: "flex",
-              alignItems: "center",
-              marginBottom: "0.5rem",
-            }}
-          >
+          <div className="date-dropdown-container">
             <DateDropdown setTargetDate={setTargetDate} currentHour={hour} />
           </div>
 
           {/* TimeSlider */}
-          <div style={{ flex: "1", display: "flex", alignItems: "center" }}>
+          <div className="time-slider-container">
             <TimeSlider
               setTargetHour={setTargetHour}
               setCurrentHour={setHour}
@@ -340,54 +266,18 @@ const DateSelector = ({
         </div>
 
         {/* Question Mark Icon */}
-        <div
-          className="tooltip-container"
-          style={{
-            position: "relative", // Added to position the tooltip
-            display: "flex",
-            alignItems: "flex-start",
-            justifyContent: "flex-end",
-            marginLeft: "0.5rem",
-          }}
-        >
+        <div className="tooltip-container">
           <img
             src={questionCircle}
             alt="Question Circle"
-            style={{ width: "25px", height: "25px", cursor: "pointer" }} // Adjust the size as needed and add cursor pointer
-            onClick={toggleTooltip} // Toggle tooltip on click
+            className="question-circle-icon"
+            onClick={toggleTooltip}
           />
           {isTooltipVisible && (
-            <div
-              ref={tooltipRef} // Attach ref to the tooltip
-              className="tooltip-box"
-              style={{
-                backgroundColor: "#FFEFF3",
-                color: "#FF2551",
-                textAlign: "center",
-                borderRadius: "6px",
-                padding: "5px 10px",
-                position: "absolute",
-                zIndex: 1,
-                bottom: "110%", // Position above the icon
-                right: "0", // Align to the right of the icon
-                opacity: 1,
-                transition: "opacity 0.3s",
-                fontSize: "10px",
-                width: "150px",
-              }}
-            >
+            <div ref={tooltipRef} className="tooltip-box">
               You can select a date and time to see the vision sensor data for
               that specific time along with the weather data.
-              <div
-                style={{
-                  position: "absolute",
-                  top: "100%", // Arrow pointing down
-                  right: "10px", // Position arrow at the right bottom of the square
-                  borderWidth: "5px",
-                  borderStyle: "solid",
-                  borderColor: "#FFEFF3 transparent transparent transparent",
-                }}
-              />
+              <div className="tooltip-arrow" />
             </div>
           )}
         </div>

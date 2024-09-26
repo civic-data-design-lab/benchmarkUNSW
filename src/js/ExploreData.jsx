@@ -193,7 +193,10 @@ function ExploreData() {
           targetHour={targetHour}
         />
         {/* GridMap */}
-        <Row className="aidata-slider text-center medium-bg rounded-top-corners">
+        <Row
+          className="aidata-slider text-center medium-bg rounded-top-corners"
+          style={{ height: "17vh" }}
+        >
           <Col xs={12}>
             <DateSelector
               setTargetHour={setTargetHour}

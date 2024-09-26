@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
-import { TypeAnimation } from "react-type-animation";
+import Typist from "react-typist-component";
 import { debounce } from "lodash";
 
 import img1 from "../assets/Home/logo.gif";
@@ -54,102 +54,79 @@ function Home() {
     <div className="HomeCarousel">
       {currentIndex === 0 && (
         <div className="text-container">
-          <TypeAnimation
-            sequence={[
-              `Benchmark NSW is an experimental project that uses street
-furniture to measure the dynamics of public space`,
-            ]}
-            wrapper="p"
-            className="overlay-text nova-mono-regular"
-            cursor={true}
-            repeat={0}
-          />
+          <Typist>
+            <div className="overlay-text nova-mono-regular">
+              Benchmark NSW is an experimental project that uses street
+              furniture to measure the dynamics of public space
+            </div>
+          </Typist>
         </div>
       )}
       {currentIndex === 1 && (
         <div className="text-container">
-          <TypeAnimation
-            sequence={[
-              `The project seeks to understand how UNSW students, particularly women, girls and gender diverse people interact with and move seating in public space`,
-            ]}
-            wrapper="p"
-            className="overlay-text nova-mono-regular"
-            cursor={true}
-            repeat={0}
-          />
+          <Typist>
+            <div className="overlay-text nova-mono-regular">
+              The project seeks to understand how UNSW students, particularly
+              women, girls and gender diverse people interact with and move
+              seating in public space
+            </div>
+          </Typist>
         </div>
       )}
       {currentIndex === 2 && (
         <div className="text-container">
-          <TypeAnimation
-            sequence={[
-              `It integrated co-design, sensor kit development, and data-driven analysis to evaluate the impact of a temporary activation on an open space at the UNSW Campus`,
-            ]}
-            wrapper="p"
-            className="overlay-text nova-mono-regular"
-            cursor={true}
-            repeat={0}
-          />
+          <Typist>
+            <div className="overlay-text nova-mono-regular">
+              It integrated co-design, sensor kit development, and data-driven
+              analysis to evaluate the impact of a temporary activation on an
+              open space at the UNSW Campus
+            </div>
+          </Typist>
         </div>
       )}
       {currentIndex === 3 && (
         <div className="text-container">
-          <div className="text-container">
-            <TypeAnimation
-              sequence={[
-                `Data collected through Vision AI found that the number of people staying on site per day increased by 420% from 4.43 to 22.2 people`,
-              ]}
-              wrapper="p"
-              className="overlay-text nova-mono-regular"
-              cursor={true}
-              repeat={0}
-            />
-          </div>
+          <Typist>
+            <div className="overlay-text nova-mono-regular">
+              Data collected through Vision AI found that the number of people
+              staying on site per day increased by 420% from 4.43 to 22.2 people
+            </div>
+          </Typist>
         </div>
       )}
       {currentIndex === 4 && (
         <div className="text-container">
-          <div className="text-container">
-            <TypeAnimation
-              sequence={[
-                `Based on the observations conducted by the team, the number of women and girls staying on site increased by 700%, from 0.1 to 0.8 per observation`,
-              ]}
-              wrapper="p"
-              className="overlay-text nova-mono-regular"
-              cursor={true}
-              repeat={0}
-            />
-          </div>
+          <Typist>
+            <div className="overlay-text nova-mono-regular">
+              Based on the observations conducted by the team, the number of
+              women and girls staying on site increased by 700%, from 0.1 to 0.8
+              per observation
+            </div>
+          </Typist>
         </div>
       )}
       {currentIndex === 5 && (
         <div className="text-container">
-          <div className="text-container">
-            <TypeAnimation
-              sequence={[
-                `A survey about the installation revealed that 85% of women and girls said the seating helped facilitate social activities`,
-              ]}
-              wrapper="p"
-              className="overlay-text nova-mono-regular"
-              cursor={true}
-              repeat={0}
-            />
-          </div>
+          <Typist>
+            <div className="overlay-text nova-mono-regular">
+              A survey about the installation revealed that 85% of women and
+              girls said the seating helped facilitate social activities
+            </div>
+          </Typist>
         </div>
       )}
       {currentIndex === 6 && (
         <div className="text-container">
-          <div className="text-container">
-            <TypeAnimation
-              sequence={[
-                `73% of women respondents said the seating made them feel more comfortable. Click next to explore our data.`,
-              ]}
-              wrapper="p"
-              className="overlay-text nova-mono-regular"
-              cursor={true}
-              repeat={0}
-            />
-          </div>
+          <Typist>
+            <div className="overlay-text nova-mono-regular">
+              73% of women respondents said the seating made them feel more
+              comfortable. Click{" "}
+              <a href="/exploredata" style={{ color: "white" }}>
+                next
+              </a>{" "}
+              to explore our data.
+            </div>
+          </Typist>
         </div>
       )}
       <Carousel
