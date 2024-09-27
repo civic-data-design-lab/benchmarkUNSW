@@ -5,3 +5,79 @@
   padding-bottom: 5rem;
   background-color: #ff2551;
 }
+
+.findings-head {
+  padding-top: 2.5rem;
+  background-color: #ff2551;
+  box-shadow: none;
+  border-radius: 20px;
+}
+
+.findings-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: left;
+  color: #ff2551;
+  background-color: #ffffff;
+  display: inline-block;
+  font-family: "Nova Mono", monospace;
+  padding: 0rem 1rem;
+}
+
+.findings-content {
+  padding-top: 2.5rem;
+  background-color: #ff2551;
+  box-shadow: none;
+  color: #ffffff;
+}
+
+.findings-description {
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: left;
+  color: #ffffff;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.sub-button {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: left;
+  color: #ffffff;
+  background-color: #ff2551;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+}
+
+.sub-button.active {
+  background-color: #ffffff;
+  color: #ff2551;
+  text-decoration: underline;
+}
+
+.sub-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+
+.sub-button:hover {
+  background-color: #ffdae2;
+  color: #ff2551;
+}
+
+p {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.9rem;
+}
+
+.findings-button {
+  background-color: #ff2551;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
