@@ -78,24 +78,26 @@ function NavBar() {
                 </NavDropdown.Item>
                 <NavDropdown.Item
                   as={HashLink}
-                  to="/about#data-analysis"
+                  to="/about#technology"
                   onClick={handleLinkClick}
                 >
-                  Data Collection and Analysis
+                  Technology
                 </NavDropdown.Item>
-                <NavDropdown.Item
-                  as={HashLink}
-                  to="/about#dtpr"
-                  onClick={handleLinkClick}
-                >
-                  DTPR Benchmark NSW
-                </NavDropdown.Item>
+
                 <NavDropdown.Item
                   as={HashLink}
                   to="/about#bench-design"
                   onClick={handleLinkClick}
                 >
-                  Bench Design
+                  Design
+                </NavDropdown.Item>
+
+                <NavDropdown.Item
+                  as={HashLink}
+                  to="/about#dtpr"
+                  onClick={handleLinkClick}
+                >
+                  DTPR
                 </NavDropdown.Item>
                 <NavDropdown.Item
                   as={HashLink}

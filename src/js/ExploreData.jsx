@@ -237,8 +237,8 @@ function ExploreData() {
                 </button>
               </div>
             </Col>
-            <Col xs={3} sm={3}></Col>
-            <Col xs={5} sm={5}>
+            <Col xs={2} sm={2}></Col>
+            <Col xs={6} sm={6}>
               <WeatherDisplay targetDate={targetDate} targetHour={targetHour} />
             </Col>
           </Row>

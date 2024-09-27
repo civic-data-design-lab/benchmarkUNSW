@@ -28,9 +28,9 @@ const StaticMaps = ({ selectedOption, getTextForSelection }) => {
         <Row className="map-image">
           <img src={image} className="static-map-image" />
         </Row>
-        <Row className="index-text">
+        {/* <Row className="index-text">
           {ppl} were {selectedOption}
-        </Row>
+        </Row> */}
       </div>
     </Col>
   );

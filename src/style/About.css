@@ -1,5 +1,5 @@
 .about-page {
-  background-color: #ff2551;
+  background-color: #ffffff;
 }
 
 /*#region background*/
@@ -20,34 +20,18 @@
 }
 /*#endregion */
 
-/*#region margin padding*/
-p,
-.about-hr {
-  margin-bottom: 0.3rem;
-}
-
 .about-head {
-  display: inline-flex;
-  padding: 0rem 1rem 0rem 1rem;
   margin: 0rem 2rem 0rem 2rem;
-  border-radius: 1rem;
+  display: inline-block;
 }
 .about-p {
-  padding: 1rem;
-  margin: 1rem 2rem 1rem 2rem;
-  border-radius: 2rem;
+  padding: 1rem 2rem 2rem 2rem;
 }
-
-/* .about-p2 {
-  padding: 2.5rem 5rem 2.5rem 5rem;
-  margin: 1rem 0rem 1rem 0rem;
-} */
 
 .about-p2 {
   /* padding: 2rem 2rem 2rem 2rem; */
   text-align: center;
   margin: 1rem 2.5rem 1rem 2.5rem;
-  border-radius: 2rem;
   font-size: 0.7rem !important;
   color: white;
   /* font-family: "ibm-plex-sans", sans-serif; */
@@ -56,7 +40,6 @@ p,
 .about-p3 {
   padding: 2.5rem 2.5rem 2.5rem 2.5rem;
   margin: 1rem 2.5rem 1rem 2.5rem;
-  border-radius: 2rem;
 }
 
 .about-p4 {
@@ -75,8 +58,6 @@ p,
 .about-p6 {
   padding: 0.5rem 1rem 0rem 1rem;
   margin: 0rem 2rem 2rem 2rem;
-  border-radius: 2rem;
-  border: 2px solid var(--primary-dark);
 }
 
 .about-p7 {
@@ -95,6 +76,10 @@ p,
   padding-bottom: 0rem;
   font-weight: bold;
   text-align: left;
+  margin: 0rem;
+  color: #ff2551;
+  font-family: "nova-mono", monospace;
+  display: inline-block;
 }
 
 .about-subtitle {
@@ -109,9 +94,13 @@ p,
 
 .about-txt {
   font-size: var(--primary-txt);
+  padding: 0rem;
   padding-bottom: 1rem;
+  margin: 0rem;
   font-size: 0.85rem;
-  /* font-family: "ibm-plex-sans", sans-serif; */
+  text-align: left;
+  color: #ff2551;
+  font-family: "ibm-plex-sans", sans-serif;
 }
 .about-subtxt {
   font-size: var(--primary-subtxt);
@@ -119,6 +108,7 @@ p,
 }
 .about-desc {
   font-size: var(--primary-desc);
+  padding-bottom: 1rem;
 }
 /*#endregion */
 
@@ -134,7 +124,6 @@ p,
 .about-dtpr-sub:hover .about-subtxt {
   background-color: var(--primary-dark);
   color: var(--primary-light);
-  border-radius: 10px;
 }
 
 .about-dtpr-sub:hover {
@@ -155,13 +144,12 @@ p,
 
 .image-container {
   width: 100%;
-  aspect-ratio: 16 / 12; /* You can use 16:9 or any ratio you prefer */
+  aspect-ratio: 16 / 10; /* You can use 16:9 or any ratio you prefer */
   overflow: hidden; /* This ensures any excess part of the image is hidden */
-  border-radius: 1rem;
+  margin-bottom: 1rem;
 }
 
 .carousel-item {
-  border-radius: 1rem;
 }
 
 .carousel-img {
@@ -200,4 +188,16 @@ hr {
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #fb718d; /* Color of the scrollbar thumb on hover */
+}
+
+.font-white {
+  color: white;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.bg-red {
+  background-color: #ff2551;
 }

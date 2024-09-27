@@ -101,7 +101,11 @@ function WeatherDisplay({ targetDate, targetHour }) {
         </div>
         <div>
           {" "}
-          <p style={{ paddingRight: "10px" }}>{formattedTemperature} °C</p>
+          <p
+            style={{ paddingRight: "10px", margin: "0px", fontSize: "0.9rem" }}
+          >
+            {formattedTemperature} °C
+          </p>
         </div>
       </Col>
     </Row>

@@ -45,14 +45,14 @@ function About() {
       <section
         id="project"
         className="nova-mono-regular"
-        style={{ paddingTop: "5rem" }}
+        style={{ backgroundColor: "#FF2551", paddingTop: "5rem" }}
       >
-        <div className="about-head light-bg">
-          <p className="about-title">Project</p>
+        <div className="about-head">
+          <p className="about-title bg-white">Project</p>
         </div>
-        <div className="about-p light-bg">
+        <div className="about-p ">
           <div className="AboutCarousel">
-            <Carousel>
+            <Carousel indicators={false} controls={false}>
               <Carousel.Item>
                 <div className="image-container">
                   <img src={img1} className="carousel-img" />
@@ -75,18 +75,8 @@ function About() {
               </Carousel.Item>
             </Carousel>
           </div>
-          <div
-            className="custom-scrollbar"
-            style={{
-              maxHeight: "40vh",
-              overflow: "auto",
-              overflowX: "hidden",
-              backgroundColor: "#FFEFF3",
-              padding: "1rem",
-              borderRadius: "1rem",
-            }}
-          >
-            <p className="about-txt">
+          <div className="custom-scrollbar">
+            <p className="about-txt font-white">
               <strong>Benchmark NSW</strong> is a pilot project that uses
               temporary movable benches coupled with smart technology and data
               to better understand how women, girls and gender diverse people
@@ -95,27 +85,12 @@ function About() {
               Massachusetts Institute of Technology (MIT) and Smart Places,
               Transport for NSW.
             </p>
-            <p className="about-txt">
+            <p className="about-txt font-white">
               <strong>The methodology</strong> for the Benchmark NSW project
               involved a multi-phase approach, integrating co-design, technology
               development, and data-driven analysis to evaluate the impact of a
               temporary activation on an open space on the UNSW Kensington
               Campus.
-            </p>{" "}
-            <p className="about-txt">
-              <strong>Co-design</strong> workshops engaging women Industrial
-              Design students from UNSW, who contributed to the creation of
-              modular seating units. These units were fabricated from 100%
-              recycled HDPE plastic and featured motion-activated LED lighting
-              to improve visibility and user comfort.
-            </p>{" "}
-            <p className="about-txt">
-              <strong>Data collection</strong> was conducted using AI-driven
-              computer vision sensors developed in collaboration with MIT, which
-              captured real-time anonymised data on public space usage. This was
-              complemented by qualitative observations and intercept surveys,
-              undertaken by the four women Industrial Design students on site
-              during the activation and baseline periods.
             </p>{" "}
           </div>
         </div>
@@ -123,18 +98,16 @@ function About() {
 
       {/*Section 2*/}
       <section
-        id="data-analysis"
+        id="technology"
         className="nova-mono-regular"
-        style={{ paddingTop: "5rem", paddingBottom: "5rem" }}
+        style={{ backgroundColor: "#FFDAE2", paddingTop: "5rem" }}
       >
-        <div className="about-head light-bg">
-          <p className="about-title">
-            Data Collection <br></br>& Analysis
-          </p>
+        <div className="about-head">
+          <p className="about-title bg-red text-white">Technology</p>
         </div>
-        <div className="about-p light-bg">
+        <div className="about-p">
           <div className="AboutCarousel">
-            <Carousel>
+            <Carousel indicators={false} controls={false}>
               <Carousel.Item>
                 <div className="image-container">
                   <img src={img5} className="carousel-img" />
@@ -157,17 +130,7 @@ function About() {
               </Carousel.Item>
             </Carousel>
           </div>
-          <div
-            className="custom-scrollbar"
-            style={{
-              maxHeight: "40vh",
-              overflow: "auto",
-              overflowX: "hidden",
-              backgroundColor: "#FFEFF3",
-              padding: "1rem",
-              borderRadius: "1rem",
-            }}
-          >
+          <div className="custom-scrollbar">
             <p className="about-txt">
               <strong>Vision AI sensor kit</strong>, developed by MIT’s Norman
               B. Leventhal Center for Advanced Urbanism, captured real-time data
@@ -190,15 +153,52 @@ function About() {
               transparency and accountability for digital technology in public
               spaces.
             </p>
-            {/* <p className="about-txt">
-              <strong>Social activities</strong> increased significantly after
-              the deployment of 12 movable benches, resulting in a 420% rise in
-              daily visitors and a 585% increase in total dwell time. The most
-              substantial impact was observed at night, with total dwell time
-              soaring by 7,072%, from just 0.18 minutes to 12.91 minutes. More
-              details are available in{" "}
-              <a href="/downloads#report">the full report</a>.
-            </p> */}
+          </div>
+        </div>
+      </section>
+
+      {/*Section 3*/}
+      <section
+        id="bench-design"
+        className="nova-mono-regular bg-red"
+        style={{ paddingTop: "5rem" }}
+      >
+        <div className="about-head">
+          <p className="about-title bg-white">Design</p>
+        </div>
+        <div className="about-p">
+          <div className="AboutCarousel">
+            <Carousel indicators={false} controls={false}>
+              <Carousel.Item>
+                <div className="image-container">
+                  <img src={img9} className="carousel-img" />
+                </div>
+              </Carousel.Item>
+              <Carousel.Item>
+                <div className="image-container">
+                  <img src={img10} className="carousel-img" />
+                </div>
+              </Carousel.Item>
+              <Carousel.Item>
+                <div className="image-container">
+                  <img src={img11} className="carousel-img" />
+                </div>
+              </Carousel.Item>
+              <Carousel.Item>
+                <div className="image-container">
+                  <img src={img12} className="carousel-img" />
+                </div>
+              </Carousel.Item>
+            </Carousel>
+          </div>
+          <div className="custom-scrollbar">
+            <p className="about-txt font-white">
+              <strong>Co-design</strong> workshops engaging women Industrial
+              Design students from UNSW, who contributed to the creation of
+              modular seating units. These units were fabricated from 100%
+              recycled HDPE plastic and featured motion-activated LED lighting
+              to improve visibility and user comfort.
+            </p>
           </div>
         </div>
       </section>
@@ -207,7 +207,9 @@ function About() {
       <section id="dtpr" className="nova-mono-regular">
         <div className="medium-bg about-dtpr">
           <div className="about-head dark-bg">
-            <p className="about-title">DTPR Benchmark NSW</p>
+            <p className="about-title" style={{ color: "white" }}>
+              DTPR Benchmark NSW
+            </p>
           </div>
           <p style={{ padding: "1rem 2rem 0rem 2rem", fontSize: "0.8rem" }}>
             Benchmark NSW utilises{" "}
@@ -452,6 +454,7 @@ function About() {
               padding: "0rem 2rem 3rem 2rem",
               color: "ffdae2",
               textAlign: "center",
+              margin: "0rem",
             }}
           >
             The DTPR Icons Design Guide and Taxonomy are licensed by the Digital
@@ -462,92 +465,27 @@ function About() {
         </div>
       </section>
 
-      {/*Section 3*/}
-      <section
-        id="bench-design"
-        className="nova-mono-regular"
-        style={{ paddingTop: "5rem" }}
-      >
-        <div className="about-head light-bg">
-          <p className="about-title">Bench Design</p>
-        </div>
-        <div className="about-p light-bg">
-          <div className="AboutCarousel">
-            <Carousel>
-              <Carousel.Item>
-                <div className="image-container">
-                  <img src={img9} className="carousel-img" />
-                </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div className="image-container">
-                  <img src={img10} className="carousel-img" />
-                </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div className="image-container">
-                  <img src={img11} className="carousel-img" />
-                </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div className="image-container">
-                  <img src={img12} className="carousel-img" />
-                </div>
-              </Carousel.Item>
-            </Carousel>
-          </div>
-          <div
-            className="custom-scrollbar"
-            style={{
-              maxHeight: "40vh",
-              overflow: "auto",
-              overflowX: "hidden",
-              backgroundColor: "#FFEFF3",
-              padding: "1rem",
-              borderRadius: "1rem",
-            }}
-          >
-            <p className="about-txt">
-              <strong>Co-design</strong> workshops engaging women Industrial
-              Design students from UNSW, who contributed to the creation of
-              modular seating units. These units were fabricated from 100%
-              recycled HDPE plastic and featured motion-activated LED lighting
-              to improve visibility and user comfort.
-            </p>
-            <p className="about-txt">
-              <strong>The portable design of seating</strong> allowed users to
-              reposition the units freely, with the goal of fostering a sense of
-              ownership and personalisation of the space. This flexibility,
-              combined with the playful and approachable aesthetics of the
-              seating.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/*Section 4*/}
       <section
         id="team"
-        className="nova-mono-regular"
+        className="nova-mono-regular bg-red"
         style={{ paddingTop: "5rem" }}
       >
-        <div className="about-head light-bg">
-          <p className="about-title">Team</p>
+        <div className="about-head">
+          <p className="about-title bg-white">Team</p>
         </div>
-        <div className="about-p light-bg">
-          <p className="about-subtitle">MIT</p>
-          <p className="about-subtxt">Sarah Williams</p>
-          <p className="about-subtxt">Minwook Kang</p>
-          <p className="about-subtxt">Hannah Shumway</p>
-          <p className="about-subtxt">Sebastian Ives</p>
-          <p className="about-subtxt">Maria Gabriela Carucci</p>
-          <p className="about-subtxt">Karen Kuo</p>
-          <div style={{ textAlign: "right" }}>
-            <p className="about-subtitle">UNSW</p>
-            <p className="about-subtxt">Gonzalo Portas</p>
-            <p className="about-subtxt">Mariano Ramirez</p>
-          </div>
-          <p className="about-subtitle">TfNSW</p>
+        <div className="about-p">
+          <p className="about-txt font-white">
+            <strong>MIT</strong> <br></br> Sarah Williams, Minwook Kang, Hannah
+            Shumway, Sebastian Ives, Maria Gabriela Carucci, Karen Kuo, Clay
+            Anderson, Mercy Olagunju
+          </p>
+          <p className="about-txt font-white">
+            <strong>UNSW</strong> <br></br> Gonzalo Portas, Mariano Ramirez
+          </p>
+          <p className="about-txt font-white">
+            <strong>TfNSW</strong>
+          </p>
         </div>
       </section>
     </div>

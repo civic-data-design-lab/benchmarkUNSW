@@ -52,7 +52,7 @@ function Home() {
 
   return (
     <div className="HomeCarousel">
-      {currentIndex === 0 && (
+      {/* {currentIndex === 0 && (
         <div className="text-container">
           <Typist>
             <div className="overlay-text nova-mono-regular">
@@ -114,8 +114,8 @@ function Home() {
             </div>
           </Typist>
         </div>
-      )}
-      {currentIndex === 6 && (
+      )} */}
+      {/* {currentIndex === 6 && (
         <div className="text-container">
           <Typist>
             <div className="overlay-text nova-mono-regular">
@@ -127,6 +127,17 @@ function Home() {
               to explore our data.
             </div>
           </Typist>
+        </div>
+      )}{" "} */}
+      {currentIndex === 6 && (
+        <div className="text-container">
+          <div className="overlay-text nova-mono-regular">
+            Click{" "}
+            <a href="/exploredata" style={{ color: "white" }}>
+              next
+            </a>{" "}
+            to explore data
+          </div>
         </div>
       )}
       <Carousel
