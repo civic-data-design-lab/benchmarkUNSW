@@ -3,15 +3,15 @@ import { Container, Row, Col } from "react-bootstrap";
 import "../style/StaticMaps.css";
 
 // Import all images
-import socialisingImage1 from "../assets/StaticMaps/socializing1_0710_13-35.svg";
-import socialisingImage2 from "../assets/StaticMaps/socializing2_0724_16-15.svg";
-import socialisingImage3 from "../assets/StaticMaps/socializing3_0725_09-20.svg";
-import stayingImage1 from "../assets/StaticMaps/dwelling1_0710_13-35.svg";
-import stayingImage2 from "../assets/StaticMaps/dwelling2_0728_12-15.svg";
-import stayingImage3 from "../assets/StaticMaps/dwelling3_0724_13-45.svg";
-import sittingImage1 from "../assets/StaticMaps/sitting1_0710_13-35.svg";
-import sittingImage2 from "../assets/StaticMaps/sitting2_0728_12-15.svg";
-import sittingImage3 from "../assets/StaticMaps/sitting3_0725_10-15.svg";
+import socialisingImage1 from "../assets/StaticMaps/socialising_1.svg";
+import socialisingImage2 from "../assets/StaticMaps/socialising_2.svg";
+import socialisingImage3 from "../assets/StaticMaps/socialising_3.svg";
+import stayingImage1 from "../assets/StaticMaps/staying_1.svg";
+import stayingImage2 from "../assets/StaticMaps/staying_2.svg";
+import stayingImage3 from "../assets/StaticMaps/staying_3.svg";
+import sittingImage1 from "../assets/StaticMaps/sitting_1.svg";
+import sittingImage2 from "../assets/StaticMaps/sitting_2.svg";
+import sittingImage3 from "../assets/StaticMaps/sitting_3.svg";
 
 const StaticMaps = ({ selectedOption, getTextForSelection }) => {
   // Define images based on selectedOption

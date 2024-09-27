@@ -78,7 +78,7 @@ function ExploreData() {
       case "Socialising":
         return "Top 3 Socialising Maps";
       case "Staying":
-        return "Top 3 Crowded Maps";
+        return "Top 3 Staying Maps";
       case "Sitting":
         return "Top 3 Sitting Maps";
       default:
