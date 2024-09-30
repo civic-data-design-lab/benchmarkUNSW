@@ -82,15 +82,10 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .custom-dropdown-item {
-  color: #ff2551 !important; /* Set text color when hovering */
-  background-color: #c73451 !important; /* Optional: change background on hover */
-}
-
-.custom-dropdown-item {
   color: #ff2551 !important; /* Set text color to white */
-  background-color: transparent !important; /* Ensure background stays transparent */
   border: none !important; /* Remove default border */
   z-index: 1000 !important; /* Ensure dropdown is on top of other elements */
+  text-align: center !important;
 }
 
 /* Ticks */
@@ -138,7 +133,6 @@ input[type="range"]::-moz-range-thumb {
   color: #fb718d !important;
   border: none !important;
   background-color: transparent !important;
-  text-align: left !important;
   padding: 0rem 2rem !important;
 }
 

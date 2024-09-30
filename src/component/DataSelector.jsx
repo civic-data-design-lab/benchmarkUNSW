@@ -9,7 +9,9 @@ const DataBreakdownDropdown = ({ selectedOption, setSelectedOption }) => {
   return (
     <div
       className="data-breakdown-dropdown"
-      style={{ height: isOpen ? "160px" : "40px" }} // Adjust heights as needed
+      style={{
+        height: isOpen ? "120px" : "40px",
+      }} // Adjust heights as needed
     >
       <Dropdown
         onSelect={setSelectedOption}
@@ -77,8 +79,11 @@ const DataSelector = ({
 
   return (
     <div className="light-bg padding-tb-lg select-data-break">
-      <div className="text-center primary-subtitle">
-        <p>Select Data Breakdown</p>
+      <div
+        className="text-center primary-subtitle"
+        style={{ fontSize: "1.3rem", paddingBottom: "0.5rem" }}
+      >
+        Select Data Breakdown
       </div>
 
       <DataBreakdownDropdown
@@ -177,6 +182,7 @@ const DataSelector = ({
                 fontSize: "0.8rem",
                 margin: "0rem",
                 paddingLeft: "0.5rem",
+                fontFamily: "Nova Mono !important",
               }}
             >
               {index3Name}
