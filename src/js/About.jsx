@@ -45,7 +45,7 @@ function About() {
       <section
         id="project"
         className="nova-mono-regular"
-        style={{ backgroundColor: "#FF2551", paddingTop: "5rem" }}
+        style={{ backgroundColor: "#FF2551", paddingTop: "7rem" }}
       >
         <div className="about-head">
           <p className="about-title bg-white">Project</p>

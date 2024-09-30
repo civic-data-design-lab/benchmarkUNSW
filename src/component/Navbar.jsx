@@ -22,7 +22,7 @@ function NavBar() {
   const icon =
     location.pathname === "/exploredata"
       ? "navbar-toggler-icon-aidata"
-      : "navbar-toggler-icon-default"; // Change the toggler icon dynamically
+      : "navbar-toggler-icon-default";
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -47,6 +47,10 @@ function NavBar() {
           className="nova-mono-regular Navbar"
           fixed="top"
           expanded={expanded}
+          style={{
+            backgroundColor:
+              location.pathname === "/exploredata" ? "#FDB5C5" : "#FF2551",
+          }}
         >
           <Navbar.Brand href="/" className={navBarStyle}>
             Benchmark NSW
