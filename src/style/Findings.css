@@ -7,13 +7,13 @@
 }
 
 .findings-head {
-  padding-top: 2.5rem;
   background-color: #ff2551;
   box-shadow: none;
   border-radius: 20px;
 }
 
 .findings-title {
+  margin-top: 2rem;
   font-size: 1.3rem;
   font-weight: bold;
   text-align: left;
@@ -21,7 +21,20 @@
   background-color: #ffffff;
   display: inline-block;
   font-family: "Nova Mono", monospace;
-  padding: 0rem 1rem;
+  padding: 0rem 0.5rem;
+}
+
+.findings-subtitle {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: left;
+  color: #ffffff;
+  text-decoration: underline;
+  background-color: #ff2551;
+  display: inline-block;
+  font-family: "Nova Mono", monospace;
+  padding: 0px;
+  margin: 0.5rem 0rem 0.5rem 0rem;
 }
 
 .findings-content {
