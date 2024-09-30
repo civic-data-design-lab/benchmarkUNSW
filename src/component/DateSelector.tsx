@@ -323,7 +323,7 @@ const DateSelector = ({
 }) => {
   const [hour, setHour] = useState(6); // Holds the current hour state
   const [minute, setMinute] = useState(0); // Holds the current minute state
-  const [currentDate, setCurrentDate] = useState(new Date(2024, 6, 10)); // Start from July 10, 2024
+  const [currentDate, setCurrentDate] = useState(new Date(2024, 6, 11)); // Start from July 10, 2024
   const [isTooltipVisible, setIsTooltipVisible] = useState(false); // State to manage tooltip visibility
   const tooltipRef = useRef(null); // Ref to track the tooltip element
 

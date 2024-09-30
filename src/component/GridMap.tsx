@@ -236,7 +236,7 @@ const GridMap: React.FC<GridProps> = ({
         d.properties.socializing === true ? "#FF2551" : "#FFFFFF"
       )
       .attr("stroke", "none")
-      .attr("opacity", 0.1)
+      .attr("opacity", 0.3)
       .attr("stroke-width", 0.5);
 
     g.append("g")

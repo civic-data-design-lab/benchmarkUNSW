@@ -22,7 +22,7 @@ function ExploreData() {
   const [index2Name, setIndex2Name] = useState("");
   const [index3, setIndex3] = useState(0);
   const [index3Name, setIndex3Name] = useState("");
-  const [targetDate, setTargetDate] = useState("2024-07-10"); // Starting date
+  const [targetDate, setTargetDate] = useState("2024-07-11"); // Starting date
   const [targetHour, setTargetHour] = useState(6); // Starting hour (6 AM)
   const [targetMinute, setTargetMinute] = useState(0); // Add this line
 
@@ -35,7 +35,7 @@ function ExploreData() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const benchResponse = await fetch("/data/bench_data.json");
+        const benchResponse = await fetch("/data/bench_data_2.json");
         const benchJson = await benchResponse.json();
         setBenchData(benchJson);
 
