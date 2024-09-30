@@ -20,6 +20,7 @@ interface GridProps {
   pedestrianData: FeatureCollection;
   targetDate: string;
   targetHour: number;
+  targetMinute: number;
 }
 
 /**
@@ -35,7 +36,8 @@ interface GridProps {
 function getDataAtTime(
   jsonData: FeatureCollection,
   date: string,
-  hour: number
+  hour: number,
+  minute: number
 ): FeatureCollection {
   // console.log(`Filtering data for date :${date}, hour: ${hour}`);
   const formattedHour = hour.toString().padStart(2, "0"); // Ensure two-digit hour format
@@ -47,6 +49,7 @@ function getDataAtTime(
       const targetTime: Date = new Date(date);
       targetTime.setDate(targetTime.getDate() + 1);
       targetTime.setHours(Number(formattedHour), 0, 0, 0); // Set the exact hour and reset minutes and seconds
+      targetTime.setMinutes(minute);
 
       // console.log("Five Min Time: ", fiveMinTime);
       // console.log("Target Time: ", targetTime);
@@ -72,26 +75,18 @@ const GridMap: React.FC<GridProps> = ({
   pedestrianData,
   targetDate,
   targetHour,
+  targetMinute,
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const gRef = useRef<SVGGElement>(null);
 
   const [hourlyBenchData, setBenchData] = useState<FeatureCollection>(
-    getDataAtTime(benchData, targetDate, targetHour)
+    getDataAtTime(benchData, targetDate, targetHour, targetMinute)
   );
   const [hourlyPedestrianData, setPedestrianData] = useState<FeatureCollection>(
-    getDataAtTime(pedestrianData, targetDate, targetHour)
+    getDataAtTime(pedestrianData, targetDate, targetHour, targetMinute)
   );
   const { width, height } = useWindowSize();
-
-  // Create a color scale to represent different times of day
-  const colorScale = d3
-    .scaleLinear<string>()
-    .domain([0, 13, 18, 24]) // Midnight, dawn, noon, sunset, midnight
-    .range(["#FE8EA4", "#FFEFF3", "#FE8EA4", "#FE8EA4"]); // Night, dawn, noon, sunset, night
-
-  // Get the background color based on the targetHour
-  const backgroundColor = colorScale(targetHour);
 
   // useEffect to filter the data and render the grid/map when the date or hour changes
   useEffect(() => {
@@ -102,19 +97,31 @@ const GridMap: React.FC<GridProps> = ({
       const filteredBenchData = getDataAtTime(
         benchData,
         targetDate,
-        targetHour
+        targetHour,
+        targetMinute
       );
       const filteredPedestrianData = getDataAtTime(
         pedestrianData,
         targetDate,
-        targetHour
+        targetHour,
+        targetMinute
       );
       setBenchData(filteredBenchData);
       setPedestrianData(filteredPedestrianData);
     };
 
+    // console.log("Target Date: ", targetDate);
+    // console.log("Target Hour: ", targetHour);
+    // console.log("Target Minute: ", targetMinute);
     updateData(); // Trigger async update for data
-  }, [targetDate, targetHour, benchData, pedestrianData, gridData]);
+  }, [
+    targetDate,
+    targetHour,
+    targetMinute,
+    benchData,
+    pedestrianData,
+    gridData,
+  ]);
 
   // useEffect to render the grid/map when the data is loaded
   useEffect(() => {
@@ -187,30 +194,34 @@ const GridMap: React.FC<GridProps> = ({
       .attr("stroke", "none")
       .attr("stroke-width", 0.5);
 
-    g.append("g")
-      .attr("transform", "rotate(-10)")
-      .selectAll("image")
-      .data(hourlyBenchData.features)
-      .enter()
-      .append("image")
-      .attr(
-        "x",
-        (d) =>
-          projection(d.geometry.coordinates)[0] -
-          (benchLength * 1.7 * scaleFactor) / 2
-      )
-      .attr(
-        "y",
-        (d) =>
-          projection(d.geometry.coordinates)[1] -
-          (benchLength * 1.7 * scaleFactor) / 2
-      )
-      .attr("xlink:href", () => benchIcon)
-      .attr("width", benchLength * 1.7 * scaleFactor)
-      .attr("height", benchLength * 1.7 * scaleFactor)
-      .attr("fill", "#FF2551")
-      .attr("stroke", "none")
-      .attr("stroke-width", 0.5);
+    // Render benches or "No data" message
+    if (hourlyBenchData.features.length > 0) {
+      g.append("g")
+        .attr("transform", "rotate(-10)")
+        .selectAll("image")
+        .data(hourlyBenchData.features)
+        .enter()
+        .append("image")
+        .attr(
+          "x",
+          (d) =>
+            projection(d.geometry.coordinates)[0] -
+            (benchLength * 1.7 * scaleFactor) / 2
+        )
+        .attr(
+          "y",
+          (d) =>
+            projection(d.geometry.coordinates)[1] -
+            (benchLength * 1.7 * scaleFactor) / 2
+        )
+        .attr("xlink:href", () => benchIcon)
+        .attr("width", benchLength * 1.7 * scaleFactor)
+        .attr("height", benchLength * 1.7 * scaleFactor)
+        .attr("fill", "#FF2551")
+        .attr("stroke", "none")
+        .attr("stroke-width", 0.5);
+    } else {
+    }
 
     g.append("g")
       .attr("transform", "rotate(-10)")
@@ -225,7 +236,7 @@ const GridMap: React.FC<GridProps> = ({
         d.properties.socializing === true ? "#FF2551" : "#FFFFFF"
       )
       .attr("stroke", "none")
-      .attr("opacity", 0.3)
+      .attr("opacity", 0.1)
       .attr("stroke-width", 0.5);
 
     g.append("g")
@@ -241,7 +252,7 @@ const GridMap: React.FC<GridProps> = ({
         d.properties.category_sitting === "sitting" ? "#FF2551" : "none"
       )
       .attr("stroke", (d) =>
-        d.properties.category_sitting === "sitting" ? "none" : "#FF2551"
+        d.properties.category_sitting === "sitting" ? "#FF2551" : "#FF2551"
       )
       .attr("stroke-width", 1);
 
@@ -272,6 +283,24 @@ const GridMap: React.FC<GridProps> = ({
       >
         <g ref={gRef}>{/* Grid will be rendered here */}</g>
       </svg>
+      {hourlyBenchData.features.length === 0 && (
+        <p
+          style={{
+            position: "absolute",
+            bottom: "40px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            color: "#FF2551",
+            fontSize: "0.7rem",
+            textAlign: "center",
+            margin: 0,
+            width: "100%",
+            fontWeight: "normal",
+          }}
+        >
+          No Bench Location Data
+        </p>
+      )}
       <div
         style={{
           position: "absolute",

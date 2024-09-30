@@ -24,6 +24,7 @@ function ExploreData() {
   const [index3Name, setIndex3Name] = useState("");
   const [targetDate, setTargetDate] = useState("2024-07-10"); // Starting date
   const [targetHour, setTargetHour] = useState(6); // Starting hour (6 AM)
+  const [targetMinute, setTargetMinute] = useState(0); // Add this line
 
   // Map data states
   const [benchData, setBenchData] = useState(null);
@@ -171,6 +172,13 @@ function ExploreData() {
     fetchData();
   }, [targetDate, targetHour, selectedOption]);
 
+  // Add this useEffect hook to log the values whenever they change
+  // useEffect(() => {
+  //   console.log("Target Date:", targetDate);
+  //   console.log("Target Hour:", targetHour);
+  //   console.log("Target Minute:", targetMinute);
+  // }, [targetDate, targetHour, targetMinute]);
+
   // Render fallback while data is loading
   if (!benchData || !gridData || !pedestrianData) {
     return <div>Loading data...</div>;
@@ -191,6 +199,7 @@ function ExploreData() {
           pedestrianData={pedestrianData}
           targetDate={targetDate}
           targetHour={targetHour}
+          targetMinute={targetMinute}
         />
         {/* GridMap */}
         <Row className="aidata-slider text-center medium-bg rounded-top-corners">
@@ -198,8 +207,10 @@ function ExploreData() {
             <DateSelector
               setTargetHour={setTargetHour}
               setTargetDate={setTargetDate}
+              setTargetMinute={setTargetMinute}
               targetDate={targetDate}
               targetHour={targetHour}
+              targetMinute={targetMinute}
             />
           </Col>
         </Row>

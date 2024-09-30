@@ -19,10 +19,16 @@ function convertNumberToHour(number) {
   return `${formattedHours}:00 ${meridiemSuffix}`;
 }
 
-// Formats a Date object into a string like "July 10"
-function dateToString(date) {
-  const day = date.getDate();
-  const month = date.toLocaleString("default", { month: "long" });
+// Formats a Date object into a string like "July 10" in Sydney time
+function dateToString(date: Date): string {
+  const sydneyDate = new Date(
+    date.toLocaleString("en-US", { timeZone: "Australia/Sydney" })
+  );
+  const day = sydneyDate.getDate();
+  const month = sydneyDate.toLocaleString("en-US", {
+    month: "long",
+    timeZone: "Australia/Sydney",
+  });
   return `${month} ${day}`;
 }
 
@@ -34,39 +40,105 @@ function formatDateForValue(date) {
   return `${year}-${month}-${day}`;
 }
 
-// TimeSlider component allows selecting and playing through hours of the day
-const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
-  const [isPlaying, setIsPlaying] = useState(true); // Controls play/pause state for the slider
+// TimeSlider component allows selecting and playing through hours and minutes of the day
+const TimeSlider = ({
+  setTargetHour,
+  setTargetMinute,
+  setCurrentHour,
+  setCurrentMinute,
+  currentHour,
+  currentMinute,
+  currentDate,
+  setCurrentDate,
+  setTargetDate,
+}) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const endDate = new Date(2024, 7, 6); // August 6, 2024 in local time
 
   // Handles the automatic progression of time when "playing"
   useEffect(() => {
     let interval = null;
     if (isPlaying) {
       interval = setInterval(() => {
-        setCurrentHour((prev) => (prev >= 23 ? 6 : prev + 1)); // Reset to 6 AM if reaching midnight
-      }, 200);
+        setCurrentMinute((prevMinute) => {
+          const newMinute = prevMinute >= 55 ? 0 : prevMinute + 5;
+          setTargetMinute(newMinute); // Update targetMinute here
+          if (prevMinute >= 55) {
+            setCurrentHour((prevHour) => {
+              if (prevHour >= 23) {
+                const nextDate = new Date(currentDate);
+                nextDate.setDate(nextDate.getDate() + 1);
+                nextDate.setHours(6, 0, 0, 0); // Reset to 6 AM
+
+                // Check if we need to jump to July 24
+                if (nextDate.getMonth() === 6 && nextDate.getDate() === 17) {
+                  nextDate.setDate(24);
+                }
+
+                if (nextDate > endDate) {
+                  setIsPlaying(false);
+                  return prevHour;
+                }
+
+                setCurrentDate(nextDate);
+                console.log("Next Date: ", nextDate.toLocaleString());
+                setTargetDate(formatDateForValue(nextDate));
+                setTargetHour(6); // Update targetHour when changing date
+                setTargetMinute(0); // Reset targetMinute when changing date
+                return 6; // Reset to 6 AM for the next day
+              }
+              const newHour = prevHour + 1;
+              setTargetHour(newHour); // Update targetHour here
+              return newHour;
+            });
+          }
+          return newMinute;
+        });
+      }, 10);
     } else if (!isPlaying && interval) {
       clearInterval(interval);
     }
     return () => clearInterval(interval); // Cleanup interval on unmount
-  }, [isPlaying, setCurrentHour]);
+  }, [
+    isPlaying,
+    setCurrentHour,
+    setCurrentMinute,
+    currentDate,
+    setCurrentDate,
+    setTargetDate,
+    endDate,
+    setTargetHour,
+    setTargetMinute,
+  ]);
 
-  // Update the target hour based on slider position
+  // Update the target hour and minute based on current values
   useEffect(() => {
     setTargetHour(currentHour);
-  }, [currentHour, setTargetHour]);
+    setTargetMinute(currentMinute);
+  }, [currentHour, currentMinute, setTargetHour, setTargetMinute]);
 
   // Handle slider value change manually
-  const handleSliderChange = (event) =>
-    setCurrentHour(Number(event.target.value));
+  const handleSliderChange = (event) => {
+    const totalMinutes = Number(event.target.value);
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    setCurrentHour(hours + 6); // Add 6 because our range starts at 6 AM
+    setCurrentMinute(minutes);
+  };
 
   // Toggle between play and pause
   const togglePlay = () => setIsPlaying(!isPlaying);
 
-  // Function to convert hour to 24-hour format string
-  const convertTo24HourFormat = (hour) => {
-    return `${hour.toString().padStart(2, "0")}:00`;
+  // Function to convert hour and minute to 24-hour format string
+  const convertTo24HourFormat = (hour, minute) => {
+    return `${hour.toString().padStart(2, "0")}:${minute
+      .toString()
+      .padStart(2, "0")}`;
   };
+
+  // Calculate total minutes for the slider value
+  const sliderValue = (currentHour - 6) * 60 + currentMinute;
 
   return (
     <div className="container-fluid" style={{ width: "100%", padding: "0px" }}>
@@ -83,7 +155,7 @@ const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
               backgroundColor: "#FF2551",
               border: "none",
               borderRadius: "10px",
-              height: "100%", // Match the height of the slider
+              height: "100%",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -98,15 +170,15 @@ const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
 
         {/* Time Slider */}
         <div className="col position-relative">
-          {/* Current Hour Box */}
+          {/* Current Time Box */}
           <div
-            className="current-hour-box"
+            className="current-time-box"
             style={{
               position: "absolute",
-              top: "-17px", // Adjusted to add more space between slider and number
-              left: `calc(${((currentHour - 6) / 17) * 100}% + (${
-                8 - ((currentHour - 6) / 17) * 16
-              }px)`, // Adjusted to align with slider thumb
+              top: "-17px",
+              left: `calc(${(sliderValue / (17 * 60)) * 100}% + (${
+                8 - (sliderValue / (17 * 60)) * 16
+              }px))`,
               transform: "translateX(-50%)",
               backgroundColor: "#FF2551",
               color: "#fff",
@@ -115,36 +187,34 @@ const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
               fontSize: "10px",
             }}
           >
-            {convertTo24HourFormat(currentHour)}
+            {convertTo24HourFormat(currentHour, currentMinute)}
           </div>
           <input
             type="range"
             className="form-range custom-slider"
-            value={currentHour}
-            min={6}
-            max={23}
-            step={1}
+            value={sliderValue}
+            min={0}
+            max={17 * 60} // 17 hours * 60 minutes
+            step={5}
             onChange={handleSliderChange}
             style={{ width: "100%" }}
           />
           <div
             className="slider-label d-flex justify-content-between"
-            style={{ fontSize: "12px", marginTop: "8px" }} // Added marginTop to add space between slider and labels
+            style={{ fontSize: "12px", marginTop: "8px" }}
           >
             <span>6:00</span>
-            <span>24:00</span>
+            <span>23:00</span>
           </div>
           {/* Ticks */}
           <div className="slider-ticks" style={{ marginTop: "5px" }}>
-            {" "}
-            {/* Added marginTop to add space between slider and ticks */}
             {Array.from({ length: 18 }, (_, i) => (
               <div
                 key={i}
                 className="tick"
                 style={{
                   position: "absolute",
-                  left: `calc(${(i / 17) * 100}% + (${8 - (i / 17) * 16}px))`, // Adjusted to align with slider thumb
+                  left: `calc(${(i / 17) * 100}% + (${8 - (i / 17) * 16}px))`,
                   transform: "translateX(-50%)",
                   height: "5px",
                   width: "0.5px",
@@ -160,13 +230,14 @@ const TimeSlider = ({ setTargetHour, setCurrentHour, currentHour }) => {
 };
 
 // DateDropdown component allows selecting dates from two predefined date ranges
-function DateDropdown({ setTargetDate, currentHour }) {
-  const [selectedDate, setSelectedDate] = useState(
-    formatDateForValue(new Date(2024, 6, 10)) // Default start date: July 10, 2024
-  );
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Controls dropdown open state
+function DateDropdown({
+  setTargetDate,
+  currentHour,
+  currentDate,
+  setCurrentDate,
+}) {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // Generates two sets of dates: July 10–16, 2024, and July 24–August 6, 2024
   const generateDates = () => {
     const dates = [];
 
@@ -189,16 +260,21 @@ function DateDropdown({ setTargetDate, currentHour }) {
     return dates;
   };
 
-  const dates = generateDates(); // Array of valid dates
+  const dates = generateDates();
 
-  // Handle date selection from the dropdown
   const handleDateChange = (date) => {
-    setSelectedDate(date);
-    setTargetDate(date); // Update parent component with new date
-    // console.log("Selected Date:", date); // Log selected date
+    const newDate = new Date(date);
+    // Batch updates together
+    setCurrentDate((prevDate) => {
+      // Only update targetDate if the date actually changed
+      if (prevDate.getTime() !== newDate.getTime()) {
+        setTargetDate(date);
+      }
+      return newDate;
+    });
+    setIsDropdownOpen(false);
   };
 
-  // Handle dropdown open/close state for smooth transitions
   const handleDropdownToggle = (isOpen) => {
     setIsDropdownOpen(isOpen);
   };
@@ -215,16 +291,13 @@ function DateDropdown({ setTargetDate, currentHour }) {
     >
       <DropdownButton
         id="date-dropdown"
-        title={`${dateToString(
-          new Date(
-            new Date(selectedDate).setDate(new Date(selectedDate).getDate() + 1)
-          )
-        )}, ${convertNumberToHour(currentHour || 6)}`}
+        title={`${dateToString(currentDate)}, ${convertNumberToHour(
+          currentHour || 6
+        )}`}
         variant="outline-danger"
         style={{ backgroundColor: "#FFDAE2", border: "none", color: "#FF2551" }}
         onToggle={handleDropdownToggle}
       >
-        {/* Map over generated dates to populate the dropdown menu */}
         {dates.map((date, index) => (
           <Dropdown.Item
             key={index}
@@ -243,12 +316,23 @@ function DateDropdown({ setTargetDate, currentHour }) {
 const DateSelector = ({
   setTargetHour,
   setTargetDate,
+  setTargetMinute,
   targetDate,
   targetHour,
+  targetMinute,
 }) => {
   const [hour, setHour] = useState(6); // Holds the current hour state
+  const [minute, setMinute] = useState(0); // Holds the current minute state
+  const [currentDate, setCurrentDate] = useState(new Date(2024, 6, 10)); // Start from July 10, 2024
   const [isTooltipVisible, setIsTooltipVisible] = useState(false); // State to manage tooltip visibility
   const tooltipRef = useRef(null); // Ref to track the tooltip element
+
+  // Add useEffect to log changes in targetDate, targetHour, and targetMinute
+  // useEffect(() => {
+  //   console.log("Target Date:", targetDate);
+  //   console.log("Target Hour:", targetHour);
+  //   console.log("Target Minute:", targetMinute);
+  // }, [targetDate, targetHour, targetMinute]);
 
   const toggleTooltip = () => {
     setIsTooltipVisible(!isTooltipVisible);
@@ -326,15 +410,26 @@ const DateSelector = ({
               marginBottom: "0.5rem",
             }}
           >
-            <DateDropdown setTargetDate={setTargetDate} currentHour={hour} />
+            <DateDropdown
+              setTargetDate={setTargetDate}
+              currentHour={hour}
+              currentDate={currentDate}
+              setCurrentDate={setCurrentDate}
+            />
           </div>
 
           {/* TimeSlider */}
           <div style={{ flex: "1", display: "flex", alignItems: "center" }}>
             <TimeSlider
               setTargetHour={setTargetHour}
+              setTargetMinute={setTargetMinute}
               setCurrentHour={setHour}
+              setCurrentMinute={setMinute}
               currentHour={hour}
+              currentMinute={minute}
+              currentDate={currentDate}
+              setCurrentDate={setCurrentDate}
+              setTargetDate={setTargetDate}
             />
           </div>
         </div>

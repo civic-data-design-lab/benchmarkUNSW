@@ -50,7 +50,7 @@ function Findings() {
         "The project counts the number of people staying in the space and measures their dwell time to understand how the public space is activated.",
     },
     {
-      title: "Activation of Public Space",
+      title: "Space Activation",
       description:
         "The project counts the number of people who stay in the space and measures their dwell time to understand how public space is activated.",
     },
