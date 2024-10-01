@@ -10,6 +10,7 @@ import DateSelector from "../component/DateSelector";
 import DataSelector from "../component/DataSelector";
 import WeatherDisplay from "../component/WeatherDisplay";
 import StaticMaps from "../component/StaticMaps";
+import SkeletonPlayer from "../component/SkeletonPlayer";
 
 function ExploreData() {
   const [activeModal, setActiveModal] = useState(null);
@@ -307,6 +308,10 @@ function ExploreData() {
             getTextForSelection={getTextForSelection}
           />
         </div>
+        {/* 
+        <div className="skeleton-player">
+          <SkeletonPlayer></SkeletonPlayer>
+        </div> */}
       </div>
     </div>
   );

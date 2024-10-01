@@ -47,7 +47,7 @@ function Home() {
   );
 
   useEffect(() => {
-    console.log("currentIndex", currentIndex);
+    // console.log("currentIndex", currentIndex);
   }, [currentIndex]);
 
   return (

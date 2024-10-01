@@ -86,11 +86,20 @@ function About() {
               Transport for NSW.
             </p>
             <p className="about-txt font-white">
-              <strong>The methodology</strong> for the Benchmark NSW project
-              involved a multi-phase approach, integrating co-design, technology
+              The methodology of the Benchmark NSW project followed a
+              multi-phase approach, integrating co-design, technology
               development, and data-driven analysis to evaluate the impact of a
-              temporary activation on an open space on the UNSW Kensington
-              Campus.
+              temporary activation on an{" "}
+              <a
+                href="https://www.bing.com/maps?cp=-33.917818%7E151.228585&lvl=20.8&style=h"
+                style={{ color: "#FFFFFF " }}
+              >
+                {" "}
+                open space at the UNSW Kensington Campus
+              </a>
+              . This project began in April 2024, and the co-designed movable
+              benches, along with a custom sensor kit, were tested in July 2024
+              for one month.
             </p>{" "}
           </div>
         </div>
@@ -139,6 +148,17 @@ function About() {
               interaction, pedestrian flows, and dwell time analysis to measure
               the impact of the benches and also can inform future urban
               designs.
+            </p>
+            <p className="about-txt">
+              In addition to the sensor kit, we are developing a comprehensive{" "}
+              <strong>guidebook</strong> that will document the entire
+              process—from design and sensor deployment to data analysis and
+              interpretation. This guidebook will be made open-source, allowing
+              urban planners, community organisations, and researchers to access
+              and utilise the refined methodologies. By providing this resource
+              to the public, others can be empowered to initiate similar
+              projects, fostering a broader movement toward data-driven urban
+              planning. you can find the <a href="/findings">guidebook here</a>.
             </p>
             <p className="about-txt">
               <strong>Data privacy</strong> is a critical aspect of the project,
