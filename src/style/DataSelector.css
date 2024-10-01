@@ -154,11 +154,12 @@
 }
 
 .data-dropdown .data-dropdown-item:hover {
+  background-color: #ffeff3;
   text-decoration: underline;
   background-color: none;
 }
 
 .data-dropdown .data-dropdown-item:active {
-  background-color: #ffeff3;
-  color: #ff2551;
+  background-color: #ff2551;
+  color: white;
 }

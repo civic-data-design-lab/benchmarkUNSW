@@ -47,7 +47,7 @@ function Findings() {
     {
       title: "Social interaction",
       description:
-        "The project counts the number of people staying in the space and measures their dwell time to understand how the public space is activated.",
+        "The project tracks people's locations every 5 seconds using vision AI, mapping them into coordinates. This allows for a highly detailed analysis of social interactions.",
     },
     {
       title: "Space Activation",

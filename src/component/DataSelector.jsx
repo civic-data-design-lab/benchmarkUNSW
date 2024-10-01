@@ -109,23 +109,39 @@ const DataSelector = ({
                   padding: "5px 10px",
                   position: "absolute",
                   zIndex: 1,
-                  bottom: "140%", // Position above the icon
-                  right: "-10px", // Align to the right of the icon
+                  bottom: "140%",
+                  right: "-10px",
                   opacity: 1,
                   transition: "opacity 0.3s",
                   fontSize: "10px",
                   width: "150px",
                 }}
               >
-                <strong>{selectedOption} index</strong> is the average
-                percentage of people {selectedOption} on site, by calculating
-                the number of people in the {selectedOption} and dividing it by
-                the total number of people on site.
+                {selectedOption === "Socialising" ? (
+                  <>
+                    We assume that if people stay within 1m of each other for
+                    more than 2mins, they are <strong>socialising</strong>. And{" "}
+                    <strong>socialising index</strong> is the average percentage
+                    of people engaged in socialising on site.
+                  </>
+                ) : selectedOption === "Staying" ? (
+                  <>
+                    We assume that if people stay within the research area for
+                    more than 5mins, they are <strong>staying</strong>. And{" "}
+                    <strong>{selectedOption} index</strong> is the average
+                    percentage of people {selectedOption.toLowerCase()} on site.
+                  </>
+                ) : (
+                  <>
+                    <strong>{selectedOption} index</strong> is the average
+                    percentage of people {selectedOption.toLowerCase()} on site.
+                  </>
+                )}
                 <div
                   style={{
                     position: "absolute",
-                    top: "100%", // Arrow pointing down
-                    right: "14px", // Position arrow at the right bottom of the square
+                    top: "100%",
+                    right: "14px",
                     borderWidth: "5px",
                     borderStyle: "solid",
                     borderColor: "#FFEFF3 transparent transparent transparent",
