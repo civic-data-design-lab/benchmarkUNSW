@@ -24,6 +24,25 @@ function NavBar() {
       ? "navbar-toggler-icon-aidata"
       : "navbar-toggler-icon-default";
 
+  const titleStyle = {
+    color: location.pathname === "/exploredata" ? "#000000" : "#FFFFFF",
+    // Add these properties to maintain color on hover and active states
+    ":hover": {
+      color: location.pathname === "/exploredata" ? "#000000" : "#FFFFFF",
+    },
+    ":active": {
+      color: location.pathname === "/exploredata" ? "#000000" : "#FFFFFF",
+    },
+    ":focus": {
+      color: location.pathname === "/exploredata" ? "#000000" : "#FFFFFF",
+    },
+  };
+
+  const navLinkStyle = {
+    color: "#FF2551", // This will be the hover color for all pages
+    transition: "color 0.3s ease",
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (navRef.current && !navRef.current.contains(event.target)) {
@@ -50,22 +69,42 @@ function NavBar() {
           style={{
             backgroundColor:
               location.pathname === "/exploredata" ? "#FDB5C5" : "#FF2551",
+
+            padding: "0rem",
           }}
         >
-          <Navbar.Brand href="/" className={navBarStyle}>
+          <Navbar.Brand href="/" className={navBarStyle} style={titleStyle}>
             Benchmark NSW
           </Navbar.Brand>
           <Navbar.Toggle onClick={handleToggle} className={icon} />
           <Navbar.Collapse className="responsive-navbar-nav">
             <Nav>
-              <Nav.Link as={Link} to="/" onClick={handleLinkClick}>
+              <Nav.Link
+                as={Link}
+                to="/"
+                onClick={handleLinkClick}
+                style={navLinkStyle}
+                className="nav-link-custom"
+              >
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} to="/exploredata" onClick={handleLinkClick}>
+              <Nav.Link
+                as={Link}
+                to="/exploredata"
+                onClick={handleLinkClick}
+                style={navLinkStyle}
+                className="nav-link-custom"
+              >
                 Explore Data
               </Nav.Link>
 
-              <Nav.Link as={Link} to="/findings" onClick={handleLinkClick}>
+              <Nav.Link
+                as={Link}
+                to="/findings"
+                onClick={handleLinkClick}
+                style={navLinkStyle}
+                className="nav-link-custom"
+              >
                 Findings
               </Nav.Link>
               <NavDropdown

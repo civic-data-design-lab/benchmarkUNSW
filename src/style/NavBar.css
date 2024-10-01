@@ -27,17 +27,27 @@
 }
 
 .NavBarTitle {
-  color: white;
+  color: #ffffff !important;
   font-size: 2rem;
-  font-weight: 400;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  transition: transform 0.2s ease-in-out;
+}
+
+.NavBarTitle:hover,
+.NavBarTitle:active,
+.NavBarTitle:focus {
 }
 
 .NavBarTitleAidata {
-  color: #ff2551;
+  color: #ff2551 !important;
   font-size: 2rem;
-  font-weight: 400;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  transition: transform 0.2s ease-in-out;
+}
+
+.NavBarTitleAidata:hover,
+.NavBarTitleAidata:active,
+.NavBarTitleAidata:focus {
 }
 
 .responsive-navbar-nav {
@@ -130,4 +140,10 @@
 .custom-nav-dropdown-item:hover {
   text-decoration: underline;
   background-color: transparent !important;
+}
+
+.nav-link-custom:hover,
+.nav-link-custom:active {
+  color: #ff2551 !important;
+  text-decoration: underline;
 }
