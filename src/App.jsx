@@ -17,7 +17,8 @@ function App() {
           style={{
             display: "flex",
             justifyContent: "center",
-            backgroundColor: "#FFEFF3",
+            // backgroundColor: "#FFEFF3",
+            backgroundColor: "#FF2551",
           }}
         >
           <div className="app-container">

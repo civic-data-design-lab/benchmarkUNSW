@@ -203,14 +203,16 @@ function ExploreData() {
           />
         </div>
         <div className="explore-date-selector text-center medium-bg rounded-top-corners ">
-          <DateSelector
-            setTargetHour={setTargetHour}
-            setTargetDate={setTargetDate}
-            setTargetMinute={setTargetMinute}
-            targetDate={targetDate}
-            targetHour={targetHour}
-            targetMinute={targetMinute}
-          />
+          <Row>
+            <DateSelector
+              setTargetHour={setTargetHour}
+              setTargetDate={setTargetDate}
+              setTargetMinute={setTargetMinute}
+              targetDate={targetDate}
+              targetHour={targetHour}
+              targetMinute={targetMinute}
+            />
+          </Row>
         </div>
 
         <DataSelector
