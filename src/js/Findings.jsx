@@ -56,7 +56,14 @@ function Findings() {
     },
   ];
 
-  const insights = [{ title: "result graphic", description: "Description." }];
+  const insights = [
+    {
+      title: "Vision AI",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      description2: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      discription3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    },
+  ];
 
   const downloads = [
     { title: "Report", description: "Download the full report" },
@@ -159,39 +166,52 @@ function Findings() {
           Insights
         </motion.p>
 
-        {insights.map((item, index) => (
-          <React.Fragment key={index}>
-            <div>
-              <motion.p
-                className="findings-subtitle"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  delay:
-                    baseDelay +
-                    (measures.length * 2 + 2 + index * 2) * delayIncrement,
-                  duration: 0.5,
-                }}
-                style={{ display: "inline-block" }}
-              >
-                {item.title}
-              </motion.p>
-            </div>
+        <React.Fragment>
+          <div>
             <motion.p
-              className="findings-description"
+              className="findings-subtitle"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{
-                delay:
-                  baseDelay +
-                  (measures.length * 2 + 3 + index * 2) * delayIncrement,
+                delay: baseDelay + (measures.length * 2 + 2) * delayIncrement,
                 duration: 0.5,
               }}
+              style={{ display: "inline-block" }}
             >
-              {item.description}
+              {insights[0].title}
             </motion.p>
-          </React.Fragment>
-        ))}
+          </div>
+          <motion.p
+            className="findings-description"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              delay: baseDelay + (measures.length * 2 + 3) * delayIncrement,
+              duration: 0.5,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+              }}
+            >
+              <div style={{ flex: 1, paddingRight: "1rem" }}>
+                {insights[0].description}
+              </div>
+              <div style={{ flex: 1, paddingRight: "1rem" }}>
+                {insights[0].description2}
+              </div>
+            </div>
+          </motion.p>
+          <div
+            style={{
+              height: "300px",
+              width: "100%",
+              backgroundColor: "#FF2551",
+            }}
+          ></div>
+        </React.Fragment>
 
         <motion.p
           className="findings-title"
