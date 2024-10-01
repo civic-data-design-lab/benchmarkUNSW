@@ -55,13 +55,9 @@ function NavBar() {
           <Navbar.Brand href="/" className={navBarStyle}>
             Benchmark NSW
           </Navbar.Brand>
-          <Navbar.Toggle
-            aria-controls="responsive-navbar-nav"
-            onClick={handleToggle}
-            className={icon}
-          />
+          <Navbar.Toggle onClick={handleToggle} className={icon} />
           <Navbar.Collapse className="responsive-navbar-nav">
-            <Nav className="mr-auto">
+            <Nav>
               <Nav.Link as={Link} to="/" onClick={handleLinkClick}>
                 Home
               </Nav.Link>
@@ -72,44 +68,28 @@ function NavBar() {
               <Nav.Link as={Link} to="/findings" onClick={handleLinkClick}>
                 Findings
               </Nav.Link>
-              <NavDropdown title="About" id="collasible-nav-dropdown">
-                <NavDropdown.Item
-                  as={HashLink}
-                  to="/about#project"
-                  onClick={handleLinkClick}
-                >
-                  Project
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  as={HashLink}
-                  to="/about#technology"
-                  onClick={handleLinkClick}
-                >
-                  Technology
-                </NavDropdown.Item>
-
-                <NavDropdown.Item
-                  as={HashLink}
-                  to="/about#bench-design"
-                  onClick={handleLinkClick}
-                >
-                  Design
-                </NavDropdown.Item>
-
-                <NavDropdown.Item
-                  as={HashLink}
-                  to="/about#dtpr"
-                  onClick={handleLinkClick}
-                >
-                  DTPR
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  as={HashLink}
-                  to="/about#team"
-                  onClick={handleLinkClick}
-                >
-                  Team
-                </NavDropdown.Item>
+              <NavDropdown
+                title="About"
+                className="custom-nav-dropdown-container"
+                id="about-nav-dropdown"
+              >
+                {[
+                  { to: "/about#project", label: "Project" },
+                  { to: "/about#technology", label: "Technology" },
+                  { to: "/about#bench-design", label: "Design" },
+                  { to: "/about#dtpr", label: "DTPR" },
+                  { to: "/about#team", label: "Team" },
+                ].map((item) => (
+                  <NavDropdown.Item
+                    key={item.to}
+                    as={HashLink}
+                    to={item.to}
+                    onClick={handleLinkClick}
+                    className="custom-nav-dropdown-item"
+                  >
+                    {item.label}
+                  </NavDropdown.Item>
+                ))}
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

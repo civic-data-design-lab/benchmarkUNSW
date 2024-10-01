@@ -7,33 +7,23 @@ const DataBreakdownDropdown = ({ selectedOption, setSelectedOption }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div
-      className="data-breakdown-dropdown"
-      style={{
-        height: isOpen ? "120px" : "40px",
-      }} // Adjust heights as needed
-    >
+    <div className={`data-dropdown-container ${isOpen ? "open" : ""}`}>
       <Dropdown
         onSelect={setSelectedOption}
         onToggle={(isOpen) => setIsOpen(isOpen)}
+        className="data-dropdown"
       >
-        <Dropdown.Toggle
-          id="dropdown-basic"
-          className="w-100 custom-red-dropdown"
-        >
+        <Dropdown.Toggle className="data-dropdown-toggle">
           {selectedOption}
         </Dropdown.Toggle>
-        <Dropdown.Menu>
-          <Dropdown.Item
-            className="custom-dropdown-item"
-            eventKey="Socialising"
-          >
+        <Dropdown.Menu className="data-dropdown-menu">
+          <Dropdown.Item eventKey="Socialising" className="data-dropdown-item">
             Socialising
           </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" eventKey="Staying">
+          <Dropdown.Item eventKey="Staying" className="data-dropdown-item">
             Staying
           </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" eventKey="Sitting">
+          <Dropdown.Item eventKey="Sitting" className="data-dropdown-item">
             Sitting
           </Dropdown.Item>
         </Dropdown.Menu>

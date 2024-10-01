@@ -7,6 +7,7 @@ import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import WeatherVertical from "./WeatherVertical";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import questionCircle from "../assets/Symbols/question-circle.svg";
+import "../style/DateSelector.css"; // Make sure to import the CSS file
 
 // Helper functions to format date and time
 // Converts a number representing an hour to a 12-hour format with AM/PM
@@ -281,28 +282,23 @@ function DateDropdown({
 
   return (
     <div
-      className="w-100"
-      style={{
-        transition: "height 0.3s ease",
-        height: isDropdownOpen ? "300px" : "50px",
-        overflowY: "hidden",
-        alignItems: "center",
-      }}
+      className={`date-selector-container w-100 ${
+        isDropdownOpen ? "open" : ""
+      }`}
     >
       <DropdownButton
-        id="date-dropdown"
         title={`${dateToString(currentDate)}, ${convertNumberToHour(
           currentHour || 6
         )}`}
         variant="outline-danger"
-        style={{ backgroundColor: "#FFDAE2", border: "none", color: "#FF2551" }}
         onToggle={handleDropdownToggle}
+        className="custom-dropdown-button"
       >
         {dates.map((date, index) => (
           <Dropdown.Item
             key={index}
-            className="custom-dropdown-item"
             onClick={() => handleDateChange(formatDateForValue(date))}
+            className="custom-dropdown-item"
           >
             {`${dateToString(date)}, ${convertNumberToHour(currentHour || 6)}`}
           </Dropdown.Item>

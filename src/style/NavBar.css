@@ -7,8 +7,6 @@
 
 .Navbar {
   display: flex;
-  /* padding-left: 2.5rem; */
-  /* padding-right: 2.5rem; */
   z-index: 2;
   justify-content: space-evenly;
 }
@@ -39,13 +37,7 @@
   color: #ff2551;
   font-size: 2rem;
   font-weight: 400;
-  text-shadow: 1px 1px 2cqh rgba(0, 0, 0, 0.2);
-}
-
-.nova-mono-regular .Navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .responsive-navbar-nav {
@@ -65,9 +57,6 @@
 
 .nav-link {
   color: #ff2551;
-}
-
-.collasible-nav-dropdown {
 }
 
 .navbar-toggler-icon {
@@ -109,8 +98,36 @@
     -50%
   ); /* Shift the element by 50% of its width to center it */
   z-index: 1030;
-  /* max-width: 390px; Set a width for the element, so it doesn't stretch across the entire screen */
+  max-width: 430px;
   width: 100%; /* Set to 100% within the max-width */
   /* background-color: #ff2551; */
   /* box-shadow: 0px 4px 12px 0 rgba(0, 0, 0, 0.05); */
+}
+
+.dropdown-item.custom-nav-dropdown-item {
+  color: #ff2551 !important;
+}
+
+#about-nav-dropdown {
+  /* Styles for the dropdown toggle */
+}
+
+.custom-nav-dropdown-container .dropdown-menu {
+  /* Styles for the dropdown menu */
+  background-color: transparent;
+  border: none;
+}
+
+.custom-nav-dropdown-item {
+  /* Styles for dropdown items */
+  color: #333;
+  padding: 0 1rem;
+  transition: color 0.2s ease-in-out;
+  border: none;
+  background-color: transparent !important;
+}
+
+.custom-nav-dropdown-item:hover {
+  text-decoration: underline;
+  background-color: transparent !important;
 }
