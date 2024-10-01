@@ -5,6 +5,7 @@
   align-items: center; /* Center vertically */
   text-align: center; /* Center text */
   flex-direction: column;
+  padding-top: 5px;
 }
 
 .footer .container {

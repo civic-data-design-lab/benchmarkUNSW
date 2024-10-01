@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import skeletonGif from "../assets/AiData/skeleton-animation.gif"; // Adjust the path as necessary
+// import skeletonGif from "../assets/AiData/skeleton-animation.gif"; // Adjust the path as necessary
 
 const SkeletonPlayer = () => {
   const gifRef = useRef(null);

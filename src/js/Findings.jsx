@@ -82,35 +82,70 @@ function Findings() {
           Measures
         </motion.p>
 
-        {measures.map((item, index) => (
-          <React.Fragment key={index}>
-            <div>
-              <motion.p
-                className="findings-subtitle"
+        {measures.map((item, index) => {
+          const isReversed =
+            item.title === "Seating Hotspots" ||
+            item.title === "Space Activation";
+          return (
+            <React.Fragment key={index}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: isReversed ? "flex-end" : "flex-start",
+                }}
+              >
+                <motion.p
+                  className="findings-subtitle"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{
+                    delay: baseDelay + (index * 2 + 1) * delayIncrement,
+                    duration: 0.5,
+                  }}
+                  style={{
+                    display: "inline-block",
+                    textAlign: isReversed ? "left" : "inherit",
+                  }}
+                >
+                  {item.title}
+                </motion.p>
+              </div>
+              <motion.div
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  flexDirection: isReversed ? "row-reverse" : "row",
+                }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{
-                  delay: baseDelay + (index * 2 + 1) * delayIncrement,
+                  delay: baseDelay + (index * 2 + 2) * delayIncrement,
                   duration: 0.5,
                 }}
-                style={{ display: "inline-block" }}
               >
-                {item.title}
-              </motion.p>
-            </div>
-            <motion.p
-              className="findings-description" // Add a new class for styling if needed
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                delay: baseDelay + (index * 2 + 2) * delayIncrement,
-                duration: 0.5,
-              }} // Adjust delay for order
-            >
-              {item.description}
-            </motion.p>
-          </React.Fragment>
-        ))}
+                <motion.p
+                  className="findings-description"
+                  style={{
+                    flex: 7,
+                    textAlign: isReversed ? "right" : "inherit",
+                  }}
+                >
+                  {item.description}
+                </motion.p>
+                <div
+                  style={{
+                    backgroundColor: "#FF2551",
+                    height: "170px",
+                    margin: "0rem 0.5rem",
+                    flex: 5,
+                  }}
+                ></div>
+              </motion.div>
+            </React.Fragment>
+          );
+        })}
 
         <motion.p
           className="findings-title"

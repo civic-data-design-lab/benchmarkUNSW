@@ -3,11 +3,11 @@
   padding-left: 2.5rem;
   padding-right: 2.5rem;
   padding-bottom: 5rem;
-  background-color: #ff2551;
+  background-color: #ffffff;
 }
 
 .findings-head {
-  background-color: #ff2551;
+  background-color: #ffffff;
   box-shadow: none;
   border-radius: 20px;
 }
@@ -17,8 +17,8 @@
   font-size: 1.3rem;
   font-weight: bold;
   text-align: left;
-  color: #ff2551;
-  background-color: #ffffff;
+  color: #ffffff;
+  background-color: #ff2551;
   display: inline-block;
   font-family: "Nova Mono", monospace;
   padding: 0rem 0.5rem;
@@ -28,9 +28,9 @@
   font-size: 1rem;
   font-weight: bold;
   text-align: left;
-  color: #ffffff;
+  color: #ff2551;
   text-decoration: underline;
-  background-color: #ff2551;
+  background-color: none;
   display: inline-block;
   font-family: "Nova Mono", monospace;
   padding: 0px;
@@ -48,7 +48,7 @@
   font-size: 1rem;
   font-weight: 400;
   text-align: left;
-  color: #ffffff;
+  color: #ff2551;
   font-family: "IBM Plex Sans", sans-serif;
 }
 
