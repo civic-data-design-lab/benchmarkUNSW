@@ -175,17 +175,9 @@ const TimeSlider = ({
           <div
             className="current-time-box"
             style={{
-              position: "absolute",
-              top: "-17px",
               left: `calc(${(sliderValue / (17 * 60)) * 100}% + (${
                 8 - (sliderValue / (17 * 60)) * 16
               }px))`,
-              transform: "translateX(-50%)",
-              backgroundColor: "#FF2551",
-              color: "#fff",
-              padding: "2px 5px",
-              borderRadius: "5px",
-              fontSize: "10px",
             }}
           >
             {convertTo24HourFormat(currentHour, currentMinute)}
@@ -200,10 +192,7 @@ const TimeSlider = ({
             onChange={handleSliderChange}
             style={{ width: "100%" }}
           />
-          <div
-            className="slider-label d-flex justify-content-between"
-            style={{ fontSize: "12px", marginTop: "8px" }}
-          >
+          <div className="slider-label d-flex justify-content-between">
             <span>6:00</span>
             <span>23:00</span>
           </div>
@@ -299,6 +288,7 @@ function DateDropdown({
             key={index}
             onClick={() => handleDateChange(formatDateForValue(date))}
             className="custom-dropdown-item"
+            style={{ position: "relative", zIndex: 1000 }} // Add relative positioning to the dropdown item
           >
             {`${dateToString(date)}, ${convertNumberToHour(currentHour || 6)}`}
           </Dropdown.Item>
@@ -370,7 +360,7 @@ const DateSelector = ({
           justifyContent: "center",
         }}
       >
-        <FontAwesomeIcon icon={faMinus} size="2x" />
+        <FontAwesomeIcon icon={faMinus} size="2x" className="minus-icon" />
       </div>
 
       <div style={{ display: "flex", flex: "1", alignItems: "stretch" }}>
@@ -390,22 +380,13 @@ const DateSelector = ({
         <div
           style={{
             flex: "1",
+            margin: "0rem 0rem 0rem 0.5rem",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-between",
-            height: "100%",
-            margin: "0rem 0rem 0rem 0.5rem",
           }}
         >
           {/* DateDropdown */}
-          <div
-            style={{
-              flex: "1",
-              display: "flex",
-              alignItems: "center",
-              marginBottom: "0.5rem",
-            }}
-          >
+          <div className="date-dropdown-container">
             <DateDropdown
               setTargetDate={setTargetDate}
               currentHour={hour}
@@ -444,8 +425,8 @@ const DateSelector = ({
           <img
             src={questionCircle}
             alt="Question Circle"
-            style={{ width: "25px", height: "25px", cursor: "pointer" }} // Adjust the size as needed and add cursor pointer
-            onClick={toggleTooltip} // Toggle tooltip on click
+            onClick={toggleTooltip} // Toggle tooltip on click\
+            className="question-circle"
           />
           {isTooltipVisible && (
             <div

@@ -1,4 +1,5 @@
-/* Force mobile layout and center it on larger screens (laptops/desktops) */
+/* General Styles */
+
 @media screen and (min-width: 750px) {
   .aidata-page {
     max-width: 430px; /* Set your preferred mobile width */
@@ -13,37 +14,53 @@
   color: var(--primary-dark);
 }
 
-.aidata-slider {
+.row {
+  --bs-gutter-x: 0rem;
+}
+
+/* map */
+
+.explore-map-container {
+  height: 60vh;
+}
+
+/* date selector */
+
+.explore-date-selector {
   padding: 0rem 1rem 1rem 1rem;
+  height: 17vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
-/*#region modal*/
-.modal-content {
-  background-color: var(--primary-light);
-  color: var(--primary-dark);
-  border-radius: var(--primary-border-radius);
-  border: var(--primary-border);
+/* data selector */
+
+.select-data-break {
+  padding: 0.5rem 1rem 1rem 1rem;
+  height: 23vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
-.modal-button {
-  background-color: var(--primary-light);
-  color: var(--primary-dark);
-  border-radius: var(--primary-border-radius);
-  margin: var(--padding-tb-lg);
+.rounded-top-corners {
+  border-top-left-radius: 20px; /* Adjust the radius as needed */
+  border-top-right-radius: 20px; /* Adjust the radius as needed */
 }
 
-/*#endregion */
+.static-maps {
+  padding: 1rem 1rem 1rem 1rem;
+  background-color: #ffeff3;
+}
 
-/*#region chart*/
+/* chart */
+
 .chart_bar {
   color: var(--primary-dark);
   fill: white;
   stroke: var(--primary-dark);
   stroke-width: 0.1rem;
-}
-
-.row {
-  --bs-gutter-x: 0rem;
 }
 
 .chart_bar:hover,
@@ -58,9 +75,6 @@
   /*stroke: black;*/
   stroke-width: 0.1rem;
 }
-/*#endregion */
-
-/*#region button*/
 
 .aidata_daily_hourly {
   padding: 1rem 1rem 1rem 1rem;
@@ -112,25 +126,3 @@
   stroke-width: 0.1rem;
 }
 /*#endregion */
-
-/*#region dropdown*/
-.btn:first-child:active,
-:not(.btn-check) + .btn:active {
-  background-color: var(--primary-dark);
-}
-
-/*#endregion*/
-
-.select-data-break {
-  padding: 0.5rem 1rem 1rem 1rem;
-}
-
-.rounded-top-corners {
-  border-top-left-radius: 20px; /* Adjust the radius as needed */
-  border-top-right-radius: 20px; /* Adjust the radius as needed */
-}
-
-.static-maps {
-  padding: 1rem 1rem 1rem 1rem;
-  background-color: #ffeff3;
-}

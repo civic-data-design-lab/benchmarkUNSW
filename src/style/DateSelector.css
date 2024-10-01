@@ -67,7 +67,8 @@ input[type="range"]::-moz-range-thumb {
   justify-content: space-between;
   font-family: "Nova Mono", monospace;
   color: #ff2551;
-  font-size: 14px;
+  font-size: 12px;
+  margin-top: 8px;
 }
 
 /* Ticks */
@@ -149,10 +150,224 @@ input[type="range"]::-moz-range-thumb {
 
 .date-selector-container {
   transition: height 0.3s ease;
-  height: 50px;
+  height: 70px;
   align-items: center;
 }
 
 .date-selector-container.open {
-  height: 260px;
+  height: 70px;
+}
+
+.date-dropdown-container {
+  flex: 1;
+}
+
+.question-circle {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.current-time-box {
+  position: absolute;
+  top: -20px;
+  transform: translateX(-50%);
+  background-color: #ff2551;
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 380px) {
+  .btn-outline-danger {
+    --bs-btn-color: #ff2551; /* Default text color */
+    --bs-btn-border-color: #ffffff; /* Default border color */
+    --bs-btn-hover-color: #ffffff; /* Text color on hover */
+    --bs-btn-hover-bg: #ff2551; /* Background color on hover */
+    --bs-btn-hover-border-color: #ff2551; /* Border color on hover */
+    --bs-btn-active-color: #ffffff; /* Text color when active */
+    --bs-btn-active-bg: #ff2551; /* Background color when active */
+    --bs-btn-active-border-color: #ff2551; /* Border color when active */
+    --bs-btn-focus-shadow-rgb: 255, 37, 81; /* Focus shadow */
+    background-color: #ffffff;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px 0 rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    padding: 0rem;
+  }
+
+  .btn-outline-danger:focus {
+    /* box-shadow: 0 0 0 0.25rem rgba(255, 37, 81, 0.5); Custom focus shadow */
+  }
+
+  /* The slider itself */
+  input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px; /* The height of the slider element (container) */
+    outline: none;
+    opacity: 1;
+  }
+
+  /* Slider track (center line) */
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px; /* Thin center line */
+    cursor: pointer;
+    background: #fb718d; /* Background color of the track */
+    border-radius: 5px; /* Optional: Add rounded corners to the line */
+  }
+
+  /* Slider thumb (the circle you drag) */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 17px;
+    height: 17px;
+    background: #ff2551; /* Circle color */
+    cursor: pointer;
+    border-radius: 50%;
+    margin-top: -7px; /* Align the thumb vertically with the center line */
+  }
+
+  /* Firefox support for thumb */
+  input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ff2551;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-top: -7px; /* Align the thumb vertically with the center line */
+  }
+
+  /* Labels below the slider */
+  .slider-label {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Nova Mono", monospace;
+    color: #ff2551;
+    font-size: 10px;
+  }
+
+  /* Ticks */
+  .slider-ticks {
+    position: absolute;
+    top: 20px; /* Adjust based on your slider's position */
+    width: 100%;
+    height: 10px;
+  }
+
+  .tick {
+    position: absolute;
+    height: 10px;
+    width: 1px;
+    background-color: #ff2551;
+  }
+
+  .spacer {
+    width: 0.5rem; /* Adjust the width as needed */
+  }
+
+  .nav-link:focus {
+    color: #ff2551 !important;
+  }
+
+  .nav-link:hover {
+    color: #ff2551 !important;
+  }
+
+  /* Add these new styles at the end of your existing CSS file */
+
+  .date-selector-container .custom-dropdown-button {
+    text-align: left;
+  }
+
+  .date-selector-container .custom-dropdown-button::after {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .date-selector-container .dropdown-menu {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px 0 rgba(0, 0, 0, 0.1);
+    overflow-y: scroll;
+    max-height: 200px;
+    position: absolute;
+    transform: translate(0px, 10px);
+  }
+
+  .date-selector-container .dropdown-item,
+  .date-selector-container .custom-dropdown-item {
+    color: #ff2551 !important;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0rem 1rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .date-selector-container .dropdown-item:hover,
+  .date-selector-container .dropdown-item:focus,
+  .date-selector-container .custom-dropdown-item:hover,
+  .date-selector-container .custom-dropdown-item:focus {
+    background-color: rgba(255, 37, 81, 0.1);
+    color: #ff2551 !important;
+  }
+
+  .date-selector-container .dropdown-item.active,
+  .date-selector-container .dropdown-item:active,
+  .date-selector-container .custom-dropdown-item.active,
+  .date-selector-container .custom-dropdown-item:active {
+    background-color: #ff2551;
+    color: #ffffff !important;
+  }
+
+  .date-selector-container {
+    transition: height 0.3s ease;
+    height: 48px;
+    align-items: center;
+  }
+
+  .date-selector-container.open {
+    height: 48px;
+  }
+
+  .date-dropdown-container {
+    flex: 1;
+  }
+
+  .minus-icon {
+    font-size: 1.2em !important; /* Adjust the size as needed */
+  }
+
+  .question-circle {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
+
+  .current-time-box {
+    position: absolute;
+    top: -15px;
+    transform: translateX(-50%);
+    background-color: #ff2551;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 8px;
+  }
+
+  .slider-label {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Nova Mono", monospace;
+    color: #ff2551;
+    font-size: 9px;
+    margin-top: 8px;
+  }
 }

@@ -3,7 +3,6 @@ import { Dropdown, Card, Row, Col, Button, Container } from "react-bootstrap";
 import "../style/Exploredata.css";
 import * as d3 from "d3";
 
-import CenteredModal from "../component/CenteredModal";
 import BarChart from "../component/BarChart";
 import GridMap from "../component/GridMap";
 import DateSelector from "../component/DateSelector";
@@ -13,7 +12,6 @@ import StaticMaps from "../component/StaticMaps";
 import SkeletonPlayer from "../component/SkeletonPlayer";
 
 function ExploreData() {
-  const [activeModal, setActiveModal] = useState(null);
   const [showDailyChart, setShowDailyChart] = useState(false);
   const [selectedOption, setSelectedOption] = useState("Socialising");
   const [data, setData] = useState([]);
@@ -194,29 +192,27 @@ function ExploreData() {
       }}
     >
       <div className="aidata-page nova-mono-regular">
-        <GridMap
-          gridData={gridData}
-          benchData={benchData}
-          pedestrianData={pedestrianData}
-          targetDate={targetDate}
-          targetHour={targetHour}
-          targetMinute={targetMinute}
-        />
-        {/* GridMap */}
-        <Row className="aidata-slider text-center medium-bg rounded-top-corners">
-          <Col xs={12}>
-            <DateSelector
-              setTargetHour={setTargetHour}
-              setTargetDate={setTargetDate}
-              setTargetMinute={setTargetMinute}
-              targetDate={targetDate}
-              targetHour={targetHour}
-              targetMinute={targetMinute}
-            />
-          </Col>
-        </Row>
+        <div className="explore-map-container">
+          <GridMap
+            gridData={gridData}
+            benchData={benchData}
+            pedestrianData={pedestrianData}
+            targetDate={targetDate}
+            targetHour={targetHour}
+            targetMinute={targetMinute}
+          />
+        </div>
+        <div className="explore-date-selector text-center medium-bg rounded-top-corners ">
+          <DateSelector
+            setTargetHour={setTargetHour}
+            setTargetDate={setTargetDate}
+            setTargetMinute={setTargetMinute}
+            targetDate={targetDate}
+            targetHour={targetHour}
+            targetMinute={targetMinute}
+          />
+        </div>
 
-        {/* Data Breakdown */}
         <DataSelector
           selectedOption={selectedOption}
           setSelectedOption={setSelectedOption}

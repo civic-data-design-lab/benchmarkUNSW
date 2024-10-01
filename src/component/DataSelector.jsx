@@ -69,10 +69,7 @@ const DataSelector = ({
 
   return (
     <div className="light-bg padding-tb-lg select-data-break">
-      <div
-        className="text-center primary-subtitle"
-        style={{ fontSize: "1.3rem", paddingBottom: "0.5rem" }}
-      >
+      <div className="text-center primary-subtitle data-selector-title">
         Select Data Breakdown
       </div>
 
@@ -95,8 +92,7 @@ const DataSelector = ({
             <img
               src={questionCircle}
               alt="Question Circle"
-              className="top-aligned-img"
-              style={{ width: "18px", height: "18px", cursor: "pointer" }} // Adjust the size as needed and add cursor pointer
+              className="index-tooltip-img"
             />
             {isTooltipVisible && (
               <div
@@ -154,45 +150,12 @@ const DataSelector = ({
 
         <div className="data-cards-container">
           <Card className="data-card">
-            <p
-              style={{
-                fontSize: "1.5rem",
-                margin: "0rem",
-                paddingLeft: "0.5rem",
-              }}
-            >
-              {index2}
-            </p>
-            <p
-              style={{
-                fontSize: "0.8rem",
-                margin: "0rem",
-                paddingLeft: "0.5rem",
-              }}
-            >
-              {index2Name}
-            </p>
+            <div className="data-card-index">{index2}</div>
+            <div className="data-card-name">{index2Name}</div>
           </Card>
           <Card className="data-card" style={{ marginTop: "0.5rem" }}>
-            <p
-              style={{
-                fontSize: "1.5rem",
-                margin: "0rem",
-                paddingLeft: "0.5rem",
-              }}
-            >
-              {index3}
-            </p>
-            <p
-              style={{
-                fontSize: "0.8rem",
-                margin: "0rem",
-                paddingLeft: "0.5rem",
-                fontFamily: "Nova Mono !important",
-              }}
-            >
-              {index3Name}
-            </p>
+            <div className="data-card-index">{index3}</div>
+            <div className="data-card-name">{index3Name}</div>
           </Card>
         </div>
       </div>
