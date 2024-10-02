@@ -4,7 +4,7 @@ import Carousel from "react-bootstrap/Carousel";
 import Typist from "react-typist-component";
 import { debounce } from "lodash";
 
-import img1 from "../assets/Home/logo.gif";
+import img1 from "../assets/Home/LOGO.gif";
 import img2 from "../assets/Home/INTRO CARD_EXPLANATION_1.svg";
 import img3 from "../assets/Home/INTRO CARD_EXPLANATION_2.svg";
 import img4 from "../assets/Home/INTRO CARD_4.svg";
