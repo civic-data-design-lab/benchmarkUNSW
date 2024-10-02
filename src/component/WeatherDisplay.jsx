@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import "../style/WeatherDisplay.css";
 
-import RainyIcon from "../assets/symbols/Rainy_R.svg";
-import ClearIcon from "../assets/symbols/Clear_R.svg";
-import CloudyIcon from "../assets/symbols/Cloudy_R.svg";
+import RainyIcon from "../assets/Symbols/Rainy_R.svg";
+import ClearIcon from "../assets/Symbols/Clear_R.svg";
+import CloudyIcon from "../assets/Symbols/Cloudy_R.svg";
 import { Dropdown, Row, Col, Button, Container } from "react-bootstrap";
 function WeatherDisplay({ targetDate, targetHour }) {
   const [weatherData, setWeatherData] = useState(null);
