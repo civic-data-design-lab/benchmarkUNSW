@@ -3,6 +3,16 @@ import { motion } from "framer-motion"; // Import framer-motion for animations
 import "../style/Findings.css";
 import "../style/Font.css";
 
+import img1 from "../assets/findings/1.svg";
+import img2 from "../assets/findings/2.svg";
+import img3 from "../assets/findings/3.svg";
+import img4 from "../assets/findings/4.svg";
+
+import imga from "../assets/findings/a.svg";
+import imgb from "../assets/findings/b.svg";
+import imgc from "../assets/findings/c.svg";
+import imgd from "../assets/findings/d.svg";
+
 function Findings() {
   const [focusSection, setFocusSection] = useState("visionAI");
   const [isFirstLoad, setIsFirstLoad] = useState(true);
@@ -38,30 +48,35 @@ function Findings() {
       title: "Daily Journeys",
       description:
         "The project records the locations of moveable benches to test the effects of urban furniture placement on how people use and enjoy public spaces.",
+      img: img1,
     },
     {
       title: "Seating Hotspots",
       description:
         "The project estimates and categorizes people's postures (sitting or standing) to determine where they are most likely to sit and how long they remain seated.",
+      img: img2,
     },
     {
       title: "Social interaction",
       description:
         "The project tracks people's locations every 5 seconds using vision AI, mapping them into coordinates. This allows for a highly detailed analysis of social interactions.",
+      img: img3,
     },
     {
       title: "Space Activation",
       description:
         "The project counts the number of people who stay in the space and measures their dwell time to understand how public space is activated.",
+      img: img4,
     },
   ];
 
   const insights = [
     {
       title: "Vision AI",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      description2: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      discription3: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      img: imga,
+      img2: imgb,
+      img3: imgc,
+      img4: imgd,
     },
   ];
 
@@ -143,10 +158,14 @@ function Findings() {
                 </motion.p>
                 <div
                   style={{
-                    backgroundColor: "#FF2551",
+                    backgroundColor: "none",
                     height: "170px",
                     margin: "0rem 0.5rem",
                     flex: 5,
+                    backgroundImage: `url(${item.img})`,
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
                   }}
                 ></div>
               </motion.div>
@@ -189,28 +208,43 @@ function Findings() {
               delay: baseDelay + (measures.length * 2 + 3) * delayIncrement,
               duration: 0.5,
             }}
-          >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-              }}
-            >
-              <div style={{ flex: 1, paddingRight: "1rem" }}>
-                {insights[0].description}
-              </div>
-              <div style={{ flex: 1, paddingRight: "1rem" }}>
-                {insights[0].description2}
-              </div>
-            </div>
-          </motion.p>
-          <div
+          ></motion.p>
+          <motion.div
             style={{
-              height: "300px",
-              width: "100%",
-              backgroundColor: "#FF2551",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              marginBottom: "1rem",
             }}
-          ></div>
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              delay: baseDelay + (measures.length * 2 + 3) * delayIncrement,
+              duration: 0.5,
+            }}
+            className="findings-img-container"
+          >
+            <img
+              src={insights[0].img}
+              alt="Insight 1"
+              style={{ width: "100%", height: "auto", marginBottom: "4rem" }}
+            />
+            <img
+              src={insights[0].img2}
+              alt="Insight 2"
+              style={{ width: "100%", height: "auto", marginBottom: "4rem" }}
+            />
+            <img
+              src={insights[0].img3}
+              alt="Insight 3"
+              style={{ width: "100%", height: "auto", marginBottom: "4rem" }}
+            />
+            <img
+              src={insights[0].img4}
+              alt="Insight 4"
+              style={{ width: "100%", height: "auto", marginBottom: "4rem" }}
+            />
+          </motion.div>
         </React.Fragment>
 
         <motion.p
