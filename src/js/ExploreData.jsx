@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Dropdown, Card, Row, Col, Button, Container } from "react-bootstrap";
-import "../style/Exploredata.css";
+import "../style/ExploreData.css";
 import * as d3 from "d3";
 
 import BarChart from "../component/BarChart";
