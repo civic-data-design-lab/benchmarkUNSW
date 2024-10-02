@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import "../style/WeatherVertical.css";
 
-import RainyIcon from "../assets/symbols/Rainy.svg";
-import ClearIcon from "../assets/symbols/Clear.svg";
-import CloudyIcon from "../assets/symbols/Cloudy.svg";
+import RainyIcon from "../assets/Symbols/Rainy.svg";
+import ClearIcon from "../assets/Symbols/Clear.svg";
+import CloudyIcon from "../assets/Symbols/Cloudy.svg";
 
 function WeatherVertical({ targetDate, targetHour }) {
   const [weatherData, setWeatherData] = useState(null);
