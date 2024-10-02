@@ -5,12 +5,12 @@ import Typist from "react-typist-component";
 import { debounce } from "lodash";
 
 import img1 from "../assets/Home/LOGO.gif";
-import img2 from "../assets/Home/INTRO CARD_EXPLANATION_1.svg";
-import img3 from "../assets/Home/INTRO CARD_EXPLANATION_2.svg";
-import img4 from "../assets/Home/INTRO CARD_4.svg";
-import img5 from "../assets/Home/INTRO CARD_3_updated.svg";
-import img6 from "../assets/Home/INTRO CARD_1_updated.svg";
-import img7 from "../assets/Home/INTRO CARD_2_updated.svg";
+import img2 from "../assets/Home/2.svg";
+import img3 from "../assets/Home/3.svg";
+import img4 from "../assets/Home/4.svg";
+import img5 from "../assets/Home/5.svg";
+import img6 from "../assets/Home/6.svg";
+import img7 from "../assets/Home/7.svg";
 
 import "../style/Home.css";
 import "../style/Main.css";

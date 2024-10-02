@@ -5,7 +5,6 @@ import NavBar from "./component/Navbar";
 import Footer from "./component/Footer";
 import Home from "./js/Home";
 import ExploreData from "./js/ExploreData";
-import SurveyData from "./js/SurveyData";
 import About from "./js/About";
 import Findings from "./js/Findings";
 

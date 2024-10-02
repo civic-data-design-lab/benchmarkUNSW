@@ -60,43 +60,47 @@ const TimeSlider = ({
   // Handles the automatic progression of time when "playing"
   useEffect(() => {
     let interval = null;
-    if (isPlaying) {
-      interval = setInterval(() => {
-        setCurrentMinute((prevMinute) => {
-          const newMinute = prevMinute >= 55 ? 0 : prevMinute + 5;
-          setTargetMinute(newMinute); // Update targetMinute here
-          if (prevMinute >= 55) {
-            setCurrentHour((prevHour) => {
-              if (prevHour >= 23) {
-                const nextDate = new Date(currentDate);
-                nextDate.setDate(nextDate.getDate() + 1);
-                nextDate.setHours(6, 0, 0, 0); // Reset to 6 AM
+    const updateInterval = 10; // Base interval in milliseconds
 
-                // Check if we need to jump to July 24
-                if (nextDate.getMonth() === 6 && nextDate.getDate() === 17) {
-                  nextDate.setDate(24);
-                }
+    const updateTime = () => {
+      setCurrentMinute((prevMinute) => {
+        const newMinute = prevMinute >= 55 ? 0 : prevMinute + 5;
+        setTargetMinute(newMinute); // Update targetMinute here
+        if (prevMinute >= 55) {
+          setCurrentHour((prevHour) => {
+            if (prevHour >= 23) {
+              const nextDate = new Date(currentDate);
+              nextDate.setDate(nextDate.getDate() + 1);
+              nextDate.setHours(6, 0, 0, 0); // Reset to 6 AM
 
-                if (nextDate > endDate) {
-                  setIsPlaying(false);
-                  return prevHour;
-                }
-
-                setCurrentDate(nextDate);
-                console.log("Next Date: ", nextDate.toLocaleString());
-                setTargetDate(formatDateForValue(nextDate));
-                setTargetHour(6); // Update targetHour when changing date
-                setTargetMinute(0); // Reset targetMinute when changing date
-                return 6; // Reset to 6 AM for the next day
+              // Check if we need to jump to July 24
+              if (nextDate.getMonth() === 6 && nextDate.getDate() === 17) {
+                nextDate.setDate(24);
               }
-              const newHour = prevHour + 1;
-              setTargetHour(newHour); // Update targetHour here
-              return newHour;
-            });
-          }
-          return newMinute;
-        });
-      }, 10);
+
+              if (nextDate > endDate) {
+                setIsPlaying(false);
+                return prevHour;
+              }
+
+              setCurrentDate(nextDate);
+              console.log("Next Date: ", nextDate.toLocaleString());
+              setTargetDate(formatDateForValue(nextDate));
+              setTargetHour(6); // Update targetHour when changing date
+              setTargetMinute(0); // Reset targetMinute when changing date
+              return 6; // Reset to 6 AM for the next day
+            }
+            const newHour = prevHour + 1;
+            setTargetHour(newHour); // Update targetHour here
+            return newHour;
+          });
+        }
+        return newMinute;
+      });
+    };
+
+    if (isPlaying) {
+      interval = setInterval(updateTime, updateInterval);
     } else if (!isPlaying && interval) {
       clearInterval(interval);
     }
