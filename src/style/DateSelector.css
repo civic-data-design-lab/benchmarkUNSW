@@ -179,7 +179,7 @@ input[type="range"]::-moz-range-thumb {
   font-size: 12px;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 400px) {
   .btn-outline-danger {
     --bs-btn-color: #ff2551; /* Default text color */
     --bs-btn-border-color: #ffffff; /* Default border color */
@@ -214,7 +214,7 @@ input[type="range"]::-moz-range-thumb {
   /* Slider track (center line) */
   input[type="range"]::-webkit-slider-runnable-track {
     width: 100%;
-    height: 4px; /* Thin center line */
+    height: 3px; /* Thin center line */
     cursor: pointer;
     background: #fb718d; /* Background color of the track */
     border-radius: 5px; /* Optional: Add rounded corners to the line */
@@ -224,12 +224,12 @@ input[type="range"]::-moz-range-thumb {
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 17px;
-    height: 17px;
+    width: 15px;
+    height: 15px;
     background: #ff2551; /* Circle color */
     cursor: pointer;
     border-radius: 50%;
-    margin-top: -7px; /* Align the thumb vertically with the center line */
+    margin-top: -6px; /* Align the thumb vertically with the center line */
   }
 
   /* Firefox support for thumb */
@@ -254,9 +254,9 @@ input[type="range"]::-moz-range-thumb {
   /* Ticks */
   .slider-ticks {
     position: absolute;
-    top: 20px; /* Adjust based on your slider's position */
+    top: 18px; /* Adjust based on your slider's position */
     width: 100%;
-    height: 10px;
+    height: 1px;
   }
 
   .tick {
@@ -329,12 +329,12 @@ input[type="range"]::-moz-range-thumb {
 
   .date-selector-container {
     transition: height 0.3s ease;
-    height: 48px;
+    height: 45px;
     align-items: center;
   }
 
   .date-selector-container.open {
-    height: 48px;
+    height: 45px;
   }
 
   .date-dropdown-container {
@@ -353,7 +353,7 @@ input[type="range"]::-moz-range-thumb {
 
   .current-time-box {
     position: absolute;
-    top: -15px;
+    top: -12px;
     transform: translateX(-50%);
     background-color: #ff2551;
     color: #fff;
@@ -368,6 +368,6 @@ input[type="range"]::-moz-range-thumb {
     font-family: "Nova Mono", monospace;
     color: #ff2551;
     font-size: 9px;
-    margin-top: 8px;
+    margin-top: 6px;
   }
 }

@@ -369,8 +369,7 @@ const DateSelector = ({
           style={{
             width: "50px",
             marginRight: "20px",
-            height: "100%",
-            paddingBottom: "1rem",
+            height: "90%",
           }}
         >
           <WeatherVertical targetDate={targetDate} targetHour={targetHour} />
