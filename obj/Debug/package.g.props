@@ -24,12 +24,16 @@
     <PackageJsonDependenciesDateFns Condition="$(PackageJsonDependenciesDateFns) == ''">^3.6.0</PackageJsonDependenciesDateFns>
     <PackageJsonDependenciesDateFnsTz Condition="$(PackageJsonDependenciesDateFnsTz) == ''">^3.1.3</PackageJsonDependenciesDateFnsTz>
     <PackageJsonDependenciesFirebaseTools Condition="$(PackageJsonDependenciesFirebaseTools) == ''">^13.17.0</PackageJsonDependenciesFirebaseTools>
+    <PackageJsonDependenciesFramerMotion Condition="$(PackageJsonDependenciesFramerMotion) == ''">^11.9.0</PackageJsonDependenciesFramerMotion>
+    <PackageJsonDependenciesLodash Condition="$(PackageJsonDependenciesLodash) == ''">^4.17.21</PackageJsonDependenciesLodash>
     <PackageJsonDependenciesReact Condition="$(PackageJsonDependenciesReact) == ''">^18.3.1</PackageJsonDependenciesReact>
     <PackageJsonDependenciesReactBootstrap Condition="$(PackageJsonDependenciesReactBootstrap) == ''">^2.10.4</PackageJsonDependenciesReactBootstrap>
     <PackageJsonDependenciesReactBootstrapIcons Condition="$(PackageJsonDependenciesReactBootstrapIcons) == ''">^1.11.4</PackageJsonDependenciesReactBootstrapIcons>
     <PackageJsonDependenciesReactDom Condition="$(PackageJsonDependenciesReactDom) == ''">^18.3.1</PackageJsonDependenciesReactDom>
     <PackageJsonDependenciesReactRouterDom Condition="$(PackageJsonDependenciesReactRouterDom) == ''">^6.14.1</PackageJsonDependenciesReactRouterDom>
     <PackageJsonDependenciesReactRouterHashLink Condition="$(PackageJsonDependenciesReactRouterHashLink) == ''">^2.4.3</PackageJsonDependenciesReactRouterHashLink>
+    <PackageJsonDependenciesReactTypeAnimation Condition="$(PackageJsonDependenciesReactTypeAnimation) == ''">^3.2.0</PackageJsonDependenciesReactTypeAnimation>
+    <PackageJsonDependenciesReactTypistComponent Condition="$(PackageJsonDependenciesReactTypistComponent) == ''">^1.1.1</PackageJsonDependenciesReactTypistComponent>
     <PackageJsonDependenciesTopojsonClient Condition="$(PackageJsonDependenciesTopojsonClient) == ''">^3.1.0</PackageJsonDependenciesTopojsonClient>
     <PackageJsonDevdependenciesEslintJs Condition="$(PackageJsonDevdependenciesEslintJs) == ''">^9.9.0</PackageJsonDevdependenciesEslintJs>
     <PackageJsonDevdependenciesTypesGeojson Condition="$(PackageJsonDevdependenciesTypesGeojson) == ''">^7946.0.14</PackageJsonDevdependenciesTypesGeojson>

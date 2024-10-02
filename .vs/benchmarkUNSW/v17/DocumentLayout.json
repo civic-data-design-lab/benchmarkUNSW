@@ -3,28 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|c:\\users\\karen\\source\\repos\\benchmarkunsw\\src\\style\\weatherdisplay.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|solutionrelative:src\\style\\weatherdisplay.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|c:\\users\\karen\\source\\repos\\benchmarkunsw\\src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|solutionrelative:src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|c:\\users\\karen\\source\\repos\\benchmarkunsw\\src\\style\\navbar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|solutionrelative:src\\style\\navbar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|c:\\users\\karen\\source\\repos\\benchmarkunsw\\src\\style\\about.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|solutionrelative:src\\style\\about.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|c:\\users\\karen\\source\\repos\\benchmarkunsw\\src\\component\\weatherdisplay.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|solutionrelative:src\\component\\weatherdisplay.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|c:\\users\\karen\\source\\repos\\benchmarkunsw\\src\\style\\exploredata.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|solutionrelative:src\\style\\exploredata.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|c:\\users\\karen\\source\\repos\\benchmarkunsw\\src\\component\\barchart.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|solutionrelative:src\\component\\barchart.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|c:\\users\\karen\\source\\repos\\benchmarkunsw\\src\\component\\dateselector.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|solutionrelative:src\\component\\dateselector.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|c:\\users\\karen\\source\\repos\\benchmarkunsw\\src\\js\\exploredata.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|solutionrelative:src\\js\\exploredata.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,84 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "WeatherDisplay.css",
-              "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\style\\WeatherDisplay.css",
-              "RelativeDocumentMoniker": "src\\style\\WeatherDisplay.css",
-              "ToolTip": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\style\\WeatherDisplay.css",
-              "RelativeToolTip": "src\\style\\WeatherDisplay.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvxUAAAAWAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "NavBar.css",
+              "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\style\\NavBar.css",
+              "RelativeDocumentMoniker": "src\\style\\NavBar.css",
+              "ToolTip": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\style\\NavBar.css",
+              "RelativeToolTip": "src\\style\\NavBar.css",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-09-24T23:42:53.145Z",
+              "WhenOpened": "2024-10-02T01:17:56.905Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "WeatherDisplay.jsx",
-              "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\component\\WeatherDisplay.jsx",
-              "RelativeDocumentMoniker": "src\\component\\WeatherDisplay.jsx",
-              "ToolTip": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\component\\WeatherDisplay.jsx",
-              "RelativeToolTip": "src\\component\\WeatherDisplay.jsx",
-              "ViewState": "AgIAADcAAAAAAAAAAAAYwFEAAAAWAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "main.jsx",
+              "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\main.jsx",
+              "RelativeDocumentMoniker": "src\\main.jsx",
+              "ToolTip": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\main.jsx",
+              "RelativeToolTip": "src\\main.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2024-09-24T23:41:39.751Z",
+              "WhenOpened": "2024-10-02T01:16:38.303Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ExploreData.css",
-              "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\style\\ExploreData.css",
-              "RelativeDocumentMoniker": "src\\style\\ExploreData.css",
-              "ToolTip": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\style\\ExploreData.css",
-              "RelativeToolTip": "src\\style\\ExploreData.css",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAEQAAAASAAAAAAAAAA==",
+              "Title": "About.css",
+              "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\style\\About.css",
+              "RelativeDocumentMoniker": "src\\style\\About.css",
+              "ToolTip": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\style\\About.css",
+              "RelativeToolTip": "src\\style\\About.css",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAAAJ0AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-09-24T23:06:55.792Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ExploreData.jsx",
-              "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\js\\ExploreData.jsx",
-              "RelativeDocumentMoniker": "src\\js\\ExploreData.jsx",
-              "ToolTip": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\js\\ExploreData.jsx",
-              "RelativeToolTip": "src\\js\\ExploreData.jsx",
-              "ViewState": "AgIAAO8AAAAAAAAAAAAAwP4AAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2024-09-24T23:04:42.366Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DateSelector.tsx",
-              "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\component\\DateSelector.tsx",
-              "RelativeDocumentMoniker": "src\\component\\DateSelector.tsx",
-              "ToolTip": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\component\\DateSelector.tsx",
-              "RelativeToolTip": "src\\component\\DateSelector.tsx",
-              "ViewState": "AgIAACEBAAAAAAAAAAAnwC8BAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2024-09-23T22:25:06.745Z",
+              "WhenOpened": "2024-10-02T01:16:29.68Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "BarChart.jsx",
-              "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\component\\BarChart.jsx",
-              "RelativeDocumentMoniker": "src\\component\\BarChart.jsx",
-              "ToolTip": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\component\\BarChart.jsx",
-              "RelativeToolTip": "src\\component\\BarChart.jsx",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAnwGYAAAAUAAAAAAAAAA==",
+              "Title": "WeatherDisplay.jsx",
+              "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\component\\WeatherDisplay.jsx",
+              "RelativeDocumentMoniker": "src\\component\\WeatherDisplay.jsx",
+              "ToolTip": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\component\\WeatherDisplay.jsx",
+              "RelativeToolTip": "src\\component\\WeatherDisplay.jsx",
+              "ViewState": "AgIAADcAAAAAAAAAAAAYwD4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2024-09-20T19:33:15.732Z",
+              "WhenOpened": "2024-09-24T23:41:39.751Z",
               "EditorCaption": ""
             }
           ]
