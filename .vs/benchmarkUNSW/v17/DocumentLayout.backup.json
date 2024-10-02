@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|c:\\users\\karen\\source\\repos\\benchmarkunsw\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|solutionrelative:src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|c:\\users\\karen\\source\\repos\\benchmarkunsw\\src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|solutionrelative:src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|c:\\users\\karen\\source\\repos\\benchmarkunsw\\src\\style\\navbar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|solutionrelative:src\\style\\navbar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ECD37444-3D76-4147-9B84-ABF53E191A97}|benchmarkunsw.esproj|c:\\users\\karen\\source\\repos\\benchmarkunsw\\src\\style\\about.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -27,19 +35,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "App.jsx",
+              "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\App.jsx",
+              "RelativeDocumentMoniker": "src\\App.jsx",
+              "ToolTip": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\App.jsx",
+              "RelativeToolTip": "src\\App.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2024-10-02T01:22:01.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NavBar.css",
+              "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\style\\NavBar.css",
+              "RelativeDocumentMoniker": "src\\style\\NavBar.css",
+              "ToolTip": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\style\\NavBar.css",
+              "RelativeToolTip": "src\\style\\NavBar.css",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-02T01:17:56.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "main.jsx",
               "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\main.jsx",
               "RelativeDocumentMoniker": "src\\main.jsx",
               "ToolTip": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\main.jsx",
               "RelativeToolTip": "src\\main.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2024-10-02T01:16:38.303Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "About.css",
               "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\style\\About.css",
               "RelativeDocumentMoniker": "src\\style\\About.css",
@@ -52,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "WeatherDisplay.jsx",
               "DocumentMoniker": "C:\\Users\\karen\\source\\repos\\benchmarkUNSW\\src\\component\\WeatherDisplay.jsx",
               "RelativeDocumentMoniker": "src\\component\\WeatherDisplay.jsx",
