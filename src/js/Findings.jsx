@@ -3,15 +3,14 @@ import { motion } from "framer-motion"; // Import framer-motion for animations
 import "../style/Findings.css";
 import "../style/Font.css";
 
-import img1 from "../assets/findings/1.svg";
-import img2 from "../assets/findings/2.svg";
-import img3 from "../assets/findings/3.svg";
-import img4 from "../assets/findings/4.svg";
+import img1 from "../assets/Findings/1.svg";
+import img2 from "../assets/Findings/2.svg";
+import img3 from "../assets/Findings/3.svg";
+import img4 from "../assets/Findings/4.svg";
 
-import imga from "../assets/findings/a.svg";
-import imgb from "../assets/findings/b.svg";
-import imgc from "../assets/findings/c.svg";
-import imgd from "../assets/findings/d.svg";
+import imga from "../assets/Findings/a.svg";
+import imgb from "../assets/Findings/b.gif";
+import imgc from "../assets/findings/c.gif";
 
 function Findings() {
   const [focusSection, setFocusSection] = useState("visionAI");
@@ -76,7 +75,6 @@ function Findings() {
       img: imga,
       img2: imgb,
       img3: imgc,
-      img4: imgd,
     },
   ];
 
@@ -186,20 +184,6 @@ function Findings() {
         </motion.p>
 
         <React.Fragment>
-          <div>
-            <motion.p
-              className="findings-subtitle"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                delay: baseDelay + (measures.length * 2 + 2) * delayIncrement,
-                duration: 0.5,
-              }}
-              style={{ display: "inline-block" }}
-            >
-              {insights[0].title}
-            </motion.p>
-          </div>
           <motion.p
             className="findings-description"
             initial={{ opacity: 0 }}
@@ -213,7 +197,6 @@ function Findings() {
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "center",
               marginBottom: "1rem",
             }}
             initial={{ opacity: 0 }}
@@ -227,22 +210,17 @@ function Findings() {
             <img
               src={insights[0].img}
               alt="Insight 1"
-              style={{ width: "100%", height: "auto", marginBottom: "4rem" }}
-            />
-            <img
-              src={insights[0].img2}
-              alt="Insight 2"
-              style={{ width: "100%", height: "auto", marginBottom: "4rem" }}
+              style={{ width: "100%", height: "auto", marginBottom: "3rem" }}
             />
             <img
               src={insights[0].img3}
               alt="Insight 3"
-              style={{ width: "100%", height: "auto", marginBottom: "4rem" }}
+              style={{ width: "100%", height: "auto", marginBottom: "2rem" }}
             />
             <img
-              src={insights[0].img4}
-              alt="Insight 4"
-              style={{ width: "100%", height: "auto", marginBottom: "4rem" }}
+              src={insights[0].img2}
+              alt="Insight 2"
+              style={{ width: "100%", height: "auto", marginBottom: "3rem" }}
             />
           </motion.div>
         </React.Fragment>

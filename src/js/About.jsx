@@ -78,18 +78,17 @@ function About() {
           <div className="custom-scrollbar">
             <p className="about-txt font-white">
               <strong>Benchmark NSW</strong> is a pilot project that uses
-              temporary movable benches coupled with smart technology and data
-              to better understand how women, girls and gender diverse people
-              use public spaces. The project was delivered through a
-              collaboration between the University of New South Wales (UNSW),
-              Massachusetts Institute of Technology (MIT) and Smart Places,
-              Transport for NSW.
+              movable benches coupled with modern technology and data to better
+              understand how women, girls and gender diverse people use public
+              spaces. The project was delivered through a collaboration between
+              the University of New South Wales (UNSW), Massachusetts Institute
+              of Technology (MIT) and Smart Places, Transport for NSW.
             </p>
             <p className="about-txt font-white">
-              The methodology of the Benchmark NSW project followed a
-              multi-phase approach, integrating co-design, technology
-              development, and data-driven analysis to evaluate the impact of a
-              temporary activation on an{" "}
+              The project employs a multi-phase methodology that combines
+              co-design, technology development, and data-driven analysis. Its
+              objective is to evaluate the impact of a temporary activation on
+              an{" "}
               <a
                 href="https://www.bing.com/maps?cp=-33.917818%7E151.228585&lvl=20.8&style=h"
                 style={{ color: "#FFFFFF " }}
@@ -97,9 +96,15 @@ function About() {
                 {" "}
                 open space at the UNSW Kensington Campus
               </a>
-              . This project began in April 2024, and the co-designed movable
-              benches, along with a custom sensor kit, were tested in July 2024
-              for one month.
+              . Funded by Transport for NSW through{" "}
+              <a
+                href="https://www.transport.nsw.gov.au/industry/cities-and-active-transport/cities-revitalisation-and-place/festival-of-place-0"
+                style={{ color: "#FFFFFF " }}
+              >
+                the Safer Cities program
+              </a>
+              , the project commenced in April 2024 and is set to conclude in
+              September 2024.
             </p>{" "}
           </div>
         </div>
@@ -141,37 +146,46 @@ function About() {
           </div>
           <div className="custom-scrollbar">
             <p className="about-txt">
-              <strong>Vision AI sensor kit</strong>, developed by MIT’s Norman
-              B. Leventhal Center for Advanced Urbanism, captured real-time data
-              on seating usage patterns, pedestrian behaviours, and bench
-              location within the site area. Measurements focus on social
-              interaction, pedestrian flows, and dwell time analysis to measure
-              the impact of the benches and also can inform future urban
-              designs.
+              <strong>The sensor kit</strong>, comprising both hardware and
+              software, was developed by MIT LCAU with a focus on{" "}
+              <strong>
+                customizability, scalability, transparency, and privacy
+              </strong>
+              . Leveraging advancements in Vision AI technology and open-source
+              development over recent years, this sensor kit is capable of
+              categorizing postures into sitting or standing, analyzing usage
+              patterns, detecting custom-designed bench locations, and
+              monitoring human behavior continuously, providing insights into
+              the impact of the benches and guiding future urban designs.
             </p>
             <p className="about-txt">
-              In addition to the sensor kit, we are developing a comprehensive{" "}
-              <strong>guidebook</strong> that will document the entire
-              process—from design and sensor deployment to data analysis and
-              interpretation. This guidebook will be made open-source, allowing
-              urban planners, community organisations, and researchers to access
-              and utilise the refined methodologies. By providing this resource
-              to the public, others can be empowered to initiate similar
-              projects, fostering a broader movement toward data-driven urban
-              planning. you can find the <a href="/findings">guidebook here</a>.
+              <strong>Scalability</strong> was another primary design goal. By
+              utilizing open-source platforms and affordable hardware, we
+              achieved a cost of less than $1,000 for each sensor kit, which is
+              capable of running inferences and capturing video footage. The
+              scalability aspect of the project will be documented in a
+              comprehensive <a href="/findings">DIY guidebook</a>, enabling
+              users to conduct their own public space research. This open-source
+              guidebook will be available for urban planners, community
+              organizations, and researchers, offering refined methodologies
+              that empower others to start similar projects and contribute to
+              data-driven urban planning initiatives.
             </p>
             <p className="about-txt">
-              <strong>Data privacy</strong> is a critical aspect of the project,
-              ensured by the AI’s design, which processes imagery without
-              storing personal data. This real-time abstract processing balances
-              the need for detailed usage data against privacy concerns. The
-              project utilizes{" "}
+              <strong>Transparency and privacy</strong> are central to this
+              project, as we are working within real-world public spaces. A key
+              feature of our software is that{" "}
+              <strong>no video or images are stored</strong>, distinguishing our
+              approach to protect privacy. Additionally, the project
+              incorporates{" "}
               <a href="https://dtpr.io/">
-                Digital Trust for Places & Routines (DTPR)
+                the Digital Trust for Places & Routines (DTPR)
               </a>
-              , an open-source communication standard that seeks to increase
-              transparency and accountability for digital technology in public
-              spaces.
+              , an open-source communication standard designed to enhance
+              transparency and accountability in the use of digital technologies
+              in public spaces. This commitment to privacy and transparency
+              ensures the project aligns with ethical standards while providing
+              valuable urban insights.
             </p>
           </div>
         </div>
@@ -213,11 +227,40 @@ function About() {
           </div>
           <div className="custom-scrollbar">
             <p className="about-txt font-white">
-              <strong>Co-design</strong> workshops engaging women Industrial
-              Design students from UNSW, who contributed to the creation of
-              modular seating units. These units were fabricated from 100%
-              recycled HDPE plastic and featured motion-activated LED lighting
-              to improve visibility and user comfort.
+              <strong>Co-design workshops</strong> were held with women
+              Industrial Design students from UNSW, who played a pivotal role in
+              the development of modular seating units. These workshops brought
+              valuable women-led expertise, focusing on the specific needs of
+              women and gender-diverse individuals in public spaces. The
+              resulting seating units, made from 100% recycled HDPE plastic,
+              featured motion-activated LED lighting to enhance visibility and
+              comfort, ensuring the design was both functional and responsive to
+              real-world user experiences.
+            </p>
+            <p className="about-txt font-white">
+              The design process emphasized{" "}
+              <strong>collaboration and inclusivity</strong>, involving multiple
+              stages from concept development to final fabrication. It was a
+              partnership between UNSW Industrial Design students, staff, and
+              MIT urbanism experts. This iterative process prioritized
+              flexibility, sustainability, and smart technology integration,
+              ensuring the public seating was not only practical but also
+              aesthetically engaging. Each design decision was carefully crafted
+              to meet the goals of creating safe, inclusive spaces while
+              addressing environmental responsibility.
+            </p>
+            <p className="about-txt font-white">
+              <strong>The final product</strong>
+              {""} showcases a blend of functionality, aesthetics, and
+              sustainability. The modular seating, with its scalloped edges and
+              light pink color scheme accented by red, offers users the
+              flexibility to rearrange units for social interaction or privacy.
+              Motion-activated LED lights enhance safety, while the use of
+              Post-Consumer Recycled Plastic (PCRP) ensures durability and
+              weather resistance. The fabrication involved advanced techniques
+              like CNC cutting and plastic welding, resulting in a design that
+              promotes inclusivity, safety, and environmental consciousness in
+              public spaces.
             </p>
           </div>
         </div>
@@ -496,12 +539,24 @@ function About() {
         </div>
         <div className="about-p">
           <p className="about-txt font-white">
-            <strong>MIT</strong> <br></br> Sarah Williams, Minwook Kang, Hannah
-            Shumway, Sebastian Ives, Maria Gabriela Carucci, Karen Kuo, Clay
-            Anderson, Mercy Olagunju
+            <a href="https://lcau.mit.edu/" style={{ color: "#FFFFFF" }}>
+              MIT LCAU
+            </a>{" "}
+            |{" "}
+            <a
+              href="https://civicdatadesignlab.mit.edu/"
+              style={{ color: "#FFFFFF" }}
+            >
+              CDDL
+            </a>
+            <br></br> Sarah Williams, Minwook Kang, Hannah Shumway, Sebastian
+            Ives, Maria Gabriela Carucci, Karen Kuo, Clay Anderson, Mercy
+            Olagunju
           </p>
           <p className="about-txt font-white">
-            <strong>UNSW</strong> <br></br> Gonzalo Portas, Mariano Ramirez
+            <strong>UNSW</strong> <br></br> Gonzalo Portas, Mariano Ramirez,
+            Rina Bernabei, Eugenia Cheung, Grace Wong, Eleanor Tang, Christina
+            Chen
           </p>
           <p className="about-txt font-white">
             <strong>TfNSW</strong>
