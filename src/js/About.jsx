@@ -45,7 +45,7 @@ function About() {
       <section
         id="project"
         className="nova-mono-regular"
-        style={{ backgroundColor: "#FF2551", paddingTop: "7rem" }}
+        style={{ backgroundColor: "#FB718D", paddingTop: "7rem" }}
       >
         <div className="about-head">
           <p className="about-title bg-white">Project</p>
@@ -180,8 +180,8 @@ function About() {
       {/*Section 3*/}
       <section
         id="bench-design"
-        className="nova-mono-regular bg-red"
-        style={{ paddingTop: "5rem" }}
+        className="nova-mono-regular"
+        style={{ paddingTop: "5rem", backgroundColor: "#FB718D" }}
       >
         <div className="about-head">
           <p className="about-title bg-white">Design</p>
@@ -488,8 +488,8 @@ function About() {
       {/*Section 4*/}
       <section
         id="team"
-        className="nova-mono-regular bg-red"
-        style={{ paddingTop: "5rem" }}
+        className="nova-mono-regular"
+        style={{ paddingTop: "5rem", backgroundColor: "#FB718D" }}
       >
         <div className="about-head">
           <p className="about-title bg-white">Team</p>
