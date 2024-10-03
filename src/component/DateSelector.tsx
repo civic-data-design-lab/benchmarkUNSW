@@ -428,7 +428,7 @@ const DateSelector = ({
           <img
             src={questionCircle}
             alt="Question Circle"
-            onClick={toggleTooltip} // Toggle tooltip on click\
+            onClick={toggleTooltip} // Toggle tooltip on click
             className="question-circle"
           />
           {isTooltipVisible && (
@@ -450,6 +450,7 @@ const DateSelector = ({
                 fontSize: "10px",
                 width: "150px",
               }}
+              onClick={toggleTooltip} // Hide tooltip on click
             >
               You can select a date and time to see the vision sensor data for
               that specific time along with the weather data.

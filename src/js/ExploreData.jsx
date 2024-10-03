@@ -12,8 +12,8 @@ import StaticMaps from "../component/StaticMaps";
 import SkeletonPlayer from "../component/SkeletonPlayer";
 
 function ExploreData() {
-  const [showDailyChart, setShowDailyChart] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("Socialising");
+  const [showDailyChart, setShowDailyChart] = useState(true);
+  const [selectedOption, setSelectedOption] = useState("Sitting");
   const [data, setData] = useState([]);
   const [index, setIndex] = useState(0);
   const [indexName, setIndexName] = useState("");
