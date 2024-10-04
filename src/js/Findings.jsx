@@ -10,7 +10,7 @@ import img4 from "../assets/Findings/4.svg";
 
 import imga from "../assets/Findings/a.svg";
 import imgb from "../assets/Findings/b.gif";
-import imgc from "../assets/findings/c.gif";
+import imgc from "../assets/Findings/c.gif";
 
 function Findings() {
   const [focusSection, setFocusSection] = useState("visionAI");
