@@ -8,6 +8,7 @@ import WeatherVertical from "./WeatherVertical";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import questionCircle from "../assets/Symbols/question-circle.svg";
 import "../style/DateSelector.css"; // Make sure to import the CSS file
+import ReactGA from "react-ga4";
 
 // Helper functions to format date and time
 // Converts a number representing an hour to a 12-hour format with AM/PM
@@ -133,7 +134,19 @@ const TimeSlider = ({
   };
 
   // Toggle between play and pause
-  const togglePlay = () => setIsPlaying(!isPlaying);
+  const togglePlay = () => {
+    setIsPlaying(!isPlaying);
+
+    // Log the play button click to Google Analytics
+    if (!isPlaying) {
+      ReactGA.event({
+        category: "interaction",
+        action: "play_animation",
+        label: "play_animation", // Updated label
+        value: 1,
+      });
+    }
+  };
 
   // Function to convert hour and minute to 24-hour format string
   const convertTo24HourFormat = (hour, minute) => {

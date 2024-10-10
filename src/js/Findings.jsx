@@ -12,6 +12,8 @@ import imga from "../assets/Findings/a.svg";
 import imgb from "../assets/Findings/b.gif";
 import imgc from "../assets/Findings/c.gif";
 
+import ReactGA from "react-ga4";
+
 function Findings() {
   const [focusSection, setFocusSection] = useState("visionAI");
   const [isFirstLoad, setIsFirstLoad] = useState(true);
@@ -258,7 +260,22 @@ function Findings() {
                 }}
                 style={{ display: "inline-block" }}
               >
-                {item.title}
+                <a
+                  href={`/data/${item.title
+                    .toLowerCase()
+                    .replace(" ", "")}.pdf`} // Link to the PDF in the public/data directory
+                  onClick={() => {
+                    ReactGA.event({
+                      category: "Download",
+                      action: `${item.title}_downloaded`,
+                      label: item.title,
+                    });
+                  }}
+                  target="_blank" // Open the PDF in a new tab
+                  rel="noopener noreferrer" // Security best practice
+                >
+                  {item.title}
+                </a>
               </motion.p>
             </div>
             <motion.p
