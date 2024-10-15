@@ -132,11 +132,9 @@ function Home() {
       {currentIndex === 6 && (
         <div className="text-container">
           <div className="overlay-text nova-mono-regular">
-            Click{" "}
             <a href="/exploredata" style={{ color: "white" }}>
-              next
+              Click to explore vision AI data
             </a>{" "}
-            to explore data
           </div>
         </div>
       )}

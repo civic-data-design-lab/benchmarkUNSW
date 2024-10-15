@@ -32,12 +32,75 @@ import img12 from "../assets/About/colorized/8.jpg";
 function About() {
   const [openSections, setOpenSections] = useState({});
 
-  const toggleSection = (section) => {
+  function handleDeIDVideoClick() {
     setOpenSections((prev) => ({
       ...prev,
-      [section]: !prev[section],
+      deIDvideo: !prev.deIDvideo,
     }));
-  };
+  }
+
+  function handlePersonDetectionClick() {
+    setOpenSections((prev) => ({
+      ...prev,
+      personDetection: !prev.personDetection,
+    }));
+  }
+
+  function handleMotionDetectionClick() {
+    setOpenSections((prev) => ({
+      ...prev,
+      motionDetection: !prev.motionDetection,
+    }));
+  }
+
+  function handlePlanningClick() {
+    setOpenSections((prev) => ({
+      ...prev,
+      planning: !prev.planning,
+    }));
+  }
+
+  function handleResearchClick() {
+    setOpenSections((prev) => ({
+      ...prev,
+      research: !prev.research,
+    }));
+  }
+
+  function handleAIClick() {
+    setOpenSections((prev) => ({
+      ...prev,
+      ai: !prev.ai,
+    }));
+  }
+
+  function handleReviewedClick() {
+    setOpenSections((prev) => ({
+      ...prev,
+      reviewed: !prev.reviewed,
+    }));
+  }
+
+  function handleCloudStorageClick() {
+    setOpenSections((prev) => ({
+      ...prev,
+      cloudStorage: !prev.cloudStorage,
+    }));
+  }
+
+  function handleEncryptedClick() {
+    setOpenSections((prev) => ({
+      ...prev,
+      encrypted: !prev.encrypted,
+    }));
+  }
+
+  function handleAccessClick() {
+    setOpenSections((prev) => ({
+      ...prev,
+      access: !prev.access,
+    }));
+  }
 
   return (
     <div className="about-page">
@@ -78,20 +141,19 @@ function About() {
           <div className="custom-scrollbar">
             <p className="about-txt font-white">
               <strong>Benchmark NSW</strong> is a pilot project that uses
-              movable benches coupled with modern technology and data to better
-              understand how women, girls and gender diverse people use public
-              spaces. The project was delivered through a collaboration between
-              the University of New South Wales (UNSW), Massachusetts Institute
-              of Technology (MIT) and Smart Places, Transport for NSW.
+              temporary seating, coupled with smart technology and data to
+              better understand how UNSW students, particularly women, girls and
+              gender diverse people, use public spaces.
             </p>
             <p className="about-txt font-white">
               The project employs a multi-phase methodology that combines
-              co-design, technology development, and data-driven analysis. Its
-              objective is to evaluate the impact of a temporary activation on
-              an{" "}
+              co-design, technology development, and data-driven analysis. The
+              project evaluated the impact of the temporary seating activation
+              seating coupled with smart technology and AI on an{" "}
               <a
                 href="https://www.bing.com/maps?cp=-33.917818%7E151.228585&lvl=20.8&style=h"
                 style={{ color: "#FFFFFF " }}
+                target="_blank"
               >
                 {" "}
                 open space at the UNSW Kensington Campus
@@ -100,11 +162,12 @@ function About() {
               <a
                 href="https://www.transport.nsw.gov.au/industry/cities-and-active-transport/cities-revitalisation-and-place/festival-of-place-0"
                 style={{ color: "#FFFFFF " }}
+                target="_blank"
               >
                 the Safer Cities program
               </a>
-              , the project commenced in April 2024 and is set to conclude in
-              September 2024.
+              , the project commenced in April 2024 and concluded in October
+              2024.
             </p>{" "}
           </div>
         </div>
@@ -149,27 +212,24 @@ function About() {
               <strong>The sensor kit</strong>, comprising both hardware and
               software, was developed by MIT LCAU with a focus on{" "}
               <strong>
-                customizability, scalability, transparency, and privacy
+                customisability, scalability, transparency, and privacy
               </strong>
               . Leveraging advancements in Vision AI technology and open-source
               development over recent years, this sensor kit is capable of
-              categorizing postures into sitting or standing, analyzing usage
+              categorising postures into sitting or standing, analysing usage
               patterns, detecting custom-designed bench locations, and
-              monitoring human behavior continuously, providing insights into
+              monitoring human behaviour continuously, providing insights into
               the impact of the benches and guiding future urban designs.
             </p>
             <p className="about-txt">
-              <strong>Scalability</strong> was another primary design goal. By
-              utilizing open-source platforms and affordable hardware, we
-              achieved a cost of less than $1,000 for each sensor kit, which is
-              capable of running inferences and capturing video footage. The
-              scalability aspect of the project will be documented in a
-              comprehensive <a href="/findings">DIY guidebook</a>, enabling
-              users to conduct their own public space research. This open-source
-              guidebook will be available for urban planners, community
-              organizations, and researchers, offering refined methodologies
-              that empower others to start similar projects and contribute to
-              data-driven urban planning initiatives.
+              <strong>The scalability</strong> aspect of the project is
+              documented in a comprehensive do-it-yourself Benchmark NSW
+              Guidebook, enabling place managers, researchers and other
+              interested parties to conduct their own public space research.
+              This open-source guidebook is available for urban planners,
+              community organisations, and researchers, offering refined
+              methodologies that empower others to start similar projects and
+              contribute to data-driven urban planning initiatives.
             </p>
             <p className="about-txt">
               <strong>Transparency and privacy</strong> are central to this
@@ -238,11 +298,11 @@ function About() {
               real-world user experiences.
             </p>
             <p className="about-txt font-white">
-              The design process emphasized{" "}
+              The design process emphasised{" "}
               <strong>collaboration and inclusivity</strong>, involving multiple
               stages from concept development to final fabrication. It was a
               partnership between UNSW Industrial Design students, staff, and
-              MIT urbanism experts. This iterative process prioritized
+              MIT urbanism experts. This iterative process prioritised
               flexibility, sustainability, and smart technology integration,
               ensuring the public seating was not only practical but also
               aesthetically engaging. Each design decision was carefully crafted
@@ -253,7 +313,7 @@ function About() {
               <strong>The final product</strong>
               {""} showcases a blend of functionality, aesthetics, and
               sustainability. The modular seating, with its scalloped edges and
-              light pink color scheme accented by red, offers users the
+              light pink colour scheme accented by red, offers users the
               flexibility to rearrange units for social interaction or privacy.
               Motion-activated LED lights enhance safety, while the use of
               Post-Consumer Recycled Plastic (PCRP) ensures durability and
@@ -289,10 +349,7 @@ function About() {
           </div>
           <div className="about-p6 light-bg">
             <div className="about-p7 about-dtpr-sub">
-              <p
-                className="about-subtxt"
-                onClick={() => toggleSection("deIDvideo")}
-              >
+              <p className="about-subtxt" onClick={handleDeIDVideoClick}>
                 <img
                   src={deIDvideoIcon}
                   alt="Deidentified Video"
@@ -314,10 +371,7 @@ function About() {
             </div>
             <hr className="about-hr"></hr>
             <div className="about-p7 about-dtpr-sub">
-              <p
-                className="about-subtxt"
-                onClick={() => toggleSection("personDetection")}
-              >
+              <p className="about-subtxt" onClick={handlePersonDetectionClick}>
                 <img
                   src={personDetectionIcon}
                   alt="Person Detection"
@@ -337,10 +391,7 @@ function About() {
             </div>
             <hr className="about-hr"></hr>
             <div className="about-p7 about-dtpr-sub">
-              <p
-                className="about-subtxt"
-                onClick={() => toggleSection("motionDetection")}
-              >
+              <p className="about-subtxt" onClick={handleMotionDetectionClick}>
                 <img
                   src={motionDetectionIcon}
                   alt="Motion Detection"
@@ -364,10 +415,7 @@ function About() {
           </div>
           <div className="about-p6 light-bg">
             <div className="about-p7 about-dtpr-sub">
-              <p
-                className="about-subtxt"
-                onClick={() => toggleSection("planning")}
-              >
+              <p className="about-subtxt" onClick={handlePlanningClick}>
                 <img src={planningIcon} alt="Planning" className="svg-icon2" />
                 Planning & Decision-making
               </p>
@@ -381,10 +429,7 @@ function About() {
             </div>
             <hr className="about-hr"></hr>
             <div className="about-p7 about-dtpr-sub">
-              <p
-                className="about-subtxt"
-                onClick={() => toggleSection("research")}
-              >
+              <p className="about-subtxt" onClick={handleResearchClick}>
                 <img src={RandDIcon} alt="R & D" className="svg-icon2" />
                 Research & Development
               </p>
@@ -400,7 +445,7 @@ function About() {
           </div>
           <div className="about-p6 light-bg">
             <div className="about-p7 about-dtpr-sub">
-              <p className="about-subtxt" onClick={() => toggleSection("ai")}>
+              <p className="about-subtxt" onClick={handleAIClick}>
                 <img
                   src={aiIcon}
                   alt="Artificial Intelligence"
@@ -421,10 +466,7 @@ function About() {
             </div>
             <hr className="about-hr"></hr>
             <div className="about-p7 about-dtpr-sub">
-              <p
-                className="about-subtxt"
-                onClick={() => toggleSection("reviewed")}
-              >
+              <p className="about-subtxt" onClick={handleReviewedClick}>
                 <img
                   src={reviewedInternallyIcon}
                   alt="Reviewed Internally"
@@ -449,10 +491,7 @@ function About() {
           </div>
           <div className="about-p6 light-bg">
             <div className="about-p7 about-dtpr-sub">
-              <p
-                className="about-subtxt"
-                onClick={() => toggleSection("cloudStorage")}
-              >
+              <p className="about-subtxt" onClick={handleCloudStorageClick}>
                 <img
                   src={cloudStorageIcon}
                   alt="Cloud Storage"
@@ -469,10 +508,7 @@ function About() {
             </div>
             <hr className="about-hr"></hr>
             <div className="about-p7 about-dtpr-sub">
-              <p
-                className="about-subtxt"
-                onClick={() => toggleSection("encrypted")}
-              >
+              <p className="about-subtxt" onClick={handleEncryptedClick}>
                 <img
                   src={encryptedIcon}
                   alt="Encrypted"
@@ -494,10 +530,7 @@ function About() {
           </div>
           <div className="about-p6 light-bg">
             <div className="about-p7 about-dtpr-sub">
-              <p
-                className="about-subtxt"
-                onClick={() => toggleSection("access")}
-              >
+              <p className="about-subtxt" onClick={handleAccessClick}>
                 <img src={accessIcon} alt="Data Access" className="svg-icon2" />
                 Data
               </p>
@@ -559,7 +592,7 @@ function About() {
             Chen
           </p>
           <p className="about-txt font-white">
-            <strong>TfNSW</strong>
+            <strong>Transport for NSW</strong>
           </p>
         </div>
       </section>

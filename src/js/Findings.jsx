@@ -54,7 +54,7 @@ function Findings() {
     {
       title: "Seating Hotspots",
       description:
-        "The project estimates and categorizes people's postures (sitting or standing) to determine where they are most likely to sit and how long they remain seated.",
+        "The project estimates and categorises people's postures (sitting or standing) to determine where they are most likely to sit and how long they remain seated.",
       img: img2,
     },
     {
