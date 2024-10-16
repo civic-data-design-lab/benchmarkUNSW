@@ -72,7 +72,7 @@
 
 /*#region text*/
 .about-title {
-  font-size: var(--primary-subtitle);
+  font-size: 1.5rem;
   padding-bottom: 0rem;
   font-weight: bold;
   text-align: left;
@@ -97,7 +97,7 @@
   padding: 0rem;
   padding-bottom: 1rem;
   margin: 0rem;
-  font-size: 0.85rem;
+  font-size: 1rem;
   text-align: left;
   color: #ff2551;
   font-family: "ibm-plex-sans", sans-serif;
@@ -114,11 +114,11 @@
 
 /*#region hover*/
 .about-dtpr-desc {
-  display: none;
+  /* display: none; */
 }
 
 .about-dtpr-sub:hover .about-dtpr-desc {
-  display: block;
+  /* display: block; */
 }
 
 .about-dtpr-sub:hover .about-subtxt {

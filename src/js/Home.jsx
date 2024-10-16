@@ -133,7 +133,7 @@ function Home() {
         <div className="text-container">
           <div className="overlay-text nova-mono-regular">
             <a href="/exploredata" style={{ color: "white" }}>
-              Click to explore vision AI data
+              Click to explore more data
             </a>{" "}
           </div>
         </div>

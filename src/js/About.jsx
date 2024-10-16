@@ -108,7 +108,11 @@ function About() {
       <section
         id="project"
         className="nova-mono-regular"
-        style={{ backgroundColor: "#FB718D", paddingTop: "7rem" }}
+        style={{
+          backgroundColor: "#FB718D",
+          paddingTop: "7rem",
+          fontSize: "1.3rem",
+        }}
       >
         <div className="about-head">
           <p className="about-title bg-white">Project</p>
@@ -238,7 +242,7 @@ function About() {
               <strong>no video or images are stored</strong>, distinguishing our
               approach to protect privacy. Additionally, the project
               incorporates{" "}
-              <a href="https://dtpr.io/">
+              <a href="https://dtpr.io/" target="_blank">
                 the Digital Trust for Places & Routines (DTPR)
               </a>
               , an open-source communication standard designed to enhance
@@ -334,9 +338,15 @@ function About() {
               DTPR Benchmark NSW
             </p>
           </div>
-          <p style={{ padding: "1rem 2rem 0rem 2rem", fontSize: "0.8rem" }}>
-            Benchmark NSW utilises{" "}
-            <a href="https://dtpr.io/">
+          <p
+            style={{
+              padding: "1rem 2rem 0rem 2rem",
+              fontSize: "1rem",
+              fontFamily: "ibm-plex-sans, sans-serif",
+            }}
+          >
+            Benchmark NSW utilised{" "}
+            <a href="https://dtpr.io/" target="_blank">
               Digital Trust for Places & Routines (DTPR)
             </a>
             , an open-source communication standard that seeks to increase
@@ -546,11 +556,12 @@ function About() {
           </div>
           <p
             style={{
-              fontSize: "0.7rem",
+              fontSize: "0.6rem",
               padding: "0rem 2rem 3rem 2rem",
               color: "ffdae2",
               textAlign: "center",
               margin: "0rem",
+              fontFamily: "ibm-plex-sans, sans-serif",
             }}
           >
             The DTPR Icons Design Guide and Taxonomy are licensed by the Digital
@@ -572,13 +583,18 @@ function About() {
         </div>
         <div className="about-p">
           <p className="about-txt font-white">
-            <a href="https://lcau.mit.edu/" style={{ color: "#FFFFFF" }}>
+            <a
+              href="https://lcau.mit.edu/"
+              style={{ color: "#FFFFFF" }}
+              target="_blank"
+            >
               MIT LCAU
             </a>{" "}
             |{" "}
             <a
               href="https://civicdatadesignlab.mit.edu/"
               style={{ color: "#FFFFFF" }}
+              target="_blank"
             >
               CDDL
             </a>

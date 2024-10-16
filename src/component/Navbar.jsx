@@ -88,25 +88,6 @@ function NavBar() {
               >
                 Home
               </Nav.Link>
-              <Nav.Link
-                as={Link}
-                to="/exploredata"
-                onClick={handleLinkClick}
-                style={navLinkStyle}
-                className="nav-link-custom"
-              >
-                Explore Data
-              </Nav.Link>
-
-              <Nav.Link
-                as={Link}
-                to="/findings"
-                onClick={handleLinkClick}
-                style={navLinkStyle}
-                className="nav-link-custom"
-              >
-                Findings
-              </Nav.Link>
               <NavDropdown
                 title="About"
                 className="custom-nav-dropdown-container"
@@ -130,6 +111,25 @@ function NavBar() {
                   </NavDropdown.Item>
                 ))}
               </NavDropdown>
+              <Nav.Link
+                as={Link}
+                to="/exploredata"
+                onClick={handleLinkClick}
+                style={navLinkStyle}
+                className="nav-link-custom"
+              >
+                Explore Data
+              </Nav.Link>
+
+              <Nav.Link
+                as={Link}
+                to="/findings"
+                onClick={handleLinkClick}
+                style={navLinkStyle}
+                className="nav-link-custom"
+              >
+                Findings
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

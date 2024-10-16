@@ -48,25 +48,25 @@ function Findings() {
     {
       title: "Daily Journeys",
       description:
-        "The project records the locations of moveable benches to test the effects of urban furniture placement on how people use and enjoy public spaces.",
+        "The project recorded the locations of moveable benches to test the effects of urban furniture placement on how people use and enjoy public spaces.",
       img: img1,
     },
     {
       title: "Seating Hotspots",
       description:
-        "The project estimates and categorises people's postures (sitting or standing) to determine where they are most likely to sit and how long they remain seated.",
+        "The project estimated and categorised people's postures (sitting or standing) to determine where they are most likely to sit and how long they remain seated.",
       img: img2,
     },
     {
       title: "Social interaction",
       description:
-        "The project tracks people's locations every 5 seconds using vision AI, mapping them into coordinates. This allows for a highly detailed analysis of social interactions.",
+        "The project tracked people's locations every 5 seconds using vision AI, mapping them into coordinates. This allows for a highly detailed analysis of social interactions.",
       img: img3,
     },
     {
       title: "Space Activation",
       description:
-        "The project counts the number of people who stay in the space and measures their dwell time to understand how public space is activated.",
+        "The project count the number of people who stay in the space and measures their dwell time to understand how public space is activated.",
       img: img4,
     },
   ];
