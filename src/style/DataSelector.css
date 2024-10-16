@@ -188,7 +188,7 @@
   color: white;
 }
 
-@media screen and (max-width: 400px), screen and (max-height: 900px) {
+@media screen and (max-width: 400px), screen and (max-height: 850px) {
   .selected-index-container {
     display: flex;
     align-items: center;

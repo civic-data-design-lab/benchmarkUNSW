@@ -179,7 +179,7 @@ input[type="range"]::-moz-range-thumb {
   font-size: 12px;
 }
 
-@media screen and (max-width: 400px), screen and (max-height: 900px) {
+@media screen and (max-width: 400px), screen and (max-height: 850px) {
   .btn-outline-danger {
     --bs-btn-color: #ff2551; /* Default text color */
     --bs-btn-border-color: #ffffff; /* Default border color */

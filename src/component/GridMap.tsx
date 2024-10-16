@@ -304,7 +304,7 @@ const GridMap: React.FC<GridProps> = ({
       <div
         style={{
           position: "absolute",
-          bottom: 0,
+          bottom: "0px",
           left: "50%",
           transform: "translateX(-50%)",
           width: "100%",
@@ -317,7 +317,11 @@ const GridMap: React.FC<GridProps> = ({
           style={{
             height: "40px",
             width: "100%",
-            backgroundColor: "transparent", // Ensure the image itself has a transparent background
+            backgroundColor: "transparent",
+            position: "absolute",
+            bottom: "0px",
+            left: "50%",
+            transform: "translateX(-50%)",
           }}
         />
       </div>
