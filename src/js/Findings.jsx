@@ -9,8 +9,9 @@ import img3 from "../assets/Findings/3.svg";
 import img4 from "../assets/Findings/4.svg";
 
 import imga from "../assets/Findings/a.svg";
-import imgb from "../assets/Findings/b.gif";
+import imgb from "../assets/Findings/b.svg";
 import imgc from "../assets/Findings/c.gif";
+import imgd from "../assets/Findings/d.gif";
 
 import ReactGA from "react-ga4";
 
@@ -77,6 +78,7 @@ function Findings() {
       img: imga,
       img2: imgb,
       img3: imgc,
+      img4: imgd,
     },
   ];
 
@@ -186,20 +188,12 @@ function Findings() {
         </motion.p>
 
         <React.Fragment>
-          <motion.p
-            className="findings-description"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              delay: baseDelay + (measures.length * 2 + 3) * delayIncrement,
-              duration: 0.5,
-            }}
-          ></motion.p>
           <motion.div
             style={{
               display: "flex",
-              flexDirection: "column",
-              marginBottom: "1rem",
+              flexDirection: "row",
+              marginBottom: "2rem",
+              backgroundColor: "#FFEFF3",
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -209,20 +203,105 @@ function Findings() {
             }}
             className="findings-img-container"
           >
+            {/* Left Long Image */}
+            <div style={{ flex: 1, marginRight: "0rem" }}>
+              <img
+                src={insights[0].img}
+                alt="Insight 1"
+                style={{ width: "100%", height: "auto" }}
+              />
+            </div>
+
+            {/* Right Section */}
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "space-evenly",
+              }}
+            >
+              {/* Right Top Chart Image */}
+              <div style={{ marginBottom: "1rem", marginLeft: "1rem" }}>
+                <img
+                  src={insights[0].img2}
+                  alt="Insight 2"
+                  style={{ width: "100%", height: "auto" }}
+                />
+              </div>
+
+              {/* Right Bottom Text */}
+              <div>
+                <p
+                  style={{
+                    margin: "0rem 1rem",
+                    fontSize: "0.9rem",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Daily average number of people{" "}
+                  <span className="underlined">staying</span> on site grew five
+                  times
+                </p>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              delay: baseDelay + (measures.length * 2 + 5) * delayIncrement,
+              duration: 0.5,
+            }}
+          >
+            <div>
+              <p
+                style={{
+                  padding: "1rem",
+                  margin: "0",
+                  fontSize: "0.9rem",
+                  fontWeight: "bold",
+                  backgroundColor: "#FFEFF3",
+                }}
+              >
+                The average number of poeple{" "}
+                <span className="underlined">sitting</span> per day grew
+                fourteen times after installing benches.
+              </p>
+            </div>
             <img
-              src={insights[0].img}
-              alt="Insight 1"
-              style={{ width: "100%", height: "auto", marginBottom: "3rem" }}
-            />
-            <img
-              src={insights[0].img3}
+              src={insights[0].img4}
               alt="Insight 3"
               style={{ width: "100%", height: "auto", marginBottom: "2rem" }}
             />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              delay: baseDelay + (measures.length * 2 + 6) * delayIncrement,
+              duration: 0.5,
+            }}
+          >
+            <div>
+              <p
+                style={{
+                  padding: "1rem",
+                  margin: "0",
+                  fontSize: "0.9rem",
+                  fontWeight: "bold",
+                  backgroundColor: "#FFEFF3",
+                }}
+              >
+                <span className="underlined">Socialising</span> jumped from zero
+                to nine people per day after benches were installed
+              </p>
+            </div>
             <img
-              src={insights[0].img2}
+              src={insights[0].img3}
               alt="Insight 2"
-              style={{ width: "100%", height: "auto", marginBottom: "3rem" }}
+              style={{ width: "100%", height: "auto", marginBottom: "1rem" }}
             />
           </motion.div>
         </React.Fragment>

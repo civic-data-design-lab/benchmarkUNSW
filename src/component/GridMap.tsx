@@ -272,8 +272,34 @@ const GridMap: React.FC<GridProps> = ({
       ? `${width * 0.27} -${height * 0.35} ${width * 0.4} ${height * 1.1}`
       : `-${width * 0.01} -${height * 0.15} ${width * 1.2} ${height * 0.85}`;
 
+  // Add this function to reset the view
+  function resetView() {
+    const svg = d3.select(svgRef.current);
+    const g = d2.select(gRef.current);
+
+    // Reset the zoom transformation
+    svg
+      .transition()
+      .duration(750)
+      .call(
+        zoom.transform,
+        d3.zoomIdentity.translate(svgWidth / 2, svgHeight / 2).scale(1)
+      );
+  }
+
   return (
     <div className="grid-container" style={{ position: "relative" }}>
+      <button
+        style={{
+          position: "absolute",
+          top: "10px",
+          left: "10px",
+          zIndex: 1000,
+        }}
+        onClick={resetView}
+      >
+        Center View
+      </button>
       <svg
         ref={svgRef}
         width="100%"

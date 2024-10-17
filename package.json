@@ -20,6 +20,7 @@
     "@mui/icons-material": "^6.0.2",
     "@mui/material": "^6.0.2",
     "bootstrap": "^5.3.3",
+    "cursor": "^0.1.5",
     "d3": "^7.9.0",
     "d3-fetch": "^3.0.1",
     "date-fns": "^3.6.0",

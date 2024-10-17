@@ -89,3 +89,7 @@
   border-radius: 20px;
   font-size: 0.8rem;
 }
+
+.underlined {
+  text-decoration: underline;
+}
