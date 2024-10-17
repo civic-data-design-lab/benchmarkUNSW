@@ -341,8 +341,6 @@ function About() {
           <p
             style={{
               padding: "1rem 2rem 0rem 2rem",
-              fontSize: "1rem",
-              fontFamily: "ibm-plex-sans, sans-serif",
             }}
           >
             Benchmark NSW utilised{" "}

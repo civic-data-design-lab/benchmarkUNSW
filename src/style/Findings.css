@@ -45,11 +45,10 @@
 }
 
 .findings-description {
-  font-size: 1rem;
+  font-size: calc(var(--primary-txt) * 0.9);
   font-weight: 400;
   text-align: left;
   color: #ff2551;
-  font-family: "IBM Plex Sans", sans-serif;
 }
 
 .sub-button {
