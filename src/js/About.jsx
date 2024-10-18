@@ -14,20 +14,35 @@ import reviewedInternallyIcon from "../assets/Symbols/Reviewed internally.svg";
 import cloudStorageIcon from "../assets/Symbols/CloudStorage.svg";
 
 import Carousel from "react-bootstrap/Carousel";
-import img1 from "../assets/About/colorized/1.jpg";
-import img2 from "../assets/About/colorized/2.jpg";
-import img3 from "../assets/About/colorized/3.jpg";
-import img4 from "../assets/About/colorized/4.jpg";
+// import img1 from "../assets/About/colorized/1.jpg";
+// import img2 from "../assets/About/colorized/2.jpg";
+// import img3 from "../assets/About/colorized/3.jpg";
+// import img4 from "../assets/About/colorized/4.jpg";
 
-import img5 from "../assets/About/colorized/a.jpg";
-import img6 from "../assets/About/colorized/b.jpg";
-import img7 from "../assets/About/colorized/c.jpg";
-import img8 from "../assets/About/colorized/d.jpg";
+// import img5 from "../assets/About/colorized/a.jpg";
+// import img6 from "../assets/About/colorized/b.jpg";
+// import img7 from "../assets/About/colorized/c.jpg";
+// import img8 from "../assets/About/colorized/d.jpg";
 
-import img9 from "../assets/About/colorized/5.jpg";
-import img10 from "../assets/About/colorized/6.jpg";
-import img11 from "../assets/About/colorized/7.jpg";
-import img12 from "../assets/About/colorized/8.jpg";
+// import img9 from "../assets/About/colorized/5.jpg";
+// import img10 from "../assets/About/colorized/6.jpg";
+// import img11 from "../assets/About/colorized/7.jpg";
+// import img12 from "../assets/About/colorized/8.jpg";
+
+import img1 from "../assets/About/1.jpg";
+import img2 from "../assets/About/2.jpg";
+import img3 from "../assets/About/3.jpg";
+import img4 from "../assets/About/4.jpg";
+
+import img5 from "../assets/About/a.jpg";
+import img6 from "../assets/About/b.jpg";
+import img7 from "../assets/About/c.jpg";
+import img8 from "../assets/About/d.jpg";
+
+import img9 from "../assets/About/5.jpg";
+import img10 from "../assets/About/6.jpg";
+import img11 from "../assets/About/7.jpg";
+import img12 from "../assets/About/8.jpg";
 
 function About() {
   const [openSections, setOpenSections] = useState({});
@@ -119,7 +134,7 @@ function About() {
         </div>
         <div className="about-p ">
           <div className="AboutCarousel">
-            <Carousel indicators={false} controls={false}>
+            <Carousel indicators={false} controls={true}>
               <Carousel.Item>
                 <div className="image-container">
                   <img src={img1} className="carousel-img" />
@@ -188,7 +203,7 @@ function About() {
         </div>
         <div className="about-p">
           <div className="AboutCarousel">
-            <Carousel indicators={false} controls={false}>
+            <Carousel indicators={false} controls={true}>
               <Carousel.Item>
                 <div className="image-container">
                   <img src={img5} className="carousel-img" />
@@ -266,7 +281,7 @@ function About() {
         </div>
         <div className="about-p">
           <div className="AboutCarousel">
-            <Carousel indicators={false} controls={false}>
+            <Carousel indicators={false} controls={true}>
               <Carousel.Item>
                 <div className="image-container">
                   <img src={img9} className="carousel-img" />
