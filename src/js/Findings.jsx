@@ -265,7 +265,7 @@ function Findings() {
                   backgroundColor: "#FFEFF3",
                 }}
               >
-                The average number of poeple{" "}
+                The average number of people{" "}
                 <span className="underlined">sitting</span> per day grew
                 fourteen times after installing benches.
               </p>
