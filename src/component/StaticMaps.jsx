@@ -49,7 +49,7 @@ const StaticMaps = ({ selectedOption, getTextForSelection }) => {
             {renderCol("July 24 Wed\n 2:40-2:45pm", images.Socialising[1], 5)}{" "}
             {/* map needed to be changed */}
             {renderCol(
-              "July 25 Thu\n 9:20-9:25pm",
+              "July 25 Thu\n 9:20-9:25am",
               images.Socialising[2],
               4
             )}{" "}
@@ -59,7 +59,7 @@ const StaticMaps = ({ selectedOption, getTextForSelection }) => {
           <div className="static-maps-container">
             {renderCol("July 10 Wed\n 1:35-1:40pm", images.Staying[0], 6)}
             {renderCol("July 28 Wed\n 12:15-12:20pm", images.Staying[1], 6)}
-            {renderCol("July 25 Thu\n 9:20-9:25pm", images.Staying[2], 5)}
+            {renderCol("July 25 Thu\n 9:20-9:25am", images.Staying[2], 5)}
             {/* map needed to be changed */}
           </div>
         )}
