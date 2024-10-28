@@ -83,8 +83,13 @@ function Findings() {
   ];
 
   const downloads = [
-    { title: "Report", description: "Download the full report" },
-    { title: "Guidebook ", description: "Access the guide book" },
+    { title: "Report", description: "Download the full report", type: "pdf" },
+    { title: "Guidebook", description: "Access the guidebook", type: "pdf" },
+    {
+      title: "Bench Fabrication",
+      description: "Access the CAD files",
+      type: "zip",
+    },
   ];
 
   return (
@@ -340,9 +345,9 @@ function Findings() {
                 style={{ display: "inline-block" }}
               >
                 <a
-                  href={`/data/${item.title
-                    .toLowerCase()
-                    .replace(" ", "")}.pdf`} // Link to the PDF in the public/data directory
+                  href={`/data/${item.title.toLowerCase().replace(" ", "")}.${
+                    item.type
+                  }`}
                   onClick={() => {
                     ReactGA.event({
                       category: "Download",
@@ -350,8 +355,9 @@ function Findings() {
                       label: item.title,
                     });
                   }}
-                  target="_blank" // Open the PDF in a new tab
-                  rel="noopener noreferrer" // Security best practice
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download={item.type === "zip"}
                 >
                   {item.title}
                 </a>
