@@ -14,23 +14,41 @@ function Footer() {
         <img src={logo3} alt="Logo 3" className="footer-logo" />
         <img src={logo4} alt="Logo 4" className="footer-logo" />
       </div>
-      <div className="container">
-        <p className="footer-text">
-          Benchmark NSW is a collaboration between UNSW and MIT. <br></br>This
-          project has been funded by Transport for NSW through{" "}
+      <div
+        className="container"
+        style={{ display: "flex", flexDirection: "column" }}
+      >
+        <p className="footer-text" style={{ margin: "0px" }}>
+          Benchmark NSW is a collaboration between UNSW and MIT. {"  "}
+          <a
+            href="https://accessibility.mit.edu/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "#FFEFF3",
+              fontWeight: "500",
+              padding: "0px",
+              margin: "0px",
+            }}
+          >
+            Accesibiltiy
+          </a>{" "}
+          <br></br>This project has been funded by Transport for NSW through{" "}
           <a
             href="https://www.transport.nsw.gov.au/industry/cities-and-active-transport/cities-revitalisation-and-place/festival-of-place-0"
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              color: "white",
+              color: "#FFEFF3",
               textDecoration: "underline",
               fontWeight: "500",
+              margin: "0px",
             }}
           >
             the Safer Cities program.{" "}
           </a>
         </p>
+        <p className="footer-text"></p>
       </div>
     </footer>
   );
