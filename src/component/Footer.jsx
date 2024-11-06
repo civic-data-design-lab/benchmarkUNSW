@@ -31,7 +31,7 @@ function Footer() {
               margin: "0px",
             }}
           >
-            Accesibiltiy
+            Accessibility
           </a>{" "}
           <br></br>This project has been funded by Transport for NSW through{" "}
           <a
