@@ -83,12 +83,23 @@ function Findings() {
   ];
 
   const downloads = [
-    { title: "Report", description: "Download the full report", type: "pdf" },
-    { title: "Guidebook", description: "Access the guidebook", type: "pdf" },
+    {
+      title: "Report",
+      description: "Download the full report",
+      type: "pdf",
+      comingSoon: true,
+    },
+    {
+      title: "Guidebook",
+      description: "Access the guidebook",
+      type: "pdf",
+      comingSoon: true,
+    },
     {
       title: "Bench Fabrication",
       description: "Access the CAD files",
       type: "zip",
+      comingSoon: true,
     },
   ];
 
@@ -344,23 +355,27 @@ function Findings() {
                 }}
                 style={{ display: "inline-block" }}
               >
-                <a
-                  href={`/data/${item.title.toLowerCase().replace(" ", "")}.${
-                    item.type
-                  }`}
-                  onClick={() => {
-                    ReactGA.event({
-                      category: "Download",
-                      action: `${item.title}_downloaded`,
-                      label: item.title,
-                    });
-                  }}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  download={item.type === "zip"}
-                >
-                  {item.title}
-                </a>
+                {item.comingSoon ? (
+                  <span>{item.title} (coming soon)</span>
+                ) : (
+                  <a
+                    href={`/data/${item.title.toLowerCase().replace(" ", "")}.${
+                      item.type
+                    }`}
+                    onClick={() => {
+                      ReactGA.event({
+                        category: "Download",
+                        action: `${item.title}_downloaded`,
+                        label: item.title,
+                      });
+                    }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download={item.type === "zip"}
+                  >
+                    {item.title}
+                  </a>
+                )}
               </motion.p>
             </div>
             <motion.p
